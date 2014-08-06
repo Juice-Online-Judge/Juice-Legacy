@@ -1,9 +1,15 @@
+<?php
+	if (!isset($prefix)) {
+		$prefix = './';
+	}
+	require_once $prefix.'config/web_process.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset= "UTF-8">
 		<title>首頁</title>
-		<link type="text/css" href="main.css" rel="stylesheet">
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/main.css'; ?>" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>

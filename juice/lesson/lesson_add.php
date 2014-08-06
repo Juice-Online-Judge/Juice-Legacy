@@ -47,7 +47,7 @@
 				</nav>
 			</header>
 		</div>
-		<div style="margin: 10px 0px 0px 0px;">
+		<div style="width:800px;margin: 10px auto;">
 			<div>
 				<form name="add_lesson" id="add_lesson" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<fieldset>
@@ -68,25 +68,25 @@
 							<label for="title">標　　題：</label>
 							<input type="text" id="title" name="title" maxlength="128" autocomplete="off" required>
 						</div>
-						<div>
+						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="goal">學習目標：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
+							<textarea class="ckeditor" name="goal" id="goal" required></textarea>
 						</div>
-						<div>
+						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="content">課程內容：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
+							<textarea class="ckeditor" name="content" id="content" required></textarea>
 						</div>
-						<div>
+						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="example">範　　例：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
+							<textarea class="ckeditor" name="example" id="example" required></textarea>
 						</div>
-						<div>
+						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="practice">填空練習：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
+							<textarea class="ckeditor" name="practice" id="practice" required></textarea>
 						</div>
-						<div>
+						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="implement">動 動 腦：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
+							<textarea class="ckeditor" name="implement" id="implement" required></textarea>
 						</div>
 						<div style="margin:10px;">
 							<button type="submit" id="submit">新增</button>

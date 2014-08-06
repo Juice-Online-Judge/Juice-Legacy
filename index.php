@@ -24,23 +24,28 @@
 			display: block;
 		}
 		.individual-side {
-			background-color: blue;
+			position: relative;
+			margin-top: 10px;
+			margin-bottom: 10px;
 			width: 30%;
 			height: 1000px;
 			float: left;
 		}
 		.overview-side {
-			background-color: red;
+			position: relative;
+			margin-top: 10px;
+			margin-bottom: 10px;
 			width: 69%;
 			height: 1000px;
 			float: right;
 		}
-		header,footer {
-			height: 80px;
-			clear: both;
+		header {
+			height: 100px;
 		}
-		.header,.footer {
-			background-color: green;
+		footer {
+			height: 80px;
+		}
+		.footer {
 			clear: both;
 		}
 	</style>

@@ -2,6 +2,7 @@
 	if (!isset($prefix)) {
 		$prefix = '../../';
 	}
+	require_once $prefix.'config/web_preprocess.php';
 	
 	if (!isset($_COOKIE['verify_code_add_lesson'])) {
 		setcookie("verify_code_add_lesson", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);

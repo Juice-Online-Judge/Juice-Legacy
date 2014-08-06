@@ -39,7 +39,7 @@
 		<div class="overview-side"><h1>Overview-side</h1></div>
 		<div class="footer">
 			<footer>
-				Web Create by : Juice / Copyright © 2014
+				Web Create by Juice / Copyright © 2014
 			</footer>
 		</div>
 	</body>

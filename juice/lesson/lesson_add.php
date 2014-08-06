@@ -9,7 +9,7 @@
 		<meta charset="UTF-8">
 		<title>新增課程</title>
 		<link rel="icon" href="" type="image/x-icon">
-		<link type="text/css" href="../../style.css" rel="stylesheet">
+		<link type="text/css" href="../../main.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 	</head>

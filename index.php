@@ -3,7 +3,7 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>首頁</title>
-		<link type="text/css" href="style.css" rel="stylesheet">
+		<link type="text/css" href="main.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>

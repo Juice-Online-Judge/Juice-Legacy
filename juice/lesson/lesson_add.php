@@ -70,23 +70,23 @@
 						</div>
 						<div>
 							<label class="lesson_add_title" for="goal">學習目標：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="8" cols="60" required></textarea>
+							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
 						</div>
 						<div>
 							<label class="lesson_add_title" for="content">課程內容：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="8" cols="60" required></textarea>
+							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
 						</div>
 						<div>
 							<label class="lesson_add_title" for="example">範　　例：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="8" cols="60" required></textarea>
+							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
 						</div>
 						<div>
 							<label class="lesson_add_title" for="practice">填空練習：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="8" cols="60" required></textarea>
+							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
 						</div>
 						<div>
 							<label class="lesson_add_title" for="implement">動 動 腦：</label>
-							<textarea class="ckeditor" name="editor1" id="editor1" rows="8" cols="60" required></textarea>
+							<textarea class="ckeditor" name="editor1" id="editor1" rows="24" cols="16" required></textarea>
 						</div>
 						<div style="margin:10px;">
 							<button type="submit" id="submit">新增</button>

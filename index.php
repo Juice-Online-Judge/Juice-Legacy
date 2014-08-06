@@ -2,7 +2,7 @@
 	if (!isset($prefix)) {
 		$prefix = './';
 	}
-	require_once $prefix.'config/web_process.php';
+	require_once $prefix.'config/web_preprocess.php';
 ?>
 <!DOCTYPE html>
 <html>

@@ -2,6 +2,10 @@
 	if (!isset($prefix)) {
 		$prefix = '../../';
 	}
+	
+	if (!isset($_COOKIE['verify_code_add_lesson'])) {
+		setcookie("verify_code_add_lesson", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,6 +91,9 @@
 						<div style="max-width:768px;">
 							<label class="lesson_add_title" for="implement">動 動 腦：</label>
 							<textarea class="ckeditor" name="implement" id="implement" required></textarea>
+						</div>
+						<div>
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
 						</div>
 						<div style="margin:10px;">
 							<button type="submit" id="submit">新增</button>

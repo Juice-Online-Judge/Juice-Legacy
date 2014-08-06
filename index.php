@@ -5,50 +5,6 @@
 		<title>首頁</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
-	<style type="text/css">
-		div {
-			border: 1px black dashed;
-		}
-		.header-list {
-			decoration: none;
-			display:inline;
-			margin: 10px;
-			float: right;
-		}
-		.dropdown-menu {
-			decoration: none;
-			<!-- display:none; -->
-		}
-		.btn-list {
-			decoration: none;
-			display: block;
-		}
-		.individual-side {
-			position: relative;
-			margin-top: 10px;
-			margin-bottom: 10px;
-			width: 30%;
-			height: 1000px;
-			float: left;
-		}
-		.overview-side {
-			position: relative;
-			margin-top: 10px;
-			margin-bottom: 10px;
-			width: 69%;
-			height: 1000px;
-			float: right;
-		}
-		header {
-			height: 100px;
-		}
-		footer {
-			height: 80px;
-		}
-		.footer {
-			clear: both;
-		}
-	</style>
 	<body>
 		<div class="header">
 			<header>

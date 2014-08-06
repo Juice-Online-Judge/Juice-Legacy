@@ -35,4 +35,7 @@
 	$ip_client = (!empty($_SERVER['HTTP_CLIENT_IP'])) ? $_SERVER['HTTP_CLIENT_IP'] : null;
 	$ip_forwarded = (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : null;
 	$ip_remote = (!empty($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : null;
+	
+	/* Set the current time */
+	$current_time = time();
 ?>

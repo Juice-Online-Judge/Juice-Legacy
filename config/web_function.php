@@ -34,6 +34,10 @@
 		}
 	}
 	
+	function verify_code() {
+		return mt_rand(1000000, 9999999);
+	}
+	
 	function hash_key($type) {
 		return hash($type, mt_rand());
 	}

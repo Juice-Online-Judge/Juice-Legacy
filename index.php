@@ -9,38 +9,41 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>首頁</title>
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/main.css'; ?>" rel="stylesheet">
+		<link type="text/css" href="scripts/css/pure.css" rel="stylesheet">
+		<link type="text/css" href="scripts/css/index.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div class="header">
-			<header>
-				<div style="height: 40px;">
-				</div>
-				<nav>
-					<ul>
-						<li class="header-list">
-							<a href="#">帳號管理</a>
-							<ul class="dropdown-menu">
-							</ul>
-						</li>
-						<li class="header-list">
-							<a href="#">主選單</a>
-							<ul class="dropdown-menu">
-							</ul>
-						</li>
-						<li class="header-list"><a href="#">關於我們</a></li>
-						<li class="header-list"><a href="#">建議</a></li>
-					</ul>
-				</nav>
-			</header>
+		<header>
+			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
+				<ul>
+					<li>
+						<a href="#">帳號管理</a>
+						<ul>
+						</ul>
+					</li>
+					<li>
+						<a href="#">主選單</a>
+						<ul>
+						</ul>
+					</li>
+					<li><a href="#">關於我們</a></li>
+					<li><a href="#">建議</a></li>
+				</ul>
+			</div>
+		</header>
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+				<p style="text-align:center; height:1000px;">I</p>
+			</div>
+			<div class="pure-u-2-3">
+				<p style="text-align:center; height:1000px;">II</p>
+			</div>
 		</div>
-		<div class="individual-side"><h1>Individual-side</h1></div>
-		<div class="overview-side"><h1>Overview-side</h1></div>
-		<div class="footer">
-			<footer>
-				Web Create by Juice / Copyright © 2014
-			</footer>
-		</div>
+		<footer>
+			<div>
+				<p>Web Create by Juice / Copyright © 2014</p>
+			</div>
+		</footer>
 	</body>
 </html>

@@ -16,19 +16,20 @@
 	<body>
 		<header>
 			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
+				<a href="../index.php"><img src="icon.png" width="200" height="100"></a>
 				<ul>
-					<li>
-						<a href="#">帳號管理</a>
-						<ul>
-						</ul>
-					</li>
+					<li><a href="#">建議</a></li>
+					<li><a href="#">關於我們</a></li>
 					<li>
 						<a href="#">主選單</a>
 						<ul>
 						</ul>
 					</li>
-					<li><a href="#">關於我們</a></li>
-					<li><a href="#">建議</a></li>
+					<li>
+						<a href="#">帳號管理</a>
+						<ul>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</header>

@@ -27,33 +27,47 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>登入</title>
+		<link type="text/css" href="../scripts/css/pure.css" rel="stylesheet">
+		<link type="text/css" href="../scripts/css/index.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div>
+		<header>
+			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
+				<a href="../index.php"><img src="../icon.png" width="200" height="100"></a>
+				<ul>
+					<li><a href="#">建議</a></li>
+					<li><a href="#">關於我們</a></li>
+				</ul>
+			</div>
+		</header>
+		<div class="login-area">
 			<h1>登入</h1>
 			<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 				<fieldset>
-					<div>
+					<div class="login-area-content">
 						<label for="username">帳號：</label>
 						<input type="text" name="username" id="username" autocomplete="off" required>
 					</div>
-					<div>
+					<div class="login-area-content">
 						<label for="passward">密碼：</label>
 						<input type="password" name="passward" id="password" autocomplete="off" required>
 					</div>
-					<div>
+					<div class="login-area-content">
 						<label for="remember">記住我</label>
 						<input type="checkbox" name="remember" id="remember" value="1">
-					</div>
-					<div>
-						<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
-					</div>
-					<div>
 						<button type="submit" id="submit">登入</button>
+					</div>
+					<div class="login-area-content">
+						<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 					</div>
 				</fieldset>	
 			</form>
 		</div>
+		<footer>
+			<div>
+				<p>Web Create by Juice / Copyright © 2014</p>
+			</div>
+		</footer>
 	</body>
 </html>

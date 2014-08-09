@@ -5,14 +5,33 @@ header{
 	height: 100px;
 	background-color: #FFF;
 }
+header img{
+	float: left;
+}
 footer{
 	height: 80px;
 	text-align: center;
 }
 .juice-menu-head{
 	float: right;
-	margin-top: 50px;
 }
 .juice-menu-head ul{
+	margin-top: 60px;
 	float: right;
+}
+.login-area{
+	height: 500px;
+	width: 400px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-area h1{
+	margin-left: 5px;
+	margin-bottom: 0px;
+}
+.login-area-content{
+	margin-top: 4px;
+	margin-right: 12px;
+	text-align: center;
 }

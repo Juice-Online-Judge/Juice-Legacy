@@ -1,0 +1,18 @@
+/*
+Use for Juice lesson_add
+*/
+header{
+	height: 100px;
+	background-color: #FFF;
+}
+footer{
+	height: 80px;
+	text-align: center;
+}
+.juice-menu-head{
+	float: right;
+	margin-top: 50px;
+}
+.juice-menu-head ul{
+	float: right;
+}

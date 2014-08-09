@@ -15,14 +15,14 @@
 		<title>課程新增</title>
 		<link rel="icon" href="" type="image/x-icon">
 		<link type="text/css" href="../../scripts/css/pure.css" rel="stylesheet">
-		<link type="text/css" href="../../scripts/css/index.css" rel="stylesheet">
+		<link type="text/css" href="../../scripts/css/lesson_add.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 	</head>
 	<body>
 		<header>
-			<div class="pure-menu pure-menu-open pure-menu-horizontal">
-				<ul class="juice-menu-head">
+			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
+				<ul>
 					<li><a href="<?php echo $prefix.'index.php'; ?>">首頁</a></li>
 					<li><a href="<?php echo $prefix.'juice/index.php'; ?>">後台</a></li>
 					<li>

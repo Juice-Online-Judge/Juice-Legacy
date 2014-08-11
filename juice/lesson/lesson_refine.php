@@ -166,11 +166,11 @@
 <?php
 	if ($lesson_content) {
 ?>
-				CKEDITOR.instances.goal.setData(<?php echo $lesson_content['lesson_goal']; ?>);
-				CKEDITOR.instances.content.setData(<?php echo $lesson_content['lesson_content']; ?>);
-				CKEDITOR.instances.example.setData(<?php echo $lesson_content['lesson_example']; ?>);
-				CKEDITOR.instances.practice.setData(<?php echo $lesson_content['lesson_practice']; ?>);
-				CKEDITOR.instances.implement.setData(<?php echo $lesson_content['lesson_implement']; ?>);
+				CKEDITOR.instances.goal.setData('<?php echo $lesson_content['lesson_goal']; ?>');
+				CKEDITOR.instances.content.setData('<?php echo $lesson_content['lesson_content']; ?>');
+				CKEDITOR.instances.example.setData('<?php echo $lesson_content['lesson_example']; ?>');
+				CKEDITOR.instances.practice.setData('<?php echo $lesson_content['lesson_practice']; ?>');
+				CKEDITOR.instances.implement.setData('<?php echo $lesson_content['lesson_implement']; ?>');
 				$("#unit").attr("readonly",true);
 				auto_update();
 <?php

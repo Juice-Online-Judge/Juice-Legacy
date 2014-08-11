@@ -24,7 +24,7 @@
 			return $this->fetchAll();
 		}
 		
-		public function show_lesson_content($key) {
+		public function get_lesson_content($key) {
 			$sql = "SELECT `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_practice`, `lesson_implement`, `lesson_is_visible` FROM `lesson` WHERE `lesson_key` = :lesson_key AND `lesson_is_delete` = :lesson_is_delete";
 			$params = array(
 				':lesson_key' => $key,
@@ -46,7 +46,7 @@
 				$result = array(
 					'error' => 'Invalid unit.'
 				);
-			} else if (!preg_match("/^[0-3]{1}$/", $level)) {
+			} else if (!preg_match("/^[1-4]{1}$/", $level)) {
 				$result = array(
 					'error' => 'Invalid level.'
 				);
@@ -104,7 +104,7 @@
 			$example = htmlspecialchars($example, ENT_QUOTES);
 			$practice = htmlspecialchars($practice, ENT_QUOTES);
 			$implement = htmlspecialchars($implement, ENT_QUOTES);
-			if (!preg_match("/^[0-3]{1}$/", $level)) {
+			if (!preg_match("/^[1-4]{1}$/", $level)) {
 				$result = array(
 					'error' => 'Invalid level.'
 				);

@@ -65,9 +65,7 @@ EOD;
 								<ul>
 									<li><a href="<?php echo $prefix.'juice/lesson/lesson_list.php'; ?>">課程列表</a></li>
 									<li class="pure-menu-separator"></li>
-									<li><a href="<?php echo $prefix.'juice/lesson/lesson_add.php'; ?>">新增課程</a></li>
-									<li class="pure-menu-separator"></li>
-									<li><a href="<?php echo $prefix.'juice/lesson/lesson_modify.php'; ?>">修改課程</a></li>
+									<li><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php'; ?>">新增課程</a></li>
 								</ul>
 							</li>
 <?php

@@ -107,19 +107,24 @@
 		</div>
 		<script>
 			$(document).ready(function() {
+				var goal = CKEDITOR.editor.replace('goal');
+				var content = CKEDITOR.editor.replace('content');
+				var example = CKEDITOR.editor.replace('example');
+				var practice = CKEDITOR.editor.replace('practice');
+				var implement = CKEDITOR.editor.replace('implement');
+				
 				$("#lesson_refine").submit(function(){
-					alert('OK');
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{
 							unit:$('#unit').val(),
 							level:$('#level').val(),
 							title:$('#title').val(),
-							goal:$('#goal').text(),
-							content:$('#content').text(),
-							example:$('#example').text(),
-							practice:$('#practice').text(),
-							implement:$('#implement').text(),
+							goal:goal.getData(),
+							content:content.getData(),
+							example:example.getData(),
+							practice:practice.getData(),
+							implement:implement.getData(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
 						}

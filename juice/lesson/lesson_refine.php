@@ -141,6 +141,7 @@
 								$('html,body').animate({
 									scrollTop:0
 								});
+								setInterval(auto_update, 300000);
 							} else {
 								$('#message').text('未知的錯誤 - ' + d);
 								$('html,body').animate({
@@ -160,7 +161,7 @@
 	if ($lesson_content) {
 ?>
 				$("#unit").attr("readonly",true);
-				setInterval(auto_update, 10000);
+				setInterval(auto_update, 300000);
 <?php
 	}
 ?>

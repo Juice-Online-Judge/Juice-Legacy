@@ -33,7 +33,7 @@ EOD;
 		<header>
 			<nav class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
 				<a href="<?php echo $prefix.'index.php' ?>"><img src="<?php echo $prefix.'images/logo.png' ?>" width="200" height="100"></a>
-				<ul>
+				<ul id="std-menu-items">
 					<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 					<li>
 						<a href="#">主選單</a>
@@ -61,7 +61,9 @@ EOD;
 								<a href="#">課程</a>
 								<ul>
 									<li><a href="<?php echo $prefix.'juice/lesson/lesson_list.php'; ?>">課程列表</a></li>
+									<li class="pure-menu-separator"></li>
 									<li><a href="<?php echo $prefix.'juice/lesson/lesson_add.php'; ?>">新增課程</a></li>
+									<li class="pure-menu-separator"></li>
 									<li><a href="<?php echo $prefix.'juice/lesson/lesson_modify.php'; ?>">修改課程</a></li>
 								</ul>
 							</li>

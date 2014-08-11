@@ -166,7 +166,7 @@
 <?php
 	if ($lesson_content) {
 ?>
-				CKEDITOR.instances.goal.setData('<?php echo $lesson_content['lesson_goal']; ?>');
+				CKEDITOR.instances.goal.setData('<?php echo htmlspecialchars_decode($lesson_content['lesson_goal'], ENT_QUOTES); ?>');
 				CKEDITOR.instances.content.setData('<?php echo $lesson_content['lesson_content']; ?>');
 				CKEDITOR.instances.example.setData('<?php echo $lesson_content['lesson_example']; ?>');
 				CKEDITOR.instances.practice.setData('<?php echo $lesson_content['lesson_practice']; ?>');

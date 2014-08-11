@@ -16,13 +16,11 @@
 		<link rel="icon" href="" type="image/x-icon">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/lesson_add.css' ?>" rel="stylesheet">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<?php display_scripts_link(); ?>
 		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 	</head>
 	<body>
-<?php
-	display_navigation($prefix);
-?>
+<?php display_navigation($prefix); ?>
 		<div class="juice-lesson-body">
 			<div>
 				<form name="add_lesson" id="add_lesson" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

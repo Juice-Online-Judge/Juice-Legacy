@@ -14,10 +14,6 @@ EOD;
 		<link rel="stylesheet" type="text/css" href="$prefix$page_css">\n
 EOD;
 		}
-		echo <<<EOD
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-		<script src="http://crux.coder.tw/scripts/js/yui-min.js"></script>\n
-EOD;
 		foreach($page_js as $page_js) {
 			echo <<<EOD
 		<script type="text/javascript" src="$prefix$page_js"></script>\n
@@ -25,6 +21,13 @@ EOD;
 		}
 		echo <<<EOD
 	</head>\n
+EOD;
+	}
+	
+	function display_scripts_link() {
+		echo <<<EOD
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>\n
 EOD;
 	}
 	

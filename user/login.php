@@ -36,13 +36,11 @@
 		<title>登入</title>
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/index.css' ?>" rel="stylesheet">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<?php display_scripts_link(); ?>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
-<?php
-	display_navigation($prefix);
-?>
+<?php display_navigation($prefix); ?>
 		<div class="login-area">
 <?php
 	if (isset($message)) {

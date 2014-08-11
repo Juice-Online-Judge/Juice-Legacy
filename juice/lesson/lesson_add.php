@@ -94,7 +94,7 @@
 							<br>
 							<div class="juice-lesson-contents">
 								<label for="implement">動 動 腦：</label>
-								<textarea class="ckeditor" name="implement" id="implement" value="test" required></textarea>
+								<textarea class="ckeditor" name="implement" id="implement" required>111</textarea>
 							</div>
 							<div>
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>

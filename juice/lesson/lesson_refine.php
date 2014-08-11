@@ -34,7 +34,7 @@
 				<h3><?php echo $message; ?></h3>
 			</div>
 			<div>
-				<form name="lesson_refine" id="lesson_refine" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" onSubmit="return false;">
 					<fieldset>
 						<div>
 							<div class="juice-lesson-titles">
@@ -108,6 +108,7 @@
 		<script>
 			$(document).ready(function() {
 				$("#lesson_refine").submit(function(){
+					alert('OK');
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{

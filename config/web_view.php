@@ -28,7 +28,7 @@ EOD;
 EOD;
 	}
 	
-	function display_user_navigation($prefix) {
+	function display_navigation($prefix) {
 ?>
 		<header>
 			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">

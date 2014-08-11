@@ -20,36 +20,9 @@
 		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 	</head>
 	<body>
-		<header>
-			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
-				<a href="<?php echo $prefix.'index.php' ?>"><img src="<?php echo $prefix.'images/logo.png' ?>" width="200" height="100"></a>
-				<ul>
-					<li><a href="<?php echo $prefix.'index.php'; ?>">首頁</a></li>
-					<li><a href="<?php echo $prefix.'juice/index.php'; ?>">後台</a></li>
-					<li>
-						<a href="#">課程</a>
-						<ul>
-							<li><a href="<?php echo $prefix.'juice/lesson/add.php'; ?>">新增課程</a></li>
-							<li><a href="<?php echo $prefix.'juice/lesson/modify.php'; ?>">修改課程</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">帳號</a>
-						<ul>
-							<li><a href="<?php echo $prefix.'juice/account/list.php'; ?>">帳號列表</a></li>
-							<li><a href="<?php echo $prefix.'juice/account/manager.php'; ?>">管理帳號</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#">網站</a>
-						<ul>
-							<li><a href="<?php echo $prefix.'juice/web/announcement.php'; ?>">公告管理</a></li>
-						</ul>
-					</li>
-					<li><a href="<?php echo $prefix.'user/logout.php'; ?>">登出</a></li>
-				</ul>
-			<div>
-		</header>
+<?php
+	display_navigation($prefix);
+?>
 		<div class="juice-lesson-body">
 			<div>
 				<form name="add_lesson" id="add_lesson" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

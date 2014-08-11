@@ -41,7 +41,7 @@
 	</head>
 	<body>
 <?php
-	display_user_navigation($prefix);
+	display_navigation($prefix);
 ?>
 		<div class="login-area">
 <?php

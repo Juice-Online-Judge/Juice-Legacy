@@ -21,5 +21,5 @@
 		$result['error'] = 'Invalid submit';
 		$result = json_encode($result);
 	}
-	return $result;
+	echo $result;
 ?>

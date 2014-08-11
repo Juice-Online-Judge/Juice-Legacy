@@ -30,6 +30,7 @@
 						<ul>
 						</ul>
 					</li>
+					<li><a href="<?php echo $prefix.'user/login.php' ?>">登入</a></li>
 				</ul>
 			</div>
 		</header>

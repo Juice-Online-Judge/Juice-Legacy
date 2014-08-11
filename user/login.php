@@ -4,6 +4,11 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	if (isset($_SESSION['uid'])) {
+		header("Location: ".$prefix."index.php");
+		exit();
+	}
+	
 	if (!isset($_COOKIE['verify_code_login'])) {
 		setcookie("verify_code_login", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
@@ -14,12 +19,14 @@
 			$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $login->login($_POST['username'], $_POST['passward'], $remember);
 			if ($message === true) {
+				setcookie("verify_code_login", '', $current_time - 600, "/", WEB_DOMAIN_NAME);
 				header("Location: ".$prefix."index.php");
 				exit();
 			}
 		} else {
 			$message = '登入頁面已失效，請重新登入';
 		}
+		setcookie("verify_code_login", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
 ?>
 <!DOCTYPE html>
@@ -64,5 +71,8 @@
 				<p>Web Create by Juice / Copyright © 2014</p>
 			</div>
 		</footer>
+		<script>
+			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
+		</script>
 	</body>
 </html>

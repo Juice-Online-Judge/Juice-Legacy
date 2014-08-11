@@ -17,7 +17,7 @@
 				$this->ip = ($this->ip_client).','.($this->ip_forwarded).','.($this->ip_remote);
 				$this->current_time = time();
 				
-				$this->pdo = new PDO($db_type.':host='.$db_host.';dbname='.$db_name, $db_username, $db_password);
+				$this->pdo = new PDO($db_type.':host='.$db_host.';dbname='.$db_name.';charset=UTF8', $db_username, $db_password);
 			} catch (PDOException $e) {
 				$this->db_error($e->getMessage());
 				exit();

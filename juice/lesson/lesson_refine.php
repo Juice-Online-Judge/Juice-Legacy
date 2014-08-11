@@ -25,7 +25,7 @@
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/lesson_add.css' ?>" rel="stylesheet">
 <?php display_scripts_link(); ?>
-		<script src="http://cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
+		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
@@ -107,12 +107,6 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				var goal = CKEDITOR.editor.replace('goal');
-				var content = CKEDITOR.editor.replace('content');
-				var example = CKEDITOR.editor.replace('example');
-				var practice = CKEDITOR.editor.replace('practice');
-				var implement = CKEDITOR.editor.replace('implement');
-				
 				$("#lesson_refine").submit(function(){
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
@@ -120,11 +114,11 @@
 							unit:$('#unit').val(),
 							level:$('#level').val(),
 							title:$('#title').val(),
-							goal:goal.getData(),
-							content:content.getData(),
-							example:example.getData(),
-							practice:practice.getData(),
-							implement:implement.getData(),
+							goal:$('#goal').html(),
+							content:$('#content').html(),
+							example:$('#example').html(),
+							practice:$('#practice').html(),
+							implement:$('#implement').html(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
 						}

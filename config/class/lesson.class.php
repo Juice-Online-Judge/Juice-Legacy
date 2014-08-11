@@ -10,7 +10,7 @@
 		}
 		
 		public function list_lesson(array $filter = array()) {
-			$sql = "SELECT `lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_is_visible` FROM `lesson` WHERE `lesson_is_delete` = :lesson_is_delete";
+			$sql = "SELECT `lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_is_visible` FROM `lesson` WHERE `lesson_is_delete` = :lesson_is_delete ORDER BY `lesson_unit` ASC";
 			$params = array(
 				':lesson_is_delete' => false
 			);

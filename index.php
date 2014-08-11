@@ -15,7 +15,7 @@
 	</head>
 	<body>
 <?php
-	display_navigation($prefix);
+	display_user_navigation($prefix);
 ?>
 		<div class="pure-g">
 			<div class="pure-u-1-3">

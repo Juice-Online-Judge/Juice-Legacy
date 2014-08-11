@@ -33,6 +33,9 @@
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
+<?php
+	display_user_navigation($prefix);
+?>
 		<div class="login-area">
 			<h1>登入</h1>
 			<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

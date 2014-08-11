@@ -49,10 +49,12 @@
 								<label for="goal">學習目標：</label>
 								<textarea class="ckeditor" name="goal" id="goal" required></textarea>
 							</div>
+							<hr>
 							<div class="juice-lesson-contents">
 								<label for="content">課程內容：</label>
 								<textarea class="ckeditor" name="content" id="content" required></textarea>
 							</div>
+							<br>
 							<div class="juice-lesson-contents">
 								<label for="example">範　　例：</label>
 								<textarea class="ckeditor" name="example" id="example" required></textarea>

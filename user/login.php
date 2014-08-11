@@ -33,15 +33,6 @@
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
-		<header>
-			<div class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
-				<a href="<?php echo $prefix.'index.php' ?>"><img src="<?php echo $prefix.'images/logo.png' ?>" width="200" height="100"></a>
-				<ul>
-					<li><a href="#">建議</a></li>
-					<li><a href="#">關於我們</a></li>
-				</ul>
-			</div>
-		</header>
 		<div class="login-area">
 			<h1>登入</h1>
 			<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

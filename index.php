@@ -12,6 +12,7 @@
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/index.css' ?>" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
 	</head>
 	<body>
 <?php

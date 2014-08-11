@@ -109,8 +109,6 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				var auto_update_next = 0, first = true;
-				
 				function auto_update() {
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
@@ -151,30 +149,21 @@
 							}
 						}, 'json'
 					);
-					auto_update_next = setTimeout(auto_update, 300000);
 				}
-				
-				if ($('#key').val() != '') {
-					$("#unit").attr("readonly",true);
-				}
-				
-				$("#lesson_refine").change(function(){
-					if (first) {
-						if ($('#key').val() != '') {
-							auto_update();
-						}
-						first = false;
-					}
-				});
 				
 				$("#lesson_refine").submit(function(){
-					if (auto_update_next) {
-						clearTimeout(auto_update_next);
-						auto_update_next = 0;
-					}
 					auto_update();
 					return false;
 				});
+				
+<?php
+	if ($lesson_content) {
+?>
+				$("#unit").attr("readonly",true);
+				setInterval(auto_update, 10000);
+<?php
+	}
+?>
 			});
 		</script>
 	</body>

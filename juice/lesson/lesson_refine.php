@@ -25,7 +25,7 @@
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/lesson_add.css' ?>" rel="stylesheet">
 <?php display_scripts_link(); ?>
-		<script src="http://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+		<script src="http://cdn.ckeditor.com/4.4.3/standard-all/ckeditor.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

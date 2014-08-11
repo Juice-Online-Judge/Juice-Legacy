@@ -108,6 +108,9 @@
 		<script>
 			$(document).ready(function() {
 				$("#lesson_refine").submit(function(){
+					for(instance in CKEDITOR.instances) {
+						CKEDITOR.instances[instance].updateElement();
+					}
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{

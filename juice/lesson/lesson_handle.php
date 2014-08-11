@@ -14,9 +14,12 @@
 				$result = $lesson->update_lesson($_POST['key'], $_POST['level'], $_POST['title'], $_POST['goal'], $_POST['content'], $_POST['example'], $_POST['practice'], $_POST['implement']);
 			}
 		} else {
-			$result['error'] = '新增頁面已失效';
+			$result['error'] = 'The page is invalid';
 			$result = json_encode($result);
 		}
-		return $result;
+	} else {
+		$result['error'] = 'Invalid submit';
+		$result = json_encode($result);
 	}
+	return $result;
 ?>

@@ -4,6 +4,8 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	$_SESSION['uid'] = 1;
+	
 	if (isset($_POST['unit']) and isset($_POST['level']) and isset($_POST['title']) and isset($_POST['goal']) and isset($_POST['content']) and isset($_POST['example']) and isset($_POST['practice']) and isset($_POST['implement'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_add_lesson']) and $_COOKIE['verify_code_add_lesson'] == $_POST['verify_code']) {
 			if ($_POST['key'] == '') {

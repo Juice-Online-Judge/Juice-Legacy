@@ -42,7 +42,7 @@
 			$example = htmlspecialchars($example, ENT_QUOTES);
 			$practice = htmlspecialchars($practice, ENT_QUOTES);
 			$implement = htmlspecialchars($implement, ENT_QUOTES);
-			if (!preg_match("/^\d{1,2}$/", $unit) and $unit > 0) {
+			if (!preg_match("/^\d{1,2}$/", $unit)) {
 				$result = array(
 					'error' => 'Invalid unit.'
 				);

@@ -35,7 +35,7 @@
 <?php display_navigation($prefix); ?>
 		<div class="juice-lesson-body">
 			<div>
-				<h3 id="message"></h3>
+				<h3 id="message"><?php echo $_SESSION['uid']; ?></h3>
 			</div>
 			<div>
 				<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" onSubmit="return false;">

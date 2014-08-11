@@ -84,7 +84,7 @@
 					$this->query($sql, $params);
 					if ($this->rowCount() != 1) {
 						$result = array(
-							'error' => 'There is something wrong when updating the data.1'
+							'error' => 'There is something wrong when updating the data.'.$this->stmt_errorCode()
 						);
 					} else {
 						$result = array(
@@ -141,7 +141,7 @@
 					$this->query($sql, $params);
 					if ($this->rowCount() != 1) {
 						$result = array(
-							'error' => 'There is something wrong when updating the data.2'
+							'error' => 'There is something wrong when updating the data.'
 						);
 					} else {
 						$result = array(

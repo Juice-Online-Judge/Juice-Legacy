@@ -115,11 +115,11 @@
 							unit:$('#unit').val(),
 							level:$('#level').val(),
 							title:$('#title').val(),
-							goal:$('#goal').html(),
-							content:$('#content').html(),
-							example:$('#example').html(),
-							practice:$('#practice').html(),
-							implement:$('#implement').html(),
+							goal:$('#goal').text(),
+							content:$('#content').text(),
+							example:$('#example').text(),
+							practice:$('#practice').text(),
+							implement:$('#implement').text(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
 						}

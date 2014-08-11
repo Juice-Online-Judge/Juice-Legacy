@@ -71,10 +71,12 @@ EOD;
 				}
 				if (true/*$_SESSION['admin_group'] > 6*/) {
 ?>
+							<li class="pure-menu-separator"></li>
 							<li>
 								<a href="#">會員</a>
 								<ul>
 									<li><a href="<?php echo $prefix.'juice/account/account_list.php'; ?>">帳號列表</a></li>
+									<li class="pure-menu-separator"></li>
 									<li><a href="<?php echo $prefix.'juice/account/account_modify.php'; ?>">帳號管理</a></li>
 								</ul>
 							</li>
@@ -82,18 +84,20 @@ EOD;
 				}
 				if (true/*$_SESSION['admin_group'] > 9*/) {
 ?>
+							<li class="pure-menu-separator"></li>
 							<li>
 								<a href="#">網站</a>
 								<ul>
 									<li><a href="<?php echo $prefix.'juice/web/announcement_add.php'; ?>">新增公告</a></li>
+									<li class="pure-menu-separator"></li>
 									<li><a href="<?php echo $prefix.'juice/web/announcement_modify.php'; ?>">公告管理</a></li>
+									<li class="pure-menu-separator"></li>
 									<li><a href="<?php echo $prefix.'juice/web/web.php'; ?>">網站管理</a></li>
 								</ul>
 							</li>
 <?php
 				}
 ?>
-							<li><a href="<?php echo $prefix.'user/logout.php'; ?>">登出</a></li>
 						</ul>
 					</li>
 <?php

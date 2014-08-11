@@ -44,27 +44,38 @@
 	display_user_navigation($prefix);
 ?>
 		<div class="login-area">
-			<h1>登入</h1>
-			<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-				<fieldset>
-					<div class="login-area-content">
-						<label for="username">帳號：</label>
-						<input type="text" name="username" id="username" autocomplete="off" required>
-					</div>
-					<div class="login-area-content">
-						<label for="passward">密碼：</label>
-						<input type="password" name="passward" id="password" autocomplete="off" required>
-					</div>
-					<div class="login-area-content">
-						<label for="remember">記住我</label>
-						<input type="checkbox" name="remember" id="remember" value="1">
-						<button type="submit" id="submit">登入</button>
-					</div>
-					<div class="login-area-content">
-						<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
-					</div>
-				</fieldset>	
-			</form>
+<?php
+	if (isset($message)) {
+		echo <<<EOD
+			<div>
+					<h3>$message</h3>
+			</div>\n
+EOD;
+	}
+?>
+			<div>
+				<h1>登入</h1>
+				<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+					<fieldset>
+						<div class="login-area-content">
+							<label for="username">帳號：</label>
+							<input type="text" name="username" id="username" autocomplete="off" required>
+						</div>
+						<div class="login-area-content">
+							<label for="passward">密碼：</label>
+							<input type="password" name="passward" id="password" autocomplete="off" required>
+						</div>
+						<div class="login-area-content">
+							<label for="remember">記住我</label>
+							<input type="checkbox" name="remember" id="remember" value="1">
+							<button type="submit" id="submit">登入</button>
+						</div>
+						<div class="login-area-content">
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+						</div>
+					</fieldset>	
+				</form>
+			</div>
 		</div>
 		<footer>
 			<div>

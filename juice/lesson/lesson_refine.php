@@ -154,6 +154,7 @@
 				}
 				
 				if ($('#key').val() != '') {
+					$("#unit").attr("readonly",true);
 					auto_update();
 				}
 				

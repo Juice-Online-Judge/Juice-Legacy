@@ -61,35 +61,35 @@
 						<div>
 							<div class="juice-lesson-contents">
 								<label for="goal">學習目標：</label>
-								<textarea class="ckeditor" name="goal" id="goal" required></textarea>
+								<textarea class="ckeditor" name="goal" id="goal" required><?php echo ($lesson_content) ? $lesson_content['lesson_goal'] : ''; ?></textarea>
 							</div>
 							<br>
 							<hr>
 							<br>
 							<div class="juice-lesson-contents">
 								<label for="content">課程內容：</label>
-								<textarea class="ckeditor" name="content" id="content" required></textarea>
+								<textarea class="ckeditor" name="content" id="content" required><?php echo ($lesson_content) ? $lesson_content['lesson_content'] : ''; ?></textarea>
 							</div>
 							<br>
 							<hr>
 							<br>
 							<div class="juice-lesson-contents">
 								<label for="example">範　　例：</label>
-								<textarea class="ckeditor" name="example" id="example" required></textarea>
+								<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_content) ? $lesson_content['lesson_example'] : ''; ?></textarea>
 							</div>
 							<br>
 							<hr>
 							<br>
 							<div class="juice-lesson-contents">
 								<label for="practice">填空練習：</label>
-								<textarea class="ckeditor" name="practice" id="practice" required></textarea>
+								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
 							</div>
 							<br>
 							<hr>
 							<br>
 							<div class="juice-lesson-contents">
 								<label for="implement">動 動 腦：</label>
-								<textarea class="ckeditor" name="implement" id="implement" required></textarea>
+								<textarea class="ckeditor" name="implement" id="implement" required><?php echo ($lesson_content) ? $lesson_content['lesson_implement'] : ''; ?></textarea>
 							</div>
 							<div>
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
@@ -97,7 +97,7 @@
 							</div>
 						</div>
 						<br>
-						<button class="juice-lesson-button" type="submit" name="submit" id="submit"><?php echo (isset($_GET['key'])) ? '修改' : '新增'; ?></button>
+						<button class="juice-lesson-button" type="submit" name="submit" id="submit"><?php echo ($lesson_content) ? '修改' : '新增'; ?></button>
 					</fieldset>
 				</form>
 			</div>
@@ -154,6 +154,11 @@
 					auto_update_next = setTimeout(auto_update, 300000);
 				}
 				
+				if ($('#key').val() != '') {
+					$("#unit").attr("readonly",true);
+					auto_update();
+				}
+				
 				$("#lesson_refine").submit(function(){
 					if (auto_update_next) {
 						clearTimeout(auto_update_next);
@@ -162,20 +167,6 @@
 					auto_update();
 					return false;
 				});
-				
-<?php
-	if ($lesson_content) {
-?>
-				CKEDITOR.instances.goal.setData('<?php echo htmlspecialchars_decode($lesson_content['lesson_goal'], ENT_QUOTES); ?>');
-				CKEDITOR.instances.content.setData('<?php echo $lesson_content['lesson_content']; ?>');
-				CKEDITOR.instances.example.setData('<?php echo $lesson_content['lesson_example']; ?>');
-				CKEDITOR.instances.practice.setData('<?php echo $lesson_content['lesson_practice']; ?>');
-				CKEDITOR.instances.implement.setData('<?php echo $lesson_content['lesson_implement']; ?>');
-				$("#unit").attr("readonly",true);
-				auto_update();
-<?php
-	}
-?>
 			});
 		</script>
 	</body>

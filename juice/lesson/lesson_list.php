@@ -44,7 +44,7 @@
 							<td><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></td>
 							<td><?php echo $tmp['lesson_title']; ?></td>
 							<td><?php echo ($tmp['lesson_is_visible']) ? '是' : '否'; ?></td>
-							<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_unit']; ?>">修改</a></td>
+							<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_key']; ?>">修改</a></td>
 						</tr>
 <?php
 		}

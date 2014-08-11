@@ -5,7 +5,7 @@
 	require_once $prefix.'config/web_preprocess.php';
 	
 	if (!isset($_COOKIE['verify_code_add_lesson'])) {
-		setcookie("verify_code_add_lesson", verify_code(), $current_time + 1800, "/", WEB_DOMAIN_NAME);
+		setcookie("verify_code_add_lesson", verify_code(), $current_time + 3600, "/", WEB_DOMAIN_NAME);
 	}
 	
 	if (isset($_GET['key'])) {
@@ -31,7 +31,7 @@
 <?php display_navigation($prefix); ?>
 		<div class="juice-lesson-body">
 			<div>
-				<h3><?php echo $message; ?></h3>
+				<h3 id="message"></h3>
 			</div>
 			<div>
 				<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" onSubmit="return false;">
@@ -107,7 +107,9 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				$("#lesson_refine").submit(function(){
+				var auto_update_next = 0;
+				
+				function auto_update() {
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{
@@ -121,9 +123,44 @@
 							implement:CKEDITOR.instances.implement.getData(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
-						}
+						},
+						function (data) {
+							var d = new Date();
+							if (typeof data.error != 'undefined') {
+								$('#message').text(data.error);
+								$('html,body').animate({
+									scrollTop:0
+								});
+							} else if (typeof data.updated != 'undefined') {
+								$('#message').text('系統已自動存檔 - ' + d);
+							} else if (typeof data.key != 'undefined') {
+								$('#message').text('課程已新增 - ' + d);
+								$('#key').val(data.key);
+								$("#unit").attr("readonly",true);
+								$('html,body').animate({
+									scrollTop:0
+								});
+							} else {
+								$('#message').text('未知的錯誤 - ' + d);
+								$('html,body').animate({
+									scrollTop:0
+								});
+							}
+						}, 'json'
 					);
-					
+					auto_update_next = setTimeout(auto_update, 300000);
+				}
+				
+				if ($('#key').val() != '') {
+					auto_update();
+				}
+				
+				$("#lesson_refine").submit(function(){
+					if (auto_update_next) {
+						clearTimeout(auto_update_next);
+						auto_update_next = 0;
+					}
+					auto_update();
 					return false;
 				});
 			});

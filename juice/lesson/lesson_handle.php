@@ -3,19 +3,20 @@
 		$prefix = '../../';
 	}
 	require_once $prefix.'config/web_preprocess.php';
-	/*
+	
 	if (isset($_POST['unit']) and isset($_POST['level']) and isset($_POST['title']) and isset($_POST['goal']) and isset($_POST['content']) and isset($_POST['example']) and isset($_POST['practice']) and isset($_POST['implement'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_add_lesson']) and $_COOKIE['verify_code_add_lesson'] == $_POST['verify_code']) {
-			$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $lesson->add_lesson($_POST['username'], $_POST['passward'], $remember);
-			if ($message === true) {
-				setcookie("verify_code_add_lesson", '', $current_time - 600, "/", WEB_DOMAIN_NAME);
-				header("Location: ".$prefix."index.php");
-				exit();
+			if ($_POST['key'] == '') {
+				$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$result = $lesson->add_lesson($_POST['unit'], $_POST['level'], $_POST['title'], $_POST['goal'], $_POST['content'], $_POST['example'], $_POST['practice'], $_POST['implement']);
+			} else {
+				$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$result = $lesson->update_lesson($_POST['key'], $_POST['level'], $_POST['title'], $_POST['goal'], $_POST['content'], $_POST['example'], $_POST['practice'], $_POST['implement']);
 			}
 		} else {
-			$message = '登入頁面已失效，請重新登入';
+			$result['error'] = '新增頁面已失效';
+			$result = json_encode($result);
 		}
-		setcookie("verify_code_add_lesson", verify_code(), $current_time + 1800, "/", WEB_DOMAIN_NAME);
-	}*/
+		return $result;
+	}
 ?>

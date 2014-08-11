@@ -145,7 +145,7 @@
 						);
 					} else {
 						$result = array(
-							'result' => true
+							'updated' => true
 						);
 					}
 				}

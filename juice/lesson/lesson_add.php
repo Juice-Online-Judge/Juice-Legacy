@@ -44,6 +44,7 @@
 								<input type="text" id="title" name="title" maxlength="128" autocomplete="off" required>
 							</div>
 						</div>
+						<br>
 						<div>
 							<div class="juice-lesson-contents">
 								<label for="goal">學習目標：</label>
@@ -51,20 +52,28 @@
 							</div>
 							<br>
 							<hr>
+							<br>
 							<div class="juice-lesson-contents">
 								<label for="content">課程內容：</label>
 								<textarea class="ckeditor" name="content" id="content" required></textarea>
 							</div>
 							<br>
 							<hr>
+							<br>
 							<div class="juice-lesson-contents">
 								<label for="example">範　　例：</label>
 								<textarea class="ckeditor" name="example" id="example" required></textarea>
 							</div>
+							<br>
+							<hr>
+							<br>
 							<div class="juice-lesson-contents">
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice" id="practice" required></textarea>
 							</div>
+							<br>
+							<hr>
+							<br>
 							<div class="juice-lesson-contents">
 								<label for="implement">動 動 腦：</label>
 								<textarea class="ckeditor" name="implement" id="implement" required></textarea>
@@ -73,6 +82,7 @@
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
 							</div>
 						</div>
+						<br>
 						<button class="juice-lesson-button" type="submit" id="submit">新增</button>
 					</fieldset>
 				</form>

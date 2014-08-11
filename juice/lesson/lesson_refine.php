@@ -109,7 +109,7 @@
 		</div>
 		<script>
 			$(document).ready(function() {
-				var auto_update_next = 0;
+				var auto_update_next = 0, first = true;
 				
 				function auto_update() {
 					$.post(
@@ -156,8 +156,16 @@
 				
 				if ($('#key').val() != '') {
 					$("#unit").attr("readonly",true);
-					auto_update();
 				}
+				
+				$("#lesson_refine").change(function(){
+					if (first) {
+						if ($('#key').val() != '') {
+							auto_update();
+						}
+						first = false;
+					}
+				});
 				
 				$("#lesson_refine").submit(function(){
 					if (auto_update_next) {

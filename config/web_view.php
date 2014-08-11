@@ -31,7 +31,7 @@ EOD;
 	function display_navigation($prefix) {
 ?>
 		<header>
-			<nav class="pure-menu pure-menu-open pure-menu-horizontal juice-menu-head">
+			<nav class="demo-horizontal-menu juice-menu-head">
 				<a href="<?php echo $prefix.'index.php' ?>"><img src="<?php echo $prefix.'images/logo.png' ?>" width="200" height="100"></a>
 				<ul id="std-menu-items">
 					<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>

@@ -112,16 +112,16 @@
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{
-							unit:$('#unit').value(),
-							level:$('#level').value(),
-							title:$('#title').value(),
+							unit:$('#unit').val(),
+							level:$('#level').val(),
+							title:$('#title').val(),
 							goal:$('#goal').html(),
 							content:$('#content').html(),
 							example:$('#example').html(),
 							practice:$('#practice').html(),
 							implement:$('#implement').html(),
-							verify_code:$('#verify_code').value(),
-							key:$('#key').value()
+							verify_code:$('#verify_code').val(),
+							key:$('#key').val()
 						}
 					);
 					

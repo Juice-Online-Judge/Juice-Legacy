@@ -142,6 +142,15 @@
 			}
 		}
 		
+		public function stmt_errorInfo() {
+			try {
+				return $this->stmt->errorInfo();
+			} catch (PDOException $e) {
+				$this->db_error($e->getMessage());
+				exit();
+			}
+		}
+		
 		public function db_error($msg) {
 			if (!DEBUG_MODE) {
 				$msg = 'There is something error when connecting to the database.';

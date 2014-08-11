@@ -108,20 +108,17 @@
 		<script>
 			$(document).ready(function() {
 				$("#lesson_refine").submit(function(){
-					for(instance in CKEDITOR.instances) {
-						CKEDITOR.instances[instance].updateElement();
-					}
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
 						{
 							unit:$('#unit').val(),
 							level:$('#level').val(),
 							title:$('#title').val(),
-							goal:$('#goal').html(),
-							content:$('#content').html(),
-							example:$('#example').html(),
-							practice:$('#practice').html(),
-							implement:$('#implement').html(),
+							goal:CKEDITOR.instances.goal.getData(),
+							content:CKEDITOR.instances.content.getData(),
+							example:CKEDITOR.instances.example.getData(),
+							practice:CKEDITOR.instances.practice.getData(),
+							implement:CKEDITOR.instances.implement.getData(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
 						}

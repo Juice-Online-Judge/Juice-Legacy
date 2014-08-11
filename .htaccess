@@ -1,0 +1,11 @@
+Options -Indexes
+ErrorDocument 400 http://crux.coder.tw/freedom/juice/index.php
+ErrorDocument 401 http://crux.coder.tw/freedom/juice/index.php
+ErrorDocument 403 http://crux.coder.tw/freedom/juice/index.php
+ErrorDocument 404 http://crux.coder.tw/freedom/juice/index.php
+ErrorDocument 500 http://crux.coder.tw/freedom/juice/index.php
+
+# supress php errors
+# php_flag display_startup_errors on
+# php_flag display_errors on
+# php_flag html_errors on

@@ -74,7 +74,7 @@ EOD;
 					</form>
 				</div>
 			</div>
-		<div>
+		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

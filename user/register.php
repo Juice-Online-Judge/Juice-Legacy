@@ -49,36 +49,36 @@ EOD;
 ?>
 			<div>
 			<h1>註冊<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h1>
-				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 					<fieldset>
-						<div>
+						<div class="pure-control-group">
 							<label for="username">帳號：</label>
 							<input type="text" name="username" id="username" pattern="^\w{5,32}$" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<label for="passward">密碼：</label>
 							<input type="password" name="passward" id="password" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<label for="passward_check">密碼確認：</label>
 							<input type="password" name="passward_check" id="passward_check" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<label for="second_passward">第二組密碼：</label>
 							<input type="password" name="second_passward" id="second_passward" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<label for="nickname">暱稱:</label>
 							<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<label for="email">信箱:</label>
 							<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-control-group">
 							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 						</div>
-						<div>
+						<div class="pure-controls">
 							<button type="submit" id="submit">註冊</button>
 						</div>
 					</fieldset>

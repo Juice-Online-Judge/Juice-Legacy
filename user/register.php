@@ -48,7 +48,7 @@ EOD;
 	}
 ?>
 			<div>
-			<h1>註冊</h1>
+			<h1>註冊<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h1>
 				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<fieldset>
 						<div>

@@ -39,6 +39,9 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div class="login-area">
+				<div class="center">
+					<h3>帳號登入</h3>
+				</div>
 <?php
 	if (isset($message)) {
 		echo <<<EOD

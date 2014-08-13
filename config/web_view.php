@@ -42,7 +42,7 @@ EOD;
 ?>
 		<header id="header">
 			<nav id="demo-horizontal-menu" class="juice-menu-head">
-				<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-icon"></div></a>
+				<a class="juice-icon" href="<?php echo $prefix.'index.php' ?>"></a>
 				<ul id="std-menu-items">
 <?php
 		if (isset($_SESSION['uid'])) {

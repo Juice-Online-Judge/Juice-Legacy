@@ -17,6 +17,7 @@ footer{
 	background-size: 200px 100px;
 	width: 200px;
 	height: 100px;
+	float: left;
 }
 .juice-menu-head{
 	float: right;

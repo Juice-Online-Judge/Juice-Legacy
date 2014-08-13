@@ -147,7 +147,7 @@ EOD;
 	
 	function display_footer() {
 		echo <<<EOD
-		<footer id="footer">
+		<footer>
 			<div>
 				<p>Copyright © 2014 Juice All rights reserved.</p>
 			</div>

@@ -10,7 +10,7 @@
 		<meta charset= "UTF-8">
 		<title>首頁</title>
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/index.css' ?>" rel="stylesheet">
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
 <?php display_scripts_link(); ?>
 	</head>
 	<body>

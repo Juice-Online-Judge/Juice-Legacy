@@ -23,7 +23,7 @@
 		<title><?php echo ($lesson_content) ? '修改課程' : '新增課程'; ?></title>
 		<link rel="icon" href="" type="image/x-icon">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/lesson_add.css' ?>" rel="stylesheet">
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
 <?php display_scripts_link(); ?>
 		<script src="http://cdn.ckeditor.com/4.4.3/standard-all/ckeditor.js"></script>
 	</head>

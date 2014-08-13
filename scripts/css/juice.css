@@ -23,7 +23,6 @@ header{
 
 body {
     min-height: 100%;
-    position: relative;
 }
 
 #main {
@@ -31,8 +30,7 @@ body {
 }
 
 footer {
-    position: absolute;
-    height: 52px;
+    min-height: 52px;
     width: 100%;
 	text-align: center;
 }

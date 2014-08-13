@@ -120,8 +120,13 @@ EOD;
 <?php
 		}
 ?>
-					<li><a href="#">建議</a></li>
-					<li><a href="#">關於我們</a></li>
+					<li>
+						<a href="#">關於本站</a>
+						<ul>
+							<li><a href="#">團隊介紹</a></li>
+							<li><a href="#">意見反饋</a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 			<script>

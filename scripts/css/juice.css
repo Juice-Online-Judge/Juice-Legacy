@@ -12,6 +12,10 @@ footer{
 	height: 80px;
 	text-align: center;
 }
+.juice-icon{
+	background-image: url("<?php echo $prefix.'images/logo.png' ?>");
+	background-size: 200px 100px;
+}
 .juice-menu-head{
 	float: right;
 }

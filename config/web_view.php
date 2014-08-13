@@ -35,7 +35,7 @@ EOD;
 ?>
 		<header>
 			<nav id="demo-horizontal-menu" class="juice-menu-head">
-				<a href="<?php echo $prefix.'index.php' ?>"><div style="background-image: url("<?php echo $prefix.'images/logo.png' ?>"); background-size: 200px 100px;"></div></a>
+				<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-icon"></div></a>
 				<ul id="std-menu-items">
 					<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 					<li>

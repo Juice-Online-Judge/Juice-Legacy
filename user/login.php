@@ -49,26 +49,25 @@ EOD;
 	}
 ?>
 				<div>
-					<h1>登入</h1>
-					<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+					<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
-							<div class="login-area-content">
+							<div class="pure-control-group">
 								<label for="username">帳號：</label>
 								<input type="text" name="username" id="username" autocomplete="off" required>
 							</div>
-							<div class="login-area-content">
+							<div class="pure-control-group">
 								<label for="passward">密碼：</label>
 								<input type="password" name="passward" id="password" autocomplete="off" required>
 							</div>
-							<div class="login-area-content">
+							<div class="pure-control-group">
 								<label for="remember">記住我</label>
 								<input type="checkbox" name="remember" id="remember" value="1">
 							</div>
-							<div class="login-area-content">
+							<div class="pure-control-group">
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 							</div>
-							<div class="login-area-content">
-								<button type="submit" id="submit">登入</button>
+							<div class="pure-controls">
+								<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
 							</div>
 						</fieldset>	
 					</form>

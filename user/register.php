@@ -14,7 +14,7 @@
 			$message = $register->register($_POST['username'], $_POST['passward'], $_POST['passward_check'], $_POST['second_passward'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
 				setcookie("verify_code_register", '', $current_time - 600, "/", WEB_DOMAIN_NAME);
-				header("Location: ".$prefix."index.php");
+				header("Location: ".$prefix."user/login.php");
 				exit();
 			}
 		} else {
@@ -51,7 +51,7 @@ EOD;
 					<fieldset>
 						<div>
 							<label for="username">帳號：</label>
-							<input type="text" name="username" id="username" maxlength="32" autocomplete="off" required>
+							<input type="text" name="username" id="username" pattern="^\w{5,32}$" autocomplete="off" required>
 						</div>
 						<div>
 							<label for="passward">密碼：</label>
@@ -67,7 +67,7 @@ EOD;
 						</div>
 						<div>
 							<label for="nickname">暱稱:</label>
-							<input type="text" name="nickname" id="nickname" maxlength="16" autocomplete="off" required>
+							<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
 						</div>
 						<div>
 							<label for="email">信箱:</label>

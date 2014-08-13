@@ -14,6 +14,7 @@
 	/* Initialize session */
 	session_start();
 	
+	/* Initialize the cookie setting */
 	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
 	
 	/* require the website setting */

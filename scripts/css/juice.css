@@ -17,6 +17,8 @@ Use for Juice lesson_add
 }
 
 header{
+	position: absolute;
+	top: 0;
 	height: 100px;
 	background-color: #FFF;
 }
@@ -28,6 +30,7 @@ html, body {
 
 footer {
 	position:absolute;
+	width: 100%;
 	bottom: 0;
 	height: 50px;
 	text-align: center;
@@ -61,7 +64,6 @@ footer {
 header ul{
 	position: relative;
 	float: right;
-	height: 100px;
 	right: 2%;
 	bottom: 0;
 }

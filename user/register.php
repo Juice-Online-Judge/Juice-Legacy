@@ -39,17 +39,19 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div>
+				<div class="title center">
+					<h2>註冊帳號<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h2>
+				</div>
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-				<div>
+				<div class="warning center">
 						<h3>$message</h3>
 				</div>\n
 EOD;
 	}
 ?>
 				<div>
-				<h1>註冊<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h1>
 					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">

@@ -38,42 +38,44 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="login-area">
+		<div id="main">
+			<div class="login-area">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-			<div>
-					<h3>$message</h3>
-			</div>\n
+				<div>
+						<h3>$message</h3>
+				</div>\n
 EOD;
 	}
 ?>
-			<div>
-				<h1>登入</h1>
-				<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-					<fieldset>
-						<div class="login-area-content">
-							<label for="username">帳號：</label>
-							<input type="text" name="username" id="username" autocomplete="off" required>
-						</div>
-						<div class="login-area-content">
-							<label for="passward">密碼：</label>
-							<input type="password" name="passward" id="password" autocomplete="off" required>
-						</div>
-						<div class="login-area-content">
-							<label for="remember">記住我</label>
-							<input type="checkbox" name="remember" id="remember" value="1">
-						</div>
-						<div class="login-area-content">
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
-						</div>
-						<div class="login-area-content">
-							<button type="submit" id="submit">登入</button>
-						</div>
-					</fieldset>	
-				</form>
+				<div>
+					<h1>登入</h1>
+					<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+						<fieldset>
+							<div class="login-area-content">
+								<label for="username">帳號：</label>
+								<input type="text" name="username" id="username" autocomplete="off" required>
+							</div>
+							<div class="login-area-content">
+								<label for="passward">密碼：</label>
+								<input type="password" name="passward" id="password" autocomplete="off" required>
+							</div>
+							<div class="login-area-content">
+								<label for="remember">記住我</label>
+								<input type="checkbox" name="remember" id="remember" value="1">
+							</div>
+							<div class="login-area-content">
+								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+							</div>
+							<div class="login-area-content">
+								<button type="submit" id="submit">登入</button>
+							</div>
+						</fieldset>	
+					</form>
+				</div>
 			</div>
-		</div>
+		<div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

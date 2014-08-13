@@ -24,6 +24,13 @@ EOD;
 EOD;
 	}
 	
+	function display_css_link() {
+		echo <<<EOD
+		<link type="text/css" href="http://crux.coder.tw/freedom/juice/scripts/css/pure.css" rel="stylesheet">
+		<link type="text/css" href="http://crux.coder.tw/freedom/juice/scripts/css/juice.css" rel="stylesheet">\n
+EOD;
+	}
+	
 	function display_scripts_link() {
 		echo <<<EOD
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -33,7 +40,7 @@ EOD;
 	
 	function display_navigation($prefix) {
 ?>
-		<header>
+		<header id="header">
 			<nav id="demo-horizontal-menu" class="juice-menu-head">
 				<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-icon"></div></a>
 				<ul id="std-menu-items">
@@ -126,7 +133,7 @@ EOD;
 	
 	function display_footer() {
 		echo <<<EOD
-		<footer>
+		<footer id="footer">
 			<div>
 				<p>Web Create by Juice / Copyright © 2014</p>
 			</div>

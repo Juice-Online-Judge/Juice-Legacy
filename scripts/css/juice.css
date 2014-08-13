@@ -3,17 +3,17 @@ Use for Juice lesson_add
 */
 @font-face {
 	font-family: Juice;
-	src: local(Microsoft JhengHei),local(Arial);
+	src: local(Microsoft JhengHei);
 }
 
 @font-face {
 	font-family: Juice;
 	unicode-range: U+0030-0039,U+0041-005A,U+0061-007A;
-	src: local(Consolas),local(Arial);
+	src: local(Consolas);
 }
 
 *{
-	font-family: Juice,Microsoft JhengHei;
+	font-family: Juice,Microsoft JhengHei,Arial;
 }
 
 header{

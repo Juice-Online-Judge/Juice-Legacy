@@ -183,8 +183,8 @@
 								':login_ip' => $this->ip,
 								':login_time' => $this->current_time
 							);
-							setcookie("rem_user", $rem_user, $rem_time_end, "/", WEB_DOMAIN_NAME);
-							setcookie("rem_verify", $rem_verify, $rem_time_end, "/", WEB_DOMAIN_NAME);
+							setcookie("rem_user", $rem_user, $rem_time_end, "/", WEB_DOMAIN_NAME, false, true);
+							setcookie("rem_verify", $rem_verify, $rem_time_end, "/", WEB_DOMAIN_NAME, false, true);
 						} else {
 							$sql = "INSERT INTO `web_login_log` (`uid`, `login_ip`, `login_time`) VALUES (:uid, :login_ip, :login_time) ";
 							$params = array(
@@ -236,16 +236,20 @@
 		}
 		
 		public function logout() {
-			$sql = "UPDATE `web_login_log` SET `remember_time_end` = :remember_time_end WHERE `uid` = :uid AND `remember_time_end` >= :current_time";
-			$params = array(
-				':remember_time_end' => $this->current_time,
-				':uid' => $_SESSION['uid'],
-				':current_time' => $this->current_time
-			);
-			$this->query($sql, $params);
-			$this->closeCursor();
-			setcookie("rem_user", "", ($this->current_time - 3600), "/", WEB_DOMAIN_NAME);
-			setcookie("rem_verify", "", ($this->current_time - 3600), "/", WEB_DOMAIN_NAME);
+			if (isset($_SESSION['uid'])) {
+				$sql = "UPDATE `web_login_log` SET `remember_time_end` = :remember_time_end WHERE `uid` = :uid AND `remember_time_end` >= :current_time";
+				$params = array(
+					':remember_time_end' => $this->current_time,
+					':uid' => $_SESSION['uid'],
+					':current_time' => $this->current_time
+				);
+				$this->query($sql, $params);
+				$this->closeCursor();
+			}
+			setcookie("rem_user", "", ($this->current_time - 3600), "/", WEB_DOMAIN_NAME, false, true);
+			setcookie("rem_verify", "", ($this->current_time - 3600), "/", WEB_DOMAIN_NAME, false, true);
+			setcookie("verify_code_login", '', ($this->current_time - 3600), "/", WEB_DOMAIN_NAME, false, true);
+			setcookie("verify_code_register", '', ($this->current_time - 3600), "/", WEB_DOMAIN_NAME, false, true);
 			session_unset();
 			session_regenerate_id(true);
 		}

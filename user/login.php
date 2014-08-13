@@ -15,7 +15,7 @@
 			$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $login->login($_POST['username'], $_POST['passward'], $remember);
 			if ($message === true) {
-				setcookie("verify_code_login", '', $current_time - 600, "/", WEB_DOMAIN_NAME);
+				setcookie("verify_code_login", '', $current_time - 600, "/", WEB_DOMAIN_NAME, false, true);
 				header("Location: ".$prefix."index.php");
 				exit();
 			}
@@ -24,7 +24,7 @@
 		}
 	}
 	$verify_code = verify_code();
-	setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
+	setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME, false, true);
 ?>
 <!DOCTYPE html>
 <html>

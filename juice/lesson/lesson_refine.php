@@ -4,8 +4,6 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	$_SESSION['uid'] = 1;
-	
 	if (!isset($_COOKIE['verify_code_add_lesson'])) {
 		setcookie("verify_code_add_lesson", verify_code(), $current_time + 3600, "/", WEB_DOMAIN_NAME);
 	}

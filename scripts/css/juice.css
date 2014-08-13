@@ -5,21 +5,26 @@ Use for Juice lesson_add
 	font-family: Juice;
 	src: local(Microsoft JhengHei),local(Arial);
 }
+
 @font-face {
 	font-family: Juice;
 	unicode-range: U+0030-0039,U+0041-005A,U+0061-007A
 	src: local(Consolas),local(Arial);
 }
+
 *{
 	font-family: Juice;
 }
+
 header{
 	height: 100px;
 	background-color: #FFF;
 }
+
 header img{
 	float: left;
 }
+
 footer{
 	height: 80px;
 	text-align: center;
@@ -31,7 +36,6 @@ footer{
 }
 
 #main {
-	padding-top: 100px;
     padding-bottom: 40px;
 }
 
@@ -49,13 +53,16 @@ footer{
 	height: 100px;
 	float: left;
 }
+
 .juice-menu-head{
 	float: right;
 }
+
 .juice-menu-head ul{
 	margin-top: 60px;
 	float: right;
 }
+
 .login-area{
 	height: 500px;
 	width: 400px;
@@ -63,15 +70,18 @@ footer{
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .login-area h1{
 	margin-left: 5px;
 	margin-bottom: 0px;
 }
+
 .login-area-content{
 	margin-top: 4px;
 	margin-right: 12px;
 	text-align: center;
 }
+
 .juice-lesson-body{
 	width: 900px;
 	margin-top: 30px;
@@ -79,24 +89,28 @@ footer{
 	margin-right: auto;
 	clear:both;
 }
+
 .juice-lesson-titles{
 	float: right;
 	display: inline-block;
 	margin-top: 5px;
 	margin-right: 8px;
 }
+
 .juice-lesson-contents{
 	max-width:860px;
 	margin-left: auto;
 	margin-right: auto;
 	clear: both;
 }
+
 .juice-lesson-contents label{
 	display: block;
 	margin-top: 8px;
 	margin-bottom: 3px;
 	margin-left: 8px;
 }
+
 .juice-lesson-button{
 	margin: 10px;
 }

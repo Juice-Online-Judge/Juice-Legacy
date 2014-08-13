@@ -4,6 +4,14 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	if (!isset($_SESSION['uid'])) {
+		header("Location: ".$prefix."user/login.php");
+		exit();
+	} else if (!($_SESSION['admin_group'] > 3)) {
+		header("Location: ".$prefix."index.php");
+		exit();
+	}
+	
 	if (!isset($_COOKIE['verify_code_add_lesson'])) {
 		setcookie("verify_code_add_lesson", verify_code(), $current_time + 3600, "/", WEB_DOMAIN_NAME);
 	}

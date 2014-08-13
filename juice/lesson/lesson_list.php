@@ -4,6 +4,14 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	if (!isset($_SESSION['uid'])) {
+		header("Location: ".$prefix."user/login.php");
+		exit();
+	} else if (!($_SESSION['admin_group'] > 3)) {
+		header("Location: ".$prefix."index.php");
+		exit();
+	}
+	
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson();
 ?>

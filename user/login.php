@@ -10,7 +10,8 @@
 	}
 	
 	if (!isset($_COOKIE['verify_code_login'])) {
-		setcookie("verify_code_login", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
+		$verify_code = verify_code();
+		setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
 	
 	if (isset($_POST['username']) and isset($_POST['passward'])) {
@@ -26,7 +27,8 @@
 		} else {
 			$message = '登入頁面已失效，請重新登入';
 		}
-		setcookie("verify_code_login", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
+		$verify_code = verify_code();
+		setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
 ?>
 <!DOCTYPE html>
@@ -68,7 +70,7 @@ EOD;
 							<input type="checkbox" name="remember" id="remember" value="1">
 						</div>
 						<div class="login-area-content">
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 						</div>
 						<div class="login-area-content">
 							<button type="submit" id="submit">登入</button>

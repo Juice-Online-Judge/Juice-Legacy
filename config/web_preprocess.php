@@ -1,20 +1,21 @@
 <?php
-	ini_set("session.cookie_httponly", true);
-	
-	/* Initialize session */
-	session_start();
-	
-	/* Initialize the cookie setting */
-	//ini_set("session.cookie_secure", 1);
-	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
-	
 	/* Set the path prefix */
 	if (!isset($prefix)) {
 		$prefix = "../";
 	}
 	
-	/* require the website setting */
+	/* require the database setting */
 	require_once $prefix."config/database_config.php";
+	
+	/* Initialize the cookie setting */
+	//ini_set("session.cookie_secure", 1);
+	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
+	ini_set("session.cookie_httponly", true);
+	
+	/* Initialize session */
+	session_start();
+	
+	/* require the website setting */
 	require_once $prefix."config/web_function.php";
 	require_once $prefix."config/web_view.php";
 	require_once $prefix."config/class/db.class.php";

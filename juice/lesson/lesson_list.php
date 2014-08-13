@@ -14,6 +14,7 @@
 		<title>課程列表</title>
 		<link rel="icon" href="" type="image/x-icon">
 		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
 <?php display_scripts_link(); ?>
 	</head>
 	<body>

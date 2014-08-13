@@ -21,10 +21,6 @@ header{
 	background-color: #FFF;
 }
 
-header img{
-	float: left;
-}
-
 body {
     min-height: 100%;
     position: relative;

@@ -21,8 +21,8 @@ header{
 	background-color: #FFF;
 }
 
-body {
-	height: 100%;
+html, body {
+	min-height: 100%;
 }
 
 #main {

@@ -1,11 +1,12 @@
 <?php
+	ini_set("session.cookie_httponly", true);
+	
 	/* Initialize session */
 	session_start();
 	
 	/* Initialize the cookie setting */
 	//ini_set("session.cookie_secure", 1);
 	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
-	ini_set("session.cookie_httponly", true);
 	
 	/* Set the path prefix */
 	if (!isset($prefix)) {

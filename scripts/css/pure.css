@@ -91,7 +91,7 @@ button,
 input,
 select,
 textarea {
-    font-family: Microsoft JhengHei,san-serif;
+    font-family: sans-serif;
 }
 
 /**
@@ -161,15 +161,6 @@ h5 {
 h6 {
     font-size: 0.67em;
     margin: 2.33em 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-	font-family: Microsoft JhengHei,san-serif;
 }
 
 /**

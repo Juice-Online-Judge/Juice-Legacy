@@ -58,7 +58,10 @@ footer {
 
 .juice-menu-head{
 	float: right;
-	margin: auto 2% 0 auto;
+	height: 100px;
+	margin: 0;
+	padding-right: 2%;
+	padding-bottom: 0;
 }
 
 .login-area {

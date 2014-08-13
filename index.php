@@ -3,6 +3,11 @@
 		$prefix = './';
 	}
 	require_once $prefix.'config/web_preprocess.php';
+	
+	if (!isset($_SESSION['uid'])) {
+		header("Location: ".$prefix."user/login.php");
+		exit();
+	}
 ?>
 <!DOCTYPE html>
 <html>

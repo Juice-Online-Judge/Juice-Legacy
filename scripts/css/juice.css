@@ -30,7 +30,7 @@ html, body {
 }
 
 footer {
-    min-height: 52px;
+	padding-top: 10px;
     width: 100%;
 	text-align: center;
 }

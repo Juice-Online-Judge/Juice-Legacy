@@ -109,6 +109,7 @@ EOD;
 		} else {
 ?>
 					<li><a href="<?php echo $prefix.'user/login.php' ?>">登入</a></li>
+					<li><a href="<?php echo $prefix.'user/register.php' ?>">註冊</a></li>
 <?php
 		}
 ?>

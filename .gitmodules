@@ -1,0 +1,3 @@
+[submodule "juice/core"]
+	path = juice/core
+	url = ssh://github/Sunday-Without-God/Judge.git

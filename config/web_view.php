@@ -48,6 +48,14 @@ EOD;
 					<li>
 						<a href="#">主選單</a>
 						<ul>
+							<li><a href="#">課程教學</a></li>
+							<li class="pure-menu-separator"></li>
+							<li>
+								<a href="#">闖關競賽</a>
+								<ul>
+									<li><a href="#">排 行 榜</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 <?php

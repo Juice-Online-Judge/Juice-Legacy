@@ -66,20 +66,18 @@ EOD;
 						<div class="login-area-content">
 							<label for="remember">記住我</label>
 							<input type="checkbox" name="remember" id="remember" value="1">
-							<button type="submit" id="submit">登入</button>
 						</div>
 						<div class="login-area-content">
 							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+						</div>
+						<div class="login-area-content">
+							<button type="submit" id="submit">登入</button>
 						</div>
 					</fieldset>	
 				</form>
 			</div>
 		</div>
-		<footer>
-			<div>
-				<p>Web Create by Juice / Copyright © 2014</p>
-			</div>
-		</footer>
+<?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 		</script>

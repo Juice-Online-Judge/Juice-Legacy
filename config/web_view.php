@@ -125,18 +125,12 @@ EOD;
 	
 	function display_footer() {
 		echo <<<EOD
-			<div id="id_footer">
-				<footer>
-					Web Created by：Freedom / Copyright © 2014
-				</footer> 
+		<footer>
+			<div>
+				<p>Web Create by Juice / Copyright © 2014</p>
 			</div>
-		</div>\n
+		</footer>\n
 EOD;
-?>
-		<script>
-			$(document).ready(function(){$(document).bind("contextmenu",function(event){return false})});
-		</script>
-<?php
 	}
 	/*
 		$(document).ready(function() {

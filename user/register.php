@@ -4,6 +4,10 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	if (!isset($_COOKIE['verify_code_register'])) {
+		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
+	}
+	
 	if (isset($_POST['username']) and isset($_POST['passward']) and isset($_POST['passward_check']) and isset($_POST['second_passward']) and isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_register']) and $_COOKIE['verify_code_register'] == $_POST['verify_code']) {
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
@@ -16,7 +20,6 @@
 		} else {
 			$message = '註冊頁面已失效'.$_COOKIE['verify_code_register'].' '.$_POST['verify_code'];
 		}
-	} else {
 		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
 ?>

@@ -14,7 +14,7 @@
 				exit();
 			}
 		} else {
-			$message = '註冊頁面已失效';
+			$message = '註冊頁面已失效'.$_COOKIE['verify_code_register'].' '.$_POST['verify_code'];
 		}
 	} else {
 		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);

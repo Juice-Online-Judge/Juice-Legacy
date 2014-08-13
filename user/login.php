@@ -39,7 +39,7 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div>
-				<div class="center">
+				<div class="title center">
 					<h2>帳號登入</h2>
 				</div>
 <?php

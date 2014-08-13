@@ -44,6 +44,9 @@ EOD;
 			<nav id="demo-horizontal-menu" class="juice-menu-head">
 				<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-icon"></div></a>
 				<ul id="std-menu-items">
+<?php
+		if (isset($_SESSION['uid'])) {
+?>
 					<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 					<li>
 						<a href="#">主選單</a>
@@ -58,9 +61,6 @@ EOD;
 							</li>
 						</ul>
 					</li>
-<?php
-		if (isset($_SESSION['uid'])) {
-?>
 					<li>
 						<a href="#">會員中心</a>
 						<ul>

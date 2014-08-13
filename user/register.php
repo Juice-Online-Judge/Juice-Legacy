@@ -61,7 +61,7 @@
 							<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 						</div>
 						<div>
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 						</div>
 						<div>
 							<button type="submit" id="submit">註冊</button>

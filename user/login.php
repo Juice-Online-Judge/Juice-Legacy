@@ -44,7 +44,9 @@
 				</div>
 				<div class="pure-u-1-3">
 					<div class="login-area">
-						<h2>帳號登入</h2>
+						<div>
+							<h2>帳號登入</h2>
+						</div>
 <?php
 	if (isset($message)) {
 		echo <<<EOD

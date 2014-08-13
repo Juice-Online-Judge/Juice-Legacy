@@ -27,11 +27,12 @@ body {
 }
 
 #main {
+	height: calc(100% - 152px);
 }
 
-#footer {
+footer {
     position: absolute;
-    padding-bottom: 52px;
+    height: 52px;
     width: 100%;
 	text-align: center;
 }

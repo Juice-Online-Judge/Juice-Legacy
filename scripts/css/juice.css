@@ -13,7 +13,7 @@ footer{
 	text-align: center;
 }
 .juice-icon{
-	background-image: url("<?php echo $prefix.'images/logo.png' ?>");
+	background-image: url("./images/logo.png");
 	background-size: 200px 100px;
 }
 .juice-menu-head{

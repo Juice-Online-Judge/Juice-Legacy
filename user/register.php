@@ -22,8 +22,8 @@
 			$message = '註冊頁面已失效'.$_COOKIE['verify_code_register'].' '.$_POST['verify_code'];
 		}
 	}
-	$verify_code = verify_code();
-	setcookie("verify_code_register", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME, false, true);
+	$verify_codes = verify_code();
+	setcookie("verify_code_register", $verify_codes, $current_time + 600, "/", WEB_DOMAIN_NAME, false, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,7 +48,7 @@ EOD;
 	}
 ?>
 			<div>
-			<h1>註冊<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h1>
+			<h1>註冊<?php echo $verify_codes.' '.$_COOKIE['verify_code_register'] ;?></h1>
 				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<fieldset>
 						<div>
@@ -76,7 +76,7 @@ EOD;
 							<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 						</div>
 						<div>
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_codes)) ? $verify_codes : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 						</div>
 						<div>
 							<button type="submit" id="submit">註冊</button>

@@ -9,15 +9,16 @@
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $register->register($_POST['username'], $_POST['passward'], $_POST['passward_check'], $_POST['second_passward'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
-				setcookie("verify_code_register", '', $current_time - 900, "/", WEB_DOMAIN_NAME);
+				setcookie("verify_code_register", '', $current_time - 600, "/", WEB_DOMAIN_NAME);
 				header("Location: ".$prefix."index.php");
 				exit();
 			}
 		} else {
 			$message = '註冊頁面已失效';
 		}
+	} else {
+		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
-	setcookie("verify_code_register", verify_code(), $current_time + 900, "/", WEB_DOMAIN_NAME);
 ?>
 <!DOCTYPE html>
 <html>

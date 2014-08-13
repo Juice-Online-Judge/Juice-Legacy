@@ -56,7 +56,7 @@ EOD;
 	}
 ?>
 					<div>
-						<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+						<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 							<fieldset>
 								<div class="pure-control-group">
 									<label for="username">帳號：</label>

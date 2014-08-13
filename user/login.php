@@ -55,7 +55,7 @@
 EOD;
 	}
 ?>
-					<div class="login-area">
+					<div>
 						<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 							<fieldset>
 								<div class="pure-control-group">

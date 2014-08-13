@@ -27,7 +27,7 @@ body {
 }
 
 #main {
-	height: calc(100% - 152px);
+	min-height: calc(100% - 152px);
 }
 
 footer {

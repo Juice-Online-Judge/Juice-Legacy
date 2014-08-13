@@ -57,13 +57,9 @@ footer {
 }
 
 .juice-menu-head{
-	height: 100px;
-	padding-right: 2%;
-	padding-bottom: 0;
-}
-
-.juice-menu-head ul{
 	float: right;
+	margin-left: 2%;
+	margin-bottom: 0;
 }
 
 .login-area {

@@ -26,7 +26,7 @@ html, body {
 }
 
 #main {
-	min-height: 100%;
+	min-height: clac(100%-100px);
 }
 
 footer {
@@ -72,7 +72,7 @@ footer {
 .login-area h2,
 .login-area label{
 	text-align: left;
-	margin-left:3px;
+	margin-left: 3px;
 }
 
 .juice-lesson-body{

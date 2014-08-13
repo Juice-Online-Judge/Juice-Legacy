@@ -66,6 +66,7 @@ footer {
 .login-area {
 	width: inherit;
 	height: inherit;
+	text-align: left;
 	margin: auto;
 }
 

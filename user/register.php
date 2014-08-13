@@ -32,6 +32,15 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div>
+<?php
+	if (isset($message)) {
+		echo <<<EOD
+			<div>
+					<h3>$message</h3>
+			</div>\n
+EOD;
+	}
+?>
 			<div>
 			<h1>註冊</h1>
 				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

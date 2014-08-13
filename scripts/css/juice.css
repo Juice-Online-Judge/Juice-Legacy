@@ -25,17 +25,13 @@ header img{
 	float: left;
 }
 
-footer{
-	height: 80px;
-	text-align: center;
-}
-
-#header {
+body {
     min-height: 100%;
     position: relative;
 }
 
 #main {
+	padding-top: 100px;
     padding-bottom: 40px;
 }
 

@@ -9,10 +9,10 @@
 		exit();
 	}
 	
-	if (isset($_POST['username']) and isset($_POST['passward']) and isset($_POST['passward_check']) and isset($_POST['second_passward']) and isset($_POST['nickname']) and isset($_POST['email'])) {
+	if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_check']) and isset($_POST['second_password']) and isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_register']) and $_COOKIE['verify_code_register'] == $_POST['verify_code']) {
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $register->register($_POST['username'], $_POST['passward'], $_POST['passward_check'], $_POST['second_passward'], $_POST['email'], $_POST['nickname']);
+			$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['second_password'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
 				setcookie("verify_code_register", '', $current_time - 600, "/", WEB_DOMAIN_NAME, false, true);
 				header("Location: ".$prefix."user/login.php");
@@ -57,16 +57,16 @@ EOD;
 								<input type="text" name="username" id="username" pattern="^\w{5,32}$" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
-								<label for="passward">密碼：</label>
-								<input type="password" name="passward" id="password" autocomplete="off" required>
+								<label for="password">密碼：</label>
+								<input type="password" name="password" id="password" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
-								<label for="passward_check">密碼確認：</label>
-								<input type="password" name="passward_check" id="passward_check" autocomplete="off" required>
+								<label for="password_check">密碼確認：</label>
+								<input type="password" name="password_check" id="password_check" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
-								<label for="second_passward">第二組密碼：</label>
-								<input type="password" name="second_passward" id="second_passward" autocomplete="off" required>
+								<label for="second_password">第二組密碼：</label>
+								<input type="password" name="second_password" id="second_password" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
 								<label for="nickname">暱稱:</label>

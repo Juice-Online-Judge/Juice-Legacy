@@ -9,11 +9,6 @@
 		exit();
 	}
 	
-	if (!isset($_COOKIE['verify_code_login'])) {
-		//$verify_code = verify_code();
-		//setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
-	}
-	
 	if (isset($_POST['username']) and isset($_POST['passward'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
 			$remember = (isset($_POST['remember'])) ? 1 : 0;
@@ -27,8 +22,6 @@
 		} else {
 			$message = '登入頁面已失效，請重新登入';
 		}
-		//$verify_code = verify_code();
-		//setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
 	$verify_code = verify_code();
 	setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);

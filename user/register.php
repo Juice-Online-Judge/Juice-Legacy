@@ -4,10 +4,6 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!isset($_COOKIE['verify_code_register'])) {
-		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
-	}
-	
 	if (isset($_POST['username']) and isset($_POST['passward']) and isset($_POST['passward_check']) and isset($_POST['second_passward']) and isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_register']) and $_COOKIE['verify_code_register'] == $_POST['verify_code']) {
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
@@ -20,8 +16,9 @@
 		} else {
 			$message = '註冊頁面已失效'.$_COOKIE['verify_code_register'].' '.$_POST['verify_code'];
 		}
-		setcookie("verify_code_register", verify_code(), $current_time + 600, "/", WEB_DOMAIN_NAME);
 	}
+	$verify_code = verify_code();
+	setcookie("verify_code_register", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME);
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,7 +71,7 @@ EOD;
 							<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 						</div>
 						<div>
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
+							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 						</div>
 						<div>
 							<button type="submit" id="submit">註冊</button>

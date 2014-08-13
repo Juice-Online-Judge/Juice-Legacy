@@ -22,17 +22,19 @@ header{
 }
 
 html, body {
+	margin: 0;
 	height: 100%;
 }
 
 footer {
-    width: 100%;
+	position:absolute;
+	bottom: 0;
 	height: 50px;
-	line-height: 50px;
 	text-align: center;
 }
 
 #main {
+	position: relative;
 	min-height: calc(100% - 150px);
 }
 
@@ -57,10 +59,11 @@ footer {
 }
 
 header ul{
+	position: relative;
 	float: right;
 	height: 100px;
-	margin-right: 2%;
-	margin-bottom: 0;
+	right: 2%;
+	bottom: 0;
 }
 
 .login-area {

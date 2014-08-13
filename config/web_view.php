@@ -44,7 +44,7 @@ EOD;
 						</ul>
 					</li>
 <?php
-		if (true/*isset($_SESSION['uid'])*/) {
+		if (isset($_SESSION['uid'])) {
 ?>
 					<li>
 						<a href="#">會員中心</a>
@@ -106,12 +106,12 @@ EOD;
 ?>
 					<li><a href="<?php echo $prefix.'user/logout.php'; ?>">登出</a></li>
 <?php
-		} //else {
+		} else {
 ?>
 					<li><a href="<?php echo $prefix.'user/login.php' ?>">登入</a></li>
 					<li><a href="<?php echo $prefix.'user/register.php' ?>">註冊</a></li>
 <?php
-		//}
+		}
 ?>
 					<li><a href="#">建議</a></li>
 					<li><a href="#">關於我們</a></li>

@@ -41,9 +41,9 @@ EOD;
 	function display_navigation($prefix) {
 ?>
 		<header id="header">
-			<a class="juice-icon" href="<?php echo $prefix.'index.php' ?>"></a>
-			<nav id="demo-horizontal-menu" class="juice-menu-head">
-				<ul id="std-menu-items">
+			<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-icon"></div></a>
+			<nav id="demo-horizontal-menu">
+				<ul id="std-menu-items"  class="juice-menu-head">
 <?php
 		if (isset($_SESSION['uid'])) {
 ?>

@@ -135,7 +135,7 @@ EOD;
 		echo <<<EOD
 		<footer id="footer">
 			<div>
-				<p>Web Create by Juice / Copyright © 2014</p>
+				<p>Copyright © 2014 Juice All rights reserved.</p>
 			</div>
 		</footer>\n
 EOD;

@@ -38,6 +38,10 @@ footer {
 	text-align: center;
 }
 
+.warning {
+	color: #FF0000;
+}
+
 .juice-icon{
 	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
 	background-size: 200px 100px;

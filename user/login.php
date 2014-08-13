@@ -38,20 +38,20 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div class="login-area">
+			<div>
 				<div class="center">
-					<h3>帳號登入</h3>
+					<h2>帳號登入</h2>
 				</div>
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-				<div>
+				<div class="warning center">
 						<h3>$message</h3>
 				</div>\n
 EOD;
 	}
 ?>
-				<div>
+				<div class="login-area">
 					<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">

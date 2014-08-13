@@ -49,8 +49,8 @@ footer {
 }
 
 .juice-icon{
-	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
-	background-size: 200px 100px;
+	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png") no-repeat;
+	background-size: 100% 100%;
 	width: 200px;
 	height: 100px;
 	float: left;
@@ -58,12 +58,7 @@ footer {
 
 .juice-menu-head{
 	float: right;
-}
-
-.juice-menu-head ul{
-	margin-right: 2%;
-	margin-bottom: 0px;
-	float: right;
+	padding: 0 0 5px 0;
 }
 
 .login-area {

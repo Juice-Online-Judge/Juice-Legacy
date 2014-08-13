@@ -59,9 +59,8 @@ footer {
 header ul{
 	float: right;
 	height: 100px;
-	margin: 0;
-	padding-right: 2%;
-	padding-bottom: 0;
+	margin-right: 2%;
+	margin-bottom: 0;
 }
 
 .login-area {

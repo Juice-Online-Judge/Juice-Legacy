@@ -124,6 +124,7 @@ EOD;
 						<a href="#">關於本站</a>
 						<ul>
 							<li><a href="#">團隊介紹</a></li>
+							<li class="pure-menu-separator"></li>
 							<li><a href="#">意見反饋</a></li>
 						</ul>
 					</li>

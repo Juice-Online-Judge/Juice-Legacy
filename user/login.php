@@ -31,8 +31,7 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>登入</title>
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
+<?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>

@@ -24,11 +24,11 @@ EOD;
 EOD;
 	}
 	
-	function display_css_link() {
-		echo <<<EOD
-		<link type="text/css" href="http://crux.coder.tw/freedom/juice/scripts/css/pure.css" rel="stylesheet">
-		<link type="text/css" href="http://crux.coder.tw/freedom/juice/scripts/css/juice.css" rel="stylesheet">\n
-EOD;
+	function display_css_link($prefix) {
+?>
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
+		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
+<?php
 	}
 	
 	function display_scripts_link() {

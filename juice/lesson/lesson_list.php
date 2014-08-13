@@ -13,7 +13,7 @@
 		<meta charset="UTF-8">
 		<title>課程列表</title>
 		<link rel="icon" href="" type="image/x-icon">
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
+<?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 	</head>
 	<body>

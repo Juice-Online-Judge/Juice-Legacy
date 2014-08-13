@@ -9,11 +9,12 @@
 	
 	/* Initialize the cookie setting */
 	//ini_set("session.cookie_secure", 1);
-	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
 	ini_set("session.cookie_httponly", true);
 	
 	/* Initialize session */
 	session_start();
+	
+	ini_set("session.cookie_domain", WEB_DOMAIN_NAME);
 	
 	/* require the website setting */
 	require_once $prefix."config/web_function.php";

@@ -41,7 +41,7 @@
 			<div class="pure-u-2-3">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3" style="height: 1000px;">
+			<div class="pure-u-1-3">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

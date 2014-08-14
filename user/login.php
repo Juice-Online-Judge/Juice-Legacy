@@ -37,6 +37,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
+		<div>
 			<div class="pure-u-2-3 fullheight leftfloat">
 				<p>Introduction</p>
 			</div>
@@ -50,7 +51,7 @@
 EOD;
 	}
 ?>
-				<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+				<form name="login" id="login" class="pure-form pure-form-aligned juice-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 					<fieldset>
 						<div class="pure-control-group">
 							<label for="username">帳號：</label>
@@ -73,6 +74,7 @@ EOD;
 					</div>
 				</form>
 			</div>
+		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

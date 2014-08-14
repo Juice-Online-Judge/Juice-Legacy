@@ -1,6 +1,6 @@
-/*
-Use for Juice lesson_add
-*/
+/* Use for Juice */
+
+/* Font Setting */
 @font-face {
 	font-family: Juice;
 	src: local(Microsoft JhengHei);
@@ -16,6 +16,7 @@ Use for Juice lesson_add
 	font-family: Juice,Microsoft JhengHei,Arial;
 }
 
+/* Layout Setting */
 header {
 	height: 100px;
 	background-color: #FFF;
@@ -33,6 +34,7 @@ footer {
 	height: 50px;
 	line-height: 50px;
 	text-align: center;
+	clear: both;
 }
 
 .leftfloat{
@@ -45,6 +47,7 @@ footer {
 
 .fullheight {
 	min-height: calc(100% - 200px);
+	height: auto;
 }
 
 .center {
@@ -66,6 +69,10 @@ footer {
 	height: 100px;
 	float: left;
 	margin-left: 5px;
+}
+
+.juice-login {
+	vertical-align: middle;
 }
 
 .juice-menu-head nav ul {

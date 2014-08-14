@@ -65,6 +65,10 @@ footer {
 	margin-right: 10px;
 }
 
+fieldset{
+	height: 100%;
+}
+
 .juice-lesson-body{
 	width: 900px;
 	margin-top: 30px;

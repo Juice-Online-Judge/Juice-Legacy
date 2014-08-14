@@ -37,10 +37,10 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="pure-u-2-3 fullheight">
+			<div class="pure-u-2-3 fullheight leftfloat">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3 fullheight">
+			<div class="pure-u-1-3 fullheight rightfloat">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

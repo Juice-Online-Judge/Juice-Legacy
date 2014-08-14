@@ -35,6 +35,14 @@ footer {
 	text-align: center;
 }
 
+.leftfloat{
+	float: left;
+}
+
+.rightfloat{
+	float: right;
+}
+
 .fullheight {
 	min-height: calc(100% - 200px);
 }

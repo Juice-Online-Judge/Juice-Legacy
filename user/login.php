@@ -38,10 +38,10 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main" class="pure-g">
-			<div id="main" class="pure-u-2-3">
+			<div class="pure-u-2-3">
 				<p>Introduction</p>
 			</div>
-			<div id="main" class="pure-u-1-3">
+			<div class="pure-u-1-3" style="height:100%;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

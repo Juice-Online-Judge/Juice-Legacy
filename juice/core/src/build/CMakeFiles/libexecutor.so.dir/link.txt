@@ -1,2 +1,0 @@
-/usr/bin/ar cr liblibexecutor.so.a  CMakeFiles/libexecutor.so.dir/libmain.cpp.o CMakeFiles/libexecutor.so.dir/execute.cpp.o
-/usr/bin/ranlib liblibexecutor.so.a

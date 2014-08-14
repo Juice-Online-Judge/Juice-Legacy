@@ -1,2 +1,0 @@
-/home/snow/Program/judge/src/build/CMakeFiles/execute.dir
-/home/snow/Program/judge/src/build/CMakeFiles/executor.dir

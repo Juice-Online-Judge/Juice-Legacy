@@ -1,4 +1,0 @@
----
-:development:
-  :adapt: :sqllite3
-  :database: db/judge.db

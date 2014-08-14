@@ -39,11 +39,6 @@ footer {
 	min-height: calc(100% - 200px);
 }
 
-.fullheight{
-	position: relative;
-	bottom: 0;
-}
-
 .center {
 	text-align: center;
 }

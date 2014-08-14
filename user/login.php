@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main" style="min-height:calc(100% - 200px);height:calc(100% - 200px);">
-			<div class="pure-g" style="min-height:calc(100% - 200px);height:calc(100% - 200px);">
+			<div class="pure-g" style="min-height:100%;height:100%;">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
 				</div>

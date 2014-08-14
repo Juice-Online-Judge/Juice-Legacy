@@ -37,11 +37,11 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main" class="pure-g">
-			<div class="pure-u-2-3">
+		<div id="main">
+			<div class="juice-u-2-3">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3" style="height:100%;">
+			<div class="juice-u-1-3">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

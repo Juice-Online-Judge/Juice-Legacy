@@ -65,37 +65,6 @@ footer {
 	margin-right: 10px;
 }
 
-.login-area {
-	margin: 0;
-	min-height: calc(100% - 200px);
-	vertical-align: middle;
-}
-
-.login-area form fieldset .login-area-content,
-.login-area form fieldset .login-area-content .pure-control-group{
-	margin-left: auto;
-    margin-right: auto;
-	display: inline-block !important;
-}
-
-#login{
-	width: 300px;
-	margin: auto;
-}
-
-#login fieldset {
-	border: 0;
-	border-radius: 8px;
-	padding: 10px;
-	margin: auto;
-	background: #EEE;
-}
-
-#login fieldset div label{
-	width: 50px;
-	text-align: center;
-}
-
 .juice-lesson-body{
 	width: 900px;
 	margin-top: 30px;

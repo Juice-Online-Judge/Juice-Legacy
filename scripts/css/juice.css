@@ -35,12 +35,9 @@ footer {
 	text-align: center;
 }
 
-#main {
+#main,
+#main > div {
 	min-height: calc(100% - 200px);
-}
-
-#login{
-	vertical-align: middle;
 }
 
 .center {

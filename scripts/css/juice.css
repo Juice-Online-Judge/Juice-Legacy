@@ -40,7 +40,8 @@ footer {
 }
 
 .fullheight{
-	height: 88%;
+	position: relative;
+	bottom: 0;
 }
 
 .center {

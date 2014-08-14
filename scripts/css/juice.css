@@ -40,7 +40,7 @@ footer {
 }
 
 #login{
-	height:100% !important;
+	vertical-align: middle;
 }
 
 .center {

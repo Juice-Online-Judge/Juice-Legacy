@@ -84,7 +84,7 @@ footer {
 #login fieldset div,
 #login fieldset div div{
 	margin: auto;
-	align-items: center;
+	align-self: center;
 	display: inline-block !important;
 }
 

@@ -65,6 +65,7 @@ footer {
 }
 
 .login-area {
+	min-height: calc(100% - 200px) !important;
 	vertical-align: middle;
 }
 
@@ -84,7 +85,8 @@ footer {
 #login fieldset div,
 #login fieldset div div{
 	margin: auto;
-	align-self: center;
+	margin-left: auto;
+    margin-right: auto;
 	display: inline-block !important;
 }
 

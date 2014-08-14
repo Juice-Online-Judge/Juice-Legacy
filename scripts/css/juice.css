@@ -65,7 +65,6 @@ footer {
 }
 
 .login-area {
-	margin: auto;
 	vertical-align: middle;
 }
 
@@ -82,11 +81,13 @@ footer {
 	background: #EEE;
 }
 
-#login fieldset div{
+#login fieldset div,
+#login fieldset div div{
 	display: inline-block;
 }
 
 #login fieldset div label{
+	width: 45px;
 	text-align: center;
 }
 

@@ -35,7 +35,7 @@
 <?php display_scripts_link(); ?>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
-	<body>
+	<body style="min-height: 100%;">
 <?php display_navigation($prefix); ?>
 		<div style="min-height: calc(100% - 200px);">
 		<div class="pure-g">

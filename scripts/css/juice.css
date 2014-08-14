@@ -35,10 +35,8 @@ footer {
 	text-align: center;
 }
 
-#main,
-#main > div {
+#main{
 	min-height: calc(100% - 200px);
-	height: auto;
 }
 
 .center {

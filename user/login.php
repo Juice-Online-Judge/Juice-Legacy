@@ -37,11 +37,10 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main" class="pure-g">
-			<div class="pure-u-2-3">
+			<div class="pure-u-2-3 fullheight">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3">
+			<div class="pure-u-1-3 fullheight">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -74,7 +73,6 @@ EOD;
 					</div>
 				</form>
 			</div>
-		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

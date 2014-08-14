@@ -44,7 +44,7 @@ EOD;
 			<div class="juice-logo">
 				<a href="<?php echo $prefix.'index.php' ?>"></a>
 			</div>
-			</div class="juice-menu-head">
+			<div class="juice-menu-head">
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
 <?php

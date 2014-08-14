@@ -57,13 +57,13 @@ footer {
 	float: left;
 }
 
-.juice-menu-head{
+.juice-menu-head nav ul{
 	float: right;
 	margin-top: 70px;
 	margin-right: 10px;
 }
 
-.juice-menu-head li{
+.juice-menu-head nav ul li{
 	height: 30px;
 }
 

@@ -77,17 +77,13 @@ footer {
 #login fieldset {
 	border: 0;
 	border-radius: 3px;
-	padding: 10px;
+	padding: 5px;
 	margin: auto;
 	background: #EEE;
 }
 
 #login fieldset div{
 	display: inline-block;
-}
-
-#login fieldset div label{
-	line-height: inherit;
 }
 
 .juice-lesson-body{

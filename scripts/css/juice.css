@@ -39,6 +39,10 @@ footer {
 	min-height: calc(100% - 200px);
 }
 
+.fullheight{
+	height: 88%;
+}
+
 .center {
 	text-align: center;
 }

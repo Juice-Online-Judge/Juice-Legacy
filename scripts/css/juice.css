@@ -34,7 +34,7 @@ footer {
 }
 
 #main {
-	min-height: calc(100% - 180px);
+	min-height: calc(100% - 200px);
 }
 
 .center {
@@ -63,7 +63,7 @@ footer {
 }
 
 .juice-menu-head li{
-	line-height: 30px;
+	height: 30px;
 }
 
 .login-area {

@@ -59,20 +59,15 @@ footer {
 
 .juice-menu-head nav ul{
 	float: right;
-	margin-top: 70px;
+	margin-top: 50px;
 	margin-right: 10px;
 }
 
-.juice-menu-head nav ul li{
-	height: 30px;
-}
-
 .login-area {
-	height: inherit;
-	margin: 0;
+	margin: auto;
 }
 
-.login-area div{
+.login-area *{
 	margin: auto;
 }
 

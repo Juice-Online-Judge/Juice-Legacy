@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main" class="pure-g">
-			<div class="pure-u-2-3" style="height:inherit;">
+			<div class="pure-u-2-3">
 				<p>Introduction</p>
 			</div>
 			<div class="pure-u-1-3">

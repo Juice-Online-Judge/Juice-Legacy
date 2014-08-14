@@ -37,7 +37,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main" class="pure-g">
+		<div id="main" class="pure-g" none="true">
 			<div class="pure-u-2-3" _height="auto">
 				<p>Introduction</p>
 			</div>

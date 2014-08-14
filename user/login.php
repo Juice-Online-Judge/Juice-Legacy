@@ -37,13 +37,13 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main" class="fullheight">
-			<div class="pure-g" class="fullheight">
+		<div id="main" style="min-height:calc(100% - 200px);height:calc(100% - 200px);">
+			<div class="pure-g" style="min-height:100%;height:100%;">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3">
-					<div>
+					<div style="vertical-align:middle;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

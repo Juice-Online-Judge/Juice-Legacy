@@ -68,12 +68,11 @@ footer {
 .login-area {
 	margin: 0;
 	min-height: calc(100% - 200px);
-	height: auto;
 	vertical-align: middle;
 }
 
-.login-area-content,
-.login-area-content .pure-control-group{
+.login-area form fieldset .login-area-content,
+.login-area form fieldset .login-area-content .pure-control-group{
 	margin-left: auto;
     margin-right: auto;
 	display: inline-block !important;

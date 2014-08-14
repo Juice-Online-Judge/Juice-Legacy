@@ -71,6 +71,12 @@ footer {
 	vertical-align: middle;
 }
 
+.login-area-content{
+	margin-left: auto;
+    margin-right: auto;
+	display: inline-block !important;
+}
+
 #login{
 	width: 300px;
 	margin: auto;
@@ -82,13 +88,6 @@ footer {
 	padding: 10px;
 	margin: auto;
 	background: #EEE;
-}
-
-#login fieldset div,
-#login fieldset div div{
-	margin-left: auto;
-    margin-right: auto;
-	display: inline-block !important;
 }
 
 #login fieldset div label{

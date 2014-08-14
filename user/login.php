@@ -54,7 +54,7 @@ EOD;
 				<div class="login-area">
 					<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 						<fieldset>
-							<div>
+							<div class="login-area-content">
 								<div class="pure-control-group">
 									<label for="username">帳號：</label>
 									<input type="text" name="username" id="username" autocomplete="off" required>
@@ -64,7 +64,7 @@ EOD;
 									<input type="password" name="passward" id="password" autocomplete="off" required>
 								</div>
 							</div>
-							<div>
+							<div class="login-area-content">
 								<div class="pure-control-group">
 									<label for="remember">記住我</label>
 									<input type="checkbox" name="remember" id="remember" value="1">

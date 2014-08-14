@@ -21,7 +21,8 @@ header{
 	background-color: #FFF;
 }
 
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -36,6 +37,10 @@ footer {
 
 #main {
 	min-height: calc(100% - 200px);
+}
+
+#login{
+	height:100% !important;
 }
 
 .center {
@@ -63,10 +68,6 @@ footer {
 	float: right;
 	margin-top: 55px;
 	margin-right: 10px;
-}
-
-fieldset{
-	height: 100% !important;
 }
 
 .juice-lesson-body{

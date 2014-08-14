@@ -38,10 +38,10 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div class="pure-g">
-			<div class="pure-u-2-3">
+			<div class="pure-u-2-3" style="min-height: calc(100% - 200px);">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3">
+			<div class="pure-u-1-3" style="min-height: calc(100% - 200px);">
 				<div style="vertical-align:middle;">
 <?php
 	if (isset($message)) {

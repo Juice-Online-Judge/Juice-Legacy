@@ -37,15 +37,6 @@ footer {
 	min-height: calc(100% - 200px);
 }
 
-#login fieldset {
-	border: 0;
-	border-radius: 3px;
-	width: 400px;
-	padding: 10px;
-	margin: auto;
-	background: #EEE;
-}
-
 .center {
 	text-align: center;
 }
@@ -80,6 +71,28 @@ footer {
 
 .login-area {
 	margin: auto;
+}
+
+#login{
+	width: 300px;
+	margin: auto;
+}
+
+#login fieldset {
+	border: 0;
+	border-radius: 3px;
+	padding: 10px;
+	margin: auto;
+	background: #EEE;
+}
+
+#login fieldset div{
+	float: left;
+	display: inline-block;
+}
+
+#login fieldset div label{
+	line-height: inherit;
 }
 
 .juice-lesson-body{

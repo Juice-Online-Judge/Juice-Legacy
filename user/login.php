@@ -37,12 +37,10 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="pure-g">	
-			<div class="pure-u-2-3">
+			<div class="pure-u-2-3 fullheight leftfloat">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3">
-				<div style="vertical-align:middle;">
+			<div class="pure-u-1-3 fullheight rightfloat">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -52,9 +50,7 @@
 EOD;
 	}
 ?>
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
+				<div class="juice-login">
 					<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 						<fieldset>
 							<div class="pure-control-group">
@@ -79,7 +75,6 @@ EOD;
 					</form>
 				</div>
 			</div>
-		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

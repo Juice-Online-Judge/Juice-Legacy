@@ -68,8 +68,11 @@ footer {
 }
 
 .login-area {
-	width: inherit;
 	height: inherit;
+	margin: 0;
+}
+
+.login-area div{
 	margin: auto;
 }
 

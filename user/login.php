@@ -41,8 +41,8 @@
 			<div class="pure-u-2-3">
 				<p>Introduction</p>
 			</div>
-			<div class="pure-u-1-3">
-				<div class="login-area">
+			<div class="pure-u-1-3 login-area">
+				<div>
 					<div>
 						<h2>帳號登入</h2>
 					</div>

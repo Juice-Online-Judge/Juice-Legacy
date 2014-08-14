@@ -33,15 +33,17 @@ footer {
 	text-align: center;
 }
 
-fieldset {
-	border: 0;
-	border-radius: 3px;
-	padding: 10px;
-	background: #EEE;
-}
-
 #main {
 	min-height: calc(100% - 200px);
+}
+
+#login fieldset {
+	border: 0;
+	border-radius: 3px;
+	width: 400px;
+	padding: 10px;
+	margin: auto;
+	background: #EEE;
 }
 
 .center {

@@ -37,7 +37,6 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div>
 			<div class="pure-u-2-3 fullheight leftfloat">
 				<p>Introduction</p>
 			</div>
@@ -74,7 +73,6 @@ EOD;
 					</div>
 				</form>
 			</div>
-		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});

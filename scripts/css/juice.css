@@ -38,6 +38,7 @@ footer {
 #main,
 #main > div {
 	min-height: calc(100% - 200px);
+	height: auto;
 }
 
 .center {

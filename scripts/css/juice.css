@@ -65,7 +65,8 @@ footer {
 }
 
 .login-area {
-	min-height: calc(100% - 200px);
+	margin: auto;
+	vertical-align: middle;
 }
 
 #login{
@@ -79,6 +80,14 @@ footer {
 	padding: 10px;
 	margin: auto;
 	background: #EEE;
+}
+
+#login fieldset div{
+	display: inline-block;
+}
+
+#login fieldset div label{
+	text-align: center;
 }
 
 .juice-lesson-body{

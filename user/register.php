@@ -30,7 +30,7 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>註冊頁面</title>
-		<link rel="icon" href="" type="image/x-icon">
+		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>

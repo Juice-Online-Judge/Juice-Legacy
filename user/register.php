@@ -40,7 +40,7 @@
 		<div id="main">
 			<div>
 				<div class="title center">
-					<h2>註冊帳號<?php echo $verify_code.' '.$_COOKIE['verify_code_register'] ;?></h2>
+					<h2>註冊帳號</h2>
 				</div>
 <?php
 	if (isset($message)) {

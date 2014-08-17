@@ -12,22 +12,55 @@
 		exit();
 	}
 	
-	if (isset($_POST['unit']) and isset($_POST['level']) and isset($_POST['title']) and isset($_POST['goal']) and isset($_POST['content']) and isset($_POST['example']) and isset($_POST['practice']) and isset($_POST['implement'])) {
-		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_add_lesson']) and $_COOKIE['verify_code_add_lesson'] == $_POST['verify_code']) {
-			if ($_POST['key'] == '') {
-				$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-				$result = $lesson->add_lesson($_POST['unit'], $_POST['level'], $_POST['title'], $_POST['goal'], $_POST['content'], $_POST['example'], $_POST['practice'], $_POST['implement']);
-			} else {
-				$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-				$result = $lesson->update_lesson($_POST['key'], $_POST['level'], $_POST['title'], $_POST['goal'], $_POST['content'], $_POST['example'], $_POST['practice'], $_POST['implement']);
-			}
-		} else {
-			$result['error'] = 'The page is invalid';
-			$result = json_encode($result);
+	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_lesson_refine']) and $_COOKIE['verify_code_lesson_refine'] == $_POST['verify_code']) {
+		switch ($_POST['type']) {
+			case 'practice':
+				$data = array(
+					'action' => $_POST['action'],
+					'key' => $_POST['key']
+				);
+				foreach ($_POST as $key => $value) {
+					if (stripos($key, 'practice') !== false) {
+						$data[$key] = $value;
+					}
+				}
+				break;
+			case 'implement':
+				$data = array(
+					'action' => $_POST['action'],
+					'key' => $_POST['key']
+				);
+				foreach ($_POST as $key => $value) {
+					if (stripos($key, 'implement') !== false) {
+						$data[$key] = $value;
+					}
+				}
+				break;
+			case 'lesson':
+				$data = array(
+					'action' => $_POST['action'],
+					'level' => $_POST['level'],
+					'title' => $_POST['title'],
+					'goal' => $_POST['goal'],
+					'content' => $_POST['content'],
+					'example' => $_POST['example']
+				);
+				if ($_POST['action'] == 'add') {
+					$data['unit'] = $_POST['unit'];
+				} else {
+					$data['key'] = $_POST['key'];
+				}
+				break;
+			default :
+				$_POST['type'] = 'lesson';
+				break;
 		}
+		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$result = $lesson->add_lesson($_POST['type'], $data);
 	} else {
-		$result['error'] = 'Invalid submit';
+		$result['error'] = 'The page is invalid';
 		$result = json_encode($result);
 	}
+	
 	echo $result;
 ?>

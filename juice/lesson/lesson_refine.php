@@ -21,7 +21,7 @@
 		}
 	}
 	$verify_code = verify_code();
-	setcookie("verify_code_add_lesson", $verify_code, $current_time + 3600, "/", WEB_DOMAIN_NAME, false, true);
+	setcookie("verify_code_lesson_refine", $verify_code, $current_time + 3600, "/", WEB_DOMAIN_NAME, false, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,10 +48,18 @@
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
 							</div>
+							<div>
+								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
+								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
+							</div>
 <?php } else if (isset($_GET['implement']) and $lesson_check) { ?>
 							<div class="juice-lesson-contents">
 								<label for="implement">動 動 腦：</label>
 								<textarea class="ckeditor" name="implement" id="implement" required><?php echo ($lesson_content) ? $lesson_content['lesson_implement'] : ''; ?></textarea>
+							</div>
+							<div>
+								<input type="text" name="type" id="type" value="implement" hidden readonly autocomplete="off">
+								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
 							</div>
 <?php } else { ?>
 							<div>
@@ -94,9 +102,13 @@
 									<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_check) ? $lesson_content['lesson_example'] : ''; ?></textarea>
 								</div>
 							</div>
+							<div>
+								<input type="text" name="type" id="type" value="lesson" hidden readonly autocomplete="off">
+								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
+							</div>
 <?php } ?>
 							<div>
-								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
+								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_lesson_refine']; ?>" hidden readonly autocomplete="off" required>
 								<input type="text" name="key" id="key" value="<?php echo ($lesson_check) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
 							</div>
 							<br>

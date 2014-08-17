@@ -62,17 +62,12 @@
 				if (mb_strlen($example, 'UTF-8') == 0) {
 					$example = null;
 				}
-				$sql = "SELECT `id` FROM `lesson` WHERE `lesson_unit` = :lesson_unit";
-				$params = array(
-					':lesson_unit' => $unit
-				);
-				$this->query($sql, $params);
-				if ($this->rowCount() >= 1) {
+				$lesson_id = $this->get_lesson_id($content['key']);
+				if (isset($lesson_id['id'])) {
 					$result = array(
 						'error' => 'The unit is already exists.'
 					);
 				} else {
-					$this->closeCursor();
 					$sql = "INSERT INTO `lesson` (`lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_create_user`, `lesson_create_time`) ";
 					$sql .= "VALUES (:lesson_key, :lesson_unit, :lesson_level, :lesson_title, :lesson_goal, :lesson_content, :lesson_example, :lesson_create_user, :lesson_create_time)";
 					$params = array(
@@ -119,18 +114,12 @@
 		
 		public function update_lesson($type, array $content = array()) {
 			if (!empty($content)) {
-				$sql = "SELECT `id` FROM `lesson` WHERE `lesson_key` = :lesson_key";
-				$params = array(
-					':lesson_key' => $content['key']
-				);
-				$this->query($sql, $params);
-				if ($this->rowCount() == 0) {
+				$lesson_id = $this->get_lesson_id($content['key']);
+				if (isset($lesson_id['error'])) {
 					$result = array(
 						'error' => 'The unit does not exist.'
 					);
 				} else {
-					$lesson_id = $this->fetch();
-					$this->closeCursor();
 					switch ($type) {
 						case 'lesson':
 							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {

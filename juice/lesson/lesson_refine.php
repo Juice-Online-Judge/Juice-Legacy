@@ -133,7 +133,7 @@
 							</div>
 							<div>
 								<input type="text" name="type" id="type" value="lesson" hidden readonly autocomplete="off">
-								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
+								<input type="text" name="action" id="action" value="<?php echo ($lesson_check) ? 'update' : 'add'; ?>" hidden readonly autocomplete="off">
 							</div>
 <?php } ?>
 							<div>

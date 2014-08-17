@@ -155,6 +155,13 @@ EOD;
 			</div>
 		</footer>\n
 EOD;
+?>
+		<script>
+			$(document).ready(function(){
+				$('.juice-menu-head nav ul').attr('margin-right', ($(window).width() / 5));
+			});
+		</script>
+<?php
 	}
 	/*
 		$(document).ready(function() {

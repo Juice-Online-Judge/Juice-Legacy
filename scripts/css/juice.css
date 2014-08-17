@@ -43,6 +43,7 @@ footer {
 }
 
 #login label {
+	min-width: 40px;
 	text-align: center;
 }
 

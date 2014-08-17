@@ -176,7 +176,7 @@
 									':lesson_example' => $content['example'],
 									':lesson_last_update_user' => $_SESSION['uid'],
 									':lesson_last_update_time' => $this->current_time,
-									':lesson_key' => $key
+									':lesson_key' => $content['key']
 								);
 								$this->query($sql, $params);
 								if ($this->rowCount() != 1) {

@@ -34,14 +34,12 @@
 			return $this->fetch();
 		}
 		
-		public function add_lesson($unit, $level, $title, $goal, $content, $example, $practice, $implement) {
+		public function add_lesson($unit, $level, $title, $goal, $content, $example) {
 			$key = hash_key('sha1');
 			$title = htmlspecialchars($title, ENT_QUOTES);
 			$goal = htmlspecialchars($goal, ENT_QUOTES);
 			$content = htmlspecialchars($content, ENT_QUOTES);
 			$example = htmlspecialchars($example, ENT_QUOTES);
-			$practice = htmlspecialchars($practice, ENT_QUOTES);
-			$implement = htmlspecialchars($implement, ENT_QUOTES);
 			if (!preg_match("/^\d{1,2}$/", $unit)) {
 				$result = array(
 					'error' => 'Invalid unit.'
@@ -55,6 +53,15 @@
 					'error' => 'Invalid title.'
 				);
 			} else {
+				if (mb_strlen($goal, 'UTF-8') == 0) {
+					$goal = null;
+				}
+				if (mb_strlen($content, 'UTF-8') == 0) {
+					$content = null;
+				}
+				if (mb_strlen($example, 'UTF-8') == 0) {
+					$example = null;
+				}
 				$sql = "SELECT `id` FROM `lesson` WHERE `lesson_unit` = :lesson_unit";
 				$params = array(
 					':lesson_unit' => $unit
@@ -66,8 +73,8 @@
 					);
 				} else {
 					$this->closeCursor();
-					$sql = "INSERT INTO `lesson` (`lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_practice`, `lesson_implement`, `lesson_create_user`, `lesson_create_time`) ";
-					$sql .= "VALUES (:lesson_key, :lesson_unit, :lesson_level, :lesson_title, :lesson_goal, :lesson_content, :lesson_example, :lesson_practice, :lesson_implement, :lesson_create_user, :lesson_create_time)";
+					$sql = "INSERT INTO `lesson` (`lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_create_user`, `lesson_create_time`) ";
+					$sql .= "VALUES (:lesson_key, :lesson_unit, :lesson_level, :lesson_title, :lesson_goal, :lesson_content, :lesson_example, :lesson_create_user, :lesson_create_time)";
 					$params = array(
 						':lesson_key' => $key,
 						':lesson_unit' => $unit,
@@ -76,20 +83,33 @@
 						':lesson_goal' => $goal,
 						':lesson_content' => $content,
 						':lesson_example' => $example,
-						':lesson_practice' => $practice,
-						':lesson_implement' => $implement,
 						':lesson_create_user' => $_SESSION['uid'],
 						':lesson_create_time' => $this->current_time
 					);
 					$this->query($sql, $params);
-					if ($this->rowCount() != 1) {
+					$insert_id = $this->lastInsertId();
+					if ($this->rowCount() != 1 or $insert_id == 0) {
 						$result = array(
 							'error' => 'There is something wrong when updating the data.'
 						);
 					} else {
-						$result = array(
-							'key' => $key
+						$this->closeCursor();
+						$sql = "UPDATE `lesson` SET `lesson_practice` = :lesson_practice AND `lesson_implement` = :lesson_implement WHERE `lesson_key` = :lesson_key";
+						$params = array(
+							':lesson_practice' => $insert_id,
+							':lesson_implement' => $insert_id,
+							':lesson_key' => $key
 						);
+						$this->query($sql, $params);
+						if ($this->rowCount() != 1) {
+							$result = array(
+								'error' => 'There is something wrong when updating the data.'
+							);
+						} else {
+							$result = array(
+								'key' => $key
+							);
+						}
 					}
 				}
 				$this->closeCursor();
@@ -97,59 +117,81 @@
 			return json_encode($result);
 		}
 		
-		public function update_lesson($key, $level, $title, $goal, $content, $example, $practice, $implement) {
-			$title = htmlspecialchars($title, ENT_QUOTES);
-			$goal = htmlspecialchars($goal, ENT_QUOTES);
-			$content = htmlspecialchars($content, ENT_QUOTES);
-			$example = htmlspecialchars($example, ENT_QUOTES);
-			$practice = htmlspecialchars($practice, ENT_QUOTES);
-			$implement = htmlspecialchars($implement, ENT_QUOTES);
-			if (!preg_match("/^[1-4]{1}$/", $level)) {
-				$result = array(
-					'error' => 'Invalid level.'
-				);
-			} else if (($length = mb_strlen($title, 'UTF-8')) == 0 or $length > 128) {
-				$result = array(
-					'error' => 'Invalid title.'
-				);
-			} else {
+		public function update_lesson($type, array $content = array()) {
+			if (!empty($content)) {
 				$sql = "SELECT `id` FROM `lesson` WHERE `lesson_key` = :lesson_key";
 				$params = array(
-					':lesson_key' => $key
+					':lesson_key' => $content['key']
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() == 0) {
 					$result = array(
-						'error' => 'The unit is not exists.'
+						'error' => 'The unit does not exist.'
 					);
 				} else {
+					$lesson_id = $this->fetch();
 					$this->closeCursor();
-					$sql = "UPDATE `lesson` SET `lesson_level` = :lesson_level, `lesson_title` = :lesson_title, `lesson_goal` = :lesson_goal, `lesson_content` = :lesson_content, `lesson_example` = :lesson_example, `lesson_practice` = :lesson_practice, ";
-					$sql .= "`lesson_implement` = :lesson_implement, `lesson_last_update_user` = :lesson_last_update_user, `lesson_last_update_time` = :lesson_last_update_time WHERE `lesson_key` = :lesson_key";
-					$params = array(
-						':lesson_level' => $level,
-						':lesson_title' => $title,
-						':lesson_goal' => $goal,
-						':lesson_content' => $content,
-						':lesson_example' => $example,
-						':lesson_practice' => $practice,
-						':lesson_implement' => $implement,
-						':lesson_last_update_user' => $_SESSION['uid'],
-						':lesson_last_update_time' => $this->current_time,
-						':lesson_key' => $key
-					);
-					$this->query($sql, $params);
-					if ($this->rowCount() != 1) {
-						$result = array(
-							'error' => 'There is something wrong when updating the data.'
-						);
-					} else {
-						$result = array(
-							'updated' => true
-						);
+					switch ($type) {
+						case 'lesson':
+							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
+								$result = array(
+									'error' => 'Invalid level.'
+								);
+							} else if (($length = mb_strlen($content['title'], 'UTF-8')) == 0 or $length > 128) {
+								$result = array(
+									'error' => 'Invalid title.'
+								);
+							} else {
+								if (mb_strlen($content['goal'], 'UTF-8') == 0) {
+									$content['goal'] = null;
+								}
+								if (mb_strlen($content['content'], 'UTF-8') == 0) {
+									$content['content'] = null;
+								}
+								if (mb_strlen($content['example'], 'UTF-8') == 0) {
+									$content['example'] = null;
+								}
+								$sql = "UPDATE `lesson` SET `lesson_level` = :lesson_level, `lesson_title` = :lesson_title, `lesson_goal` = :lesson_goal, `lesson_content` = :lesson_content, `lesson_example` = :lesson_example, ";
+								$sql .= "`lesson_last_update_user` = :lesson_last_update_user, `lesson_last_update_time` = :lesson_last_update_time WHERE `lesson_key` = :lesson_key";
+								$params = array(
+									':lesson_level' => $level,
+									':lesson_title' => $title,
+									':lesson_goal' => $goal,
+									':lesson_content' => $content,
+									':lesson_example' => $example,
+									':lesson_last_update_user' => $_SESSION['uid'],
+									':lesson_last_update_time' => $this->current_time,
+									':lesson_key' => $key
+								);
+								$this->query($sql, $params);
+								if ($this->rowCount() != 1) {
+									$result = array(
+										'error' => 'There is something wrong when updating the data.'
+									);
+								} else {
+									$result = array(
+										'updated' => true
+									);
+								}
+							}
+							break;
+						case 'practice':
+							
+							break;
+						case 'implement':
+							break;
+						default :
+							$result = array(
+								'error' => 'Invalid type.'
+							);
+							break;
 					}
 				}
 				$this->closeCursor();
+			} else {
+				$result = array(
+					'error' => 'Empty content.'
+				);
 			}
 			return json_encode($result);
 		}
@@ -195,7 +237,7 @@
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
-					'error' => 'The unit is not exists.'
+					'error' => 'The unit does not exist.'
 				);
 			} else {
 				$sql = "SELECT `image_type`, `image_width`, `image_height`, `image_data` FROM `lesson_image` WHERE `id` = :image_id AND `lesson_id` = :lesson_id AND `image_is_delete` = :image_is_delete";
@@ -213,7 +255,7 @@
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
-					'error' => 'The unit is not exists.'
+					'error' => 'The unit does not exist.'
 				);
 			} else {
 				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_used` = :image_is_used AND `image_is_delete` = :image_is_delete";
@@ -231,7 +273,7 @@
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
-					'error' => 'The unit is not exists.'
+					'error' => 'The unit does not exist.'
 				);
 			} else {
 				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_used` = :image_is_used AND `image_is_delete` = :image_is_delete";
@@ -258,7 +300,7 @@
 				$lesson_id = $this->get_lesson_id($key);
 				if (isset($lesson_id['error'])) {
 					$result = array(
-						'error' => 'The unit is not exists.'
+						'error' => 'The unit does not exist.'
 					);
 				} else {
 					$sql = "INSERT INTO `lesson_image` (`lesson_id`, `image_type`, `image_size`, `image_width`, `image_height`, `image_data`) VALUES (:lesson_id, :image_type, :image_size, :image_width, :image_height, :image_data)";
@@ -293,7 +335,7 @@
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
-					'error' => 'The unit is not exists.'
+					'error' => 'The unit does not exist.'
 				);
 			} else {
 				$sql = "UPDATE `lesson_image` SET `image_is_delete` = :image_is_delete WHERE `id` = :image_id AND `lesson_id` = :lesson_id";
@@ -325,7 +367,7 @@
 			$this->query($sql, $params);
 			if ($this->rowCount() != 1) {
 				$result = array(
-					'error' => 'The unit is not exists.'
+					'error' => 'The unit does not exist.'
 				);
 			} else {
 				$lesson_id = $this->fetch();

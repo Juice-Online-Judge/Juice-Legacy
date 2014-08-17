@@ -48,7 +48,7 @@
 					':implement_is_delete' => false
 				);
 				$this->query($sql, $params);
-				array_push($result, $this->fetchAll(););
+				array_push($result, $this->fetchAll());
 				$this->closeCursor();
 			}
 			return $result;

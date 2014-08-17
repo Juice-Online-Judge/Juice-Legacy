@@ -15,7 +15,7 @@
 			$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $login->login($_POST['username'], $_POST['passward'], $remember);
 			if ($message === true) {
-				setcookie("verify_code_login", '', $current_time - 600, "/", WEB_DOMAIN_NAME, false, true);
+				setcookie("verify_code_login", '', $current_time - 600, "/", false, true);
 				header("Location: ".$prefix."index.php");
 				exit();
 			}
@@ -24,7 +24,7 @@
 		}
 	}
 	$verify_code = verify_code();
-	setcookie("verify_code_login", $verify_code, $current_time + 600, "/", WEB_DOMAIN_NAME, false, true);
+	setcookie("verify_code_login", $verify_code, $current_time + 600, "/", false, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ EOD;
 	}
 ?>
 						<div style="display:table;">
-							<div  style="display:table-cell; vertical-align:middle;">
+							<div style="display:table-cell; vertical-align:middle;">
 								<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 									<fieldset>
 										<div class="pure-control-group">
@@ -78,6 +78,7 @@ EOD;
 								</form>
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>

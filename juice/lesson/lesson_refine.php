@@ -183,7 +183,7 @@
 							</div>
 							<br>
 							<div class="pure-controls">
-								<button class="juice-lesson-button" type="submit" name="submit" id="submit" class="pure-button pure-button-primary"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
+								<button type="submit" name="submit" id="submit" class="pure-button pure-button-primary"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
 							</div>
 						</fieldset>
 					</form>

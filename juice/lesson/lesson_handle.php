@@ -36,7 +36,8 @@
 					}
 				}
 				break;
-			case 'lesson':
+			default :
+				$_POST['type'] = 'lesson';
 				$data = array(
 					'action' => $_POST['action'],
 					'level' => $_POST['level'],
@@ -51,12 +52,13 @@
 					$data['key'] = $_POST['key'];
 				}
 				break;
-			default :
-				$_POST['type'] = 'lesson';
-				break;
 		}
 		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-		$result = $lesson->add_lesson($_POST['type'], $data);
+		if ($_POST['type'] == 'lesson' and $_POST['action'] == 'add') {
+			$result = $lesson->add_lesson($_POST['type'], $data);
+		} else {
+			$result = $lesson->update_lesson($_POST['type'], $data);
+		}
 	} else {
 		$result['error'] = 'The page is invalid';
 		$result = json_encode($result);

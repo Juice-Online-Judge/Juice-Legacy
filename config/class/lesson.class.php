@@ -143,11 +143,11 @@
 								$sql = "UPDATE `lesson` SET `lesson_level` = :lesson_level, `lesson_title` = :lesson_title, `lesson_goal` = :lesson_goal, `lesson_content` = :lesson_content, `lesson_example` = :lesson_example, ";
 								$sql .= "`lesson_last_update_user` = :lesson_last_update_user, `lesson_last_update_time` = :lesson_last_update_time WHERE `lesson_key` = :lesson_key";
 								$params = array(
-									':lesson_level' => $level,
-									':lesson_title' => $title,
-									':lesson_goal' => $goal,
-									':lesson_content' => $content,
-									':lesson_example' => $example,
+									':lesson_level' => $content['level'],
+									':lesson_title' => $content['title'],
+									':lesson_goal' => $content['goal'],
+									':lesson_content' => $content['content'],
+									':lesson_example' => $content['example'],
 									':lesson_last_update_user' => $_SESSION['uid'],
 									':lesson_last_update_time' => $this->current_time,
 									':lesson_key' => $key
@@ -165,7 +165,27 @@
 							}
 							break;
 						case 'practice':
-							
+							if ($content['action'] == 'add') {
+								$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_content`) VALUES ";
+								foreach ($_POST as $key => $value) {
+									if (stripos($key, 'practice') !== false) {
+										$tmp = "(:lesson_id, :".$key.")";
+										$params[':'.$key] = $value;
+									}
+								}
+								$sql .= implode(", ", $tmp);
+								$params[':lesson_id'] = $lesson_id;
+							} else {
+								$sql = "UPDATE `lesson_practice` SET ";
+								foreach ($_POST as $key => $value) {
+									if (stripos($key, 'practice') !== false) {
+										$tmp = "`".$key."` = :".$key."";
+										$params[':'.$key] = $value;
+									}
+								}
+								$sql .= implode(", ", $tmp);
+								$params[':lesson_id'] = $lesson_id;
+							}
 							break;
 						case 'implement':
 							break;

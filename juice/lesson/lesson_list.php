@@ -27,11 +27,11 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="lesson_list" class="center" style="position:relative;width:100%;">
+			<div id="lesson_list" class="center" style="position:relative;">
 				<div>
 					<h1 class="title">課程列表</h1>
 				</div>
-				<div style="margin:0 auto">
+				<div style="width:100%;margin:0 auto;">
 					<table class="pure-table">
 						<thead>
 							<tr>

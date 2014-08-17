@@ -28,9 +28,9 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="lesson_list" style="position:relative;">
+			<div id="lesson_list" class="center" style="position:relative;">
 				<div>
-					<h3 class="title ">課程列表</h3>
+					<h1 class="title">課程列表</h1>
 				</div>
 				<div>
 					<table class="pure-table">
@@ -72,7 +72,7 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
-				$('#lesson_list').center({against:'parent'});
+				$('#lesson_list').center({against:'window'});
 			});
 		</script>
 	</body>

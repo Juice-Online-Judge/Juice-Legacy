@@ -43,7 +43,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3">
-					<div style="vertical-align:middle;">
+					<div>
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -53,7 +53,7 @@
 EOD;
 	}
 ?>
-						<div>
+						<div style="vertical-align:middle;">
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<fieldset>
 									<div class="pure-control-group">

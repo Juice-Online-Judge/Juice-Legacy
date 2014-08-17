@@ -197,7 +197,7 @@
 										$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
 										$sql .= "(:lesson_id, :practice_key, :practice_content)";
 										$params = array(
-											':lesson_id' => $lesson_id,
+											':lesson_id' => $lesson_id['id'],
 											':practice_key' => hash_key('md5'),
 											':practice_content' => $value['content']
 										);
@@ -230,7 +230,7 @@
 										$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
 										$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
 										$params = array(
-											':lesson_id' => $lesson_id,
+											':lesson_id' => $lesson_id['id'],
 											':implement_key' => hash_key('md5'),
 											':implement_content' => $value['content'],
 											':time_limit' => $value['time_limit'],

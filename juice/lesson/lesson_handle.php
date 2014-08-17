@@ -100,5 +100,12 @@
 		$result = json_encode($result);
 	}
 	
-	echo $result;
+	$result = json_decode($result);
+	if (isset($result->{'error'})) {
+		echo $result->{'error'};
+	} else {
+		header("Location: ".$prefix."juice/lesson/lesson_list.php");
+		exit();
+	}
+	//echo $result;
 ?>

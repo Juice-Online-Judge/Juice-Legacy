@@ -23,7 +23,6 @@
 		<link rel="icon" href="" type="image/x-icon">
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
-		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
@@ -32,7 +31,7 @@
 				<div>
 					<h1 class="title">課程列表</h1>
 				</div>
-				<div>
+				<div style="margin:0 auto">
 					<table class="pure-table">
 						<thead>
 							<tr>
@@ -70,10 +69,5 @@
 			</div>
 		</div>
 <?php display_footer(); ?>
-		<script>
-			$(document).ready(function(){
-				$('#lesson_list').center({against:'window'});
-			});
-		</script>
 	</body>
 </html>

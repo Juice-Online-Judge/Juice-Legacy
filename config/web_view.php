@@ -158,9 +158,6 @@ EOD;
 ?>
 		<script>
 			$(document).ready(function(){
-				$(window).resize(function() {
-					$('#demo-horizontal-menu > ul').css('margin-right', ($(window).width() / 8));
-				});
 			});
 		</script>
 <?php

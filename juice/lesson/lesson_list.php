@@ -27,7 +27,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="lesson_list" class="center" style="position:relative;">
+			<div id="lesson_list" class="center" style="position:relative;width:100%;">
 				<div>
 					<h1 class="title">課程列表</h1>
 				</div>

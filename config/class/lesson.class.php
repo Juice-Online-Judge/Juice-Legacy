@@ -40,6 +40,7 @@
 					':practice_is_delete' => false
 				);
 				$this->query($sql, $params);
+				
 				array_push($result['practice'], $this->fetchAll());
 				$this->closeCursor();
 				$sql = "SELECT `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit` FROM `lesson_implement` WHERE `lesson_id` = :lesson_id AND `implement_is_delete` = :implement_is_delete";

@@ -52,10 +52,9 @@
 EOD;
 	}
 ?>
-					<div>
-						<div style="vertical-align:middle;">
+						<div>
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-								<fieldset>
+								<fieldset style="vertical-align:middle;">
 									<div class="pure-control-group">
 										<label for="username">帳號：</label>
 										<input type="text" name="username" id="username" autocomplete="off" required>
@@ -77,7 +76,6 @@ EOD;
 								</div>
 							</form>
 						</div>
-					</div>
 				</div>
 			</div>
 		</div>

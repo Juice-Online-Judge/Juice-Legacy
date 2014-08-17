@@ -42,7 +42,7 @@
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
 				</div>
-				<div class="pure-u-1-3">
+				<div class="pure-u-1-3" style="min-height:100%;height:100%;">
 					<div>
 <?php
 	if (isset($message)) {

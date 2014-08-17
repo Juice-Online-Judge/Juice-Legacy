@@ -49,7 +49,7 @@
 		if ($lesson_check and !empty($lesson_content['practice'])) {
 			foreach ($lesson_content['practice'] as $tmp) {
 ?>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
 								<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
@@ -60,12 +60,12 @@
 			}
 		}
 ?>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
 								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 							</div>
-							<div>
+							<div class="pure-control-group">
 								<input type="text" name="total_practice" id="total_practice" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
 							</div>
@@ -172,17 +172,17 @@
 									<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_check) ? $lesson_content['lesson_example'] : ''; ?></textarea>
 								</div>
 							</div>
-							<div>
+							<div class="pure-control-group">
 								<input type="text" name="type" id="type" value="lesson" hidden readonly autocomplete="off">
 								<input type="text" name="action" id="action" value="<?php echo ($lesson_check) ? 'update' : 'add'; ?>" hidden readonly autocomplete="off">
 							</div>
 <?php } ?>
-							<div>
+							<div class="pure-control-group">
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_lesson_refine']; ?>" hidden readonly autocomplete="off" required>
 								<input type="text" name="key" id="key" value="<?php echo ($lesson_check) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
 							</div>
 							<br>
-							<button class="juice-lesson-button" type="submit" name="submit" id="submit"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
+							<button class="juice-lesson-button" type="submit" name="submit" id="submit" class="pure-button pure-button-primary"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
 						</fieldset>
 					</form>
 				</div>

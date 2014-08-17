@@ -52,7 +52,7 @@
 EOD;
 	}
 ?>
-					<div style="vertical-align:middle;">
+					<div class="juice-login">
 						<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 							<fieldset>
 								<div class="pure-control-group">

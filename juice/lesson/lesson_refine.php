@@ -84,7 +84,7 @@
 								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
-								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制：</label>
+								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
 								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
@@ -115,7 +115,7 @@
 								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">
-								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制：</label>
+								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
 								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
 							<div class="pure-control-group">

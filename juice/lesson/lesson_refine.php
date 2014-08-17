@@ -43,11 +43,18 @@
 					<div>
 					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST">
 						<fieldset>
-<?php if (isset($_GET['practice']) and $lesson_check) { ?>
+<?php
+	if (isset($_GET['practice'])) {
+		if ($lesson_check) {
+		} else {
+		
+		}
+?>
+
 							<div class="juice-lesson-contents">
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
-								<input type="text" name="practice_action" id="action" value="" hidden readonly autocomplete="off">
+								<input type="text" name="practice_action" id="practice_action" value="" hidden readonly autocomplete="off">
 							</div>
 							<div>
 								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">

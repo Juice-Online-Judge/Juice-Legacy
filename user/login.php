@@ -52,7 +52,7 @@
 EOD;
 	}
 ?>
-						<div style="position:absolute;top:calc(20%+100px);">
+						<div style="position:absolute;top:calc(20% + 100px);">
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<fieldset>
 									<div class="pure-control-group">

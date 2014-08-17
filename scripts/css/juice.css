@@ -75,7 +75,7 @@ footer {
 .juice-menu-head nav ul {
 	float: right;
 	margin-top: 55px;
-	margin-right: 10px;
+	margin-right: calc(100% / 8);
 }
 
 .juice-lesson-body {

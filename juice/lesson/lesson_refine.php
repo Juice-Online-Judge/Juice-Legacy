@@ -55,6 +55,7 @@
 								<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 							</div>
+							<br>
 <?php
 				$i++;
 			}
@@ -65,6 +66,7 @@
 								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
 								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 							</div>
+							<br>
 							<div class="pure-control-group">
 								<input type="text" name="total_practice" id="total_practice" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
@@ -101,6 +103,7 @@
 								<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 							</div>
+							<br>
 <?php
 				$i++;
 			}

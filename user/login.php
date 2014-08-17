@@ -43,7 +43,7 @@
 				<div class="pure-u-2-3 fullheight">
 					<p>Introduction</p>
 				</div>
-				<div class="pure-u-1-3 fullheight" id="test1">
+				<div class="pure-u-1-3 fullheight">
 					<div id="test2">
 <?php
 	if (isset($message)) {
@@ -88,7 +88,7 @@ EOD;
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 			$(document).ready(function(){
-				$('#test1').find('#test2').center({against:'parent'});
+				$('#test2').center({against:'parent'});
 			});
 		</script>
 	</body>

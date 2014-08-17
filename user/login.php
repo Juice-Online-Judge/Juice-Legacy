@@ -39,7 +39,7 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div class="pure-g fullheight">
-				<div class="pure-u-2-3">
+				<div class="pure-u-2-3 fullheight">
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3 fullheight">

@@ -57,7 +57,7 @@
 								<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?practice=1&key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
 								<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?implement=1&key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
 								<td><?php echo ($tmp['lesson_is_visible']) ? '是' : '否'; ?></td>
-								<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_key']; ?>">修改</a></td>
+								<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
 							</tr>
 <?php
 		}

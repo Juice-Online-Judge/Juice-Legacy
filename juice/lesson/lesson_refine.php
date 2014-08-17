@@ -47,10 +47,10 @@
 							<div class="juice-lesson-contents">
 								<label for="practice">填空練習：</label>
 								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
+								<input type="text" name="practice_action" id="action" value="" hidden readonly autocomplete="off">
 							</div>
 							<div>
 								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
-								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
 							</div>
 <?php } else if (isset($_GET['implement']) and $lesson_check) { ?>
 							<div class="juice-lesson-contents">

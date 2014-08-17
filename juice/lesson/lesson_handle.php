@@ -16,30 +16,66 @@
 		switch ($_POST['type']) {
 			case 'practice':
 				$data = array(
-					'action' => $_POST['action'],
 					'key' => $_POST['key']
 				);
 				foreach ($_POST as $key => $value) {
 					if (stripos($key, 'practice') !== false) {
-						$data[$key] = $value;
+						// $tmp[0] : practice, $tmp[1] : type, $tmp[2] : id
+						$tmp = explode('_', $key);
+						switch ($tmp[1]) {
+							case 'action':
+								$data[$tmp[2]]['action'] = $value;
+								break;
+							case 'key':
+								$data[$tmp[2]]['key'] = $value;
+								break;
+							default :
+								$data[$tmp[2]]['content'] = $value;
+								break;
+						}
 					}
 				}
 				break;
 			case 'implement':
 				$data = array(
-					'action' => $_POST['action'],
 					'key' => $_POST['key']
 				);
 				foreach ($_POST as $key => $value) {
 					if (stripos($key, 'implement') !== false) {
-						$data[$key] = $value;
+						// $tmp[0] : practice, $tmp[1] : type, $tmp[2] : id
+						$tmp = explode('_', $key);
+						switch ($tmp[1]) {
+							case 'action':
+								$data[$tmp[2]]['action'] = $value;
+								break;
+							case 'key':
+								$data[$tmp[2]]['key'] = $value;
+								break;
+							case 'timeLimit':
+								$data[$tmp[2]]['time_limit'] = $value;
+								break;
+							case 'memoryLimit':
+								$data[$tmp[2]]['memory_limit'] = $value;
+								break;
+							case 'fileLimit':
+								$data[$tmp[2]]['file_limit'] = $value;
+								break;
+							case 'mode':
+								$data[$tmp[2]]['mode'] = $value;
+								break;
+							case 'otherLimit':
+								$data[$tmp[2]]['other_limit'] = $value;
+								break;
+							default :
+								$data[$tmp[2]]['content'] = $value;
+								break;
+						}
 					}
 				}
 				break;
 			default :
 				$_POST['type'] = 'lesson';
 				$data = array(
-					'action' => $_POST['action'],
 					'level' => $_POST['level'],
 					'title' => $_POST['title'],
 					'goal' => $_POST['goal'],

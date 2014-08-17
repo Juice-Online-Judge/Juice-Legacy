@@ -196,7 +196,7 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function() {
-				$('#main').css('height', ($(document).height() - 200));
+				$('#main').css('height', ($(document).height() - 300));
 			});
 			/*$(document).ready(function() {
 				function auto_update() {

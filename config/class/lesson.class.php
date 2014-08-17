@@ -114,7 +114,7 @@
 						);
 					} else {
 						$this->closeCursor();
-						$sql = "UPDATE `lesson` SET `lesson_practice` = :lesson_practice AND `lesson_implement` = :lesson_implement WHERE `lesson_key` = :lesson_key";
+						$sql = "UPDATE `lesson` SET `lesson_practice` = :lesson_practice, `lesson_implement` = :lesson_implement WHERE `lesson_key` = :lesson_key";
 						$params = array(
 							':lesson_practice' => $insert_id,
 							':lesson_implement' => $insert_id,

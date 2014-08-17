@@ -45,28 +45,50 @@
 						<fieldset>
 <?php
 	if (isset($_GET['practice'])) {
-		if ($lesson_check) {
-		} else {
-		
-		}
+		$i = 1;
+		if ($lesson_check and !empty($lesson_content['practice'])) {
+			foreach ($lesson_content['practice'] as $tmp) {
 ?>
-
 							<div class="juice-lesson-contents">
 								<label for="practice">填空練習：</label>
-								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
-								<input type="text" name="practice_action" id="practice_action" value="" hidden readonly autocomplete="off">
+								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
+								<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
+								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 							</div>
+<?php
+				$i++;
+			}
+		}
+?>
 							<div>
+								<input type="text" name="total_practice" id="total_practice" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
 							</div>
-<?php } else if (isset($_GET['implement']) and $lesson_check) { ?>
+<?php
+	} else if (isset($_GET['implement'])) {
+		$i = 1;
+		if ($lesson_check and !empty($lesson_content['implement'])) {
+			foreach ($lesson_content['implement'] as $tmp) {
+?>
 							<div class="juice-lesson-contents">
-								<label for="implement">動 動 腦：</label>
-								<textarea class="ckeditor" name="implement" id="implement" required><?php echo ($lesson_content) ? $lesson_content['lesson_implement'] : ''; ?></textarea>
+								<label for="practice">動 動 腦：</label>
+								<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
+								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
+								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
+								<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="<?php echo $tmp['mode']; ?>" autocomplete="off" required>
+								<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
+								<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
+								<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
+								<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 							</div>
+<?php
+				$i++;
+			}
+		}
+?>
 							<div>
+								<input type="text" name="total_implement" id="total_implement" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
 								<input type="text" name="type" id="type" value="implement" hidden readonly autocomplete="off">
-								<input type="text" name="action" id="action" value="" hidden readonly autocomplete="off">
 							</div>
 <?php } else { ?>
 							<div>

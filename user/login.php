@@ -44,7 +44,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3 fullheight">
-					<div id="test2">
+					<div id="test2" style="position:relative;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

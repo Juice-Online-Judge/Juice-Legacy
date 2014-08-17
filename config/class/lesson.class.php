@@ -199,6 +199,9 @@
 									$this->closeCursor();
 								}
 							}
+							$result = array(
+								'updated' => true
+							);
 							break;
 						case 'implement':
 							foreach ($content as $key => $value) {
@@ -241,6 +244,9 @@
 									$this->closeCursor();
 								}
 							}
+							$result = array(
+								'updated' => true
+							);
 							break;
 						default :
 							$result = array(

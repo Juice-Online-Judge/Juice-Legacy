@@ -31,7 +31,27 @@
 				':lesson_is_delete' => false
 			);
 			$this->query($sql, $params);
-			return $this->fetch();
+			$result = $this->fetch();
+			$this->closeCursor();
+			if (!empty($result)) {
+				$sql = "SELECT `practice_key`, `practice_content` FROM `lesson_practice` WHERE `lesson_id` = :lesson_id AND `practice_is_delete` = :practice_is_delete";
+				$params = array(
+					':lesson_id' => $result['lesson_practice'],
+					':practice_is_delete' => false
+				);
+				$this->query($sql, $params);
+				array_push($result, $this->fetchAll(););
+				$this->closeCursor();
+				$sql = "SELECT `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit` FROM `lesson_implement` WHERE `lesson_id` = :lesson_id AND `implement_is_delete` = :implement_is_delete";
+				$params = array(
+					':lesson_id' => $result['lesson_implement'],
+					':implement_is_delete' => false
+				);
+				$this->query($sql, $params);
+				array_push($result, $this->fetchAll(););
+				$this->closeCursor();
+			}
+			return $result;
 		}
 		
 		public function add_lesson($type, array $content = array()) {

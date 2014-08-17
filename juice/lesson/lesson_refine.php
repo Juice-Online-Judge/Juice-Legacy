@@ -41,7 +41,7 @@
 					<h3 id="message"></h3>
 				</div>
 					<div>
-					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" onSubmit="return false;">
+					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" <!--onSubmit="return false;"-->>
 						<fieldset>
 <?php if (isset($_GET['practice']) and $lesson_check) { ?>
 							<div class="juice-lesson-contents">
@@ -120,7 +120,7 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
-			$(document).ready(function() {
+			/*$(document).ready(function() {
 				function auto_update() {
 					$.post(
 						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
@@ -131,8 +131,8 @@
 							goal:CKEDITOR.instances.goal.getData(),
 							content:CKEDITOR.instances.content.getData(),
 							example:CKEDITOR.instances.example.getData(),
-							practice:CKEDITOR.instances.practice.getData(),
-							implement:CKEDITOR.instances.implement.getData(),
+							//practice:CKEDITOR.instances.practice.getData(),
+							//implement:CKEDITOR.instances.implement.getData(),
 							verify_code:$('#verify_code').val(),
 							key:$('#key').val()
 						},
@@ -167,17 +167,17 @@
 				$("#lesson_refine").submit(function(){
 					auto_update();
 					return false;
-				});
+				});*/
 				
 <?php
 	if ($lesson_content) {
 ?>
-				$("#unit").attr("readonly",true);
-				setInterval(auto_update, 300000);
+				//$("#unit").attr("readonly",true);
+				//setInterval(auto_update, 300000);
 <?php
 	}
 ?>
-			});
+			//});
 		</script>
 	</body>
 </html>

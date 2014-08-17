@@ -169,7 +169,7 @@
 								$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_content`) VALUES ";
 								foreach ($_POST as $key => $value) {
 									if (stripos($key, 'practice') !== false) {
-										$tmp = "(:lesson_id, :".$key.")";
+										$tmp[] = "(:lesson_id, :".$key.")";
 										$params[':'.$key] = $value;
 									}
 								}
@@ -179,7 +179,7 @@
 								$sql = "UPDATE `lesson_practice` SET ";
 								foreach ($_POST as $key => $value) {
 									if (stripos($key, 'practice') !== false) {
-										$tmp = "`".$key."` = :".$key."";
+										$tmp[] = "`practice_content` = :".$key."";
 										$params[':'.$key] = $value;
 									}
 								}

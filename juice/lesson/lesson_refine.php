@@ -28,7 +28,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title><?php echo ($lesson_check) ? '修改課程' : '新增課程'; ?></title>
-		<link rel="icon" href="" type="image/x-icon">
+		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 		<script src="http://cdn.ckeditor.com/4.4.3/standard-all/ckeditor.js"></script>
@@ -41,7 +41,7 @@
 					<h3 id="message"></h3>
 				</div>
 					<div>
-					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" <!--onSubmit="return false;"-->>
+					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST">
 						<fieldset>
 <?php if (isset($_GET['practice']) and $lesson_check) { ?>
 							<div class="juice-lesson-contents">

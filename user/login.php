@@ -63,12 +63,14 @@ EOD;
 										<label for="passward">密碼：</label>
 										<input type="password" name="passward" id="password" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
-										<label for="remember">記住我</label>
-										<input type="checkbox" name="remember" id="remember" value="1">
-									</div>
-									<div class="pure-controls">
-										<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
+									<div style="display:inline-block;text-align:center;">
+										<div class="pure-control-group">
+											<label for="remember">記住我</label>
+											<input type="checkbox" name="remember" id="remember" value="1">
+										</div>
+										<div class="pure-controls">
+											<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
+										</div>
 									</div>
 								</fieldset>	
 								<div class="pure-control-group">

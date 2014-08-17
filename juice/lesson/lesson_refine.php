@@ -40,7 +40,7 @@
 				<div>
 					<h3 id="message"></h3>
 				</div>
-					<div>
+				<div>
 					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 <?php

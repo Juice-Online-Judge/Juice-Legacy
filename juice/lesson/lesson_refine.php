@@ -21,7 +21,7 @@
 		}
 	}
 	$verify_code = verify_code();
-	setcookie("verify_code_lesson_refine", $verify_code, $current_time + 3600, "/", false, true);
+	setcookie("verify_code_lesson_refine", $verify_code, $current_time + 3600, '/', '', false, true);
 ?>
 <!DOCTYPE html>
 <html>

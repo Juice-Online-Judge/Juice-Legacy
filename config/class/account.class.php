@@ -183,8 +183,8 @@
 								':login_ip' => $this->ip,
 								':login_time' => $this->current_time
 							);
-							setcookie("rem_user", $rem_user, $rem_time_end, "/", false, true);
-							setcookie("rem_verify", $rem_verify, $rem_time_end, "/", false, true);
+							setcookie("rem_user", $rem_user, $rem_time_end, '/', '', false, true);
+							setcookie("rem_verify", $rem_verify, $rem_time_end, '/', '', false, true);
 						} else {
 							$sql = "INSERT INTO `web_login_log` (`uid`, `login_ip`, `login_time`) VALUES (:uid, :login_ip, :login_time) ";
 							$params = array(
@@ -246,10 +246,10 @@
 				$this->query($sql, $params);
 				$this->closeCursor();
 			}
-			setcookie("rem_user", "", ($this->current_time - 3600), "/", false, true);
-			setcookie("rem_verify", "", ($this->current_time - 3600), "/", false, true);
-			setcookie("verify_code_login", '', ($this->current_time - 3600), "/", false, true);
-			setcookie("verify_code_register", '', ($this->current_time - 3600), "/", false, true);
+			setcookie("rem_user", "", ($this->current_time - 3600), '/', '', false, true);
+			setcookie("rem_verify", "", ($this->current_time - 3600), '/', '', false, true);
+			setcookie("verify_code_login", '', ($this->current_time - 3600), '/', '', false, true);
+			setcookie("verify_code_register", '', ($this->current_time - 3600), '/', '', false, true);
 			session_unset();
 			session_regenerate_id(true);
 		}

@@ -34,50 +34,55 @@
 			return $this->fetch();
 		}
 		
-		public function add_lesson($unit, $level, $title, $goal, $content, $example) {
+		public function add_lesson($type, array $content = array()) {
 			$key = hash_key('sha1');
-			$title = htmlspecialchars($title, ENT_QUOTES);
-			$goal = htmlspecialchars($goal, ENT_QUOTES);
-			$content = htmlspecialchars($content, ENT_QUOTES);
-			$example = htmlspecialchars($example, ENT_QUOTES);
-			if (!preg_match("/^\d{1,2}$/", $unit)) {
+			$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
+			$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
+			$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
+			$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
+			if (!preg_match("/^\d{1,2}$/", $content['unit'])) {
 				$result = array(
 					'error' => 'Invalid unit.'
 				);
-			} else if (!preg_match("/^[1-4]{1}$/", $level)) {
+			} else if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
 				$result = array(
 					'error' => 'Invalid level.'
 				);
-			} else if (($length = mb_strlen($title, 'UTF-8')) == 0 or $length > 128) {
+			} else if (($length = mb_strlen($content['title'], 'UTF-8')) == 0 or $length > 128) {
 				$result = array(
 					'error' => 'Invalid title.'
 				);
 			} else {
-				if (mb_strlen($goal, 'UTF-8') == 0) {
-					$goal = null;
+				if (mb_strlen($content['goal'], 'UTF-8') == 0) {
+					$content['goal'] = null;
 				}
-				if (mb_strlen($content, 'UTF-8') == 0) {
-					$content = null;
+				if (mb_strlen($content['content'], 'UTF-8') == 0) {
+					$content['content'] = null;
 				}
-				if (mb_strlen($example, 'UTF-8') == 0) {
-					$example = null;
+				if (mb_strlen($content['example'], 'UTF-8') == 0) {
+					$content['example'] = null;
 				}
-				$lesson_id = $this->get_lesson_id($content['key']);
-				if (isset($lesson_id['id'])) {
+				$sql = "SELECT `id` FROM `lesson` WHERE `lesson_unit` = :lesson_unit";
+				$params = array(
+					':lesson_unit' => $content['unit']
+				);
+				$this->query($sql, $params);
+				if ($this->rowCount() >= 1) {
 					$result = array(
 						'error' => 'The unit is already exists.'
 					);
 				} else {
+					$this->closeCursor();
 					$sql = "INSERT INTO `lesson` (`lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_create_user`, `lesson_create_time`) ";
 					$sql .= "VALUES (:lesson_key, :lesson_unit, :lesson_level, :lesson_title, :lesson_goal, :lesson_content, :lesson_example, :lesson_create_user, :lesson_create_time)";
 					$params = array(
 						':lesson_key' => $key,
-						':lesson_unit' => $unit,
-						':lesson_level' => $level,
-						':lesson_title' => $title,
-						':lesson_goal' => $goal,
-						':lesson_content' => $content,
-						':lesson_example' => $example,
+						':lesson_unit' => $content['unit'],
+						':lesson_level' => $content['level'],
+						':lesson_title' => $content['title'],
+						':lesson_goal' => $content['goal'],
+						':lesson_content' => $content['content'],
+						':lesson_example' => $content['example'],
 						':lesson_create_user' => $_SESSION['uid'],
 						':lesson_create_time' => $this->current_time
 					);

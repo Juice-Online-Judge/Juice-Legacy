@@ -75,27 +75,27 @@
 		if ($lesson_check and !empty($lesson_content['implement'])) {
 			foreach ($lesson_content['implement'] as $tmp) {
 ?>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 								<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
 								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制：</label>
 								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
 								<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="<?php echo $tmp['mode']; ?>" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
 								<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement">動 動 腦：</label>
 								<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
 								<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
@@ -106,27 +106,27 @@
 			}
 		}
 ?>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 								<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
 								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制：</label>
 								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
 								<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
 								<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 							</div>
-							<div class="juice-lesson-contents">
+							<div class="pure-control-group">
 								<label for="implement">動 動 腦：</label>
 								<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required></textarea>
 								<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">

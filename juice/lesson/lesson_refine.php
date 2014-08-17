@@ -12,10 +12,6 @@
 		exit();
 	}
 	
-	if (!isset($_COOKIE['verify_code_add_lesson'])) {
-		setcookie("verify_code_add_lesson", verify_code(), $current_time + 3600, "/", WEB_DOMAIN_NAME);
-	}
-	
 	if (isset($_GET['key'])) {
 		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 		$lesson_content = $lesson->get_lesson_content($_GET['key']);
@@ -23,6 +19,8 @@
 			$lesson_content = false;
 		}
 	}
+	$verify_code = verify_code();
+	setcookie("verify_code_add_lesson", $verify_code, $current_time + 3600, "/", WEB_DOMAIN_NAME, false, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,9 +39,20 @@
 				<div>
 					<h3 id="message"></h3>
 				</div>
-				<div>
+					<div>
 					<form name="lesson_refine" id="lesson_refine" action="<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>" method="POST" onSubmit="return false;">
 						<fieldset>
+<?php if (isset($_GET['practice'])) { ?>
+							<div class="juice-lesson-contents">
+								<label for="practice">填空練習：</label>
+								<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
+							</div>
+<?php } else if (isset($_GET['implement'])) { ?>
+							<div class="juice-lesson-contents">
+								<label for="implement">動 動 腦：</label>
+								<textarea class="ckeditor" name="implement" id="implement" required><?php echo ($lesson_content) ? $lesson_content['lesson_implement'] : ''; ?></textarea>
+							</div>
+<?php } else { ?>
 							<div>
 								<div class="juice-lesson-titles">
 									<label for="unit">單元：</label>
@@ -83,24 +92,11 @@
 									<label for="example">範　　例：</label>
 									<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_content) ? $lesson_content['lesson_example'] : ''; ?></textarea>
 								</div>
-								<br>
-								<hr>
-								<br>
-								<div class="juice-lesson-contents">
-									<label for="practice">填空練習：</label>
-									<textarea class="ckeditor" name="practice" id="practice" required><?php echo ($lesson_content) ? $lesson_content['lesson_practice'] : ''; ?></textarea>
-								</div>
-								<br>
-								<hr>
-								<br>
-								<div class="juice-lesson-contents">
-									<label for="implement">動 動 腦：</label>
-									<textarea class="ckeditor" name="implement" id="implement" required><?php echo ($lesson_content) ? $lesson_content['lesson_implement'] : ''; ?></textarea>
-								</div>
-								<div>
-									<input type="text" name="verify_code" id="verify_code" value="<?php echo $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
-									<input type="text" name="key" id="key" value="<?php echo ($lesson_content) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
-								</div>
+							</div>
+<?php } ?>
+							<div>
+								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_add_lesson']; ?>" hidden readonly autocomplete="off" required>
+								<input type="text" name="key" id="key" value="<?php echo ($lesson_content) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
 							</div>
 							<br>
 							<button class="juice-lesson-button" type="submit" name="submit" id="submit"><?php echo ($lesson_content) ? '修改' : '新增'; ?></button>

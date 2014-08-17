@@ -158,7 +158,7 @@ EOD;
 ?>
 		<script>
 			$(document).ready(function(){
-				$('.juice-menu-head nav ul').attr('margin-right', ($(window).width() / 5));
+				$('.juice-menu-head nav ul').css('margin-right', ($(window).width() / 6));
 			});
 		</script>
 <?php

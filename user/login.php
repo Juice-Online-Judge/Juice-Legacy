@@ -33,6 +33,7 @@
 		<title>登入</title>
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
+		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
@@ -42,7 +43,8 @@
 				<div class="pure-u-2-3 fullheight">
 					<p>Introduction</p>
 				</div>
-				<div class="pure-u-1-3 fullheight">
+				<div class="pure-u-1-3 fullheight" id="test1">
+					<div id="test2">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -52,7 +54,7 @@
 EOD;
 	}
 ?>
-						<div style="position:absolute;top:calc(20% + 100px);">
+						<div>
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<fieldset>
 									<div class="pure-control-group">
@@ -85,6 +87,9 @@ EOD;
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
+			$(document).ready(function(){
+				$('#test1').find('#test2').center({against:'parent'});
+			});
 		</script>
 	</body>
 </html>

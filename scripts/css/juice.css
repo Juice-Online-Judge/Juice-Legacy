@@ -18,14 +18,13 @@
 
 /* Layout Setting */
 header {
-	position: absolute;
-	top: 0;
 	min-height: 100px;
 	background-color: #FFF;
 	border-bottom: 1px solid #dfdfdf;
 }
 
 html, body {
+	position: absolute;
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -83,7 +82,7 @@ footer {
 
 .juice-menu-head nav ul {
 	float: right;
-	margin-top: 55px;
+	margin-top: 3.5em;
 	margin-right: calc(100% / 8);
 }
 

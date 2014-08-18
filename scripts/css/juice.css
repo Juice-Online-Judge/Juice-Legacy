@@ -42,6 +42,11 @@ footer {
 	height: calc(100% - 200px);
 }
 
+#register {
+	margin: 0 auto;
+	width: 500px;
+}
+
 .fullheight {
 	min-height: 100%;
 	height: 100%;

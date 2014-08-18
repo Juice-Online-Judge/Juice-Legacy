@@ -1,0 +1,28 @@
+<?php
+	if (!isset($prefix)) {
+		$prefix = '../';
+	}
+	require_once $prefix.'config/web_preprocess.php';
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset= "UTF-8">
+		<title>關於本站</title>
+<?php display_css_link($prefix); ?>
+<?php display_scripts_link(); ?>
+	</head>
+	<body>
+<?php display_navigation($prefix); ?>
+			<div id="main">
+				<div>
+					
+				</div>
+			</div>
+<?php display_footer(); ?>
+		<script>
+			$(document).ready(function(){
+			});
+		</script>
+	</body>
+</html>

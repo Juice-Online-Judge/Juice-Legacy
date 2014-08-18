@@ -196,7 +196,7 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function() {
-				$('#main').css('height', ($('.juice-lesson-body').height()));
+				$('#main').css('height', ($(document).height() - 350));
 			});
 			/*$(document).ready(function() {
 				function auto_update() {

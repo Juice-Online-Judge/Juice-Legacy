@@ -42,7 +42,7 @@ footer {
 }
 
 #main {
-	min-width: 800px;
+	width: 100%;
 	min-height: calc(100% - 200px);
 }
 

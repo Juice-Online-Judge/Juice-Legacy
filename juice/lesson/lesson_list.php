@@ -32,7 +32,7 @@
 					<h1 class="title">課程列表</h1>
 				</div>
 				<div style="width:100%;">
-					<table class="pure-table m-center">
+					<table class="pure-table m-center t-center">
 						<thead>
 							<tr>
 								<th>單　　元</th>

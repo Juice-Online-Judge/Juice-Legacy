@@ -27,7 +27,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="lesson_list" class="center">
+			<div id="lesson_list" class="t-center">
 				<div>
 					<h1 class="title">課程列表</h1>
 				</div>

@@ -42,7 +42,8 @@ footer {
 	min-height: calc(100% - 200px);
 }
 
-#login label {
+#login label,
+#register label{
 	width: auto;
 }
 

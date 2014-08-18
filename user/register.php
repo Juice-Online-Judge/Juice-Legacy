@@ -50,40 +50,45 @@ EOD;
 ?>
 			<div id="test" style="position:relative;">
 				<div style="width:500px;margin-left:auto;margin-right:auto;">
-				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
-					<fieldset>
-						<div class="pure-control-group">
-							<label for="username">帳號：</label>
-							<input type="text" name="username" id="username" pattern="^\w{5,32}$" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<label for="password">密碼：</label>
-							<input type="password" name="password" id="password" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<label for="password_check">密碼確認：</label>
-							<input type="password" name="password_check" id="password_check" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<label for="second_password">第二組密碼：</label>
-							<input type="password" name="second_password" id="second_password" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<label for="nickname">暱稱:</label>
-							<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<label for="email">信箱:</label>
-							<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
-						</div>
-						<div class="pure-control-group">
-							<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
-						</div>
-						<div class="pure-controls">
-							<button type="submit" id="submit" class="pure-button pure-button-primary">註冊</button>
-						</div>
-					</fieldset>
-				</form>
+					<div class="title center">
+						<h2>帳號註冊</h2>
+					</div>
+					<div>
+						<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+							<fieldset>
+								<div class="pure-control-group">
+									<label for="username">帳號：</label>
+									<input type="text" name="username" id="username" pattern="^\w{5,32}$" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="password">密碼：</label>
+									<input type="password" name="password" id="password" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="password_check">密碼確認：</label>
+									<input type="password" name="password_check" id="password_check" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="second_password">第二組密碼：</label>
+									<input type="password" name="second_password" id="second_password" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="nickname">暱稱:</label>
+									<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="email">信箱:</label>
+									<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
+								</div>
+								<div class="pure-controls">
+									<button type="submit" id="submit" class="pure-button pure-button-primary">註冊</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>

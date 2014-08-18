@@ -199,38 +199,36 @@
 						case 'practice':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									//$check = false;
-									$value['content'] = eol_replace(htmlspecialchars($value['content'], ENT_QUOTES));
+<<<<<<< HEAD
+=======
 									if ($value['action'] == 'add') {
-										//if (mb_strlen($value['content']) > 0) {
-											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
-											$sql .= "(:lesson_id, :practice_key, :practice_content)";
-											$params = array(
-												':lesson_id' => $lesson_id['id'],
-												':practice_key' => hash_key('md5'),
-												':practice_content' => $value['content']
-											);
-											//$check = true;
-										//}
+										$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
+										$sql .= "(:lesson_id, :practice_key, :practice_content)";
+										$params = array(
+											':lesson_id' => $lesson_id['id'],
+											':practice_key' => hash_key('md5'),
+											':practice_content' => $value['content']
+										);
+>>>>>>> parent of c35612c... Fixed
 									} else {
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
 										$params = array(
 											':practice_content' => $value['content'],
 											':practice_key' => $value['key']
 										);
-										//$check = true;
+<<<<<<< HEAD
+=======
 									}
-									//if ($check) {
-										$this->query($sql, $params);
-										if ($this->rowCount() != 1) {
-											$result = array(
-												'error' => 'There is something wrong when updating the data.'
-											);
-											$this->closeCursor();
-											break 2;
-										}
+									$this->query($sql, $params);
+									if ($this->rowCount() != 1) {
+										$result = array(
+											'error' => 'There is something wrong when updating the data.'
+										);
 										$this->closeCursor();
-									//}
+										break;
+									}
+									$this->closeCursor();
+>>>>>>> parent of c35612c... Fixed
 								}
 							}
 							$result = array(
@@ -240,24 +238,22 @@
 						case 'implement':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									$check = false;
-									$value['content'] = eol_replace(htmlspecialchars($value['content'], ENT_QUOTES));
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c35612c... Fixed
 									if ($value['action'] == 'add') {
-										if (mb_strlen($value['content']) > 0) {
-											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
-											$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
-											$params = array(
-												':lesson_id' => $lesson_id['id'],
-												':implement_key' => hash_key('md5'),
-												':implement_content' => $value['content'],
-												':time_limit' => $value['time_limit'],
-												':memory_limit' => $value['memory_limit'],
-												':file_limit' => $value['file_limit'],
-												':mode' => $value['mode'],
-												':other_limit' => $value['other_limit']
-											);
-											$check = true;
-										}
+										$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
+										$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
+										$params = array(
+											':lesson_id' => $lesson_id['id'],
+											':implement_key' => hash_key('md5'),
+											':implement_content' => $value['content'],
+											':time_limit' => $value['time_limit'],
+											':memory_limit' => $value['memory_limit'],
+											':file_limit' => $value['file_limit'],
+											':mode' => $value['mode'],
+											':other_limit' => $value['other_limit']
+										);
 									} else {
 										$sql = "UPDATE `lesson_implement` SET `implement_content` = :implement_content, `time_limit` = :time_limit, `memory_limit` = :memory_limit, ";
 										$sql .= "`file_limit` = :file_limit, `mode` = :mode, `other_limit` = :other_limit WHERE `implement_key` = :implement_key";
@@ -271,19 +267,19 @@
 											':other_limit' => htmlspecialchars($value['other_limit'], ENT_QUOTES),
 											':implement_key' => $value['key']
 										);
-										$check = true;
 									}
-									if ($check) {
-										$this->query($sql, $params);
-										if ($this->rowCount() != 1) {
-											$result = array(
-												'error' => 'There is something wrong when updating the data.'
-											);
-											$this->closeCursor();
-											break 2;
-										}
+<<<<<<< HEAD
+=======
+									$this->query($sql, $params);
+									if ($this->rowCount() != 1) {
+										$result = array(
+											'error' => 'There is something wrong when updating the data.'
+										);
+>>>>>>> parent of c35612c... Fixed
 										$this->closeCursor();
+										break;
 									}
+									$this->closeCursor();
 								}
 							}
 							$result = array(

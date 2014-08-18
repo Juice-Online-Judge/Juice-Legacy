@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div>
+			<div id="register-b">
 				<div class="title center">
 					<h2>註冊帳號</h2>
 				</div>
@@ -51,7 +51,7 @@
 EOD;
 	}
 ?>
-				<div id="register-b">
+				<div>
 					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">

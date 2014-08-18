@@ -213,7 +213,7 @@
 											continue;
 										}
 									} else {
-										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
+										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` LIKE :practice_key";
 										$params = array(
 											':practice_content' => $value['content'],
 											':practice_key' => $value['key']

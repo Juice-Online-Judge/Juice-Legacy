@@ -38,7 +38,8 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="test" style="position:relative;">
+			<div id="test" style="position:relative; width: 500px;">
+			<div>
 				<div class="title center">
 					<h2>註冊帳號</h2>
 				</div>
@@ -87,6 +88,7 @@ EOD;
 						</fieldset>
 					</form>
 				</div>
+			</div>
 			</div>
 		</div>
 <?php display_footer(); ?>

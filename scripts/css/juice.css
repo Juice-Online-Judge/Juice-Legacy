@@ -40,7 +40,6 @@ footer {
 
 #main {
 	min-height: calc(100% - 200px);
-	height: auto;
 }
 
 .shadow {

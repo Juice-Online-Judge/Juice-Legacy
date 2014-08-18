@@ -150,6 +150,10 @@
 				} else {
 					switch ($type) {
 						case 'lesson':
+							$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
+							$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
+							$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
+							$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
 							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
 								$result = array(
 									'error' => 'Invalid level.'
@@ -203,14 +207,14 @@
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
 												':practice_key' => hash_key('md5'),
-												':practice_content' => $value['content']
+												':practice_content' => htmlspecialchars($value['content'], ENT_QUOTES)
 											);
 											$check = true;
 										}
 									} else {
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
 										$params = array(
-											':practice_content' => $value['content'],
+											':practice_content' => htmlspecialchars($value['content'], ENT_QUOTES),
 											':practice_key' => $value['key']
 										);
 										$check = true;
@@ -243,7 +247,7 @@
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
 												':implement_key' => hash_key('md5'),
-												':implement_content' => $value['content'],
+												':implement_content' => htmlspecialchars($value['content'], ENT_QUOTES),
 												':time_limit' => $value['time_limit'],
 												':memory_limit' => $value['memory_limit'],
 												':file_limit' => $value['file_limit'],
@@ -257,12 +261,12 @@
 										$sql .= "`file_limit` = :file_limit, `mode` = :mode, `other_limit` = :other_limit WHERE `implement_key` = :implement_key";
 										$params = array(
 											
-											':implement_content' => $value['content'],
+											':implement_content' => htmlspecialchars($value['content'], ENT_QUOTES),
 											':time_limit' => $value['time_limit'],
 											':memory_limit' => $value['memory_limit'],
 											':file_limit' => $value['file_limit'],
 											':mode' => $value['mode'],
-											':other_limit' => $value['other_limit'],
+											':other_limit' => htmlspecialchars($value['other_limit'], ENT_QUOTES),
 											':implement_key' => $value['key']
 										);
 										$check = true;

@@ -40,11 +40,6 @@ footer {
 
 #main {
 	min-height: calc(100% - 200px);
-	height: calc(100% - 200px);
-}
-
-#login label {
-	width: auto;
 }
 
 .shadow {

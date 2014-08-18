@@ -200,7 +200,7 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									$check = false;
-									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
+									$value['content'] = eol_replace(htmlspecialchars($value['content'], ENT_QUOTES));
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
@@ -241,7 +241,7 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									$check = false;
-									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
+									$value['content'] = eol_replace(htmlspecialchars($value['content'], ENT_QUOTES));
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";

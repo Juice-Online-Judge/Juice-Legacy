@@ -80,10 +80,10 @@ EOD;
 									<label for="email">信箱:</label>
 									<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 								</div>
-								<div class="pure-control-group">
+								<div style="display:hidden;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 								</div>
-								<div class="pure-controls">
+								<div class="pure-control-group">
 									<button type="submit" id="submit" class="pure-button pure-button-primary">註冊</button>
 								</div>
 							</fieldset>

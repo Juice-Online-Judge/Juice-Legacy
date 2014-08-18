@@ -43,6 +43,10 @@ footer {
 	height: calc(100% - 200px);
 }
 
+#login label {
+	width: auto;
+}
+
 .shadow {
 	border: 1px solid #dfdfdf;
 	border-radius: 8px;

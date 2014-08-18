@@ -44,7 +44,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3 fullheight">
-					<div id="test2" class="shadow" style="position:relative;width:400px;">
+					<div id="test2" class="shadow" style="position:relative; width:400px;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -68,10 +68,10 @@ EOD;
 									<label for="remember">記住我</label>
 									<input type="checkbox" name="remember" id="remember" value="1">
 								</div>
-								<div class="pure-control-group">
+								<div style="display:hidden;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 								</div>
-								<div class="pure-controls">
+								<div class="pure-control-group">
 									<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
 								</div>
 							</fieldset>	

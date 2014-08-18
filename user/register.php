@@ -39,7 +39,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="test" style="position:relative;">
+			<div id="register-r" style="position:relative;">
 				<div class="shadow m-center" style="width:500px;">
 <?php
 	if (isset($message)) {
@@ -96,7 +96,7 @@ EOD;
 		<script>
 			$(document).ready(function(){$("#register").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#password_check").val(new jsSHA($("#password_check").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#second_password").val(new jsSHA($("#second_password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 			$(document).ready(function(){
-				$('#test').center({against:'parent'});
+				$('#register-r').center({against:'parent'});
 			});
 		</script>
 	</body>

@@ -55,7 +55,7 @@ EOD;
 ?>
 						<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 							<fieldset>
-								<div class="pure-control-group center">
+								<div class="pure-control-group">
 									<label for="username">帳號：</label>
 									<input type="text" name="username" id="username" autocomplete="off" required>
 								</div>

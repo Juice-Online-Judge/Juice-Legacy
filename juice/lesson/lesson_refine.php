@@ -197,6 +197,9 @@
 		<script>
 			$(document).ready(function() {
 				$('#main').css('height', ($(document).height() - 350));
+				$(window).on("click scroll",function(){
+					$('#main').css('height', ($('.juice-lesson-body').height()));
+				});
 			});
 			/*$(document).ready(function() {
 				function auto_update() {

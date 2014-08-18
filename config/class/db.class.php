@@ -17,7 +17,10 @@
 				$this->ip = ($this->ip_client).','.($this->ip_forwarded).','.($this->ip_remote);
 				$this->current_time = time();
 				
-				$this->pdo = new PDO($db_type.':host='.$db_host.';dbname='.$db_name.';charset=UTF8', $db_username, $db_password);
+				$opt  = array(
+					PDO::MYSQL_ATTR_FOUND_ROWS => TRUE
+				);
+				$this->pdo = new PDO($db_type.':host='.$db_host.';dbname='.$db_name.';charset=UTF8', $db_username, $db_password, $opt);
 			} catch (PDOException $e) {
 				$this->db_error($e->getMessage());
 				exit();

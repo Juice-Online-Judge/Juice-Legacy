@@ -69,7 +69,7 @@ EOD;
 										<label for="remember">記住我</label>
 										<input type="checkbox" name="remember" id="remember" value="1">
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-controls">
 										<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
 									</div>
 								</fieldset>	

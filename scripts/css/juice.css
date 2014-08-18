@@ -45,13 +45,13 @@ footer {
 
 #login label {
 	width: auto;
-	margin-left: 18%;
+	margin-left: 15%;
 }
 
 #login-r {
 	position: relative;
 	width: 350px;
-	margin-top: 30px;
+	margin-top: 60px;
 	margin-left: auto;
 	margin-right: auto;
 }

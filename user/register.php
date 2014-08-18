@@ -48,7 +48,8 @@
 EOD;
 	}
 ?>
-			<div id="test" style="position:relative; width: 500px; margin-left: auto; margin-right:auto;">
+			<div id="test" style="position:relative;">
+				<div style="width:500px;margin-left:auto;margin-right:auto;">
 				<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 					<fieldset>
 						<div class="pure-control-group">
@@ -83,6 +84,7 @@ EOD;
 						</div>
 					</fieldset>
 				</form>
+				</div>
 			</div>
 		</div>
 <?php display_footer(); ?>

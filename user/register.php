@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="test" style="position:relative; width: 500px; margin-left: auto; margin-right:auto;">
+			<div class="fullheight">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -48,7 +48,7 @@
 EOD;
 	}
 ?>
-				<div>
+				<div id="test" style="position:relative; width: 500px; margin-left: auto; margin-right:auto;">
 					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">

@@ -200,6 +200,7 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									$check = false;
+									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
@@ -207,14 +208,14 @@
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
 												':practice_key' => hash_key('md5'),
-												':practice_content' => htmlspecialchars($value['content'], ENT_QUOTES)
+												':practice_content' => $value['content']
 											);
 											$check = true;
 										}
 									} else {
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
 										$params = array(
-											':practice_content' => htmlspecialchars($value['content'], ENT_QUOTES),
+											':practice_content' => $value['content'],
 											':practice_key' => $value['key']
 										);
 										$check = true;
@@ -240,6 +241,7 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									$check = false;
+									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
@@ -247,7 +249,7 @@
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
 												':implement_key' => hash_key('md5'),
-												':implement_content' => htmlspecialchars($value['content'], ENT_QUOTES),
+												':implement_content' => $value['content'],
 												':time_limit' => $value['time_limit'],
 												':memory_limit' => $value['memory_limit'],
 												':file_limit' => $value['file_limit'],
@@ -261,7 +263,7 @@
 										$sql .= "`file_limit` = :file_limit, `mode` = :mode, `other_limit` = :other_limit WHERE `implement_key` = :implement_key";
 										$params = array(
 											
-											':implement_content' => htmlspecialchars($value['content'], ENT_QUOTES),
+											':implement_content' => $value['content'],
 											':time_limit' => $value['time_limit'],
 											':memory_limit' => $value['memory_limit'],
 											':file_limit' => $value['file_limit'],

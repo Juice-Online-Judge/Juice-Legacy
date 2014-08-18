@@ -48,6 +48,11 @@ footer {
 	margin-left: 18%;
 }
 
+#login-r {
+	position: relative;
+	width: 350px;
+	margin-top: calc(20% + 100px);
+}
 .shadow {
 	border: 1px solid #dfdfdf;
 	border-radius: 8px;

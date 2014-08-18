@@ -43,7 +43,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3 fullheight">
-					<div id="test2" class="shadow" style="position:relative; width:400px;">
+					<div id="login-r" class="shadow">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -82,7 +82,7 @@ EOD;
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 			$(document).ready(function(){
-				$('#test2').center({against:'parent'});	
+				$('#login-r').center({against:'parent'});	
 			});
 		</script>
 	</body>

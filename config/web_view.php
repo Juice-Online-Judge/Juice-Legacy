@@ -130,9 +130,9 @@ EOD;
 		}
 ?>
 						<li>
-							<a href="#">關於本站</a>
+							<a href="<?php echo $prefix.'about/index.php' ?>">關於本站</a>
 							<ul>
-								<li><a href="#">團隊介紹</a></li>
+								<li><a href="<?php echo $prefix.'about/team.php' ?>">團隊介紹</a></li>
 								<li class="pure-menu-separator"></li>
 								<li><a href="#">意見反饋</a></li>
 							</ul>

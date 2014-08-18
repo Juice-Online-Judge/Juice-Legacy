@@ -69,8 +69,13 @@ footer {
 	min-height: calc(100% - 200px);
 }
 
-.center {
+.t-center {
 	text-align: center;
+}
+
+.m-center {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .warning {

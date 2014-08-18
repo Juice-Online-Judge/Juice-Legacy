@@ -22,10 +22,8 @@
 		<div id="main">
 			<div class="pure-g">
 				<div class="pure-u-1-3">
-					<p style="text-align:center; height:100px;">I</p>
 				</div>
 				<div class="pure-u-2-3">
-					<p style="text-align:center; height:100px;">II</p>
 				</div>
 			</div>
 		</div>

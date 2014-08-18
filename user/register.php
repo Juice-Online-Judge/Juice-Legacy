@@ -40,17 +40,17 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div id="test" style="position:relative;">
-				<div class="shadow" style="width:500px;margin-left:auto;margin-right:auto;">
+				<div class="shadow m-center" style="width:500px;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-					<div class="warning center">
+					<div class="warning t-center">
 							<h3>$message</h3>
 					</div>\n
 EOD;
 	}
 ?>
-					<div class="title center">
+					<div class="title t-center">
 						<h2>帳號註冊</h2>
 					</div>
 					<div>
@@ -83,7 +83,7 @@ EOD;
 								<div style="display:hidden;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 								</div>
-								<div class="pure-control-group center">
+								<div class="pure-control-group t-center">
 									<button type="submit" id="submit" class="pure-button pure-button-primary">註冊</button>
 								</div>
 							</fieldset>

@@ -47,7 +47,7 @@
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-						<div class="warning center">
+						<div class="warning t-center">
 								<h3>$message</h3>
 						</div>\n
 EOD;
@@ -70,7 +70,7 @@ EOD;
 								<div style="display:hidden;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 								</div>
-								<div class="pure-control-group center">
+								<div class="pure-control-group t-center">
 									<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
 								</div>
 							</fieldset>	

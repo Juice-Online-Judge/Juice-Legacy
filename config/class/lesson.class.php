@@ -200,13 +200,17 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									if ($value['action'] == 'add') {
-										$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
-										$sql .= "(:lesson_id, :practice_key, :practice_content)";
-										$params = array(
-											':lesson_id' => $lesson_id['id'],
-											':practice_key' => hash_key('md5'),
-											':practice_content' => $value['content']
-										);
+										if (mb_strlen($value['content']) > 0) {
+											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
+											$sql .= "(:lesson_id, :practice_key, :practice_content)";
+											$params = array(
+												':lesson_id' => $lesson_id['id'],
+												':practice_key' => hash_key('md5'),
+												':practice_content' => $value['content']
+											);
+										} else {
+											continue;
+										}
 									} else {
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
 										$params = array(
@@ -233,18 +237,22 @@
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
 									if ($value['action'] == 'add') {
-										$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
-										$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
-										$params = array(
-											':lesson_id' => $lesson_id['id'],
-											':implement_key' => hash_key('md5'),
-											':implement_content' => $value['content'],
-											':time_limit' => $value['time_limit'],
-											':memory_limit' => $value['memory_limit'],
-											':file_limit' => $value['file_limit'],
-											':mode' => $value['mode'],
-											':other_limit' => $value['other_limit']
-										);
+										if (mb_strlen($value['content']) > 0) {
+											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
+											$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
+											$params = array(
+												':lesson_id' => $lesson_id['id'],
+												':implement_key' => hash_key('md5'),
+												':implement_content' => $value['content'],
+												':time_limit' => $value['time_limit'],
+												':memory_limit' => $value['memory_limit'],
+												':file_limit' => $value['file_limit'],
+												':mode' => $value['mode'],
+												':other_limit' => $value['other_limit']
+											);
+										} else {
+											continue;
+										}
 									} else {
 										$sql = "UPDATE `lesson_implement` SET `implement_content` = :implement_content, `time_limit` = :time_limit, `memory_limit` = :memory_limit, ";
 										$sql .= "`file_limit` = :file_limit, `mode` = :mode, `other_limit` = :other_limit WHERE `implement_key` = :implement_key";

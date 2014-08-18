@@ -73,6 +73,8 @@ footer {
 .juice-logo {
 	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
 	background-size: auto;
+	width: auto;
+	height : auto;
 	max-width: 200px;
 	max-height: 100px;
 	float: left;

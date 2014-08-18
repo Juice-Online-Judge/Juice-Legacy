@@ -31,8 +31,8 @@
 				<div>
 					<h1 class="title">課程列表</h1>
 				</div>
-				<div class="center" style="width:90%;">
-					<table class="pure-table">
+				<div style="width:100%;">
+					<table class="pure-table center">
 						<thead>
 							<tr>
 								<th>單　　元</th>

@@ -199,10 +199,10 @@
 						case 'practice':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									$check = false;
+									//$check = false;
 									$value['content'] = eol_replace(htmlspecialchars($value['content'], ENT_QUOTES));
 									if ($value['action'] == 'add') {
-										if (mb_strlen($value['content']) > 0) {
+										//if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
 											$sql .= "(:lesson_id, :practice_key, :practice_content)";
 											$params = array(
@@ -210,17 +210,17 @@
 												':practice_key' => hash_key('md5'),
 												':practice_content' => $value['content']
 											);
-											$check = true;
-										}
+											//$check = true;
+										//}
 									} else {
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
 										$params = array(
 											':practice_content' => $value['content'],
 											':practice_key' => $value['key']
 										);
-										$check = true;
+										//$check = true;
 									}
-									if ($check) {
+									//if ($check) {
 										$this->query($sql, $params);
 										if ($this->rowCount() != 1) {
 											$result = array(
@@ -230,7 +230,7 @@
 											break 2;
 										}
 										$this->closeCursor();
-									}
+									//}
 								}
 							}
 							$result = array(

@@ -40,16 +40,16 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div id="test" style="position:relative;">
+				<div class="shadow" style="width:500px;margin-left:auto;margin-right:auto;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-				<div class="warning center">
-						<h3>$message</h3>
-				</div>\n
+					<div class="warning center">
+							<h3>$message</h3>
+					</div>\n
 EOD;
 	}
 ?>
-				<div class="shadow" style="width:500px;margin-left:auto;margin-right:auto;">
 					<div class="title center">
 						<h2>帳號註冊</h2>
 					</div>

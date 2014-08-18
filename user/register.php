@@ -93,7 +93,7 @@ EOD;
 		<script>
 			$(document).ready(function(){$("#register").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#password_check").val(new jsSHA($("#password_check").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#second_password").val(new jsSHA($("#second_password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 			$(document).ready(function(){
-				$('#test').center({against:'parent'});
+				$('#test').center({against:'#main'});
 			});
 		</script>
 	</body>

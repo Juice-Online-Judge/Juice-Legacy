@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="register-b" style="position:relative; margin: 0 auto; width: 500px;">
+			<div id="test" style="position:relative; margin: 0 auto; width: 500px;">
 				<div class="title center">
 					<h2>註冊帳號</h2>
 				</div>
@@ -93,7 +93,7 @@ EOD;
 		<script>
 			$(document).ready(function(){$("#register").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#password_check").val(new jsSHA($("#password_check").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#second_password").val(new jsSHA($("#second_password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
 			$(document).ready(function(){
-				$('#register-b').center({against:'parent'});
+				$('#test').center({against:'parent'});
 			});
 		</script>
 	</body>

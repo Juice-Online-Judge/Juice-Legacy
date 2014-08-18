@@ -31,7 +31,11 @@
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
+<<<<<<< HEAD
 		<script src="//cdn.ckeditor.com/4.4.3/full/ckeditor.js"></script>
+=======
+		<script src="http://cdn.ckeditor.com/4.4.3/full-all/ckeditor.js"></script>
+>>>>>>> origin/master
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

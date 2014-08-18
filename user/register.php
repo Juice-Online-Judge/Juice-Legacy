@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="register-b">
+			<div id="register-b" style="position:relative; margin: 0 auto; width: 500px;">
 				<div class="title center">
 					<h2>註冊帳號</h2>
 				</div>

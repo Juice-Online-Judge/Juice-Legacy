@@ -71,7 +71,7 @@ EOD;
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 								</div>
 								<div class="pure-control-group">
-									<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
+									<button type="submit" id="submit" class="pure-button pure-button-primary center">登入</button>
 								</div>
 							</fieldset>	
 						</form>

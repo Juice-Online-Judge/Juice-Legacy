@@ -49,7 +49,7 @@ EOD;
 	}
 ?>
 			<div id="test" style="position:relative;">
-				<div style="width:500px;margin-left:auto;margin-right:auto;">
+				<div class="shadow" style="width:500px;margin-left:auto;margin-right:auto;">
 					<div class="title center">
 						<h2>帳號註冊</h2>
 					</div>

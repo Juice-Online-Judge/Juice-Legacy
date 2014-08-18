@@ -44,7 +44,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3 fullheight">
-					<div id="test2" style="position:relative;">
+					<div id="test2" class="shadow" style="position:relative;width:400px;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -54,7 +54,7 @@
 EOD;
 	}
 ?>
-						<form name="login" id="login" class="pure-form pure-form-aligned shadow" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+						<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 							<fieldset>
 								<div class="pure-control-group">
 									<label for="username">帳號：</label>

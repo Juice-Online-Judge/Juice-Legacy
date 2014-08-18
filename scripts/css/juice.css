@@ -51,7 +51,7 @@ footer {
 #login-r {
 	position: relative;
 	width: 350px;
-	margin-top: calc(20% + 100px);
+	margin-top: 10%;
 }
 .shadow {
 	border: 1px solid #dfdfdf;

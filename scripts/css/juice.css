@@ -42,7 +42,6 @@ footer {
 }
 
 #main {
-	display: flex;
 	min-height: calc(100% - 200px);
 }
 

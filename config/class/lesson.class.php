@@ -220,7 +220,7 @@
 											'error' => 'There is something wrong when updating the data.'
 										);
 										$this->closeCursor();
-										break;
+										break 2;
 									}
 									$this->closeCursor();
 								}
@@ -264,7 +264,7 @@
 											'error' => 'There is something wrong when updating the data.'
 										);
 										$this->closeCursor();
-										break;
+										break 2;
 									}
 									$this->closeCursor();
 								}

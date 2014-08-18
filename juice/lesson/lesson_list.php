@@ -27,6 +27,8 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
+		<div class="pure-g">
+		<div class="pure-u-1-1">
 			<div id="lesson_list" class="t-center">
 				<div>
 					<h1 class="title">課程列表</h1>
@@ -67,6 +69,8 @@
 					</table>
 				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 <?php display_footer(); ?>
 	</body>

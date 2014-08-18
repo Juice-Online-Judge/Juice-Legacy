@@ -50,8 +50,8 @@ footer {
 }
 
 .fullheight {
-	height: 100%;
-	margin: auto;
+	height: inherit;
+	min-height: 100%;
 }
 
 .center {

@@ -42,7 +42,7 @@
 				<div class="pure-u-2-3 fullheight">
 					<p>Introduction</p>
 				</div>
-				<div class="pure-u-1-3 fullheight" style="align-self:stretch;">
+				<div class="pure-u-1-3 fullheight">
 					<div id="test2" class="shadow" style="position:relative; width:400px;">
 <?php
 	if (isset($message)) {

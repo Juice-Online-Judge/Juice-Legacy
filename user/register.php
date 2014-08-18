@@ -38,11 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div id="test" style="position:relative; width: 500px;">
-			<div>
-				<div class="title center">
-					<h2>註冊帳號</h2>
-				</div>
+			<div id="test" style="position:relative; width: 500px; margin-left: auto; margin-right:auto;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -88,7 +84,6 @@ EOD;
 						</fieldset>
 					</form>
 				</div>
-			</div>
 			</div>
 		</div>
 <?php display_footer(); ?>

@@ -16,7 +16,11 @@
 <?php display_navigation($prefix); ?>
 			<div id="main">
 				<div>
-					
+					<div>
+						<h1 class="title">關於本站</h1>
+					</div>
+					<div>
+					</div>
 				</div>
 			</div>
 <?php display_footer(); ?>

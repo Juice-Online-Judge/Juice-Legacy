@@ -54,7 +54,6 @@
 EOD;
 	}
 ?>
-						<div>
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<fieldset>
 									<div class="pure-control-group">
@@ -77,7 +76,6 @@ EOD;
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 								</div>
 							</form>
-						</div>
 					</div>
 				</div>
 			</div>

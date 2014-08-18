@@ -59,11 +59,11 @@ EOD;
 									<label for="username">帳號：</label>
 									<input type="text" name="username" id="username" autocomplete="off" required>
 								</div>
-								<div class="pure-control-group center">
+								<div class="pure-control-group">
 									<label for="passward">密碼：</label>
 									<input type="password" name="passward" id="password" autocomplete="off" required>
 								</div>
-								<div class="pure-control-group center">
+								<div class="pure-control-group">
 									<label for="remember">記住我</label>
 									<input type="checkbox" name="remember" id="remember" value="1">
 								</div>

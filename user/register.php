@@ -51,7 +51,7 @@
 EOD;
 	}
 ?>
-				<div style="margin: 0 auto; width: 500px;">
+				<div style="margin: 0 auto;">
 					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">

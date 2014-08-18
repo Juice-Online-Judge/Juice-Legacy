@@ -33,8 +33,8 @@
 				</div>
 				<div style="width:100%;">
 					<table class="pure-table m-center">
-						<thead class="t-center">
-							<tr>
+						<thead>
+							<tr class="t-center">
 								<th>單　　元</th>
 								<th>難　　度</th>
 								<th>標　　題</th>

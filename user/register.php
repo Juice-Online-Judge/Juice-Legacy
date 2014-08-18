@@ -39,6 +39,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
+			<div id="test" style="position:relative;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -48,7 +49,6 @@
 EOD;
 	}
 ?>
-			<div id="test" style="position:relative;">
 				<div class="shadow" style="width:500px;margin-left:auto;margin-right:auto;">
 					<div class="title center">
 						<h2>帳號註冊</h2>

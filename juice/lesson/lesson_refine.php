@@ -49,11 +49,13 @@
 		if ($lesson_check and !empty($lesson_content['practice'])) {
 			foreach ($lesson_content['practice'] as $tmp) {
 ?>
-							<div class="pure-control-group">
-								<label for="practice">填空練習：</label>
-								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
-								<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
-								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<label for="practice">填空練習：</label>
+									<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
+									<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
+									<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
+								</div>
 							</div>
 							<br>
 <?php
@@ -61,14 +63,18 @@
 			}
 		}
 ?>
-							<div class="pure-control-group">
-								<label for="practice">填空練習：</label>
-								<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
-								<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<label for="practice">填空練習：</label>
+									<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
+									<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
+								</div>
 							</div>
-							<div class="pure-control-group">
-								<input type="text" name="total_practice" id="total_practice" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
-								<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<input type="text" name="total_practice" id="total_practice" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
+									<input type="text" name="type" id="type" value="practice" hidden readonly autocomplete="off">
+								</div>
 							</div>
 <?php
 	} else if (isset($_GET['implement'])) {
@@ -76,31 +82,33 @@
 		if ($lesson_check and !empty($lesson_content['implement'])) {
 			foreach ($lesson_content['implement'] as $tmp) {
 ?>
-							<div class="pure-control-group">
-								<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
-								<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
-								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
-								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
-								<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="<?php echo $tmp['mode']; ?>" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
-								<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement">動 動 腦：</label>
-								<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
-								<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
-								<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
+									<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
+									<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
+									<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
+									<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="<?php echo $tmp['mode']; ?>" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
+									<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement">動 動 腦：</label>
+									<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
+									<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
+									<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
+								</div>
 							</div>
 							<br>
 <?php
@@ -108,34 +116,38 @@
 			}
 		}
 ?>
-							<div class="pure-control-group">
-								<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
-								<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+							<div>
+								<div class="pure-control-group">
+									<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
+									<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
+									<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
+									<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
+									<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
+									<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+								</div>
+								<div class="pure-control-group">
+									<label for="implement">動 動 腦：</label>
+									<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required></textarea>
+									<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
+								</div>
 							</div>
-							<div class="pure-control-group">
-								<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
-								<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
-								<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
-								<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
-								<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
-							</div>
-							<div class="pure-control-group">
-								<label for="implement">動 動 腦：</label>
-								<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required></textarea>
-								<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
-							</div>
-							<div class="pure-control-group">
-								<input type="text" name="total_implement" id="total_implement" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
-								<input type="text" name="type" id="type" value="implement" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<input type="text" name="total_implement" id="total_implement" value="<?php echo $i-1; ?>" hidden readonly autocomplete="off">
+									<input type="text" name="type" id="type" value="implement" hidden readonly autocomplete="off">
+								</div>
 							</div>
 <?php } else { ?>
 							<div>
@@ -178,18 +190,24 @@
 									<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_check) ? $lesson_content['lesson_example'] : ''; ?></textarea>
 								</div>
 							</div>
-							<div class="pure-control-group">
-								<input type="text" name="type" id="type" value="lesson" hidden readonly autocomplete="off">
-								<input type="text" name="action" id="action" value="<?php echo ($lesson_check) ? 'update' : 'add'; ?>" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<input type="text" name="type" id="type" value="lesson" hidden readonly autocomplete="off">
+									<input type="text" name="action" id="action" value="<?php echo ($lesson_check) ? 'update' : 'add'; ?>" hidden readonly autocomplete="off">
+								</div>
 							</div>
 <?php } ?>
-							<div class="pure-control-group">
-								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_lesson_refine']; ?>" hidden readonly autocomplete="off" required>
-								<input type="text" name="key" id="key" value="<?php echo ($lesson_check) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
+							<div>
+								<div class="pure-control-group">
+									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_lesson_refine']; ?>" hidden readonly autocomplete="off" required>
+									<input type="text" name="key" id="key" value="<?php echo ($lesson_check) ? $_GET['key'] : ''; ?>" hidden readonly autocomplete="off">
+								</div>
 							</div>
 							<br>
-							<div class="pure-controls">
-								<button type="submit" name="submit" id="submit" class="pure-button pure-button-primary"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
+							<div>
+								<div class="pure-controls">
+									<button type="submit" name="submit" id="submit" class="pure-button pure-button-primary"><?php echo ($lesson_check) ? '修改' : '新增'; ?></button>
+								</div>
 							</div>
 						</fieldset>
 					</form>

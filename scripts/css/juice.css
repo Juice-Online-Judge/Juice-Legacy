@@ -43,6 +43,7 @@ footer {
 
 #main {
 	top: 0;
+	bottom: auto;
 	min-height: calc(100% - 200px);
 }
 

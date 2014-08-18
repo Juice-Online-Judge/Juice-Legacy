@@ -42,11 +42,6 @@ footer {
 	height: calc(100% - 200px);
 }
 
-#login label {
-	min-width: 40px;
-	text-align: center;
-}
-
 .fullheight {
 	min-height: 100%;
 	height: 100%;

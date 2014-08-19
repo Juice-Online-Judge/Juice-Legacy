@@ -102,8 +102,6 @@
 		$result = json_encode($result);
 	}
 	
-	//print_r($data);
-	
 	$result = json_decode($result);
 	if (isset($result->{'error'})) {
 		echo $result->{'error'};

@@ -68,8 +68,10 @@
 							case 'otherLimit':
 								$data[$tmp[2]]['other_limit'] = $value;
 								break;
-							default :
+							case 'id' :
 								$data[$tmp[2]]['content'] = $value;
+								break;
+							default :
 								break;
 						}
 					}

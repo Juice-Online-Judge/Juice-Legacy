@@ -153,7 +153,7 @@
 							<div>
 								<div class="juice-lesson-titles">
 									<label for="unit">單元：</label>
-									<input type="text" id="unit" name="unit" value="<?php echo ($lesson_check) ? $lesson_content['lesson_unit'] : ''; ?>" maxlength="2" pattern="^\d{1,2}$" autocomplete="off" required>
+									<input type="text" id="unit" name="unit" value="<?php echo ($lesson_check) ? $lesson_content['lesson_unit'] : ''; ?>" maxlength="2" pattern="^\d{1,2}$"<?php echo ($lesson_check) ? ' readonly' : ''; ?> autocomplete="off" required>
 								</div>
 								<div class="juice-lesson-titles">
 									<label for="level">難度：</label>

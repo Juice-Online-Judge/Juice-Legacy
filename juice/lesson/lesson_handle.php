@@ -91,25 +91,25 @@
 				}
 				break;
 		}
-		//$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 		if ($_POST['type'] == 'lesson' and $_POST['action'] == 'add') {
-			//$result = $lesson->add_lesson($_POST['type'], $data);
+			$result = $lesson->add_lesson($_POST['type'], $data);
 		} else {
-			//$result = $lesson->update_lesson($_POST['type'], $data);
+			$result = $lesson->update_lesson($_POST['type'], $data);
 		}
 	} else {
 		$result['error'] = 'The page is invalid';
 		$result = json_encode($result);
 	}
 	
-	print_r($data);
-	/*
+	//print_r($data);
+	
 	$result = json_decode($result);
 	if (isset($result->{'error'})) {
 		echo $result->{'error'};
 	} else {
 		header("Location: ".$prefix."juice/lesson/lesson_list.php");
 		exit();
-	}*/
+	}
 	//echo $result;
 ?>

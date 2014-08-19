@@ -29,8 +29,10 @@
 							case 'key':
 								$data[$tmp[2]]['key'] = $value;
 								break;
-							default :
+							case 'id' :
 								$data[$tmp[2]]['content'] = $value;
+								break;
+							default :
 								break;
 						}
 					}

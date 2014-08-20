@@ -23,6 +23,12 @@
 		switch ($type) {
 			case 'login':
 				return (isset($_SESSION['uid'])) ? true : false;
+			case 'admin_groups':
+				if (!isset($_SESSION['uid']) or !isset($_SESSION['admin_group'])) {
+					return false;
+				} else {
+					return ($_SESSION['admin_group'] > 0) ? true : false;
+				}
 			case 'admin_groups_lesson':
 				if (!isset($_SESSION['uid']) or !isset($_SESSION['admin_group'])) {
 					return false;
@@ -35,7 +41,6 @@
 							return false;
 					}
 				}
-				break;
 			case 'admin_groups_root':
 				if (!isset($_SESSION['uid']) or !isset($_SESSION['admin_group'])) {
 					return false;
@@ -47,7 +52,6 @@
 							return false;
 					}
 				}
-				break;
 			default :
 				return false;
 		}

@@ -46,7 +46,7 @@ EOD;
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
 <?php
-		if (isset($_SESSION['uid'])) {
+		if (permission_check('login')) {
 ?>
 						<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 						<li>
@@ -68,13 +68,13 @@ EOD;
 							</ul>
 						</li>
 <?php
-			if (true/*$_SESSION['admin_group'] > 0*/) {
+			if (permission_check('admin_groups')) {
 ?>
 						<li>
 							<a href="#">Juice</a>
 							<ul>
 <?php
-				if (true/*$_SESSION['admin_group'] > 3*/) {
+				if (permission_check('admin_groups_lesson')) {
 ?>
 								<li>
 									<a href="#">課　　程</a>

@@ -13,7 +13,7 @@
 	}
 	
 	if (isset($_POST['unit']) and isset($_FILES['file'])) {
-		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {   
+		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_upload_image']) and $_COOKIE['verify_code_upload_image'] == $_POST['verify_code']) {   
 			if ($_FILES['file']['error'] != 0) {
 				$message = 'Please check the image that you have uploaded.';
 			} else {

@@ -11,26 +11,21 @@
 		header("Location: ".$prefix."index.php");
 		exit();
 	}
-	/*
-	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
-		foreach ($_FILES['files']['name'] as $key => $name) {     
-			if ($_FILES['files']['error'][$key] != 0) {
-				continue;
-			} else {
-				
+	
+	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {   
+		if ($_FILES['file']['error'] != 0) {
+			$message = 'Please check the image that you have uploaded.'
+		} else {
+			$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+			$message = $image->add_image($_POST['username'], $_POST['passward'], $remember);
+			if ($message === true) {
+				$message = 'Uploaded success!';
 			}
 		}
-		$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-		$message = $image->add_image($_POST['username'], $_POST['passward'], $remember);
-		if ($message === true) {
-			setcookie("verify_code_login", '', $current_time - 600, '/', '', false, true);
-			header("Location: ".$prefix."index.php");
-			exit();
-		}
 	} else {
-		$message = '登入頁面已失效，請重新登入';
+		$message = '上傳頁面已失效';
 	}
-	*/
+	
 	$verify_code = verify_code();
 	setcookie("verify_code_upload_image", $verify_code, $current_time + 600, '/', '', false, true);
 ?>

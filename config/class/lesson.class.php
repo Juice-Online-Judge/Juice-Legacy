@@ -359,7 +359,7 @@
 					'error' => 'The unit does not exist.'
 				);
 			} else {
-				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_delete` = :image_is_delete";
+				$sql = "SELECT `image_key` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_delete` = :image_is_delete";
 				$params = array(
 					':lesson_id' => $lesson_id['id'],
 					':image_is_delete' => false

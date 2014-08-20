@@ -43,6 +43,15 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div>
+<?php
+	if (isset($message)) {
+		echo <<<EOD
+				<div class="warning t-center">
+						<h3>$message</h3>
+				</div>\n
+EOD;
+	}
+?>
 				<div>
 					<form name="upload_image" id="upload_image" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>

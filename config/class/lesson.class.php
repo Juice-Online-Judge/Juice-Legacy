@@ -334,17 +334,17 @@
 			}
 		}
 		
-		public function show_image($key, $image_id) {
+		public function show_image($key, $image_key) {
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
 					'error' => 'The unit does not exist.'
 				);
 			} else {
-				$sql = "SELECT `image_type`, `image_width`, `image_height`, `image_data` FROM `lesson_image` WHERE `id` = :image_id AND `lesson_id` = :lesson_id AND `image_is_delete` = :image_is_delete";
+				$sql = "SELECT `image_type`, `image_width`, `image_height`, `image_data` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_key` = :image_key AND `image_is_delete` = :image_is_delete";
 				$params = array(
-					':image_id' => $image_id,
 					':lesson_id' => $lesson_id['id'],
+					':image_key' => $image_key,
 					':image_is_delete' => false
 				);
 				$this->query($sql, $params);
@@ -359,28 +359,9 @@
 					'error' => 'The unit does not exist.'
 				);
 			} else {
-				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_used` = :image_is_used AND `image_is_delete` = :image_is_delete";
+				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_delete` = :image_is_delete";
 				$params = array(
 					':lesson_id' => $lesson_id['id'],
-					':image_is_used' => true,
-					':image_is_delete' => false
-				);
-				$this->query($sql, $params);
-				return $this->fetchAll();
-			}
-		}
-		
-		public function list_unused_image($key) {
-			$lesson_id = $this->get_lesson_id($key);
-			if (isset($lesson_id['error'])) {
-				$result = array(
-					'error' => 'The unit does not exist.'
-				);
-			} else {
-				$sql = "SELECT `id` FROM `lesson_image` WHERE `lesson_id` = :lesson_id AND `image_is_used` = :image_is_used AND `image_is_delete` = :image_is_delete";
-				$params = array(
-					':lesson_id' => $lesson_id['id'],
-					':image_is_used' => false,
 					':image_is_delete' => false
 				);
 				$this->query($sql, $params);
@@ -432,18 +413,18 @@
 			return json_encode($result);
 		}
 		
-		public function delete_image($key, $image_id) {
+		public function delete_image($key, $image_key) {
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {
 				$result = array(
 					'error' => 'The unit does not exist.'
 				);
 			} else {
-				$sql = "UPDATE `lesson_image` SET `image_is_delete` = :image_is_delete WHERE `id` = :image_id AND `lesson_id` = :lesson_id";
+				$sql = "UPDATE `lesson_image` SET `image_is_delete` = :image_is_delete WHERE `lesson_id` = :lesson_id AND `image_key` = :image_key";
 				$params = array(
 					':image_is_delete' => true,
-					':image_id' => $image_id,
-					':lesson_id' => $lesson_id['id']
+					':lesson_id' => $lesson_id['id'],
+					':image_key' => $image_key
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() != 1) {
@@ -452,7 +433,7 @@
 					);
 				} else {
 					$result = array(
-						'id' => $lesson_id['id']
+						'result' => true
 					);
 				}
 				$this->closeCursor();

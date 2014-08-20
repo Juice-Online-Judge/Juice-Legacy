@@ -13,22 +13,20 @@
 	}
 	
 	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
-		foreach ($_FILES['files']['name'] as $f => $name) {     
-			if ($_FILES['files']['error'][$f] == 4) {
-				continue; // Skip file if any error found
+		foreach ($_FILES['files']['name'] as $key => $name) {     
+			if ($_FILES['files']['error'][$key] == 4) {
+				continue;
 			}	       
-			if ($_FILES['files']['error'][$f] == 0) {	           
-				if ($_FILES['files']['size'][$f] > $max_file_size) {
+			if ($_FILES['files']['error'][$key] == 0) {	           
+				if ($_FILES['files']['size'][$key] > $max_file_size) {
 					$message[] = "$name is too large!.";
-					continue; // Skip large files
-				}
-				elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+					continue;
+				} else if (!in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats)){
 					$message[] = "$name is not a valid format";
-					continue; // Skip invalid file formats
-				}
-				else{ // No error found! Move uploaded files 
-					if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name))
-					$count++; // Number of successfully uploaded file
+					continue;
+				} else {
+					if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $path.$name))
+					$count++;
 				}
 			}
 		}

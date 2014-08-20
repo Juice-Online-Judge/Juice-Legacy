@@ -19,6 +19,40 @@
 		}
 	}
 	
+	function permission_check($type) {
+		switch ($type) {
+			case 'login':
+				return (isset($_SESSION['uid'])) ? true : false;
+			case 'admin_groups_lesson':
+				if (!isset($_SESSION['uid']) or !isset($_SESSION['admin_group'])) {
+					return false;
+				} else {
+					switch ($_SESSION['admin_group']) {
+						case 10:
+						case 100:
+							return true;
+						default :
+							return false;
+					}
+				}
+				break;
+			case 'admin_groups_root':
+				if (!isset($_SESSION['uid']) or !isset($_SESSION['admin_group'])) {
+					return false;
+				} else {
+					switch ($_SESSION['admin_group']) {
+						case 100:
+							return true;
+						default :
+							return false;
+					}
+				}
+				break;
+			default :
+				return false;
+		}
+	}
+	
 	function eol_replace($data) {
 		switch (gettype($data)) {
 			case 'string':

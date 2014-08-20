@@ -4,10 +4,10 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!isset($_SESSION['uid'])) {
+	if (!permission_check('login')) {
 		header("Location: ".$prefix."user/login.php");
 		exit();
-	} else if (!($_SESSION['admin_group'] > 3)) {
+	} else if (!permission_check('admin_groups_lesson')) {
 		header("Location: ".$prefix."index.php");
 		exit();
 	}

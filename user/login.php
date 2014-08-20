@@ -4,7 +4,7 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (isset($_SESSION['uid'])) {
+	if (permission_check('login') {
 		header("Location: ".$prefix."index.php");
 		exit();
 	}

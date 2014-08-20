@@ -15,7 +15,7 @@
 	if (isset($_POST['unit']) and isset($_FILES['file'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {   
 			if ($_FILES['file']['error'] != 0) {
-				$message = 'Please check the image that you have uploaded.'
+				$message = 'Please check the image that you have uploaded.';
 			} else {
 				$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 				$message = $image->add_image($_POST['unit'], $_FILES['file']);

@@ -17,8 +17,9 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div id="main">
-				<div>
+		<div id="main">
+			<div class="pure-g">
+				<div class="pure-u-1-1">
 					<div>
 						<h1 class="title">關於團隊</h1>
 					</div>
@@ -105,6 +106,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){

@@ -1,6 +1,6 @@
 <?php
 	if (!isset($prefix)) {
-		$prefix = '../';
+		$prefix = '../../';
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	

@@ -14,24 +14,14 @@
 	
 	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
 		foreach ($_FILES['files']['name'] as $key => $name) {     
-			if ($_FILES['files']['error'][$key] == 4) {
+			if ($_FILES['files']['error'][$key] != 0) {
 				continue;
-			}	       
-			if ($_FILES['files']['error'][$key] == 0) {	           
-				if ($_FILES['files']['size'][$key] > $max_file_size) {
-					$message[] = "$name is too large!.";
-					continue;
-				} else if (!in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats)){
-					$message[] = "$name is not a valid format";
-					continue;
-				} else {
-					if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $path.$name))
-					$count++;
-				}
+			} else {
+				
 			}
 		}
-		$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-		$message = $login->login($_POST['username'], $_POST['passward'], $remember);
+		$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$message = $image->add_image($_POST['username'], $_POST['passward'], $remember);
 		if ($message === true) {
 			setcookie("verify_code_login", '', $current_time - 600, '/', '', false, true);
 			header("Location: ".$prefix."index.php");

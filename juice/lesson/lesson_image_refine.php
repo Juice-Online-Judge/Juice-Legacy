@@ -50,8 +50,12 @@
 					<form name="upload_image" id="upload_image" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group">
-								<label for="files">圖片：</label>
-								<input type="file" id="files" name="files[]" accept="image/*">
+								<label for="unit">單元：</label>
+								<input type="text" id="unit" name="unit" maxlength="2" pattern="^\d{1,2}$" autocomplete="off" required>
+							</div>
+							<div class="pure-control-group">
+								<label for="file">圖片：</label>
+								<input type="file" id="file" name="file" accept="image/*" required>
 							</div>
 							<div style="display:hidden;">
 								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_upload_image']; ?>" hidden readonly autocomplete="off" required>

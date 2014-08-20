@@ -77,7 +77,7 @@ EOD;
 				if (true/*$_SESSION['admin_group'] > 3*/) {
 ?>
 								<li>
-									<a href="#">課程</a>
+									<a href="#">課　　程</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/lesson/lesson_list.php'; ?>">課程列表</a></li>
 										<li class="pure-menu-separator"></li>
@@ -99,7 +99,7 @@ EOD;
 ?>
 								<li class="pure-menu-separator"></li>
 								<li>
-									<a href="#">會員</a>
+									<a href="#">會　　員</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/account/account_list.php'; ?>">帳號列表</a></li>
 										<li class="pure-menu-separator"></li>
@@ -112,7 +112,7 @@ EOD;
 ?>
 								<li class="pure-menu-separator"></li>
 								<li>
-									<a href="#">網站</a>
+									<a href="#">網　　站</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/web/announcement_add.php'; ?>">新增公告</a></li>
 										<li class="pure-menu-separator"></li>

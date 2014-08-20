@@ -18,12 +18,12 @@
 				$message = 'Please check the image that you have uploaded.';
 			} else {
 				$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-				$message = $image->add_image($_POST['unit'], $_FILES['file']);
-				if ($message === true) {
+				$result = $image->add_image($_POST['unit'], $_FILES['file']);
+				if ($result === true) {
 					$message = 'Uploaded success!';
 				} else {
-					$message = json_decode($message);
-					$message = $message->{'error'};
+					$result = json_decode($result);
+					$message = $result->{'error'};
 				}
 			}
 		} else {

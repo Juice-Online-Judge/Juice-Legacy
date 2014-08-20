@@ -43,7 +43,8 @@
 										<th>填空練習</th>
 										<th>動 動 腦</th>
 										<th>公　　開</th>
-										<th></th>
+										<th>課程修改</th>
+										<th>圖片列表</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -60,6 +61,7 @@
 										<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?implement=1&key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
 										<td><?php echo ($tmp['lesson_is_visible']) ? '是' : '否'; ?></td>
 										<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
+										<td><a href="<?php echo $prefix.'juice/lesson/lesson_image_list.php?key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">前往</button></a></td>
 									</tr>
 <?php
 		}

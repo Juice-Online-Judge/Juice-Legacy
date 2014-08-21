@@ -56,7 +56,7 @@
 										<td>
 											<form id="delete_img" name="delete_img" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 												<div style="display:hidden;">
-													<input type="text" name="image_key" id="image_key" value="<?php echo $_GET['image_key']; ?>" hidden readonly autocomplete="off" required>
+													<input type="text" name="image_key" id="image_key" value="<?php echo $tmp['image_key']; ?>" hidden readonly autocomplete="off" required>
 												</div>
 												<div class="pure-control-group t-center">
 													<button type="submit" id="submit" class="pure-button pure-button-primary">刪除</button>

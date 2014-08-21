@@ -52,6 +52,16 @@
 										<td><?php echo $i++; ?></td>
 										<td><a href="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>" target="_blank"><img src="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>" style="max-width:480px;"></a></td>
 										<td><input type="text" value="<?php echo 'http://'.WEB_DOMAIN_NAME.'/freedom/juice/others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>"></td>
+										<td>
+											<form id="delete_img" name="delete_img" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+												<div style="display:hidden;">
+													<input type="text" name="image_key" id="image_key" value="<?php echo $_GET['image_key']; ?>" hidden readonly autocomplete="off" required>
+												</div>
+												<div class="pure-control-group t-center">
+													<button type="submit" id="submit" class="pure-button pure-button-primary">刪除</button>
+												</div>
+											</form>
+										</td>
 									</tr>
 <?php
 		}

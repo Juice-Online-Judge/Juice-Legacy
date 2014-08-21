@@ -40,6 +40,7 @@
 										<th>#</th>
 										<th>圖　　片</th>
 										<th>連　　結</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>

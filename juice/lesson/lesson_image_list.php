@@ -50,7 +50,7 @@
 ?>
 									<tr>
 										<td><?php echo $i++; ?></td>
-										<td><img src="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>" style="max-width:480px;"></td>
+										<td><a href="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>" target="_blank"><img src="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>" style="max-width:480px;"></a></td>
 										<td><input type="text" value="<?php echo 'http://'.WEB_DOMAIN_NAME.'/freedom/juice/others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>"></td>
 									</tr>
 <?php

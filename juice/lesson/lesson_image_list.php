@@ -13,11 +13,10 @@
 	}
 	
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	$result = $lesson->list_lesson_image($_GET['key']);
-	
 	if (isset($_GET['key']) and isset($_POST['image_key'])) {
 		$lesson->delete_image($_GET['key'], $_POST['image_key']);
 	}
+	$result = $lesson->list_lesson_image($_GET['key']);
 ?>
 <!DOCTYPE html>
 <html>

@@ -83,12 +83,7 @@ EOD;
 										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php'; ?>">新增課程</a></li>
 										<li class="pure-menu-separator"></li>
-										<li>
-											<a href="#">課程圖片</a>
-											<ul>
-												<li><a href="<?php echo $prefix.'juice/lesson/lesson_image_refine.php'; ?>">新增圖片</a></li>
-											</ul>
-										</li>
+										<li><a href="<?php echo $prefix.'juice/lesson/lesson_image_refine.php'; ?>">新增圖片</a></li>
 									</ul>
 								</li>
 <?php

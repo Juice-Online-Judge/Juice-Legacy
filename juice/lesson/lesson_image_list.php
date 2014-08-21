@@ -14,13 +14,17 @@
 	
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson_image($_GET['key']);
+	
+	if (isset($_GET['key']) and isset($_POST['image_key'])) {
+		$lesson->delete_image($_GET['key'], $_POST['image_key']);
+	}
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>圖片列表</title>
-		<link rel="icon" href="" type="image/x-icon">
+		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 	</head>

@@ -60,7 +60,7 @@ EOD;
 							<div class="pure-control-group">
 								<label for="unit">單元：</label>
 								<select id="unit" name="unit" required>
-								</select>
+								
 <?php
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson();
@@ -70,6 +70,7 @@ EOD;
 <?php
 	}
 ?>
+								</select>
 							</div>
 							<div class="pure-control-group">
 								<label for="file">圖片：</label>

@@ -59,7 +59,17 @@ EOD;
 						<fieldset>
 							<div class="pure-control-group">
 								<label for="unit">單元：</label>
-								<input type="text" id="unit" name="unit" maxlength="2" pattern="^\d{1,2}$" autocomplete="off" required>
+								<select id="unit" name="unit" required>
+								</select>
+<?php
+	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$result = $lesson->list_lesson();
+	foreach ($result as $tmp) {
+?>
+									<option value="<?php echo $tmp['lesson_key']; ?>"><?php echo $tmp['lesson_unit']; ?></option>
+<?php
+	}
+?>
 							</div>
 							<div class="pure-control-group">
 								<label for="file">圖片：</label>

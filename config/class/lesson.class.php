@@ -369,7 +369,7 @@
 			}
 		}
 		
-		public function add_image($lesson_id, $image) {
+		public function add_image($key, $image) {
 			if (($image_data = getimagesize($image["tmp_name"])) === false) {
 				$result = array(
 					'error' => 'Please check the image that you have uploaded.'
@@ -379,14 +379,15 @@
 					'error' => 'Please check the image that you have uploaded.'
 				);
 			} else {
-				if (!preg_match("/^\d{1,2}$/", $lesson_id)) {
+				$lesson_id = $this->get_lesson_id($key);
+				if (isset($lesson_id['error'])) {
 					$result = array(
-						'error' => 'Invalid unit.'
+						'error' => 'The unit does not exist.'
 					);
 				} else {
 					$sql = "INSERT INTO `lesson_image` (`lesson_id`, `image_key`, `image_type`, `image_size`, `image_width`, `image_height`, `image_data`) VALUES (:lesson_id, :image_key, :image_type, :image_size, :image_width, :image_height, :image_data)";
 					$params = array(
-						array(':lesson_id', $lesson_id, 'PARAM_INT'),
+						array(':lesson_id', $lesson_id['id'], 'PARAM_INT'),
 						array(':image_key', hash_key('md5'), 'PARAM_STR'),
 						array(':image_type', $image_data['mime'], 'PARAM_STR'),
 						array(':image_size', $image['size'], 'PARAM_INT'),

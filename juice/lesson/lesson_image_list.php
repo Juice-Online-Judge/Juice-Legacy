@@ -14,7 +14,6 @@
 	
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson_image($_GET['key']);
-	print_r($result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +51,7 @@
 									<tr>
 										<td><?php echo $i++; ?></td>
 										<td><img src="<?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?>"></td>
-										<td><?php echo $prefix.'others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?></td>
+										<td><?php echo 'http://'.WEB_DOMAIN_NAME.'/others/show_imgages.php?key='.$_GET['key'].'&image_key='.$tmp['image_key']; ?></td>
 									</tr>
 <?php
 		}
@@ -66,5 +65,12 @@
 			</div>
 		</div>
 <?php display_footer(); ?>
+		<script>
+			$(document).ready(function(){
+				$("input[type='text']").on("click", function () {
+					$(this).select();
+				});
+			});
+		</script>
 	</body>
 </html>

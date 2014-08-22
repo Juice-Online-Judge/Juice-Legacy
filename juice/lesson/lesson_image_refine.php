@@ -89,9 +89,9 @@ EOD;
 		</div>
 <?php display_footer(); ?>
 	<script>
-			$(document).ready(function(){
-				$('#upload_image-r').center({against:'parent'});
-			});
+		$(document).ready(function(){
+			$('#upload_image-r').center({against:'parent'});
+		});
 	</script>
 	</body>
 </html>

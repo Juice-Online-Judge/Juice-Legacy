@@ -72,6 +72,10 @@
 		}
 	}
 	
+	function set_cookie($name, $value, $time) {
+		setcookie($name, $value, $current_time + $time, '/', '', false, true);
+	}
+	
 	function verify_code() {
 		return mt_rand(1000000, 9999999);
 	}

@@ -27,7 +27,7 @@
 					<div>
 						<div>
 							<div>
-								<h2 class="title">Product Manager</h2>
+								<h2 class="title">成員介紹</h2>
 							</div>
 							<div>
 <?php
@@ -35,7 +35,6 @@
 		groups : 0 -> PM, 1 -> administration, 2 -> lesson, 3 -> system, 4 -> website
 	*/
 	foreach ($result as $tmp) {
-		if ($tmp['groups'] == 0) {
 ?>
 								<div>
 									<blockquote>
@@ -44,83 +43,6 @@
 									</blockquote>
 								</div>
 <?php
-		}
-	}
-?>
-							</div>
-						</div>
-						<div>
-							<div>
-								<h2 class="title">行政部</h2>
-							</div>
-							<div>
-<?php
-	foreach ($result as $tmp) {
-		if ($tmp['groups'] == 1) {
-?>
-								<div>
-									<div><?php echo $tmp['user']; ?></div>
-									<div><?php echo $tmp['content']; ?></div>
-								</div>
-<?php
-		}
-	}
-?>
-							</div>
-						</div>
-						<div>
-							<div>
-								<h2 class="title">課程部</h2>
-							</div>
-							<div>
-<?php
-	foreach ($result as $tmp) {
-		if ($tmp['groups'] == 2) {
-?>
-								<div>
-									<div><?php echo $tmp['user']; ?></div>
-									<div><?php echo $tmp['content']; ?></div>
-								</div>
-<?php
-		}
-	}
-?>
-							</div>
-						</div>
-						<div>
-							<div>
-								<h2 class="title">系統部</h2>
-							</div>
-							<div>
-<?php
-	foreach ($result as $tmp) {
-		if ($tmp['groups'] == 3) {
-?>
-								<div>
-									<div><?php echo $tmp['user']; ?></div>
-									<div><?php echo $tmp['content']; ?></div>
-								</div>
-<?php
-		}
-	}
-?>
-							</div>
-						</div>
-						<div>
-							<div>
-								<h2 class="title">網頁部</h2>
-							</div>
-							<div>
-<?php
-	foreach ($result as $tmp) {
-		if ($tmp['groups'] == 4) {
-?>
-								<div>
-									<div><?php echo $tmp['user']; ?></div>
-									<div><?php echo $tmp['content']; ?></div>
-								</div>
-<?php
-		}
 	}
 ?>
 							</div>

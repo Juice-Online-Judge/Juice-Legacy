@@ -64,7 +64,7 @@ EOD;
 <?php
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson();
-	for ($i = (count($result) - 1); $i >= 0; $i--)
+	for ($i = (count($result) - 1); $i >= 0; $i--) {
 ?>
 									<option value="<?php echo $result[$i]['lesson_key']; ?>"><?php echo $result[$i]['lesson_unit']; ?></option>
 <?php

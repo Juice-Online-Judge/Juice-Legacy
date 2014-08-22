@@ -58,7 +58,7 @@ EOD;
 				<div class="m-center" style="width:500px;">
 					<form name="upload_image" id="upload_image" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
-							<div class="pure-control-group t-center">
+							<div class="pure-control-group">
 								<label for="unit">單元：</label>
 								<select id="unit" name="unit" required>								
 <?php
@@ -72,7 +72,7 @@ EOD;
 ?>
 								</select>
 							</div>
-							<div class="pure-control-group t-center">
+							<div class="pure-control-group">
 								<label for="file">圖片：</label>
 								<input type="file" id="file" name="file" accept="image/*" required>
 							</div>

@@ -38,8 +38,10 @@
 		if ($tmp['groups'] == 0) {
 ?>
 								<div>
+									<blockquote>
 									<div><?php echo $tmp['user']; ?></div>
 									<div><?php echo $tmp['content']; ?></div>
+									</blockquote>
 								</div>
 <?php
 		}

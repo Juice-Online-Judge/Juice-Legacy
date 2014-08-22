@@ -34,15 +34,19 @@
 	/*
 		groups : 0 -> PM, 1 -> administration, 2 -> lesson, 3 -> system, 4 -> website
 	*/
+	$i = 0;
 	foreach ($result as $tmp) {
 ?>
 								<div>
 									<blockquote>
-									<div><?php echo $tmp['user']; ?></div>
-									<div class="content"><?php echo $tmp['content']; ?></div>
+										<div id="member_<?php echo $i; ?>"><?php echo $tmp['user']; ?></div>
+										<blockquote>
+											<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
+										</blockquote>
 									</blockquote>
 								</div>
 <?php
+		$i++;
 	}
 ?>
 							</div>

@@ -53,12 +53,14 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice">填空練習：</label>
+										<label for="practice" style="text-align:left;"><h3>填空練習：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
 										<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 									</div>
 								</div>
+								<br>
+								<hr>
 								<br>
 <?php
 				$i++;
@@ -67,7 +69,7 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice">填空練習：</label>
+										<label for="practice" style="text-align:left;"><h3>填空練習：<h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 									</div>
@@ -84,7 +86,7 @@
 		if ($lesson_check and !empty($lesson_content['implement'])) {
 			foreach ($lesson_content['implement'] as $tmp) {
 ?>
-								<div>
+								<div style="margin:0 1em 0 1em;">
 									<div class="pure-control-group">
 										<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
@@ -106,19 +108,21 @@
 										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
 									</div>
 									<div class="pure-control-group">
-										<label for="implement">動 動 腦：</label>
+										<label for="implement" style="text-align:left;"><h3>動 動 腦：</h3></label>
 										<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
 										<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 									</div>
 								</div>
 								<br>
+								<hr>
+								<br>
 <?php
 				$i++;
 			}
 		}
 ?>
-								<div>
+								<div style="margin:0 1em 0 1em;">
 									<div class="pure-control-group">
 										<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
@@ -140,7 +144,7 @@
 										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>
 									<div class="pure-control-group">
-										<label for="implement">動 動 腦：</label>
+										<label for="implement" style="text-align:left;"><h3>動 動 腦：</h3></label>
 										<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required></textarea>
 										<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 									</div>

@@ -56,7 +56,7 @@
 		<script>
 			$(document).ready(function(){
 				$("h2").click(function(){
-					$("content").slideToggle();
+					$(".content").slideToggle();
 				});
 			});
 		</script>

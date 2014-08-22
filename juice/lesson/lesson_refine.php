@@ -69,7 +69,7 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice" style="text-align:left;"><h3>填空練習：<h3></label>
+										<label for="practice" style="text-align:left;"><h3>填空練習：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 									</div>

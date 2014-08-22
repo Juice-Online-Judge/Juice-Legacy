@@ -53,7 +53,7 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice" style="text-align:left;"><h3>填空練習：</h3></label>
+										<label for="practice" style="text-align:left;"><h3>填空練習 第 <?php echo $i; ?> 題：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
 										<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
@@ -227,69 +227,10 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function() {
-				$('#main').css('height', ($(document).height() - 350));
 				$(window).on("click scroll",function(){
-					$('#main').css('height', ($('.juice-lesson-body').height()));
+					$('#main').css('height', ($('.pure-g').height()));
 				});
 			});
-			/*$(document).ready(function() {
-				function auto_update() {
-					$.post(
-						'<?php echo $prefix.'juice/lesson/lesson_handle.php' ?>',
-						{
-							unit:$('#unit').val(),
-							level:$('#level').val(),
-							title:$('#title').val(),
-							goal:CKEDITOR.instances.goal.getData(),
-							content:CKEDITOR.instances.content.getData(),
-							example:CKEDITOR.instances.example.getData(),
-							//practice:CKEDITOR.instances.practice.getData(),
-							//implement:CKEDITOR.instances.implement.getData(),
-							verify_code:$('#verify_code').val(),
-							key:$('#key').val()
-						},
-						function (data) {
-							var d = new Date();
-							if (typeof data.error != 'undefined') {
-								$('#message').text(data.error);
-								$('html,body').animate({
-									scrollTop:0
-								});
-							} else if (typeof data.updated != 'undefined') {
-								$('#message').text('系統已自動存檔 - ' + d);
-							} else if (typeof data.key != 'undefined') {
-								$('#message').text('課程已新增 - ' + d);
-								$('#submit').text('修改');
-								$('#key').val(data.key);
-								$("#unit").attr("readonly",true);
-								$('html,body').animate({
-									scrollTop:0
-								});
-								setInterval(auto_update, 300000);
-							} else {
-								$('#message').text('未知的錯誤 - ' + d);
-								$('html,body').animate({
-									scrollTop:0
-								});
-							}
-						}, 'json'
-					);
-				}
-				
-				$("#lesson_refine").submit(function(){
-					auto_update();
-					return false;
-				});*/
-				
-<?php
-	if ($lesson_content) {
-?>
-				//$("#unit").attr("readonly",true);
-				//setInterval(auto_update, 300000);
-<?php
-	}
-?>
-			//});
 		</script>
 	</body>
 </html>

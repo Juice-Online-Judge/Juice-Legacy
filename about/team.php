@@ -59,9 +59,9 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
-				$("#introduction_<?php echo $i; ?>").hide();
-				$("#member_<?php echo $i; ?>").click(function(){
-					$("#introduction_<?php echo $i; ?>").slideToggle();
+				$("div[id*='introduction']").hide();
+				$("div[id*='member']").click(function(){
+					$("div[id*='introduction']").slideToggle();
 				});
 			});
 		</script>

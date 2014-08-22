@@ -55,7 +55,7 @@ EOD;
 	}
 ?>
 			<div id="upload_image-r" style="position:relative;">
-				<div class="m-center" style="width:500px;>
+				<div class="m-center" style="width:500px;">
 					<form name="upload_image" id="upload_image" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 						<fieldset>
 							<div class="pure-control-group t-center">

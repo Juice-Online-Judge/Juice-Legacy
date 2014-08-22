@@ -173,7 +173,7 @@
 										</div>
 										<div style="display:inline-block;">
 											<label for="title">標題：</label>
-											<input type="text" id="title" name="title" value="<?php echo ($lesson_check) ? $lesson_content['lesson_title'] : ''; ?>" size="12" maxlength="128" autocomplete="off" required>
+											<input type="text" id="title" name="title" value="<?php echo ($lesson_check) ? $lesson_content['lesson_title'] : ''; ?>" size="24" maxlength="128" autocomplete="off" required>
 										</div>
 									</div>
 								</div>

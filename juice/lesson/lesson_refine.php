@@ -153,12 +153,12 @@
 								</div>
 <?php } else { ?>
 								<div>
-									<div style="margin:0 1em 0 1em;">
-										<div style="display:inline-block;line-hight:3em;">
+									<div style="margin:0 1em 0 1em;text-align:right;">
+										<div style="display:inline-block;">
 											<label for="unit">單元：</label>
 											<input type="text" id="unit" name="unit" value="<?php echo ($lesson_check) ? $lesson_content['lesson_unit'] : ''; ?>" maxlength="2" pattern="^\d{1,2}$"<?php echo ($lesson_check) ? ' readonly' : ''; ?> autocomplete="off" required>
 										</div>
-										<div style="display:inline-block;line-hight:3em;">
+										<div style="display:inline-block;">
 											<label for="level">難度：</label>
 											<select name="level" id="level" required>
 												<option value="1"<?php echo ($lesson_content['lesson_level'] == 1) ? 'selected' : ''; ?>>初階</option>
@@ -167,7 +167,7 @@
 												<option value="4"<?php echo ($lesson_content['lesson_level'] == 4) ? 'selected' : ''; ?>>終階</option>
 											</select>
 										</div>
-										<div style="display:inline-block;line-hight:3em;">
+										<div style="display:inline-block;">
 											<label for="title">標題：</label>
 											<input type="text" id="title" name="title" value="<?php echo ($lesson_check) ? $lesson_content['lesson_title'] : ''; ?>" maxlength="128" autocomplete="off" required>
 										</div>

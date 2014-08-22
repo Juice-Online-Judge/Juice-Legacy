@@ -65,9 +65,13 @@ EOD;
 <?php
 	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $lesson->list_lesson();
-	foreach ($result as $tmp) {
+	for ($i = (count($result) - 1); $i >= 0; $i--) {
 ?>
+<<<<<<< HEAD
 										<option value="<?php echo $tmp['lesson_key']; ?>"><?php echo $tmp['lesson_unit']; ?></option>
+=======
+									<option value="<?php echo $result[$i]['lesson_key']; ?>"><?php echo $result[$i]['lesson_unit']; ?></option>
+>>>>>>> origin/master
 <?php
 	}
 ?>

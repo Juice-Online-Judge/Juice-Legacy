@@ -162,6 +162,15 @@
 			exit();
 		}
 		
+		public function hash_check($table, $field, $hash) {
+			$sql = "SELECT `id` FROM `".$table."` WHERE `".$field."` = :hash LIMIT 1";
+			$params = array(
+				':hash' => $hash
+			);
+			$this->query($sql, $params);
+			return ($this->rowCount() == 1) ? false : true;
+		}
+		
 		public function log($type, $data) {
 			$log_file_name = 'log-'.date("Y-m-d");
 			$log_file_path = $_SERVER['DOCUMENT_ROOT']."/log/".$log_file_name;

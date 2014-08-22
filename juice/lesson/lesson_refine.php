@@ -86,24 +86,24 @@
 		if ($lesson_check and !empty($lesson_content['implement'])) {
 			foreach ($lesson_content['implement'] as $tmp) {
 ?>
-								<div style="margin:0 1em 0 1em;">
-									<div class="pure-control-group">
+								<div class="pure-g" style="margin:0 1em 0 1em;">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="<?php echo $tmp['time_limit']; ?>" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
 										<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="<?php echo $tmp['memory_limit']; ?>" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
 										<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="<?php echo $tmp['file_limit']; ?>" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
 										<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="<?php echo $tmp['mode']; ?>" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
 										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="<?php echo $tmp['other_limit']; ?>" autocomplete="off" required>
 									</div>
@@ -122,24 +122,24 @@
 			}
 		}
 ?>
-								<div style="margin:0 1em 0 1em;">
-									<div class="pure-control-group">
+								<div class="pure-g" style="margin:0 1em 0 1em;">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
 										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
 										<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
 										<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_mode_<?php echo $i; ?>">較驗模式：</label>
 										<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div class="pure-u-1 pure-u-md-1-3">
 										<label for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
 										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
 									</div>

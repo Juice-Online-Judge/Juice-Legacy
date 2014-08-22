@@ -99,36 +99,3 @@ footer {
 	margin-top: 3.5em;
 	margin-right: calc(100% / 8);
 }
-
-.juice-lesson-body {
-	width: 900px;
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	clear:both;
-}
-
-.juice-lesson-titles {
-	float: right;
-	display: inline-block;
-	margin-top: 5px;
-	margin-right: 8px;
-}
-
-.juice-lesson-contents {
-	max-width:860px;
-	margin-left: auto;
-	margin-right: auto;
-	clear: both;
-}
-
-.juice-lesson-contents label {
-	display: block;
-	margin-top: 8px;
-	margin-bottom: 3px;
-	margin-left: 8px;
-}
-
-.juice-lesson-button {
-	margin: 10px;
-}

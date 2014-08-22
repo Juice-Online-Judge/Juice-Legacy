@@ -37,7 +37,7 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div class="pure-g">
-				<div class="pure-u-1-8"><div>
+				<div class="pure-u-1-8"></div>
 				<div class="pure-u-6-8">
 					<div>
 						<h3 id="message"></h3>

@@ -60,9 +60,27 @@
 		<script>
 			$(document).ready(function(){
 				$("div[id*='introduction']").hide();
-				$("member_<?php echo $i; ?>").click(function(){
-					$("introduction_<?php echo $i; ?>").slideToggle();
-				});
+				$("#member_0").click(function(){
+					$("#introduction_0").slideToggle();
+				});				
+				$("#member_1").click(function(){
+					$("#introduction_1").slideToggle();
+				});				
+				$("#member_2").click(function(){
+					$("#introduction_2").slideToggle();
+				});				
+				$("#member_3").click(function(){
+					$("#introduction_3").slideToggle();
+				});				
+				$("#member_4").click(function(){
+					$("#introduction_4").slideToggle();
+				});				
+				$("#member_5").click(function(){
+					$("#introduction_5").slideToggle();
+				});								
+				$("#member_6").click(function(){
+					$("#introduction_6").slideToggle();
+				});				
 			});
 		</script>
 	</body>

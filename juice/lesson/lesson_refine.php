@@ -153,28 +153,30 @@
 								</div>
 <?php } else { ?>
 								<div>
-									<div>
-										<label for="unit">單元：</label>
-										<input type="text" id="unit" name="unit" value="<?php echo ($lesson_check) ? $lesson_content['lesson_unit'] : ''; ?>" maxlength="2" pattern="^\d{1,2}$"<?php echo ($lesson_check) ? ' readonly' : ''; ?> autocomplete="off" required>
-									</div>
-									<div>
-										<label for="level">難度：</label>
-										<select name="level" id="level" required>
-											<option value="1"<?php echo ($lesson_content['lesson_level'] == 1) ? 'selected' : ''; ?>>初階</option>
-											<option value="2"<?php echo ($lesson_content['lesson_level'] == 2) ? 'selected' : ''; ?>>中階</option>
-											<option value="3"<?php echo ($lesson_content['lesson_level'] == 3) ? 'selected' : ''; ?>>高階</option>
-											<option value="4"<?php echo ($lesson_content['lesson_level'] == 4) ? 'selected' : ''; ?>>終階</option>
-										</select>
-									</div>
-									<div>
-										<label for="title">標題：</label>
-										<input type="text" id="title" name="title" value="<?php echo ($lesson_check) ? $lesson_content['lesson_title'] : ''; ?>" maxlength="128" autocomplete="off" required>
+									<div style="display:inline-block;margin:0 1em 0 1em;line-hight:3em;">
+										<div>
+											<label for="unit">單元：</label>
+											<input type="text" id="unit" name="unit" value="<?php echo ($lesson_check) ? $lesson_content['lesson_unit'] : ''; ?>" maxlength="2" pattern="^\d{1,2}$"<?php echo ($lesson_check) ? ' readonly' : ''; ?> autocomplete="off" required>
+										</div>
+										<div>
+											<label for="level">難度：</label>
+											<select name="level" id="level" required>
+												<option value="1"<?php echo ($lesson_content['lesson_level'] == 1) ? 'selected' : ''; ?>>初階</option>
+												<option value="2"<?php echo ($lesson_content['lesson_level'] == 2) ? 'selected' : ''; ?>>中階</option>
+												<option value="3"<?php echo ($lesson_content['lesson_level'] == 3) ? 'selected' : ''; ?>>高階</option>
+												<option value="4"<?php echo ($lesson_content['lesson_level'] == 4) ? 'selected' : ''; ?>>終階</option>
+											</select>
+										</div>
+										<div>
+											<label for="title">標題：</label>
+											<input type="text" id="title" name="title" value="<?php echo ($lesson_check) ? $lesson_content['lesson_title'] : ''; ?>" maxlength="128" autocomplete="off" required>
+										</div>
 									</div>
 								</div>
 								<br>
 								<div>
 									<div>
-										<label for="goal">學習目標：</label>
+										<label for="goal"><h3>學習目標：</h3></label>
 										<textarea class="ckeditor" name="goal" id="goal" required><?php echo ($lesson_check) ? $lesson_content['lesson_goal'] : ''; ?></textarea>
 									</div>
 									<br>

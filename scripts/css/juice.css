@@ -72,6 +72,14 @@ footer {
 	text-align: center;
 }
 
+.t-right {
+	text-align: right;
+}
+
+.t-left {
+	text-align: left;
+}
+
 .m-center {
 	margin-left: auto;
 	margin-right: auto;

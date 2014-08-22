@@ -68,7 +68,6 @@ EOD;
 	for ($i = (count($result) - 1); $i >= 0; $i--) {
 ?>
 <<<<<<< HEAD
-										<option value="<?php echo $tmp['lesson_key']; ?>"><?php echo $tmp['lesson_unit']; ?></option>
 =======
 									<option value="<?php echo $result[$i]['lesson_key']; ?>"><?php echo $result[$i]['lesson_unit']; ?></option>
 >>>>>>> origin/master

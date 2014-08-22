@@ -39,7 +39,7 @@
 								<div>
 									<blockquote>
 									<div><?php echo $tmp['user']; ?></div>
-									<div><?php echo $tmp['content']; ?></div>
+									<div id=Content><?php echo $tmp['content']; ?></div>
 									</blockquote>
 								</div>
 <?php
@@ -55,6 +55,9 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
+				$("#h2").click(function{
+					$("div#Content").slideToggle();
+				})
 			});
 		</script>
 	</body>

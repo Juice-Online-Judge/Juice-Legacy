@@ -60,8 +60,8 @@
 		<script>
 			$(document).ready(function(){
 				$("div[id*='introduction']").hide();
-				$("div[id*='member']").click(function(){
-					$("div[id*='introduction']").slideToggle();
+				$("member_<?php echo $i; ?>").click(function(){
+					$("introduction_<?php echo $i; ?>").slideToggle();
 				});
 			});
 		</script>

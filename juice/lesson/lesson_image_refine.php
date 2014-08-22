@@ -40,7 +40,7 @@
 		<title>新增圖片</title>
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
-	<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
+		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

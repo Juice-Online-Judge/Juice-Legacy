@@ -38,7 +38,7 @@
 		<div id="main">
 			<div class="pure-g">
 				<div class="pure-u-1-8"></div>
-				<div class="pure-u-6-8">
+				<div class="pure-u-3-4">
 					<div>
 						<h3 id="message"></h3>
 					</div>

@@ -78,7 +78,7 @@
 			$(document).ready(function(){
 				$("div[id*='introduction']").hide();
 				$('div[id*="member"]').click(function(){
-					$(this).parent().find('div[id*="introduction"]').slideToggle();
+					$(this).parent().children('div[id*="introduction"]').slideToggle();
 				});
 				
 			});

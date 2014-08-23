@@ -60,7 +60,7 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
-			$(function(){
+			/*$(function(){
 				var adjustheight = 76;
 				$("div[id*='introduction']").css('height',adjustheight).css('overflow','hidden');
 				$(".more-less").append('<p class="continued">...</p><a herf="#" class="adjust">more</a>');
@@ -73,13 +73,13 @@
 					$(this).parent().find("p.continue").css('display','block');
 					$(this).text("more");
 				});
-			});
+			});*/
 
 			$(document).ready(function(){
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
 					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					$(this).parent().find(".more-less").slideToggle();
+					/*$(this).parent().find(".more-less").slideToggle();*/
 				});
 				
 			});

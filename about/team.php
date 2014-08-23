@@ -41,7 +41,9 @@
 									<blockquote>
 										<div id="member_<?php echo $i; ?>"><?php echo $tmp['user']; ?></div>
 										<blockquote>
-											<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
+											<div class="more-less">
+												<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
+											</div>
 										</blockquote>
 									</blockquote>
 								</div>
@@ -58,34 +60,27 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
+			$(function(){
+				var adjustheight = 80;
+				$("div[id*='introduction']").css('height',adjustheight).css('overflow','hidden');
+				$(".more-less").append('<p class="continue">...</p><a herf="#" class="adjust">more</a>');
+				$(.adjust).toggle(function(){
+					$(this).parent.find('div[id*="introduction"]').css('height','auto').css('overflow','visible');
+					$(this).parent.find("p.continue").css('display','none');
+					$(this).text("less");
+				} , function(){
+					$(this).parent.find('div[id*="introduction"]').css('height',adjustheight).css('overflow','hidden');
+					$(this).parent.find("p.continue").css('display','block');
+					$(this).text("more");
+				});
+			});
+
 			$(document).ready(function(){
 				$("div[id*='introduction']").hide();
 				$('div[id*="member"]').click(function(){
-					$(this).parent().children('div[id*="introduction"]').slideToggle();
+					$(this).parent().find('div[id*="introduction"]').slideToggle();
 				});
-				/*
-				$("#member_0").click(function(){
-					$("#introduction_0").slideToggle();
-				});				
-				$("#member_1").click(function(){
-					$("#introduction_1").slideToggle();
-				});				
-				$("#member_2").click(function(){
-					$("#introduction_2").slideToggle();
-				});				
-				$("#member_3").click(function(){
-					$("#introduction_3").slideToggle();
-				});				
-				$("#member_4").click(function(){
-					$("#introduction_4").slideToggle();
-				});				
-				$("#member_5").click(function(){
-					$("#introduction_5").slideToggle();
-				});								
-				$("#member_6").click(function(){
-					$("#introduction_6").slideToggle();
-				});
-				*/				
+				
 			});
 		</script>
 	</body>

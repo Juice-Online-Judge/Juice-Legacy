@@ -78,7 +78,7 @@
 			$(document).ready(function(){
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
-					$(this).parent().children(".more-less").children('div[id*="introduction"]').slideToggle();
+					$(this).parent().children(".more-less").slideToggle();
 				});
 				
 			});

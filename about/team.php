@@ -60,6 +60,10 @@
 		<script>
 			$(document).ready(function(){
 				$("div[id*='introduction']").hide();
+				$('div[id*="member"]').click(function(){
+					$(this).parent().children('div[id*="introduction"]').slideToggle();
+				});
+				/*
 				$("#member_0").click(function(){
 					$("#introduction_0").slideToggle();
 				});				
@@ -80,7 +84,8 @@
 				});								
 				$("#member_6").click(function(){
 					$("#introduction_6").slideToggle();
-				});				
+				});
+				*/				
 			});
 		</script>
 	</body>

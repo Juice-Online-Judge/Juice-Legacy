@@ -64,21 +64,21 @@
 				var adjustheight = 80;
 				$("div[id*='introduction']").css('height',adjustheight).css('overflow','hidden');
 				$(".more-less").append('<p class="continue">...</p><a herf="#" class="adjust">more</a>');
-				$(.adjust).toggle(function(){
-					$(this).parent.find('div[id*="introduction"]').css('height','auto').css('overflow','visible');
+				$(".adjust").toggle(function(){
+					$(this).parent.children(".more-less").children('div[id*="introduction"]').css('height','auto').css('overflow','visible');
 					$(this).parent.find("p.continue").css('display','none');
 					$(this).text("less");
 				} , function(){
-					$(this).parent.find('div[id*="introduction"]').css('height',adjustheight).css('overflow','hidden');
+					$(this).parent.children(".more-less").children('div[id*="introduction"]').css('height',adjustheight).css('overflow','hidden');
 					$(this).parent.find("p.continue").css('display','block');
 					$(this).text("more");
 				});
 			});
 
 			$(document).ready(function(){
-				$("div[id*='introduction']").hide();
+				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
-					$(this).parent().children('div[id*="introduction"]').slideToggle();
+					$(this).parent().children(".more-less").children('div[id*="introduction"]').slideToggle();
 				});
 				
 			});

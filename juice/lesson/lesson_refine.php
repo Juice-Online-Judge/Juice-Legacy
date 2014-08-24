@@ -125,23 +125,23 @@
 								<div class="pure-g" style="margin:0 1em 0 1em;">
 									<div class="pure-control-group pure-u-1-3">
 										<label style="text-align:left;" for="implement_timeLimit_<?php echo $i; ?>">時間限制(秒)：</label>
-										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+										<input type="text" name="implement_timeLimit_<?php echo $i; ?>" id="implement_timeLimit_<?php echo $i; ?>" value="" autocomplete="off">
 									</div>
 									<div class="pure-control-group pure-u-1-3">
 										<label style="text-align:left;" for="implement_memoryLimit_<?php echo $i; ?>">記憶體限制(MB)：</label>
-										<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+										<input type="text" name="implement_memoryLimit_<?php echo $i; ?>" id="implement_memoryLimit_<?php echo $i; ?>" value="" autocomplete="off">
 									</div>
 									<div class="pure-control-group pure-u-1-3">
 										<label style="text-align:left;" for="implement_fileLimit_<?php echo $i; ?>">開檔限制數：</label>
-										<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+										<input type="text" name="implement_fileLimit_<?php echo $i; ?>" id="implement_fileLimit_<?php echo $i; ?>" value="" autocomplete="off">
 									</div>
 									<div class="pure-control-group pure-u-1-3">
 										<label style="text-align:left;" for="implement_mode_<?php echo $i; ?>">校驗模式：</label>
-										<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off" required>
+										<input type="text" name="implement_mode_<?php echo $i; ?>" id="implement_mode_<?php echo $i; ?>" value="" autocomplete="off">
 									</div>
 									<div class="pure-control-group pure-u-1-3">
 										<label style="text-align:left;" for="implement_otherLimit_<?php echo $i; ?>">其餘限制：</label>
-										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off" required>
+										<input type="text" name="implement_otherLimit_<?php echo $i; ?>" id="implement_otherLimit_<?php echo $i; ?>" value="" autocomplete="off">
 									</div>
 									<div class="pure-control-group pure-u-1-1">
 										<label for="implement" style="text-align:left;width:auto;"><h3>動動腦 第 <?php echo $i; ?> 題：</h3></label>

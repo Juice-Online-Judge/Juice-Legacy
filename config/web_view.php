@@ -52,7 +52,12 @@ EOD;
 						<li>
 							<a href="#">主選單</a>
 							<ul>
-								<li><a href="#">課程教學</a></li>
+								<li>
+									<a href="#">課程教學</a>
+									<ul>
+										<li><a href="#">課程列表</a></li>
+									</ul>
+								</li>
 								<li class="pure-menu-separator"></li>
 								<li>
 									<a href="#">闖關競賽</a>

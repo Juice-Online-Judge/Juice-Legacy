@@ -14,7 +14,11 @@
 	
 	$course = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $course->lesson_unit_to_key($_GET['unit']);
-	print_r($result);
+	if ($result !== false) {
+		print_r($result);
+	} else {
+		echo 'no';
+	}
 ?>
 <!DOCTYPE html>
 <html>

@@ -44,10 +44,10 @@
 			<div>
 				<div id="course_content">
 					<div id="course_unit">
-						單元 <?php echo $result['lesson_unit']; ?>
+						<span>單元 <?php echo $result['lesson_unit']; ?></span>
 					</div>
 					<div id="course_title">
-						<?php echo $result['lesson_title']; ?>
+						<span><?php echo $result['lesson_title']; ?></span>
 					</div>
 					<div id="course_goal">
 						<?php echo $result['lesson_goal']; ?>
@@ -66,7 +66,7 @@
 ?>
 					<div>
 						<div>
-							第 <?php echo $i; ?> 題
+							<span>第 <?php echo $i; ?> 題</span>
 						</div>
 						<div>
 							<?php echo $tmp['practice_content']; ?>
@@ -84,16 +84,16 @@
 ?>
 					<div>
 						<div>
-							第 <?php echo $i; ?> 題
+							<span>第 <?php echo $i; ?> 題</span>
 						</div>
 						<div>
-							Time Limit : <?php echo $tmp['time_limit']; ?>
+							<span>Time Limit : <?php echo $tmp['time_limit']; ?></span>
 						</div>
 						<div>
-							Memory Limit : <?php echo $tmp['memory_limit']; ?>
+							<span>Memory Limit : <?php echo $tmp['memory_limit']; ?></span>
 						</div>
 						<div>
-							File Limit : <?php echo $tmp['file_limit']; ?>
+							<span>File Limit : <?php echo $tmp['file_limit']; ?></span>
 						</div>
 						<div>
 							題目：

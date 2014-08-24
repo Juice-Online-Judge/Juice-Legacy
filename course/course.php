@@ -96,6 +96,7 @@
 							File Limit : <?php echo $tmp['file_limit']; ?>
 						</div>
 						<div>
+							題目：
 							<?php echo $tmp['implement_content']; ?>
 						</div>
 						<div>

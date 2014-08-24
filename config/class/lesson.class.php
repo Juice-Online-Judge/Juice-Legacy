@@ -68,9 +68,9 @@
 		public function add_lesson($type, array $content = array()) {
 			$key = hash_key('sha1');
 			$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
-			$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
-			$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
-			$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
+			//$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
+			//$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
+			//$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
 			if (!preg_match("/^\d{1,2}$/", $content['unit'])) {
 				$result = array(
 					'error' => 'Invalid unit.'
@@ -159,9 +159,9 @@
 					switch ($type) {
 						case 'lesson':
 							$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
-							$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
-							$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
-							$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
+							//$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
+							//$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
+							//$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
 							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
 								$result = array(
 									'error' => 'Invalid level.'
@@ -207,7 +207,7 @@
 						case 'practice':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
+									//$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
@@ -245,7 +245,7 @@
 						case 'implement':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
+									//$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";

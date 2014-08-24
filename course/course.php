@@ -11,13 +11,13 @@
 		header("Location: ".$prefix."course/course_list.php");
 		exit();
 	}
+	$error = false;
 	
 	$course = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	$result = $course->lesson_unit_to_key($_GET['unit']);
-	if ($result !== false) {
-		print_r($result);
-	} else {
-		echo 'no';
+	if ($result === false) {
+		$error = true;
+		$message = 'Invalid unit.';
 	}
 ?>
 <!DOCTYPE html>
@@ -32,6 +32,11 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
+<?php if ($error) { ?>
+			<div>
+				<h2 class="warning center"><?php echo $message; ?></h2>
+			</div>
+<?php } else { ?>
 			<div>
 				<div id="course_content">
 					<div id="course_unit">
@@ -54,6 +59,7 @@
 					</div>
 				</div>
 			</div>
+<?php } ?>
 		</div>
 <?php display_footer(); ?>
 		<script>

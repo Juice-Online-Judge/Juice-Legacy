@@ -14,10 +14,12 @@
 	$error = false;
 	
 	$course = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	$result = $course->lesson_unit_to_key($_GET['unit']);
-	if ($result === false) {
+	$course_key = $course->lesson_unit_to_key($_GET['unit']);
+	if ($course_key === false) {
 		$error = true;
 		$message = 'Invalid unit.';
+	} else {
+		$result = $course->get_lesson_content($course_key['lesson_key']);
 	}
 ?>
 <!DOCTYPE html>
@@ -40,23 +42,65 @@
 			<div>
 				<div id="course_content">
 					<div id="course_unit">
+						單元 <?php echo $result['lesson_unit']; ?>
 					</div>
 					<div id="course_title">
+						<?php echo $result['lesson_title']; ?>
 					</div>
 					<div id="course_goal">
+						<?php echo $result['lesson_goal']; ?>
 					</div>
 					<div id="course_content">
+						<?php echo $result['lesson_content']; ?>
 					</div>
 				</div>
 				<div id="course_example">
+					<?php echo $result['lesson_example']; ?>
 				</div>
 				<div id="course_practice">
+<?php
+		$i = 1;
+		foreach ($result['practice'] as $tmp) {
+?>
 					<div>
+						<div>
+							第 <?php echo $i; ?> 題
+						</div>
+						<div>
+							<?php echo $tmp['practice_content']; ?>
+						</div>
 					</div>
+<?php
+			$i++;
+		}
+?>
 				</div>
 				<div id="course_implement">
+<?php
+		$i = 1;
+		foreach ($result['implement'] as $tmp) {
+?>
 					<div>
+						<div>
+							第 <?php echo $i; ?> 題
+						</div>
+						<div>
+							Time Limit : <?php echo $tmp['time_limit']; ?>
+						</div>
+						<div>
+							Memory Limit : <?php echo $tmp['memory_limit']; ?>
+						</div>
+						<div>
+							File Limit : <?php echo $tmp['file_limit']; ?>
+						</div>
+						<div>
+							<?php echo $tmp['implement_content']; ?>
+						</div>
 					</div>
+<?php
+			$i++;
+		}
+?>
 				</div>
 			</div>
 <?php } ?>

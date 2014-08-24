@@ -9,6 +9,15 @@
 			parent::__destruct();
 		}
 		
+		public function lesson_unit_to_key($unit) {
+			$sql = "SELECT `lesson_key` FROM `lesson` WHERE `lesson_unit` = :lesson_unit";
+			$params = array(
+				':lesson_unit' => $unit
+			);
+			$this->query($sql, $params);
+			return $this->fetch();
+		}
+		
 		public function list_lesson(array $filter = array()) {
 			$sql = "SELECT `lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_is_visible` FROM `lesson` WHERE `lesson_is_delete` = :lesson_is_delete ORDER BY `lesson_unit` ASC";
 			$params = array(

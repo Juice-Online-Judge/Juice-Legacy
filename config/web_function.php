@@ -73,7 +73,7 @@
 	}
 	
 	function set_cookie($name, $value, $time) {
-		setcookie($name, $value, ($current_time + $time), '/', '', false, true);
+		setcookie($name, $value, ($GLOBALS['current_time'] + $time), '/', '', false, true);
 	}
 	
 	function verify_code() {

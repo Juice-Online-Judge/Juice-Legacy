@@ -120,7 +120,6 @@ footer {
 	height: 1.8em;
 	color: #C6C6C6;
 	background-color: #FFF;
-	text-align: center;
 	vertical-align: bottom;
 	border: 1px solid;
 	border-top-left-radius: 0.1em;
@@ -130,5 +129,7 @@ footer {
 }
 
 #course_list li a{
+	text-align: center;
+	vertical-align: middle;
 	text-decoration: none;
 }

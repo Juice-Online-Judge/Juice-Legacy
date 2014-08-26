@@ -160,9 +160,3 @@ footer {
 	width: 25%;
 	vertical-align: top;
 }
-
-#course_introduction,
-#course_practice,
-#course_implement {
-	display: none;
-}

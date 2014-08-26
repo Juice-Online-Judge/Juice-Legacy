@@ -44,7 +44,7 @@
 <?php } else { ?>
 				<div class="pure-u-1-1">
 					<ul id="course_list">
-						<a href=""><li>學習目標</li></a>
+						<li><a href="">學習目標</a></li>
 						<li><a href="">範例觀摩</a></li>
 						<li><a href="">填空練習</a></li>
 						<li><a href="">動 動 腦</a></li>

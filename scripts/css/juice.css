@@ -136,6 +136,6 @@ footer {
 	margin-right: auto;
 }
 
-#course_list li a:hover {
+#course_list li:hover {
 	background-color: #FFF;
 }

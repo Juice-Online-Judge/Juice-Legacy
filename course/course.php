@@ -36,21 +36,21 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div>
+			<div class="pure-g">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>
 				</div>
 <?php } else { ?>
-				<div class="pure-g">
+				<div class="pure-u-1-1">
 					<ul id="course_list">
-						<li><a href="#">學習目標</a></li>
-						<li><a href="#">範例觀摩</a></li>
-						<li><a href="#">填空練習</a></li>
-						<li><a href="#">動 動 腦</a></li>
+						<li><a href="">學習目標</a></li>
+						<li><a href="">範例觀摩</a></li>
+						<li><a href="">填空練習</a></li>
+						<li><a href="">動 動 腦</a></li>
 					</ul>
 				</div>
-				<div class="pure-g">
+				<div class="pure-u-1-1">
 					<div id="course_content">
 						<div id="course_unit" class="">
 							<span>單元 <?php echo $result['lesson_unit']; ?></span>

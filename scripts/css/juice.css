@@ -154,8 +154,8 @@ footer {
 
 #course_introduction,
 #course_example,
-#course_practice {
+#course_practice,
+#course_implement {
 	width: 25%;
 	vertical-align: top;
-	display: none;
 }

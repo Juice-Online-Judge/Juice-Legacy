@@ -128,20 +128,20 @@ footer {
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
-	z-index: 1;
 }
 
 #course_list li:hover {
 	background-color: #FFF;
 	border-bottom-style: 1px solid #FFF;
-	z-index: 1;
 }
 
 #course_body {
+	position: absolute;
 	margin: -1px 0 0 0;
 	background-color: #FFF;
 	border-top: 1px solid #dfdfdf;
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
+	z-index: -1;
 }

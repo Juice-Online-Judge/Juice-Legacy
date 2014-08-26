@@ -122,16 +122,19 @@ footer {
 	font-size: 1.5em;
 	text-align: center;
 	border: 1px solid #dfdfdf;
+	border-bottom-style: none;
 	border-top-left-radius: 0.1em;
 	border-top-right-radius: 0.1em;
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
+	z-index: 1;
 }
 
 #course_list li:hover {
 	background-color: #FFF;
-	border: 1px solid #FFF;
+	border-bottom-style: 1px solid #FFF;
+	z-index: 1;
 }
 
 #course_body {

@@ -122,13 +122,12 @@ footer {
 	font-size: 1.5em;
 	text-align: center;
 	border: 1px solid #dfdfdf;
-	border-bottom-style: none;
 	border-top-left-radius: 0.1em;
 	border-top-right-radius: 0.1em;
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
-	z-index: 2;
+	z-index: 1;
 }
 
 #course_list li:hover {
@@ -142,5 +141,5 @@ footer {
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
-	z-index: 1;
+	z-index: 2;
 }

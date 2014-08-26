@@ -144,7 +144,8 @@ footer {
 	border-left: none;
 	border-right: none;
 	width: 100%;
-	overflow: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #course_float {

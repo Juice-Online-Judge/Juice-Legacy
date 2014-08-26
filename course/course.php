@@ -42,7 +42,7 @@
 					<h2 class="warning center"><?php echo $message; ?></h2>
 				</div>
 <?php } else { ?>
-				<div>
+				<div class="pure-g">
 					<ul id="course_list">
 						<li><a href="#">學習目標</a></li>
 						<li><a href="#">範例觀摩</a></li>
@@ -50,7 +50,7 @@
 						<li><a href="#">動 動 腦</a></li>
 					</ul>
 				</div>
-				<div>
+				<div class="pure-g">
 					<div id="course_content">
 						<div id="course_unit" class="">
 							<span>單元 <?php echo $result['lesson_unit']; ?></span>

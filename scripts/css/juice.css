@@ -145,6 +145,7 @@ footer {
 }
 
 #course_float {
+	display: flex;
 	margin: 0;
 	padding: 0;
 	width: 400%;
@@ -155,5 +156,5 @@ footer {
 #course_practice,
 #course_implement {
 	width: 25%;
-	display: inline-block;
+	vertical-align: top;
 }

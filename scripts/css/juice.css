@@ -137,12 +137,9 @@ footer {
 }
 
 #course_body {
-	margin: -1px 0 0 0;
+	margin: -1px 1em 0 1em;
 	background-color: #FFF;
-	border-top: 1px solid #dfdfdf;
-	border-bottom: 1px solid #dfdfdf;
-	border-left: none;
-	border-right: none;
+	border: 1px solid #dfdfdf;
 	overflow-x: hidden;
 }
 

@@ -131,6 +131,8 @@ footer {
 	cursor: pointer;
 }
 
-#course_list li:hover {
+#course_list li:hover,
+#course_list li:active,
+#course_list li:focus {
 	background-color: #FFF;
 }

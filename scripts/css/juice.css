@@ -127,19 +127,18 @@ footer {
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
-	z-index: 1;
 }
 
 #course_list li:hover {
 	background-color: #FFF;
+	border: 1px solid #FFF;
 }
 
 #course_body {
-	margin: -3px 0 0 0;
+	margin: -1px 0 0 0;
 	background-color: #FFF;
 	border-top: 1px solid #dfdfdf;
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
-	z-index: 2;
 }

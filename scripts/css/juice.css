@@ -111,8 +111,7 @@ footer {
 /* Course Setting */
 #course_list {
 	width: 100%;
-	margin: 0;
-	height: 2em;
+	margin: 1em 0 0 0;
 }
 
 #course_list li {
@@ -122,7 +121,6 @@ footer {
 	background-color: #F8F8F8;
 	font-size: 1.5em;
 	text-align: center;
-	vertical-align: bottom;
 	border: 1px solid #dfdfdf;
 	border-bottom-style: none;
 	border-top-left-radius: 0.1em;

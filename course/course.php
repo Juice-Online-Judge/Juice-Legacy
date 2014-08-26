@@ -59,7 +59,7 @@
 							<span><?php echo $result['lesson_title']; ?></span>
 						</div>
 						<div id="course_float">
-							<div id="course_content">
+							<div id="course_content" class="course_active">
 								<div id="course_goal">
 									<blockquote><?php echo $result['lesson_goal']; ?></blockquote>
 								</div>

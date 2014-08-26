@@ -157,9 +157,5 @@ footer {
 #course_implement {
 	width: 25%;
 	vertical-align: top;
-	display: none;
-}
-
-.course_active {
-	display: initial;
+	visibility: hidden;
 }

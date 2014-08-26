@@ -116,9 +116,10 @@ footer {
 #course_list li {
 	display: inline-block;
 	width: 7em;
-	height: 1.8em;
-	color: #C6C6C6;
+	height: 2em;
+	color: #dfdfdf;
 	background-color: #FFF;
+	text-align: center;
 	vertical-align: bottom;
 	border: 1px solid;
 	border-top-left-radius: 0.1em;

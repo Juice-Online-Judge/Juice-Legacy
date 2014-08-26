@@ -128,6 +128,7 @@ footer {
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
+	z-index: 2;
 }
 
 #course_list li:hover {
@@ -141,4 +142,5 @@ footer {
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
+	z-index: 1;
 }

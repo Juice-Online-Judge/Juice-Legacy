@@ -117,7 +117,7 @@ footer {
 #course_list li {
 	display: inline-block;
 	width: 7em;
-	height: 1.7em;
+	line-height: 1.7em;
 	background-color: #F8F8F8;
 	font-size: 1.5em;
 	text-align: center;
@@ -130,8 +130,6 @@ footer {
 	cursor: pointer;
 }
 
-#course_list li:hover,
-#course_list li:active,
-#course_list li:focus {
+#course_list li:hover {
 	background-color: #FFF;
 }

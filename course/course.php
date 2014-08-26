@@ -53,79 +53,83 @@
 				<div class="pure-u-1-1">
 					<div id="course_body">
 						<div id="course_content">
-							<div id="course_unit" class="">
+							<div id="course_unit">
 								<span>單元 <?php echo $result['lesson_unit']; ?></span>
 							</div>
 							<div id="course_title">
 								<span><?php echo $result['lesson_title']; ?></span>
 							</div>
 							<div id="course_goal">
-								<?php echo $result['lesson_goal']; ?>
+								<blockquote><?php echo $result['lesson_goal']; ?></blockquote>
 							</div>
 							<div id="course_content">
-								<?php echo $result['lesson_content']; ?>
+								<blockquote><?php echo $result['lesson_content']; ?></blockquote>
 							</div>
 						</div>
 						<div id="course_example">
-							<?php echo $result['lesson_example']; ?>
+							<blockquote><?php echo $result['lesson_example']; ?></blockquote>
 						</div>
 						<div id="course_practice">
+							<blockquote>
 <?php
 		$i = 1;
 		foreach ($result['practice'] as $tmp) {
 ?>
-							<div>
 								<div>
-									<span>第 <?php echo $i; ?> 題</span>
+									<div>
+										<span>第 <?php echo $i; ?> 題</span>
+									</div>
+									<div>
+										<?php echo $tmp['practice_content']; ?>
+									</div>
 								</div>
-								<div>
-									<?php echo $tmp['practice_content']; ?>
-								</div>
-							</div>
 <?php
 			$i++;
 		}
 ?>
+							<blockquote>
 						</div>
 						<div id="course_implement">
 <?php
 		$i = 1;
 		foreach ($result['implement'] as $tmp) {
 ?>
-							<div>
+							<blockquote>
 								<div>
-									<span>第 <?php echo $i; ?> 題</span>
+									<div>
+										<span>第 <?php echo $i; ?> 題</span>
+									</div>
+									<div>
+										<span>Time Limit : <?php echo $tmp['time_limit']; ?></span>
+									</div>
+									<div>
+										<span>Memory Limit : <?php echo $tmp['memory_limit']; ?></span>
+									</div>
+									<div>
+										<span>File Limit : <?php echo $tmp['file_limit']; ?></span>
+									</div>
+									<div>
+										題目：
+										<?php echo $tmp['implement_content']; ?>
+									</div>
+									<div>
+										<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+											<fieldset>
+												<div class="pure-control-group">
+													<label for="code_<?php echo $i; ?>">Code:</label>
+													<textarea name="code_<?php echo $i; ?>" id="code_<?php echo $i; ?>" required></textarea>
+												</div>
+												<div style="display:hidden;">
+													<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_course']; ?>" hidden readonly autocomplete="off" required>
+												</div>
+												<div class="pure-control-group t-center">
+													<button type="submit" id="submit" class="pure-button pure-button-primary">繳交</button>
+												</div>
+											</fieldset>
+										</form>
+									</div>
 								</div>
-								<div>
-									<span>Time Limit : <?php echo $tmp['time_limit']; ?></span>
-								</div>
-								<div>
-									<span>Memory Limit : <?php echo $tmp['memory_limit']; ?></span>
-								</div>
-								<div>
-									<span>File Limit : <?php echo $tmp['file_limit']; ?></span>
-								</div>
-								<div>
-									題目：
-									<?php echo $tmp['implement_content']; ?>
-								</div>
-								<div>
-									<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
-										<fieldset>
-											<div class="pure-control-group">
-												<label for="code_<?php echo $i; ?>">Code:</label>
-												<textarea name="code_<?php echo $i; ?>" id="code_<?php echo $i; ?>" required></textarea>
-											</div>
-											<div style="display:hidden;">
-												<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_course']; ?>" hidden readonly autocomplete="off" required>
-											</div>
-											<div class="pure-control-group t-center">
-												<button type="submit" id="submit" class="pure-button pure-button-primary">繳交</button>
-											</div>
-										</fieldset>
-									</form>
-								</div>
-							</div>
+							<blockquote>
 <?php
 			$i++;
 		}

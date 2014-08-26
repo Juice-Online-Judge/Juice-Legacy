@@ -111,17 +111,18 @@ footer {
 /* Course Setting */
 #course_list {
 	width: 100%;
+	vertical-align: bottom;
 }
 
 #course_list li {
 	display: inline-block;
 	width: 7em;
 	height: 2em;
-	color: #dfdfdf;
 	background-color: #F8F8F8;
 	text-align: center;
 	vertical-align: bottom;
 	border: 1px solid;
+	border-bottom-style: none;
 	border-top-left-radius: 0.1em;
 	border-top-right-radius: 0.1em;
 	margin-left: 0.01em;
@@ -129,6 +130,7 @@ footer {
 }
 
 #course_list li a{
+	color: #dfdfdf;
 	font-size: 1.5em;
 	text-align: center;
 	text-decoration: none;

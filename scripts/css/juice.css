@@ -113,6 +113,7 @@ footer {
 #course_list {
 	width: auto;
 	margin: 1em 0 0 0;
+	padding: 0;
 }
 
 #course_list li {

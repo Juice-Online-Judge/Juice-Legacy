@@ -116,16 +116,18 @@ footer {
 
 #course_list li {
 	display: inline-block;
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #C6C6C6;
 	background-color: #FFF;
 	text-align: center;
-	line-height: 2em;
+	line-height: 1.5em;
 	vertical-align: bottom;
 	border: 1px solid;
 	border-top-left-radius: 0.1em;
 	border-top-right-radius: 0.1em;
-	margin-left: 0.1em;
-	margin-right: 0.1em;
+	margin-left: 0.03em;
+	margin-right: 0.03em;
+	padding-left: 0.05em;
+	padding-right: 0.05em;
 }
 

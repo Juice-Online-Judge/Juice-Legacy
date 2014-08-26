@@ -136,12 +136,10 @@ footer {
 }
 
 #course_body {
-	position: absolute;
 	margin: -1px 0 0 0;
 	background-color: #FFF;
 	border-top: 1px solid #dfdfdf;
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
-	z-index: -1;
 }

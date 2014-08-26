@@ -151,7 +151,7 @@ footer {
 	width: 400%;
 }
 
-#course_content,
+#course_introduction,
 #course_example,
 #course_practice,
 #course_implement {
@@ -161,5 +161,5 @@ footer {
 }
 
 .course_active {
-	visibility: visible;
+	display: initial;
 }

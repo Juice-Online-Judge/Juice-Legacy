@@ -143,13 +143,12 @@ footer {
 	border-bottom: 1px solid #dfdfdf;
 	border-left: none;
 	border-right: none;
-	width: 100%;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
 #course_float {
-	display: block;
+	display: flex;
 	margin: 0;
 	padding: 0;
 	width: 400%;

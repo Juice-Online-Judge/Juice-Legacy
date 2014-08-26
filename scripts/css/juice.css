@@ -129,7 +129,7 @@ footer {
 	margin-right: 0.01em;
 }
 
-#course_list li a{
+#course_list li div{
 	font-size: 1.5em;
 	text-align: center;
 	text-decoration: none;

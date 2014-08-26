@@ -44,10 +44,10 @@
 <?php } else { ?>
 				<div class="pure-u-1-1">
 					<ul id="course_list">
-						<li><a href="">學習目標</a></li>
-						<li><a href="">範例觀摩</a></li>
-						<li><a href="">填空練習</a></li>
-						<li><a href="">動 動 腦</a></li>
+						<li><div>學習目標</div></li>
+						<li><div>範例觀摩</div></li>
+						<li><div>填空練習</div></li>
+						<li><div>動 動 腦</div></li>
 					</ul>
 				</div>
 				<div class="pure-u-1-1">

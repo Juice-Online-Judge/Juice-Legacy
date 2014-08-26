@@ -154,22 +154,6 @@ footer {
 #course_example,
 #course_practice,
 #course_implement {
-	width: 100%;
+	width: 25%;
 	display: inline-block;
-}
-
-#course_content {
-	margin-left: 0;
-}
-
-#course_example {
-	margin-left: 100%;
-}
-
-#course_practice {
-	margin-left: 200%;
-}
-
-#course_implement {
-	margin-left: 300%;
 }

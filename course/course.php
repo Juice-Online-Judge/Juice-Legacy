@@ -156,6 +156,9 @@
 				}, 300);
 			}
 			$(document).ready(function(){
+				$('#course_float').animate({
+					height: $('#course_introduction').height()
+				}, 300);
 			});
 		</script>
 	</body>

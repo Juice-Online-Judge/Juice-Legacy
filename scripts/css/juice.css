@@ -130,7 +130,7 @@ footer {
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
-	order: 1;
+	order: -1;
 }
 
 #course_list li:hover {

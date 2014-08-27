@@ -145,7 +145,7 @@ footer {
 }
 
 #course_float {
-	display: block;
+	display: flex;
 	margin: 0;
 	padding: 0;
 	width: 400%;

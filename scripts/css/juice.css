@@ -156,5 +156,6 @@ footer {
 #course_practice,
 #course_implement {
 	width: 25%;
+	height: auto;
 	vertical-align: top;
 }

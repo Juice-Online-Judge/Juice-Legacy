@@ -44,10 +44,10 @@
 <?php } else { ?>
 				<div class="pure-u-1-1">
 					<ul id="course_list">
-						<li>學習目標</li>
-						<li>範例觀摩</li>
-						<li>填空練習</li>
-						<li>動 動 腦</li>
+						<li id="list_introduction" onClick="displacement(1);">學習目標</li>
+						<li id="list_example" onClick="displacement(2);">>範例觀摩</li>
+						<li id="list_practice" onClick="displacement(3);">>填空練習</li>
+						<li id="list_implement" onClick="displacement(4);">>動 動 腦</li>
 					</ul>
 				</div>
 				<div class="pure-u-1-1">
@@ -144,6 +144,12 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
+			function displacement(value) {
+				value = value * (-100);
+				$('#').animate({
+					left: value+'%'
+				}, 200)
+			}
 			$(document).ready(function(){
 			});
 		</script>

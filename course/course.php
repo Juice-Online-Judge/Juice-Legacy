@@ -147,7 +147,7 @@
 			var course_submenu = ['course_introduction', 'course_example', 'course_practice', 'course_implement'];
 			function displacement(value) {
 				var offset = (value) * (-100);
-				$("#course_float").stop();
+				$("#course_float").stop(true);
 				$('#course_float').animate({
 					marginLeft: offset+'%'
 				}, 500);

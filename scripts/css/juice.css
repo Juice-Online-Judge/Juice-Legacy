@@ -112,7 +112,7 @@ footer {
 /* Course Setting */
 #course_list {
 	width: auto;
-	margin: 1em 0 0 0;
+	margin: 1em 0 1em 0;
 	padding: 0 0 0 2em;
 }
 
@@ -138,7 +138,7 @@ footer {
 }
 
 #course_body {
-	margin: -1px 2.01em 0 2.01em;
+	margin: -1px 2em 0 2em;
 	background-color: #FFF;
 	border: 1px solid #dfdfdf;
 	overflow-x: hidden;

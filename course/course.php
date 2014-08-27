@@ -44,10 +44,10 @@
 <?php } else { ?>
 				<div class="pure-u-1-1">
 					<ul id="course_list">
-						<li id="list_introduction" onClick="displacement(1);">學習目標</li>
-						<li id="list_example" onClick="displacement(2);">範例觀摩</li>
-						<li id="list_practice" onClick="displacement(3);">填空練習</li>
-						<li id="list_implement" onClick="displacement(4);">動 動 腦</li>
+						<li onClick="displacement(0);">學習目標</li>
+						<li onClick="displacement(1);">範例觀摩</li>
+						<li onClick="displacement(2);">填空練習</li>
+						<li onClick="displacement(3);">動 動 腦</li>
 					</ul>
 				</div>
 				<div class="pure-u-1-1">
@@ -59,7 +59,7 @@
 							<span><?php echo $result['lesson_title']; ?></span>
 						</div>
 						<div id="course_float">
-							<div id="course_introduction" class="course_active">
+							<div id="course_introduction">
 								<div id="course_goal">
 									<blockquote><?php echo $result['lesson_goal']; ?></blockquote>
 								</div>
@@ -144,11 +144,16 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
+			var course_submenu = ['course_introduction', 'course_example', 'course_practice', 'course_implement'];
 			function displacement(value) {
-				value = (value - 1) * (-100);
+				var offset = (value) * (-100);
+				$("#course_float").stop();
 				$('#course_float').animate({
-					marginLeft: value+'%'
-				}, 500)
+					marginLeft: offset+'%'
+				}, 500);
+				$('#course_float').animate({
+					height: $('#'+course_submenu[value]).height()
+				}, 300);
 			}
 			$(document).ready(function(){
 			});

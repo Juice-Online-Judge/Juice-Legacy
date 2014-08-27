@@ -112,8 +112,8 @@ footer {
 /* Course Setting */
 #course_list {
 	width: auto;
-	margin: 1em 0 1em 0;
-	padding: 0 0 0 2em;
+	margin: 1em 0 0 0;
+	padding: 0 0 0 3em;
 }
 
 #course_list li {

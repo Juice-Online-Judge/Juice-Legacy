@@ -60,7 +60,12 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
-			$(function(){
+			$(document).ready(function(){
+				var id = id.html();
+				$('div[id*="introduction"]').hide();
+				$('div[id*="member"]').click(function(){
+					$(this).parent().find('div[id*="introduction"]').slideToggle();
+					id=$(this).parent().find('div[id*="introduction"]').attr('id');
 					if( id.length >= 20)
 					{
 						$(id).hmtl(id.substring(0,20));
@@ -69,14 +74,6 @@
 							$id.html(id);
 						));
 					}
-			});
-
-			$(document).ready(function(){
-				var id = id.html();
-				$('div[id*="introduction"]').hide();
-				$('div[id*="member"]').click(function(){
-					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					id=$(this).parent().find('div[id*="introduction"]').attr('id');
 				});
 				
 			});

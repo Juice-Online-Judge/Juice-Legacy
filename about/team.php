@@ -65,23 +65,18 @@
 					$(this).hide();
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>)/i, '');
-					if(name.length >= 20) {
-						$(this).parent().append('<p class="readmore">'+name.substring(0,20)+' <a href="#">Readmore...</a></p>');
-					}
-				});
-				//var name = $(name).html();
-				//$('div[id*="introduction"]').hide();
-				$('div[id*="member"]').click(function(){
-					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					//name=$(this).parent().find('div[id*="introduction"]').attr('id');
-					/*if( name.length >= 20)
-					{
-						$(name).html(name.substring(0,20));
-						$(".more-less").append('<a href="#" class="Readmore">Readmore...</a>');
-						$(".Readmore").click(function{
-							$name.html(name);
+					if(name.length >= 40) {
+						$name.html(name.substring(0,40));
+						$(this).parent().append('<p class="readmore"><a href="#">Readmore...</a></p>');
+						$(".readmore").click(function{
+							$(name).html(name);
+							$("this").text("Readless");
 						});
-					}*/
+					}
+					else
+					{
+						$(name).html(name);
+					}
 				});
 			});
 		</script>

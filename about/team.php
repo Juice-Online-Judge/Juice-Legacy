@@ -65,9 +65,9 @@
 					$(this).hide();
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>)/i, '');
-					if(name.length >= 40) {
-						$(name).html(name.substring(0,40));
-						$(this).parent().append('<p class="readmore"><a href="#">Readmore...</a></p>');
+					if(name.length >= 20) {
+						$(name).html(name.substring(0,20));
+						$(this).parent().append('<p><a href="#" class="readmore">Readmore...</a></p>');
 						$(".readmore").click(function{
 							$(name).html(name);
 							$("this").text("Readless");

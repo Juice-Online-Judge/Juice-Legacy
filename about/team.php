@@ -60,20 +60,28 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
+			function add_readmore(id) {
+				id = '#' + id;
+				var name = $(id).html();
+				name.replace(/(<p>|<\/p>)/i, '');
+				if(name.length >= 40) {
+					$(id).text().substring(0,40);
+					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
+				}
+			}
+			
+			function add_readless(id) {
+				
+			}
+			
 			$(document).ready(function(){
 				$('div[id*="introduction"]').each(function(){
 					$(this).hide();
-					var name = $(this).html();
-					name.replace(/(<p>|<\/p>)/i, '');
-					if(name.length >= 40) {
-						$(this).text().substring(0,40);
-						$(this).parent().append('<div class="readmore"><p>' + $(this).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
-					}
+					add_readmore($(this).attr('id'));
 				});
 				
 				$(".readmore").click(function){
-					$("#name").text();
-					$(this).text("Readless");
+					add_readless($(this).parrent().attr('id'));
 				});
 			});
 		</script>

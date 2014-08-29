@@ -66,7 +66,7 @@
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>)/i, '');
 					if(name.length >= 40) {
-						$name.html(name.substring(0,40));
+						$(name).html(name.substring(0,40));
 						$(this).parent().append('<p class="readmore"><a href="#">Readmore...</a></p>');
 						$(".readmore").click(function{
 							$(name).html(name);

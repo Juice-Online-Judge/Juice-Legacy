@@ -41,7 +41,7 @@
 									<blockquote>
 										<div id="member_<?php echo $i; ?>"><?php echo $tmp['user']; ?></div>
 										<blockquote>
-											<div class="more-less">
+											<div class="More-Less">
 												<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
 											</div>
 										</blockquote>
@@ -60,26 +60,23 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
-			/*$(function(){
-				var adjustheight = 76;
-				$("div[id*='introduction']").css('height',adjustheight).css('overflow','hidden');
-				$(".more-less").append('<p class="continued">...</p><a herf="#" class="adjust">more</a>');
-				$(".adjust").slidetoggle(function(){
-					$(this).parent().find('div[id*="introduction"]').css('height','auto').css('overflow','visible');
-					$(this).parent().find("p.continue").css('display','none');
-					$(this).text("less");
-				} , function(){
-					$(this).parent().find('div[id*="introduction"]').css('height',adjustheight).css('overflow','hidden');
-					$(this).parent().find("p.continue").css('display','block');
-					$(this).text("more");
-				});
-			});*/
+			$(function(){
+					if( id.length >= 20)
+					{
+						$(id).hmtl(id.substring(0,20));
+						$(".more-less").append('<a href="#" class="Readmore">Readmore...</a>');
+						$(".Readmore").click(function(
+							$id.html(id);
+						));
+					}
+			});
 
 			$(document).ready(function(){
+				var id = id.html();
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
 					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					/*$(this).parent().find(".more-less").slideToggle();*/
+					id=$(this).parent().find('div[id*="introduction"]').attr('id');
 				});
 				
 			});

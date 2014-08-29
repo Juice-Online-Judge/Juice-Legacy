@@ -66,7 +66,7 @@
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>|<br \/>)/i, '');
 					if(name.length >= 20) {
-						$(".more-less").append('<p>'+name.substring(0,20)+'</p><a href="#" class="Readmore"> Readmore...</a>');
+						$(this).parent().append('<p>'+name.substring(0,20)+'</p><a href="#" class="Readmore"> Readmore...</a>');
 					}
 				});
 				//var name = $(name).html();

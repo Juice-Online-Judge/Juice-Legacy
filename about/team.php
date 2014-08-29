@@ -66,11 +66,11 @@
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>)/i, '');
 					if(name.length >= 20) {
-						$(name).html(name.substring(0,20));
+						$("#name").substring(0,20);
 						$(this).parent().append('<p><a href="#" class="readmore">Readmore...</a></p>');
 						$(".readmore").click(function{
-							$(name).html(name);
-							$("this").text("Readless");
+							$("#name").html(name);
+							$(this).text("Readless");
 						});
 					}
 					else

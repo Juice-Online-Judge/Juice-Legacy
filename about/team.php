@@ -71,7 +71,9 @@
 			}
 			
 			function add_readless(id) {
-				
+				id = '#' + id;
+				$(id).next().remove();
+				$(id).show(300);
 			}
 			
 			$(document).ready(function(){

@@ -65,17 +65,17 @@
 					$(this).hide();
 					var name = $(this).html();
 					name.replace(/(<p>|<\/p>)/i, '');
-					if(name.length >= 20) {
-						$("#name").substring(0,20);
+					if(name.length >= 40) {
+						$("#name").text().substring(0,40);
 						$(this).parent().append('<p><a href="#" class="readmore">Readmore...</a></p>');
 						$(".readmore").click(function{
-							$("#name").html(name);
+							$("#name").text();
 							$(this).text("Readless");
 						});
 					}
 					else
 					{
-						$(name).html(name);
+						$("#name").text();
 					}
 				});
 			});

@@ -60,20 +60,23 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
+			$(function){
+				var name = $(name).html();
+				if( name.length >= 20)
+				{
+					$(name).html(name.substring(0,20));
+					$(".more-less").append('<a href="#" class="Readmore">Readmore...</a>');
+					$(".Readmore").click(function(
+						$name.html(name);
+					));
+				}	
+			}
 			$(document).ready(function(){
-				var name = $(name).html();	
+
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
 					$(this).parent().find('div[id*="introduction"]').slideToggle();
 					name=$(this).parent().find('div[id*="introduction"]').attr('id');
-					if( name.length >= 20)
-					{
-						$(name).html(name.substring(0,20));
-						$(".more-less").append('<a href="#" class="Readmore">Readmore...</a>');
-						$(".Readmore").click(function(
-							$name.html(name);
-						));
-					}
 				});
 				
 			});

@@ -63,7 +63,8 @@
 			$(document).ready(function(){
 				$('div[id*="introduction"]').each(function(){
 					$(this).hide();
-					var name = $(this).text();
+					var name = $(this).html();
+					name.replace(/(<p>|<\/p>)/i, '');
 					if(name.length >= 20) {
 						$(this).parent().append('<p>'+name.substring(0,20)+' <a href="#" class="Readmore">Readmore...</a></p>');
 					}

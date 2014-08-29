@@ -41,7 +41,7 @@
 									<blockquote>
 										<div id="member_<?php echo $i; ?>"><?php echo $tmp['user']; ?></div>
 										<blockquote>
-											<div class="More-Less">
+											<div class="more-less">
 												<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
 											</div>
 										</blockquote>
@@ -61,19 +61,19 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
-				var id = id.html();
+				var name = name.html();
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
 					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					/*id=$(this).parent().find('div[id*="introduction"]').attr('id');
-					if( id.length >= 20)
+					name=$(this).parent().find('div[id*="introduction"]').attr('id');
+					if( name.length >= 20)
 					{
-						$(id).hmtl(id.substring(0,20));
+						$(name).hmtl(name.substring(0,20));
 						$(".more-less").append('<a href="#" class="Readmore">Readmore...</a>');
 						$(".Readmore").click(function(
-							$id.html(id);
+							$name.html(name);
 						));
-					}*/
+					}
 				});
 				
 			});

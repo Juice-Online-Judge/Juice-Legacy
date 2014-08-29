@@ -61,11 +61,11 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
-				var name = name.html();
+				/*var name = name.html();*/
 				$('div[id*="introduction"]').hide();
 				$('div[id*="member"]').click(function(){
 					$(this).parent().find('div[id*="introduction"]').slideToggle();
-					name=$(this).parent().find('div[id*="introduction"]').attr('id');
+					/*name=$(this).parent().find('div[id*="introduction"]').attr('id');
 					if( name.length >= 20)
 					{
 						$(name).hmtl(name.substring(0,20));
@@ -73,7 +73,7 @@
 						$(".Readmore").click(function(
 							$name.html(name);
 						));
-					}
+					}*/
 				});
 				
 			});

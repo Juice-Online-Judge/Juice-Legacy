@@ -80,7 +80,7 @@
 					add_readmore($(this).attr('id'));
 				});
 				
-				$(".readmore").click(function){
+				$(".readmore").click(function(){
 					add_readless($(this).parrent().attr('id'));
 				});
 			});

@@ -67,16 +67,13 @@
 					name.replace(/(<p>|<\/p>)/i, '');
 					if(name.length >= 40) {
 						$(this).text().substring(0,40);
-						$(this).parent().append('<p><a href="#" class="readmore">Readmore...</a></p>');
-						$(".readmore").click(function{
-							$("#name").text();
-							$(this).text("Readless");
-						});
+						$(this).parent().append('<div class="readmore"><p>' + $(this).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
 					}
-					else
-					{
-						$(this).text();
-					}
+				});
+				
+				$(".readmore").click(function){
+					$("#name").text();
+					$(this).text("Readless");
 				});
 			});
 		</script>

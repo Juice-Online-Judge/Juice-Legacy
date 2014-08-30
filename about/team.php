@@ -62,6 +62,7 @@
 		<script>
 			function add_readmore(id) {
 				id = '#' + id;
+				$(id).hide();
 				var name = $(id).html();
 				name.replace(/(<p>|<\/p>)/i, '');
 				if(name.length >= 40) {
@@ -81,7 +82,6 @@
 			
 			$(document).ready(function(){
 				$('div[id*="introduction"]').each(function(){
-					$(this).hide();
 					add_readmore($(this).attr('id'));
 				});
 				
@@ -90,7 +90,7 @@
 				});
 				
 				$('.readless').click(function(){
-					add_readmore($(this).prev().attr('id'));
+					add_readmore($(this).parent().attr('id'));
 				});
 			});
 		</script>

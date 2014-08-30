@@ -67,6 +67,8 @@
 				if(name.length >= 40) {
 					$(id).text().substring(0,40);
 					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
+				} else {
+					$(id).parent().append('<div class="readmore"><p><a href="#">Readmore...</a></p></div>');
 				}
 			}
 			
@@ -74,6 +76,7 @@
 				id = '#' + id;
 				$(id).next().remove();
 				$(id).show(300);
+				$(id).append('<div class="readless"><p><a href="#">Readless...</a></p></div>');
 			}
 			
 			$(document).ready(function(){
@@ -84,6 +87,10 @@
 				
 				$('.readmore').click(function(){
 					add_readless($(this).prev().attr('id'));
+				});
+				
+				$('.readless').click(function(){
+					add_readmore($(this).prev().attr('id'));
 				});
 			});
 		</script>

@@ -90,18 +90,18 @@
 			
 			$(document).ready(function(){
 				var state = 0;
-				state = $('div[id*="introduction"]').each(function(){
+				$('div[id*="introduction"]').each(function(){
 					add_readmore($(this).attr('id'),state);
 				});
 				
-				state = $('.readmore').click(function(){
+				$('.readmore').click(function(){
 					add_readless($(this).prev().attr('id'),state);
-					return 0;
+					state = 0;
 				});
 				
-				state = $('.readless').click(function(){
+				$('.readless').click(function(){
 					add_readmore($(this).prev().attr('id'));
-					return 1;
+					state = 1;
 				});
 			});
 		</script>

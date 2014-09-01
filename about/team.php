@@ -62,9 +62,9 @@
 		<script>
 			function add_readmore(id,state) {
 				id = '#' + id;
+				$(id).hide();
 				if(state==0)
 				{
-					$(id).hide();
 					var name = $(id).html();
 					name.replace(/(<p>|<\/p>)/i, '');
 					
@@ -84,12 +84,11 @@
 			function add_readmore_2(id) {
 				id = '#' + id;
 				$(id).hide();
-				$(id).parent().next().remove();
 				$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + '<a href="#">Readmore...</a></p></div>');
 			}
 			function add_readless(id) {
 				id = '#' + id;
-				$(id).parent().next().remove();
+				$(id).next().remove();
 				$(id).show(300);
 				$(id).parent().append('<div class="readless"><p><a href="#">Readless...</a></p></div>');
 			}

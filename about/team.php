@@ -73,7 +73,7 @@
 					$(id).text().substring(0,40);
 					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
 				} else {
-					$(id).text();
+					$(id).show();
 					/*$(id).parent().append('<div class="readmore"><p><a href="#">Readmore...</a></p></div>');*/
 				}
 				return 0;

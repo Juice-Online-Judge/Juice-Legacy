@@ -101,13 +101,13 @@
 				});
 				
 				$('.readmore').click(function(){
-					add_readless_2($(this).prev().attr('id'));
-					state = 0;
+					add_readless($(this).prev().attr('id'));
+					state = 1;
 				});
 				
 				$('.readless').click(function(){
-					add_readmore($(this).prev().attr('id'));
-					state = 1;
+					add_readmore_2($(this).prev().attr('id'));
+					state = 0;
 				});
 			});
 		</script>

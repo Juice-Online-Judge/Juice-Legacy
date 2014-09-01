@@ -62,19 +62,22 @@
 		<script>
 			function add_readmore(id,state) {
 				id = '#' + id;
-				var name = $(id).html();
-				name.replace(/(<p>|<\/p>)/i, '');
-				if(state == 1)
-				{
-					$(id).next().remove();
-				}
 				$(id).hide();
-				if(name.length >= 40) {
+				if(state==0)
+				{
+					var name = $(id).html();
+					name.replace(/(<p>|<\/p>)/i, '');
+					
+					if(name.length >= 40) {
 					/*$(id).text().substring(0,40);*/
 					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
-				} else {
+					} else {
 					$(id).show();
 					/*$(id).parent().append('<div class="readmore"><p><a href="#">Readmore...</a></p></div>');*/
+					}
+				} else {
+					$(id).next().remove;
+					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
 				}
 			}
 			

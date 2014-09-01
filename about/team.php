@@ -81,6 +81,12 @@
 				}
 			}
 			
+			function add_readmore_2(id) {
+				id = '#' + id;
+				$(id).hide();
+				$(id).next().remove();
+				$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + '<a href="#">Readmore...</a></p></div>');
+			}
 			function add_readless(id) {
 				id = '#' + id;
 				$(id).next().remove();
@@ -95,7 +101,7 @@
 				});
 				
 				$('.readmore').click(function(){
-					add_readless($(this).prev().attr('id'),state);
+					add_readless_2($(this).prev().attr('id'));
 					state = 0;
 				});
 				

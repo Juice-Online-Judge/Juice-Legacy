@@ -57,8 +57,7 @@
 							<option value="<?php echo $tmp['lesson_unit']; ?>">單元 <?php echo $tmp['lesson_unit']; ?></option>
 <?php
 	}
-?>
-							
+?>	
 						</select>
 					</ul>
 				</div>
@@ -171,7 +170,6 @@
 				$('#course_float').animate({
 					height: $('#course_introduction').height()
 				}, 300);
-				
 				$('#course_menu').change(function(){
 					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
 				});

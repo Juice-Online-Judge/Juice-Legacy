@@ -27,7 +27,7 @@
 			<div class="pure-g">
 				<div class="pure-u-1-1">
 					<div id="lesson_list" class="t-center">
-						<div>
+						<div style="width: 100%;">
 							<h1 class="title">課程列表</h1>
 						</div>
 						<div id="course_option_table">

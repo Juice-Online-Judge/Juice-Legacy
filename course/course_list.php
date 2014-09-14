@@ -37,11 +37,6 @@
 										<th>單　　元</th>
 										<th>難　　度</th>
 										<th>標　　題</th>
-										<th>填空練習</th>
-										<th>動 動 腦</th>
-										<th>公　　開</th>
-										<th>課程修改</th>
-										<th>圖片列表</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -54,11 +49,6 @@
 										<td><?php echo $tmp['lesson_unit']; ?></td>
 										<td><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></td>
 										<td><?php echo $tmp['lesson_title']; ?></td>
-										<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?practice=1&key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
-										<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?implement=1&key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
-										<td><?php echo ($tmp['lesson_is_visible']) ? '是' : '否'; ?></td>
-										<td><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php?key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">更新</button></a></td>
-										<td><a href="<?php echo $prefix.'juice/lesson/lesson_image_list.php?key='.$tmp['lesson_key']; ?>"><button class="pure-button pure-button-primary">前往</button></a></td>
 									</tr>
 <?php
 		}

@@ -137,6 +137,20 @@ footer {
 	border-bottom-style: 1px solid #FFF;
 }
 
+#course_option {
+	width: 150px;
+	height: 400px;
+	margin: 0 50px;
+	padding: 30px;
+	text-align: center;
+}
+
+#course_option_table {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+}
+
 #course_body {
 	margin: -1px 2em 0 2em;
 	background-color: #FFF;

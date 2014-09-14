@@ -46,9 +46,11 @@
 		foreach ($result as $tmp) {
 ?>
 									<tr>
-										<td><?php echo $tmp['lesson_unit']; ?></td>
-										<td><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></td>
-										<td><?php echo $tmp['lesson_title']; ?></td>
+										<a href="http://crux.coder.tw/freedom/juice/course/course.php?unit=<?php echo $tmp['lesson_unit']; ?>">
+											<td><?php echo $tmp['lesson_unit']; ?></td>
+											<td><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></td>
+											<td><?php echo $tmp['lesson_title']; ?></td>
+										</a>
 									</tr>
 <?php
 		}

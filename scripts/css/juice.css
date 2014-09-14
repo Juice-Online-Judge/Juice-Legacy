@@ -152,7 +152,7 @@ footer {
 	flex-flow: row wrap;
 	width: 100%;
 	padding: 2em;
-	text-align: center;
+	justify-content: center;
 }
 
 #course_body {

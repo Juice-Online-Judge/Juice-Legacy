@@ -53,9 +53,18 @@ EOD;
 							<a href="#">主選單</a>
 							<ul>
 								<li>
+									<a href="#">解題動態</a>
+									<ul>
+										<li><a href="#">課　　程</a></li>
+										<li class="pure-menu-separator"></li>
+										<li><a href="#">闖關競賽</a></li>
+									</ul>
+								</li>
+								<li class="pure-menu-separator"></li>
+								<li>
 									<a href="#">課程教學</a>
 									<ul>
-										<li><a href="#">課程列表</a></li>
+										<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程列表</a></li>
 									</ul>
 								</li>
 								<li class="pure-menu-separator"></li>

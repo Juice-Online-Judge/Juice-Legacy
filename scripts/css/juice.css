@@ -141,7 +141,7 @@ footer {
 	border: 1px solid #dfdfdf;
 	background-color: #FFF;
 	width: 10em;
-	height: 14em;
+	height: 8em;
 	margin: 0 1em;
 	padding: 2em;
 	text-align: center;
@@ -151,6 +151,7 @@ footer {
 	display: flex;
 	flex-flow: row wrap;
 	width: 100%;
+	margin: 0 2em 0 2em;
 }
 
 #course_body {

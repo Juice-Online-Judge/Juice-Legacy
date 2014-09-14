@@ -49,6 +49,18 @@
 						<li onClick="displacement(2);">填空練習</li>
 						<li onClick="displacement(3);">動 動 腦</li>
 					</ul>
+					<ul>
+						<select id="course_menu">
+<?php
+	foreach ($course->list_lesson() as $tmp) {
+?>
+							<option value="<?php echo $tmp['lesson_unit']; ?>">單元 <?php echo $tmp['lesson_unit']; ?></option>
+<?php
+	}
+?>
+							
+						</select>
+					</ul>
 				</div>
 				<div class="pure-u-1-1">
 					<div id="course_body">
@@ -147,7 +159,7 @@
 			var course_submenu = ['course_introduction', 'course_example', 'course_practice', 'course_implement'];
 			function displacement(value) {
 				var offset = (value) * (-100);
-				$("#course_float").stop(true);
+				$('#course_float').stop(true);
 				$('#course_float').animate({
 					marginLeft: offset+'%'
 				}, 500);
@@ -159,6 +171,10 @@
 				$('#course_float').animate({
 					height: $('#course_introduction').height()
 				}, 300);
+				
+				$('#course_menu').change(function(){
+					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
+				});
 			});
 		</script>
 	</body>

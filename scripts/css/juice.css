@@ -153,9 +153,10 @@ footer {
 
 #course_option_table {
 	display: flex;
-	flex-flow: row wrap;
 	width: 100%;
 	padding: 2em;
+	flex: none;
+	flex-flow: row wrap;
 	justify-content: center;
 }
 

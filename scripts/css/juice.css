@@ -138,10 +138,12 @@ footer {
 }
 
 #course_option {
-	width: 150px;
-	height: 400px;
-	margin: 0 50px;
-	padding: 30px;
+	border: 1px solid #dfdfdf;
+	background-color: #FFF;
+	width: 10em;
+	height: 14em;
+	margin: 0 1em;
+	padding: 2em;
 	text-align: center;
 }
 

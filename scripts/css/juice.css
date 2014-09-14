@@ -110,6 +110,9 @@ footer {
 }
 
 /* Course Setting */
+#lesson_list {
+	width: 100%;
+}
 #course_list {
 	width: auto;
 	margin: 1em 0 0 0;

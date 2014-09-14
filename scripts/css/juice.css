@@ -110,9 +110,6 @@ footer {
 }
 
 /* Course Setting */
-#lesson_list {
-	width: 100%;
-}
 #course_list {
 	width: auto;
 	margin: 1em 0 0 0;
@@ -152,7 +149,7 @@ footer {
 
 #course_option_table {
 	display: flex;
-	flex-flow: column wrap;
+	flex-flow: row wrap;
 	width: 100%;
 	padding: 2em;
 	text-align: center;

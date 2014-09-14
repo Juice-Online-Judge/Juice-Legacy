@@ -29,9 +29,9 @@
 		<div id="main">
 			<div class="pure-g">
 				<div class="pure-u-1-1">
-					<div id="lesson_list" class="t-center">
+					<div id="lesson_list">
 						<div>
-							<h1 class="title">課程列表</h1>
+							<h1 class="title t-center">課程列表</h1>
 						</div>
 						<div style="width:100%;">
 							<table class="pure-table m-center">

@@ -7,7 +7,7 @@
 	if (!permission_check('login')) {
 		header("Location: ".$prefix."index.php");
 		exit();
-	} else if (!isset($_GET['unit']) or !preg_match("/^\d$/", $_GET['unit'])) {
+	} else if (!isset($_GET['unit']) or !preg_match("/^\d+$/", $_GET['unit'])) {
 		header("Location: ".$prefix."course/course_list.php");
 		exit();
 	}

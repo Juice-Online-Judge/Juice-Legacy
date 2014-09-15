@@ -54,7 +54,7 @@
 <?php
 	foreach ($course->list_lesson() as $tmp) {
 ?>
-							<option value="<?php echo $tmp['lesson_unit']; ?>">單元 <?php echo $tmp['lesson_unit']; ?></option>
+							<option value="<?php echo $tmp['lesson_unit']; ?>"<?php echo ($_GET['unit'] == $tmp['lesson_unit']) ? ' selected' : ''; ?>>單元 <?php echo $tmp['lesson_unit']; ?></option>
 <?php
 	}
 ?>	

@@ -359,7 +359,7 @@
 		}
 		
 		public function list_user_lesson_record($is_implement, $key) {
-			$sql = "SELECT `code_key`, `user_code`, `result`, `memory_usage`, `time_usage` FROM `user_code_lesson` WHERE `uid` = :uid AND `is_implement` = :is_implement AND `ipm_pt_key` = :ipm_pt_key ORDER BY `id` DESC";
+			$sql = "SELECT `code_key`, `user_code`, `result`, `memory_usage`, `time_usage`, `submit_time` FROM `user_code_lesson` WHERE `uid` = :uid AND `is_implement` = :is_implement AND `ipm_pt_key` = :ipm_pt_key ORDER BY `id` DESC";
 			$params = array(
 				':uid' => $_SESSION['uid'],
 				':is_implement' => $is_implement,

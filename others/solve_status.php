@@ -75,7 +75,8 @@
 									<th style="width:10%;">Result</th>
 									<th style="width:10%;">Memory Usage</th>
 									<th style="width:10%;">Time Usage</th>
-									<th style="width:10%;"></th>
+									<th style="width:10%;">Code</th>
+									<th style="width:10%;">Time</th>
 								</tr>
 							</thead>
 							<tbody id="data_switch">
@@ -122,6 +123,7 @@
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
 								content += '<td>Code</td>';
+								content += '<td>' + obj[i].submit_time + '</td>';
 								content += '</tr>';
 							}
 						}

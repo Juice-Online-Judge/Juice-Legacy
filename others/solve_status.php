@@ -55,10 +55,6 @@
 			$i++;
 		}
 ?>
-									<div>
-									</div>
-									<div>
-									</div>
 								</div>
 								<div id="implement_detail">
 									

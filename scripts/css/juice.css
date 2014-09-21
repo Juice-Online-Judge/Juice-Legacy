@@ -112,6 +112,7 @@ footer {
 .blankblock {
 	background-color: #FFF;
 	border: 1px solid #dfdfdf;
+	margin: 0 1em;
 }
 
 /* Course Setting */
@@ -207,4 +208,9 @@ footer {
 	margin-left: 0.01em;
 	margin-right: 0.01em;
 	cursor: pointer;
+}
+
+#status_profile {
+	margin-top: 2em;
+	height: 15em;
 }

@@ -32,7 +32,7 @@
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-5">
-					<div class="blankblock">
+					<div id="status_profile" class="blankblock">
 					</div>
 				</div>
 				<div class="pure-u-4-5">

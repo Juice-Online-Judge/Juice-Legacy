@@ -71,6 +71,8 @@
 						<table class="pure-table pure-table-bordered" style="width:100%;">
 							<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>
 						</table>
+						<div id="data_switch">
+						</div>
 					</div>
 				</div>
 	<?php } ?>
@@ -81,8 +83,8 @@
 			var submenu = ['course', 'temp'];
 			
 			function displacement(value) {
-				$("#show_status").empty();
-				$("#show_status").hide();
+				$("#data_switch").empty();
+				$("#data_switch").hide();
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
 				$('#content_float').animate({
@@ -101,8 +103,8 @@
 						is_implement:is_implement
 					},
 					function (data) {
-						$("#show_status").empty();
-						$("#show_status").show();
+						$("#data_switch").empty();
+						$("#data_switch").show();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<div class="warning t-center">There is something wrong when loading the data.</div>';
@@ -123,13 +125,13 @@
 							}
 							content += '</tbody></table>';
 						}
-						$("#show_status").append(content);
+						$("#data_switch").append(content);
 					}
 				);
 			}
 			
 			$(document).ready(function(){
-				$("#show_status").hide();
+				$("#data_switch").hide();
 				$('#content_float').animate({
 					height: $('#course').height()
 				}, 300);

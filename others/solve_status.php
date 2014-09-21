@@ -59,7 +59,6 @@
 ?>
 								</div>
 								<div id="implement_detail">
-									
 								</div>
 								<div>
 								</div>

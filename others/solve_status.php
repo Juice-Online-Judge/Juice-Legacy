@@ -97,9 +97,6 @@
 				$('#content_float').animate({
 					marginLeft: offset+'%'
 				}, 500);
-				$('#content_float').animate({
-					/*height: $('#'+course_submenu[value]).height()*/
-				}, 300);
 			}
 			
 			function implement_query(key, is_implement) {
@@ -134,9 +131,6 @@
 			}
 			
 			$(document).ready(function(){
-				$('#content_float').animate({
-					height: $('#course').height()
-				}, 300);
 			});
 		</script>
 	</body>

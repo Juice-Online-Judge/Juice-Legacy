@@ -54,12 +54,7 @@ EOD;
 							<ul>
 								<li><a href="<?php echo $prefix.'others/solve_status.php' ?>">解題動態</a></li>
 								<li class="pure-menu-separator"></li>
-								<li>
-									<a href="#">課程教學</a>
-									<ul>
-										<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程列表</a></li>
-									</ul>
-								</li>
+								<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程教學</a></li>
 								<li class="pure-menu-separator"></li>
 								<li>
 									<a href="#">闖關競賽</a>

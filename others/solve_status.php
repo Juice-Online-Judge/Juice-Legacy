@@ -87,7 +87,7 @@
 					marginLeft: offset+'%'
 				}, 500);
 				$('#content_float').animate({
-					height: $('#'+course_submenu[value]).height()
+					/*height: $('#'+course_submenu[value]).height()*/
 				}, 300);
 			}
 			

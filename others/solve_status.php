@@ -98,7 +98,7 @@
 						var content = '<table class="pure-table pure-table-bordered m-center">';
 						content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
 						content += '<tbody>';
-						for (var i = 0; i < data.length; i++) {
+						for (var i = 0; i < Object.keys(data).length; i++) {
 							content += '<tr>';
 							content += '<td>' + (i + 1) + '</td>';
 							content += '<td>' + data[i].result + '</td>';

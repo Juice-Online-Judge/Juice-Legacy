@@ -68,20 +68,19 @@
 				</div>
 				<div class="pure-u-1-1">
 					<div id="show_status" class="blankblock">
-						<table class="pure-table pure-table-bordered" style="width:100%;">
+						<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
 							<thead>
-								<tr class="t-center">
-									<th style="width:10%">#</th>
-									<th style="width:10%">Result</th>
-									<th style="width:10%">Memory Usage</th>
-									<th style="width:10%">Time Usage</th>
-									<th style="width:10%">
-									</th>
+								<tr>
+									<th style="width:10%;">#</th>
+									<th style="width:10%;">Result</th>
+									<th style="width:10%;">Memory Usage</th>
+									<th style="width:10%;">Time Usage</th>
+									<th style="width:10%;"></th>
 								</tr>
 							</thead>
+							<tbody id="data_switch">
+							</tbody>
 						</table>
-						<div id="data_switch">
-						</div>
 					</div>
 				</div>
 	<?php } ?>
@@ -93,7 +92,6 @@
 			
 			function displacement(value) {
 				$("#data_switch").empty();
-				$("#data_switch").hide();
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
 				$('#content_float').animate({
@@ -113,15 +111,13 @@
 					},
 					function (data) {
 						$("#data_switch").empty();
-						$("#data_switch").show();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<div class="warning t-center">There is something wrong when loading the data.</div>';
 						} else if (typeof obj.empty != 'undefined') {
 							var content = '<div class="t-center">No data</div>';
 						} else {
-							var content = '<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">';
-							content += '<tbody>';
+							var content = '';
 							for (var i = 0; i < obj.length; i++) {
 								content += '<tr>';
 								content += '<td style="width:10%">' + (i + 1) + '</td>';
@@ -131,7 +127,6 @@
 								content += '<td style="width:10%">Code</td>';
 								content += '</tr>';
 							}
-							content += '</tbody></table>';
 						}
 						$("#data_switch").append(content);
 					}
@@ -139,7 +134,6 @@
 			}
 			
 			$(document).ready(function(){
-				$("#data_switch").hide();
 				$('#content_float').animate({
 					height: $('#course').height()
 				}, 300);

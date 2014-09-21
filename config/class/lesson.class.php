@@ -358,6 +358,17 @@
 			return $this->fetchAll();
 		}
 		
+		public function list_user_lesson_record($is_implement, $key) {
+			$sql = "SELECT `code_key`, `user_code`, `result`, `memory_usage`, `time_usage` FROM `user_code_lesson` WHERE `uid` = :uid AND `is_implement` = :is_implement AND `ipm_pt_key` = :ipm_pt_key ORDER BY `id` DESC";
+			$params = array(
+				':uid' => $_SESSION['uid'],
+				':is_implement' => $is_implement,
+				':ipm_pt_key' => $key
+			);
+			$this->query($sql, $params);
+			return $this->fetchAll();
+		}
+		
 		public function show_image($key, $image_key) {
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {

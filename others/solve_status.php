@@ -50,7 +50,7 @@
 				$last_unit = $temp['lesson_id'];
 			}
 ?>
-									<div><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
+									<div onClick="implement_query(<?php echo $temp['implement_key']; ?>, 1);"><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
 <?php
 			$i++;
 		}
@@ -73,6 +73,7 @@
 <?php display_footer(); ?>
 		<script>
 			var submenu = ['course', 'temp'];
+			
 			function displacement(value) {
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
@@ -83,6 +84,20 @@
 					height: $('#'+course_submenu[value]).height()
 				}, 300);
 			}
+			
+			function implement_query(key, is_implement) {
+				$.post(
+					'<?php echo $prefix.'others/api/apiGetSolveStatus.php'; ?>',
+					{
+						key:key,
+						is_implement:is_implement
+					},
+					function (data) {
+						
+					}
+				);
+			}
+			
 			$(document).ready(function(){
 				$('#content_float').animate({
 					height: $('#course').height()

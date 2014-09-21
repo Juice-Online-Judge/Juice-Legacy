@@ -34,9 +34,9 @@
 							<h1 class="title t-center">課程列表</h1>
 						</div>
 						<div style="width:100%;">
-							<table class="pure-table pure-table-bordered m-center">
+							<table class="pure-table pure-table-bordered m-center t-center">
 								<thead>
-									<tr class="t-center">
+									<tr>
 										<th>單　　元</th>
 										<th>難　　度</th>
 										<th>標　　題</th>

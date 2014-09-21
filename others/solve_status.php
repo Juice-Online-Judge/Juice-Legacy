@@ -96,13 +96,13 @@
 						var content = '<table class="pure-table pure-table-bordered m-center">';
 						content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
 						content += '<tbody>';
-						$.each(data, function(i, content) {
+						for (var i = 0; i < data.length; i++) {
 							content += '<tr>';
-							$.each(content, function(key, values) {
+							$.each(data[i], function(key, values) {
 								content += '<td>' + values + '</td>';
 							});
 							content += '</tr>';
-						});
+						}
 						content += '</tbody></table>';
 					}
 				);

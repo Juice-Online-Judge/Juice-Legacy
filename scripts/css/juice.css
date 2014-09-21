@@ -109,6 +109,11 @@ footer {
 	margin-right: calc(100% / 8);
 }
 
+.blankblock {
+	background-color: #FFF;
+	border: 1px solid #dfdfdf;
+}
+
 /* Course Setting */
 #lesson_list {
 	width: 100%;

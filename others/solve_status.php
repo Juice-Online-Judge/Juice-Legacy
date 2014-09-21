@@ -32,13 +32,15 @@
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-5">
+					<div class="blankblock">
+					</div>
 				</div>
 				<div class="pure-u-4-5">
 					<ul id="status_list">
 						<li onClick="displacement(0);">課程</li>
 						<li onClick="displacement(1);">闖關</li>
 					</ul>
-					<div id="content_body">
+					<div class="blankblock">
 						<div id="content_float">
 							<div id="course">
 								<div id="implement_list">

@@ -117,13 +117,14 @@
 						} else {
 							var content = '';
 							for (var i = 0; i < obj.length; i++) {
+								var d = new Date(obj[i].submit_time * 1000);
 								content += '<tr>';
 								content += '<td>' + (obj.length - i) + '</td>';
 								content += '<td>' + obj[i].result + '</td>';
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
 								content += '<td>Code</td>';
-								content += '<td>' + Date(obj[i].submit_time * 1000) + '</td>';
+								content += '<td>' + d.getFullYear() + '-' + d.getMonth() '-' + d.getDate() '-' + d.getHours() ':' + d.getMinutes() ':' + d.getSeconds() + '</td>';
 								content += '</tr>';
 							}
 						}

@@ -58,8 +58,6 @@
 		}
 ?>
 								</div>
-								<div id="implement_detail">
-								</div>
 								<div>
 								</div>
 							</div>
@@ -69,9 +67,7 @@
 					</div>
 				</div>
 				<div class="pure-u-1-1">
-					<div id="show_status" class="blankblock">
-						題號點開的顯示放這邊
-					</div>
+					<div id="show_status" class="blankblock"></div>
 				</div>
 	<?php } ?>
 			</div>
@@ -99,7 +95,7 @@
 						is_implement:is_implement
 					},
 					function (data) {
-						$("#implement_detail").empty();
+						$("#show_status").empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<div class="warning">There is something wrong when loading the data.</div>';
@@ -120,7 +116,7 @@
 							}
 							content += '</tbody></table>';
 						}
-						$("#implement_detail").append(content);
+						$("#show_status").append(content);
 					}
 				);
 			}

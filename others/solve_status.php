@@ -113,9 +113,9 @@
 						$("#data_switch").empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
-							var content = '<div class="warning t-center">There is something wrong when loading the data.</div>';
+							var content = '<tr><td colspan="5" class="warning t-center">There is something wrong when loading the data.</td></tr>';
 						} else if (typeof obj.empty != 'undefined') {
-							var content = '<div class="t-center">No data</div>';
+							var content = '<tr><td colspan="5" class="t-center">No data</td></tr>';
 						} else {
 							var content = '';
 							for (var i = 0; i < obj.length; i++) {

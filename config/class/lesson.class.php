@@ -284,7 +284,7 @@
 									$this->query($sql, $params);
 									if ($this->rowCount() != 1) {
 										$result = array(
-											'error' => 'There is something wrong when updating the data.'.$this->stmt_errorCode().' '.$this->stmt_errorInfo()
+											'error' => 'There is something wrong when updating the data.'.$this->stmt_errorCode().' '.$this->stmt_errorInfo()[2]
 										);
 										$this->closeCursor();
 										break 2;

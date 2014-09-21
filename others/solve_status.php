@@ -124,7 +124,7 @@
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
 								content += '<td>Code</td>';
-								content += '<td>' + d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + '-' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '</td>';
+								content += '<td>' + d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '</td>';
 								content += '</tr>';
 							}
 						}

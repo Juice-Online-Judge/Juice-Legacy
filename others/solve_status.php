@@ -93,7 +93,17 @@
 						is_implement:is_implement
 					},
 					function (data) {
-						
+						var content = '<table class="pure-table pure-table-bordered m-center">';
+						content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
+						content += '<tbody>';
+						$.each(data, function(i, content) {
+							content += '<tr>';
+							$.each(content, function(key, values) {
+								content += '<td>' + values + '</td>';
+							});
+							content += '</tr>';
+						});
+						content += '</tbody></table>';
 					}
 				);
 			}

@@ -97,9 +97,9 @@
 						$("#implement_detail").empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
-							var content = '<div>There is something wrong.</div>';
+							var content = '<div class="warning center">There is something wrong.</div>';
 						} else if (typeof obj.empty != 'undefined') {
-							var content = '<div>No data</div>';
+							var content = '<div class="center">No data</div>';
 						} else {
 							var content = '<table class="pure-table pure-table-bordered m-center">';
 							content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';

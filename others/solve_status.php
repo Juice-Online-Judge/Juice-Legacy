@@ -77,6 +77,8 @@
 			var submenu = ['course', 'temp'];
 			
 			function displacement(value) {
+				$("#show_status").empty();
+				$("#show_status").hide();
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
 				$('#content_float').animate({
@@ -96,6 +98,7 @@
 					},
 					function (data) {
 						$("#show_status").empty();
+						$("#show_status").show();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<div class="warning">There is something wrong when loading the data.</div>';
@@ -122,6 +125,7 @@
 			}
 			
 			$(document).ready(function(){
+				$("#show_status").hide();
 				$('#content_float').animate({
 					height: $('#course').height()
 				}, 300);

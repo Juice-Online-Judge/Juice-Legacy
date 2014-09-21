@@ -101,11 +101,11 @@
 						$("#show_status").show();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
-							var content = '<div class="warning">There is something wrong when loading the data.</div>';
+							var content = '<div class="warning t-center">There is something wrong when loading the data.</div>';
 						} else if (typeof obj.empty != 'undefined') {
-							var content = '<div>No data</div>';
+							var content = '<div class="t-center">No data</div>';
 						} else {
-							var content = '<table class="pure-table pure-table-bordered m-center">';
+							var content = '<table class="pure-table pure-table-bordered m-center t-center">';
 							content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
 							content += '<tbody>';
 							for (var i = 0; i < obj.length; i++) {

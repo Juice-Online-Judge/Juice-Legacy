@@ -50,7 +50,7 @@
 				$last_unit = $temp['lesson_id'];
 			}
 ?>
-									<div><?php echo '單元 '.$temp['lesson_id'].' - 第 '.$i.' 題'?></div>
+									<div><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
 <?php
 			$i++;
 		}

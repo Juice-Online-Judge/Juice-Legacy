@@ -252,10 +252,11 @@
 									//$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
-											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
-											$sql .= "(:lesson_id, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
+											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `lesson_unit`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";
+											$sql .= "(:lesson_id, :lesson_unit, :implement_key, :implement_content, :time_limit, :memory_limit, :file_limit, :mode, :other_limit)";
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
+												':lesson_unit' => $lesson_id['lesson_unit'],
 												':implement_key' => hash_key('md5'),
 												':implement_content' => $value['content'],
 												':time_limit' => $value['time_limit'],
@@ -348,7 +349,7 @@
 		}
 		
 		public function list_implement() {
-			$sql = "SELECT `lesson_id`, `implement_key` FROM `lesson_implement` WHERE `implement_is_visible` = :implement_is_visible AND `implement_is_delete` = :implement_is_delete ORDER BY `lesson_id` ASC";
+			$sql = "SELECT `lesson_id`, `lesson_unit`, `implement_key` FROM `lesson_implement` WHERE `implement_is_visible` = :implement_is_visible AND `implement_is_delete` = :implement_is_delete ORDER BY `lesson_id` ASC";
 			$params = array(
 				':implement_is_visible' => true,
 				':implement_is_delete' => false
@@ -466,7 +467,7 @@
 		}
 		
 		public function get_lesson_id($key) {
-			$sql = "SELECT `id` FROM `lesson` WHERE `lesson_key` = :lesson_key";
+			$sql = "SELECT `id`, `lesson_unit` FROM `lesson` WHERE `lesson_key` = :lesson_key";
 			$params = array(
 				':lesson_key' => $key
 			);
@@ -478,7 +479,8 @@
 			} else {
 				$lesson_id = $this->fetch();
 				$result = array(
-					'id' => $lesson_id['id']
+					'id' => $lesson_id['id'],
+					'lesson_unit' => $lesson_id['lesson_unit']
 				);
 			}
 			$this->closeCursor();

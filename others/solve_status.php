@@ -95,21 +95,27 @@
 						is_implement:is_implement
 					},
 					function (data) {
-						var obj = JSON.parse(data);
-						var content = '<table class="pure-table pure-table-bordered m-center">';
-						content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
-						content += '<tbody>';
-						for (var i = 0; i < obj.length; i++) {
-							content += '<tr>';
-							content += '<td>' + (i + 1) + '</td>';
-							content += '<td>' + obj[i].result + '</td>';
-							content += '<td>' + obj[i].memory_usage + '</td>';
-							content += '<td>' + obj[i].time_usage + '</td>';
-							content += '<td>Code</td>';
-							content += '</tr>';
-						}
-						content += '</tbody></table>';
 						$("#implement_detail").empty();
+						var obj = JSON.parse(data);
+						if (typeof obj.error != 'undefined') {
+							var content = '<div>There is something wrong.</div>';
+						} else if (typeof obj.empty != 'undefined') {
+							var content = '<div>No data</div>';
+						} else {
+							var content = '<table class="pure-table pure-table-bordered m-center">';
+							content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
+							content += '<tbody>';
+							for (var i = 0; i < obj.length; i++) {
+								content += '<tr>';
+								content += '<td>' + (i + 1) + '</td>';
+								content += '<td>' + obj[i].result + '</td>';
+								content += '<td>' + obj[i].memory_usage + '</td>';
+								content += '<td>' + obj[i].time_usage + '</td>';
+								content += '<td>Code</td>';
+								content += '</tr>';
+							}
+							content += '</tbody></table>';
+						}
 						$("#implement_detail").append(content);
 					}
 				);

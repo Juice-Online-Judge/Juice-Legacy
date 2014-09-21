@@ -68,6 +68,11 @@
 						</div>
 					</div>
 				</div>
+				<div class="pure-u-1-1">
+					<div class="blankblock">
+						題號點開的顯示放這邊
+					</div>
+				</div>
 	<?php } ?>
 			</div>
 		</div>

@@ -67,10 +67,11 @@
 					</div>
 				</div>
 				<div class="pure-u-1-1">
-					<div id="show_status" class="blankblock"></div>
-						<table class="pure-table pure-table-bordered">
+					<div id="show_status" class="blankblock">
+						<table class="pure-table pure-table-bordered" style="width:100%;">
 							<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>
 						</table>
+					</div>
 				</div>
 	<?php } ?>
 			</div>

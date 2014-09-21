@@ -69,7 +69,16 @@
 				<div class="pure-u-1-1">
 					<div id="show_status" class="blankblock">
 						<table class="pure-table pure-table-bordered" style="width:100%;">
-							<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>
+							<thead>
+								<tr class="t-center">
+									<th style="width:10%">#</th>
+									<th style="width:10%">Result</th>
+									<th style="width:10%">Memory Usage</th>
+									<th style="width:10%">Time Usage</th>
+									<th style="width:10%">
+									</th>
+								</tr>
+							</thead>
 						</table>
 						<div id="data_switch">
 						</div>
@@ -115,11 +124,11 @@
 							content += '<tbody>';
 							for (var i = 0; i < obj.length; i++) {
 								content += '<tr>';
-								content += '<td>' + (i + 1) + '</td>';
-								content += '<td>' + obj[i].result + '</td>';
-								content += '<td>' + obj[i].memory_usage + '</td>';
-								content += '<td>' + obj[i].time_usage + '</td>';
-								content += '<td>Code</td>';
+								content += '<td style="width:10%">' + (i + 1) + '</td>';
+								content += '<td style="width:10%">' + obj[i].result + '</td>';
+								content += '<td style="width:10%">' + obj[i].memory_usage + '</td>';
+								content += '<td style="width:10%">' + obj[i].time_usage + '</td>';
+								content += '<td style="width:10%">Code</td>';
 								content += '</tr>';
 							}
 							content += '</tbody></table>';

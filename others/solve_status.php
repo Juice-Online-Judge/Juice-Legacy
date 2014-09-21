@@ -98,9 +98,11 @@
 						content += '<tbody>';
 						for (var i = 0; i < data.length; i++) {
 							content += '<tr>';
-							$.each(data[i], function(key, values) {
-								content += '<td>' + values + '</td>';
-							});
+							content += '<td>' + (i + 1) + '</td>';
+							content += '<td>' + data[i].result + '</td>';
+							content += '<td>' + data[i].memory_usage + '</td>';
+							content += '<td>' + data[i].time_usage + '</td>';
+							content += '<td>' + data[i].code_key + '</td>';
 							content += '</tr>';
 						}
 						content += '</tbody></table>';

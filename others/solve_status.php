@@ -106,6 +106,8 @@
 							content += '</tr>';
 						}
 						content += '</tbody></table>';
+						$("#implement_detail").empty();
+						$("#implement_detail").append(content);
 					}
 				);
 			}

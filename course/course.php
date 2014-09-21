@@ -48,8 +48,6 @@
 						<li onClick="displacement(1);">範例觀摩</li>
 						<li onClick="displacement(2);">填空練習</li>
 						<li onClick="displacement(3);">動 動 腦</li>
-					</ul>
-					<ul style="float:right;">
 						<select id="course_menu">
 <?php
 	foreach ($course->list_lesson() as $tmp) {

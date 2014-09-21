@@ -70,7 +70,7 @@
 					<div id="show_status" class="blankblock">
 						<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
 							<thead>
-								<tr>
+								<tr class="t-center">
 									<th style="width:10%;">#</th>
 									<th style="width:10%;">Result</th>
 									<th style="width:10%;">Memory Usage</th>
@@ -113,18 +113,18 @@
 						$("#data_switch").empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
-							var content = '<tr><td colspan="5" class="warning t-center">There is something wrong when loading the data.</td></tr>';
+							var content = '<tr><td colspan="5" class="warning">There is something wrong when loading the data.</td></tr>';
 						} else if (typeof obj.empty != 'undefined') {
-							var content = '<tr><td colspan="5" class="t-center">No data</td></tr>';
+							var content = '<tr><td colspan="5">No data</td></tr>';
 						} else {
 							var content = '';
 							for (var i = 0; i < obj.length; i++) {
 								content += '<tr>';
-								content += '<td style="width:10%">' + (i + 1) + '</td>';
-								content += '<td style="width:10%">' + obj[i].result + '</td>';
-								content += '<td style="width:10%">' + obj[i].memory_usage + '</td>';
-								content += '<td style="width:10%">' + obj[i].time_usage + '</td>';
-								content += '<td style="width:10%">Code</td>';
+								content += '<td>' + (i + 1) + '</td>';
+								content += '<td>' + obj[i].result + '</td>';
+								content += '<td>' + obj[i].memory_usage + '</td>';
+								content += '<td>' + obj[i].time_usage + '</td>';
+								content += '<td>Code</td>';
 								content += '</tr>';
 							}
 						}

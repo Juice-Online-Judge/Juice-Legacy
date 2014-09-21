@@ -47,7 +47,7 @@
 		foreach ($list_implement as $temp) {
 			if ($temp['lesson_id'] != $last_unit) {
 				$i = 1;
-				$temp['lesson_id'] = $last_unit;
+				$last_unit = $temp['lesson_id'];
 			}
 ?>
 									<div><?php echo '單元 '.$temp['lesson_id'].' - 第 '.$i.' 題'?></div>

@@ -72,11 +72,11 @@
 							<thead>
 								<tr class="t-center">
 									<th style="width:10%;">#</th>
-									<th style="width:10%;">Result</th>
-									<th style="width:10%;">Memory Usage</th>
-									<th style="width:10%;">Time Usage</th>
-									<th style="width:10%;">Code</th>
-									<th style="width:10%;">Time</th>
+									<th style="width:20%;">Result</th>
+									<th style="width:15%;">Memory Usage</th>
+									<th style="width:20%;">Time Usage</th>
+									<th style="width:15%;">Code</th>
+									<th style="width:20%;">Time</th>
 								</tr>
 							</thead>
 							<tbody id="data_switch">

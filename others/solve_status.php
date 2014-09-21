@@ -123,7 +123,7 @@
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
 								content += '<td>Code</td>';
-								content += '<td>' + obj[i].submit_time + '</td>';
+								content += '<td>' + Date(obj[i].submit_time * 1000) + '</td>';
 								content += '</tr>';
 							}
 						}

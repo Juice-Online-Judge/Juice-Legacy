@@ -238,4 +238,6 @@ footer {
 
 #show_status {
 	margin-top: 1em;
+	min-height: 500px;
+	padding: 2em;
 }

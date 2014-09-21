@@ -10,8 +10,8 @@
 	}
 	$error = false;
 	
-	//$course = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	//$course_key = $course->lesson_unit_to_key($_GET['unit']);
+	$solve_status = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$list_implement = $solve_status->list_implement();
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,6 +41,30 @@
 					<div id="content_body">
 						<div id="content_float">
 							<div id="course">
+								<div id="implement_list">
+<?php
+		$last_unit = -1;
+		foreach ($list_implement as $temp) {
+			if ($temp['lesson_id'] != $last_unit) {
+				$i = 1;
+				$temp['lesson_id'] = $last_unit;
+			}
+?>
+									<div><?php echo '單元 '.$temp['lesson_id'].' - 第 '.$i.' 題'?></div>
+<?php
+			$i++;
+		}
+?>
+									<div>
+									</div>
+									<div>
+									</div>
+								</div>
+								<div id="implement_detail">
+									
+								</div>
+								<div>
+								</div>
 							</div>
 							<div id="temp">
 							</div>

@@ -347,6 +347,16 @@
 			}
 		}
 		
+		public function list_implement() {
+			$sql = "SELECT `lesson_id`, `implement_key` FROM `lesson_implement` WHERE `implement_is_visible` = :implement_is_visible AND `implement_is_delete` = :implement_is_delete ORDER BY `lesson_id` ASC";
+			$params = array(
+				':implement_is_visible' => true,
+				':implement_is_delete' => false
+			);
+			$this->query($sql, $params);
+			return $this->fetchAll();
+		}
+		
 		public function show_image($key, $image_key) {
 			$lesson_id = $this->get_lesson_id($key);
 			if (isset($lesson_id['error'])) {

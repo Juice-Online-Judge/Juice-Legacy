@@ -95,16 +95,17 @@
 						is_implement:is_implement
 					},
 					function (data) {
+						var obj = JSON.parse(data);
 						var content = '<table class="pure-table pure-table-bordered m-center">';
 						content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
 						content += '<tbody>';
-						for (var i = 0; i < Object.keys(data).length; i++) {
+						for (var i = 0; i < obj.count; i++) {
 							content += '<tr>';
 							content += '<td>' + (i + 1) + '</td>';
-							content += '<td>' + data[i].result + '</td>';
-							content += '<td>' + data[i].memory_usage + '</td>';
-							content += '<td>' + data[i].time_usage + '</td>';
-							content += '<td>' + data[i].code_key + '</td>';
+							content += '<td>' + obj[i].result + '</td>';
+							content += '<td>' + obj[i].memory_usage + '</td>';
+							content += '<td>' + obj[i].time_usage + '</td>';
+							content += '<td>' + obj[i].code_key + '</td>';
 							content += '</tr>';
 						}
 						content += '</tbody></table>';

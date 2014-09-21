@@ -214,3 +214,18 @@ footer {
 	margin-top: 2em;
 	height: 15em;
 }
+
+#status_option {
+	border: 1px solid #dfdfdf;
+	border-radius: 0.2px;
+	background-color: #FFF;
+	margin: 0.5em 1em;
+	text-align: center;
+}
+
+#status_option_table {
+	display: flex;
+	padding: 1em;
+	flex: none;
+	flex-flow: row wrap;
+}

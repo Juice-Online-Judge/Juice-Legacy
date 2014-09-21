@@ -28,7 +28,7 @@
 <html>
 	<head>
 		<meta charset= "UTF-8">
-		<title>單元一</title>
+		<title>單元 <?php echo $result['lesson_unit']; ?></title>
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>

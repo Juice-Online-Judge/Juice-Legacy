@@ -115,9 +115,9 @@
 							var content = '<tr><td colspan="5">No data</td></tr>';
 						} else {
 							var content = '';
-							for (var i = 0; i < obj.length; i++) {
+							for (var i = obj.length; i > 0; i--) {
 								content += '<tr>';
-								content += '<td>' + (i + 1) + '</td>';
+								content += '<td>' + i + '</td>';
 								content += '<td>' + obj[i].result + '</td>';
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';

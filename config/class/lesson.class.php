@@ -284,7 +284,7 @@
 									$this->query($sql, $params);
 									if ($this->rowCount() != 1) {
 										$result = array(
-											'error' => 'There is something wrong when updating the data.'.$params[':lesson_id']
+											'error' => 'There is something wrong when updating the data.'.$params[':implement_key'].' '.$params[':implement_content']
 										);
 										$this->closeCursor();
 										break 2;

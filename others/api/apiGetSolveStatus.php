@@ -15,7 +15,14 @@
 			);
 		} else {
 			$get_data = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$result = $get_data->list_user_lesson_record($_POST['is_implement'], $_POST['key']);
+			$temp = $get_data->list_user_lesson_record($_POST['is_implement'], $_POST['key']);
+			if (empty($temp)) {
+				$result = array(
+					'empty' => true
+				);
+			} else {
+				$result = $temp;
+			}
 		}
 	}
 	

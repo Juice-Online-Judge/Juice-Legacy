@@ -181,3 +181,20 @@ footer {
 #course_implement {
 	width: 25%;
 }
+
+/*Status Setting*/
+#status_list{
+	display: inline-block;
+	width: 4em;
+	line-height: 1.2em;
+	background-color: #FCFCFC;
+	font-size: 1em;
+	text-align: center;
+	border: 1px solid #dfdfdf;
+	border-bottom-style: none;
+	border-top-left-radius: 0.1em;
+	border-top-right-radius: 0.1em;
+	margin-left: 0.01em;
+	margin-right: 0.01em;
+	cursor: pointer;
+}

@@ -32,12 +32,14 @@
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-1">
-					<ul id="submenu">
+					<ul id="status_list">
 						<li onClick="displacement(0);">課程</li>
 						<li onClick="displacement(1);">闖關</li>
 					</ul>
 				</div>
-				<div class="pure-u-1-1">
+				<div class="pure-u-1-5">
+				</div>
+				<div class="pure-u-4-5">
 					<div id="content_body">
 						<div id="content_float">
 							<div id="course">

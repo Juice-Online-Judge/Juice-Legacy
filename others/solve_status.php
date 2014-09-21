@@ -111,8 +111,7 @@
 						} else if (typeof obj.empty != 'undefined') {
 							var content = '<div class="t-center">No data</div>';
 						} else {
-							var content = '<table class="pure-table pure-table-bordered m-center t-center">';
-							content += '<thead><tr class="t-center"><th>#</th><th>Result</th><th>Memory Usage</th><th>Time Usage</th><th></th></tr></thead>';
+							var content = '<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">';
 							content += '<tbody>';
 							for (var i = 0; i < obj.length; i++) {
 								content += '<tr>';

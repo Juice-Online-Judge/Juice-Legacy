@@ -129,7 +129,7 @@
 		
 		public function fetchAll() {
 			try {
-				return $this->stmt->fetchAll();
+				return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 			} catch (PDOException $e) {
 				$this->db_error($e->getMessage());
 				exit();

@@ -68,7 +68,7 @@
 					$(this).hide();
 				});
 				
-				$('#retractable').click(function(){
+				$('.retractable').click(function(){
 					$(this).next().toggle(300);
 				});
 			});

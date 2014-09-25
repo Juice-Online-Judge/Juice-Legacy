@@ -60,53 +60,10 @@
 		</div>
 <?php display_footer(); ?>
 		<script>
-			function add_readmore(id,state) {
-				id = '#' + id;
-				$(id).hide();
-				if(state==0)
-				{
-					var name = $(id).html();
-					name.replace(/(<p>|<\/p>)/i, '');
-					
-					if(name.length >= 40) {
-					/*$(id).text().substring(0,40);*/
-					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
-					} else {
-					$(id).show();
-					/*$(id).parent().append('<div class="readmore"><p><a href="#">Readmore...</a></p></div>');*/
-					}
-				} else {
-					$(id).next().remove();
-					$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + ' <a href="#">Readmore...</a></p></div>');
-				}
-			}
-			
-			function add_readmore_2(id) {
-				id = '#' + id;
-				$(id).hide();
-				$(id).parent().append('<div class="readmore"><p>' + $(id).text().substring(0,40) + '<a href="#">Readmore...</a></p></div>');
-			}
-			function add_readless(id) {
-				id = '#' + id;
-				$(id).next().remove();
-				$(id).show(300);
-				$(id).parent().append('<div class="readless"><p><a href="#">Readless...</a></p></div>');
-			}
-			
 			$(document).ready(function(){
 				var state = 0;
 				$('div[id*="introduction"]').each(function(){
-					add_readmore($(this).attr('id'),state);
-				});
-				
-				$('.readmore').click(function(){
-					add_readless($(this).prev().attr('id'));
-					state = 1;
-				});
-				
-				$('.readless').click(function(){
-					add_readmore($(this).prev().attr('id'));
-					state = 0;
+					
 				});
 			});
 		</script>

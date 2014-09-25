@@ -69,7 +69,7 @@
 				});
 				
 				$('#retractable').click(function(){
-					next
+					$(this).next().toggle(300);
 				});
 			});
 		</script>

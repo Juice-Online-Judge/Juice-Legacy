@@ -69,6 +69,8 @@
 				});
 				
 				$('.retractable').click(function(){
+					var tmp = ($(this).text() == '+') ? '-' : '+';
+					$(this).text(tmp);
 					$(this).next().toggle(300);
 				});
 			});

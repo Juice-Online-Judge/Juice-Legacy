@@ -53,7 +53,7 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice" style="text-align:left;width:auto;"><h3>填空練習 第 <?php echo $i; ?> 題：</h3></label>
+										<label for="practice" style="text-align:left;width:auto;"><h3>小試身手 第 <?php echo $i; ?> 題：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
 										<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
@@ -68,7 +68,7 @@
 ?>
 								<div>
 									<div class="pure-control-group">
-										<label for="practice" style="text-align:left;width:auto;"><h3>填空練習 第 <?php echo $i; ?> 題：</h3></label>
+										<label for="practice" style="text-align:left;width:auto;"><h3>小試身手 第 <?php echo $i; ?> 題：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 									</div>

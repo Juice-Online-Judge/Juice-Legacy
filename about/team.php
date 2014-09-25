@@ -40,11 +40,14 @@
 								<div>
 									<blockquote>
 										<div id="member_<?php echo $i; ?>"><?php echo $tmp['user']; ?></div>
-										<blockquote>
-											<div class="more-less">
-												<div id="introduction_<?php echo $i; ?>"><?php echo $tmp['content']; ?></div>
-											</div>
-										</blockquote>
+										<div class="retractable">+</div>
+										<div id="introduction_<?php echo $i; ?>">
+											<blockquote>
+												<div>
+													<div><?php echo $tmp['content']; ?></div>
+												</div>
+											</blockquote>
+										</div>
 									</blockquote>
 								</div>
 <?php
@@ -61,9 +64,12 @@
 <?php display_footer(); ?>
 		<script>
 			$(document).ready(function(){
-				var state = 0;
 				$('div[id*="introduction"]').each(function(){
-					
+					$(this).hide();
+				});
+				
+				$('#retractable').click(function(){
+					next
 				});
 			});
 		</script>

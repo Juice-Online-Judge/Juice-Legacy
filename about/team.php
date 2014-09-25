@@ -71,6 +71,7 @@
 				$('.retractable').click(function(){
 					var tmp = ($(this).text() == '+') ? '-' : '+';
 					$(this).text(tmp);
+					$(this).stop(true);
 					$(this).next().toggle(300);
 				});
 			});

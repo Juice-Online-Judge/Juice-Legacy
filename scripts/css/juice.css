@@ -43,7 +43,7 @@ footer {
 }
 
 #main {
-	min-height: calc(100% - 200px);
+	min-height: calc(100% - 201px);
 }
 
 #login label {
@@ -58,6 +58,7 @@ footer {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .shadow {
 	border: 1px solid #dfdfdf;
 	border-radius: 8px;
@@ -66,7 +67,7 @@ footer {
 }
 
 .fullheight {
-	min-height: calc(100% - 200px);
+	min-height: calc(100% - 201px);
 }
 
 .t-center {

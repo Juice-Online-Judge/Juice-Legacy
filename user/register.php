@@ -23,7 +23,7 @@
 		}
 	}
 	$verify_code = verify_code();
-	setcookie("verify_code_register", $verify_code, $current_time + 600, '/', '', false, true);
+	set_cookie('verify_code_register', $verify_code, 600);
 ?>
 <!DOCTYPE html>
 <html>

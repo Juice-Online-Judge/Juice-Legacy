@@ -76,6 +76,10 @@
 		setcookie($name, $value, ($GLOBALS['current_time'] + $time), '/', '', false, true);
 	}
 	
+	function del_cookie($name) {
+		setcookie($name, '', ($GLOBALS['current_time'] - 600), '/', '', false, true);
+	}
+	
 	function verify_code() {
 		return mt_rand(1000000, 9999999);
 	}

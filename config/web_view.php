@@ -150,7 +150,8 @@ EOD;
 				<span><a href="<?php echo $prefix.'about/index.php' ?>">關於本站</a></span>
 				<span><a href="<?php echo $prefix.'about/team.php' ?>">團隊介紹</a></span>
 				<span><a href="#">意見回饋</a></span>
-				<br>
+			</div>
+			<div>
 				<span>Copyright © 2014 Juice All rights reserved.</span>
 			</div>
 		</footer>

@@ -43,7 +43,7 @@ footer {
 }
 
 #main {
-	min-height: calc(100% - 151px);
+	min-height: calc(100% - 166px);
 }
 
 #login label {
@@ -67,7 +67,7 @@ footer {
 }
 
 .fullheight {
-	min-height: calc(100% - 151px);
+	min-height: calc(100% - 166px);
 }
 
 .t-center {

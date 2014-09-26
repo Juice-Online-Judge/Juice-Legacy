@@ -31,7 +31,7 @@
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
-		<script src="http://cdn.ckeditor.com/4.4.5/full/ckeditor.js"></script>
+		<script src="http://cdn.ckeditor.com/4.4.5/full-all/ckeditor.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

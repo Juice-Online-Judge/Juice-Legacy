@@ -87,7 +87,7 @@ EOD;
 				</div>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 	<script>
 		$(document).ready(function(){
 			$('#upload_image-r').center({against:'parent'});

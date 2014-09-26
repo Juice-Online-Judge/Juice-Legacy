@@ -87,7 +87,7 @@
 	<?php } ?>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 		<script>
 			var submenu = ['course', 'temp'];
 			

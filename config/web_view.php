@@ -143,7 +143,7 @@ EOD;
 <?php
 	}
 	
-	function display_footer() {
+	function display_footer($prefix) {
 ?>
 		<footer>
 			<div>

@@ -135,7 +135,7 @@
 	<?php } ?>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 		<script>
 			var course_submenu = ['course_introduction', 'course_example', 'course_practice', 'course_implement'];
 			function displacement(value) {

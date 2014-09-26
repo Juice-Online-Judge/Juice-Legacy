@@ -50,6 +50,6 @@
 				</div>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 	</body>
 </html>

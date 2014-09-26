@@ -223,7 +223,7 @@
 				<div class="pure-u-1-8"></div>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function() {
 				$(window).on("click scroll",function(){

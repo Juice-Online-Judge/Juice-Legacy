@@ -61,7 +61,7 @@
 				<div class="pure-u-1-5"></div>
 			</div>
 		</div>
-<?php display_footer(); ?>
+<?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){
 				$('div[id*="introduction"]').each(function(){

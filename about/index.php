@@ -23,10 +23,6 @@
 					</div>
 				</div>
 			</div>
-<?php display_footer(); ?>
-		<script>
-			$(document).ready(function(){
-			});
-		</script>
+<?php display_footer($prefix); ?>
 	</body>
 </html>

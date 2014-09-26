@@ -31,7 +31,9 @@
 		<title>單元 <?php echo $result['lesson_unit']; ?></title>
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/styles/default.min.css">
 <?php display_scripts_link(); ?>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
@@ -152,9 +154,12 @@
 				$('#course_float').animate({
 					height: $('#course_introduction').height()
 				}, 300);
+				
 				$('#course_menu').change(function(){
 					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
 				});
+				
+				hljs.initHighlightingOnLoad();
 			});
 		</script>
 	</body>

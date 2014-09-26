@@ -12,6 +12,4 @@ CKEDITOR.editorConfig = function( config ) {
 	config.codeSnippet_languages = {
 		C: 'C'
 	};
-	
-	config.codeSnippet_theme = 'atelier-dune.dark';
 };

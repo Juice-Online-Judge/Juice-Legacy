@@ -8,5 +8,5 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	config.language = 'zh';
 	config.extraPlugins = 'font';
-	config.skin = 'moono-dark';
+	config.skin = 'moono';
 };

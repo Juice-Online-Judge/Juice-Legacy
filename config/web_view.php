@@ -1,33 +1,8 @@
 <?php
-	function display_head($prefix, $page_title, $page_icon, $page_css, $page_js) {
-		echo <<<EOD
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>$page_title</title>
-		<link rel="icon" href="$prefix$page_icon" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="http://crux.coder.tw/scripts/css/pure-min.css">\n
-EOD;
-		foreach($page_css as $page_css) {
-			echo <<<EOD
-		<link rel="stylesheet" type="text/css" href="$prefix$page_css">\n
-EOD;
-		}
-		foreach($page_js as $page_js) {
-			echo <<<EOD
-		<script type="text/javascript" src="$prefix$page_js"></script>\n
-EOD;
-		}
-		echo <<<EOD
-	</head>\n
-EOD;
-	}
-	
 	function display_css_link($prefix) {
 ?>
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/pure.css' ?>" rel="stylesheet">
-		<link type="text/css" href="<?php echo $prefix.'scripts/css/juice.css' ?>" rel="stylesheet">
+		<link rel="stylesheet" href="<?php echo $prefix.'scripts/css/pure.css' ?>">
+		<link rel="stylesheet" href="<?php echo $prefix.'scripts/css/juice.css' ?>">
 <?php
 	}
 	

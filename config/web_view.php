@@ -144,7 +144,7 @@ EOD;
 	}
 	
 	function display_footer() {
-		echo <<<EOD
+?>
 		<footer>
 			<div>
 				<span><a href="<?php echo $prefix.'about/index.php' ?>">關於本站</a></span>
@@ -153,9 +153,7 @@ EOD;
 				<br>
 				<span>Copyright © 2014 Juice All rights reserved.</span>
 			</div>
-		</footer>\n
-EOD;
-?>
+		</footer>
 		<script>
 			$(document).ready(function(){
 			});

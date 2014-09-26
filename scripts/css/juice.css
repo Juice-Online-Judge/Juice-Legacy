@@ -36,14 +36,14 @@ html, body {
 
 footer {
 	width: 100%;
-	min-height: 50px;
-	line-height: 50px;
+	min-height: 30px;
+	line-height: 30px;
 	text-align: center;
 	clear: both;
 }
 
 #main {
-	min-height: calc(100% - 201px);
+	min-height: calc(100% - 151px);
 }
 
 #login label {
@@ -67,7 +67,7 @@ footer {
 }
 
 .fullheight {
-	min-height: calc(100% - 201px);
+	min-height: calc(100% - 151px);
 }
 
 .t-center {

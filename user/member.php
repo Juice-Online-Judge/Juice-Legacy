@@ -55,7 +55,7 @@ EOD;
 							<h2>密碼更改</h2>
 						</div>
 						<div>
-							<form name="change_pw" id="change_pw" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+							<form name="update_pw" id="update_pw" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 								<fieldset>
 									<div class="pure-control-group">
 										<label for="second_pw">第二組密碼：</label>
@@ -84,15 +84,15 @@ EOD;
 							<h2>資料更改</h2>
 						</div>
 						<div>
-							<form name="change_info" id="change_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+							<form name="update_info" id="update_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 								<fieldset>
 									<div class="pure-control-group">
 										<label for="nickname">暱稱:</label>
-										<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off">
+										<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
 									</div>
 									<div class="pure-control-group">
 										<label for="email">信箱:</label>
-										<input type="email" name="email" id="email" maxlength="128" autocomplete="off">
+										<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 									</div>
 									<div style="display:hidden;">
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
@@ -110,10 +110,13 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){
-				$('#change_pw').submit(function(){
-					$(':submit').attr('disabled',true);
+				$(':submit').click(funtion(){
+					$(':submit').attr('disabled', true);
+				});
+				
+				$('#update_pw').submit(function(){
 					$(':password').each(function(){
-						$(this).val(new jsSHA($(this).val(),'TEXT').getHash('SHA-512','HEX',2048));
+						$(this).val(new jsSHA($(this).val(), 'TEXT').getHash('SHA-512', 'HEX', 2048));
 					});
 				});
 				

@@ -43,7 +43,7 @@
 					$this->query($sql, $params);
 					if ($this->rowCount() == 1) {
 						$this->closeCursor();
-						return 'The email or nickname are already exists.';
+						return 'The email or nickname are already existed.';
 					} else {
 						$this->closeCursor();
 						$sql = "INSERT INTO `account` (`username`, `password`, `pw_secret`, `account_create_time`, `account_create_ip`) ";
@@ -85,12 +85,12 @@
 			}
 		}
 		
-		public function update($email, $nickname) {
+		public function update_info($email, $nickname) {
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
-				return 'Invalid email address.';
+				$result = 'Invalid email address.';
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
-				return 'Invalid nickname.';
+				$result = 'Invalid nickname.';
 			} else {
 				$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname LIMIT 1";
 				$params = array(
@@ -99,8 +99,7 @@
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() == 1) {
-					$this->closeCursor();
-					return 'The email or nickname are already exists.';
+					$result = 'The email or nickname are already existed.';
 				} else {
 					$this->closeCursor();
 					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname WHERE `uid` = :uid";
@@ -111,15 +110,15 @@
 					);
 					$this->query($sql, $params);
 					if ($this->rowCount() != 1) {
-						$this->closeCursor();
 						$this->log('Error', 'Update the user data failed. User uid : '.$_SESSION['uid']);
-						return 'There is something wrong when updating the data.';
+						$result = 'There is something wrong when updating the data.';
 					} else {
-						$this->closeCursor();
-						return true;
+						$result = true;
 					}
 				}
+				$this->closeCursor();
 			}
+			return $result;
 		}
 		
 		public function login($username, $password, $remember) {

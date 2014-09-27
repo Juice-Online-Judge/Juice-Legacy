@@ -120,7 +120,7 @@
 				$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname AND `uid` != :uid LIMIT 1";
 				$params = array(
 					':email' => $email,
-					':nickname' => $nickname
+					':nickname' => $nickname,
 					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);

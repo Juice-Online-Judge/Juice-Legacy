@@ -85,8 +85,33 @@
 			}
 		}
 		
+		public function update_pw($pw_secret, $new_pw, $new_pw_check) {
+			$pw_secret = hash('sha512', $pw_secret);
+			$new_pw = hash('sha512', $new_pw);
+			$new_pw_check = hash('sha512', $new_pw_check);
+			
+			if (strcmp($new_pw, $new_pw_check) != 0) {
+				$result = 'The new password and password check do not match.';
+			} else {
+				$sql = "UPDATE `account` SET `password` = :password WHERE `uid` = :uid AND `pw_secret` = :pw_secret";
+				$params = array(
+					':password' => $new_pw,
+					':uid' => $_SESSION['uid'],
+					':pw_secret' => $pw_secret
+				);
+				$this->query($sql, $params);
+				if ($this->rowCount() != 1) {
+					$result = 'The second password is incorrect.';
+				} else {
+					$result = true;
+				}
+			}
+			return $result;
+		}
+		
 		public function update_info($email, $nickname) {
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
+			
 			if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
 				$result = 'Invalid email address.';
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {

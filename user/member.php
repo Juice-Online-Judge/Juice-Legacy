@@ -8,20 +8,8 @@
 		header("Location: ".$prefix."index.php");
 		exit();
 	}
-	/*
-	if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_check']) and isset($_POST['second_password']) and isset($_POST['nickname']) and isset($_POST['email'])) {
-		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
-			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['second_password'], $_POST['email'], $_POST['nickname']);
-			if ($message === true) {
-				setcookie("verify_code_member", '', $current_time - 600, '/', '', false, true);
-				header("Location: ".$prefix."user/login.php");
-				exit();
-			}
-		} else {
-			$message = '註冊頁面已失效';
-		}
-	}*/
+	
+	
 	$verify_code = verify_code();
 	set_cookie('verify_code_member', $verify_code, 600);
 ?>
@@ -73,7 +61,7 @@ EOD;
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
 									</div>
 									<div class="pure-control-group t-center">
-										<button type="submit" id="submit_cpw" class="pure-button pure-button-primary">修改</button>
+										<button type="submit" name="submit_cpw" class="pure-button pure-button-primary">修改</button>
 									</div>
 								</fieldset>
 							</form>
@@ -98,7 +86,7 @@ EOD;
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
 									</div>
 									<div class="pure-control-group t-center">
-										<button type="submit" id="submit_cif" class="pure-button pure-button-primary">修改</button>
+										<button type="submit" name="submit_cif" class="pure-button pure-button-primary">修改</button>
 									</div>
 								</fieldset>
 							</form>

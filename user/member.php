@@ -110,7 +110,7 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){
-				$(':submit').click(funtion(){
+				$(':submit').click(function(){
 					$(':submit').attr('disabled', true);
 				});
 				

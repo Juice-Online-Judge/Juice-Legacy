@@ -14,7 +14,7 @@
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['second_password'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
-				setcookie("verify_code_register", '', $current_time - 600, '/', '', false, true);
+				del_cookie('verify_code_register');
 				header("Location: ".$prefix."user/login.php");
 				exit();
 			}

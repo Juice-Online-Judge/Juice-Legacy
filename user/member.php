@@ -128,6 +128,7 @@ EOD;
 					});
 				});
 				
+				$('#member').center({against:'parent'});
 			});
 			
 			$(window).load(function(){

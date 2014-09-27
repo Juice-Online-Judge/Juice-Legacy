@@ -93,7 +93,7 @@
 			if (strcmp($new_pw, $new_pw_check) != 0) {
 				$result = 'The new password and password check do not match.';
 			} else {
-				$sql = "UPDATE `account` SET `password` = :password WHERE `uid` = :uid AND `pw_secret` = :pw_secret";
+				$sql = "UPDATE `account` SET `password` = :password WHERE `id` = :uid AND `pw_secret` = :pw_secret";
 				$params = array(
 					':password' => $new_pw,
 					':uid' => $_SESSION['uid'],

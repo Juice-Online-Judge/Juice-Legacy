@@ -43,7 +43,7 @@
 					$this->query($sql, $params);
 					if ($this->rowCount() == 1) {
 						$this->closeCursor();
-						return 'The email or nickname are already existed.';
+						return 'The email or nickname is already existed.';
 					} else {
 						$this->closeCursor();
 						$sql = "INSERT INTO `account` (`username`, `password`, `pw_secret`, `account_create_time`, `account_create_ip`) ";
@@ -125,7 +125,7 @@
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() == 1) {
-					$result = 'The email or nickname are already existed.';
+					$result = 'The email or nickname is already existed.';
 				} else {
 					$this->closeCursor();
 					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname, `last_update_time` = :last_update_time, `last_update_ip` = :last_update_ip WHERE `uid` = :uid";

@@ -81,7 +81,7 @@ EOD;
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
 									</div>
 									<div class="pure-control-group t-center">
-										<button type="submit" name="submit_cpw" class="pure-button pure-button-primary">修改</button>
+										<input type="submit" name="submit_cpw" class="pure-button pure-button-primary">修改</button>
 									</div>
 								</fieldset>
 							</form>
@@ -106,7 +106,7 @@ EOD;
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
 									</div>
 									<div class="pure-control-group t-center">
-										<button type="submit" name="submit_cif" class="pure-button pure-button-primary">修改</button>
+										<input type="submit" name="submit_cif" class="pure-button pure-button-primary">修改</button>
 									</div>
 								</fieldset>
 							</form>

@@ -280,5 +280,16 @@
 			session_unset();
 			session_regenerate_id(true);
 		}
+		
+		public function get_user_data() {
+			$sql = "SELECT `email`, `nickname`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
+			$params = array(
+				':uid' => $_SESSION['uid']
+			);
+			$this->query($sql, $params);
+			$result = ($this->rowCount() != 1) ? false : $this->fetch();
+			$this->closeCursor();
+			return $result;
+		}
 	}
 ?>

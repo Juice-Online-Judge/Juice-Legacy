@@ -9,10 +9,10 @@
 		exit();
 	}
 	
+	$account = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 	if (isset($_POST['second_pw']) and isset($_POST['new_pw']) and isset($_POST['new_pw_check'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
-			$update = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $update->update_pw($_POST['second_pw'], $_POST['new_pw'], $_POST['new_pw_check']);
+			$message = $account->update_pw($_POST['second_pw'], $_POST['new_pw'], $_POST['new_pw_check']);
 			if ($message === true) {
 				$message = '密碼更新成功';
 			}
@@ -21,8 +21,7 @@
 		}
 	} else if (isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
-			$update = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $update->update_info($_POST['email'], $_POST['nickname']);
+			$message = $account->update_info($_POST['email'], $_POST['nickname']);
 			if ($message === true) {
 				$message = '資料更新成功';
 			}
@@ -30,6 +29,8 @@
 			$message = '頁面已失效';
 		}
 	}
+	$user_info = $account->get_user_data();
+	
 	$verify_code = verify_code();
 	set_cookie('verify_code_member', $verify_code, 600);
 ?>

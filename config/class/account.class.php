@@ -117,10 +117,11 @@
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
 				$result = 'Invalid nickname.';
 			} else {
-				$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname LIMIT 1";
+				$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname AND `uid` != :uid LIMIT 1";
 				$params = array(
 					':email' => $email,
 					':nickname' => $nickname
+					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() == 1) {

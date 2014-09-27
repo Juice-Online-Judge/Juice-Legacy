@@ -40,7 +40,7 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div id="member" style="position:relative;">
-				<div class="shadow m-center" style="width:500px;">
+				<div class="m-center">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

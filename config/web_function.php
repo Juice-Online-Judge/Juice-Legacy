@@ -77,7 +77,7 @@
 	}
 	
 	function del_cookie($name) {
-		setcookie($name, '', ($GLOBALS['current_time'] - 600), '/', '', false, true);
+		setcookie($name, '', 0, '/', '', false, true);
 	}
 	
 	function verify_code() {

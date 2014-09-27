@@ -226,9 +226,13 @@
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function() {
-				$(window).on("click scroll",function(){
+				$(window).on("click",function(){
 					$('#main').css('height', ($('.pure-g').height()));
 				});
+			});
+			
+			$(window).load(function(){
+				$('#main').css('height', ($('.pure-g').height()));
 			});
 		</script>
 	</body>

@@ -97,11 +97,11 @@ EOD;
 								<fieldset>
 									<div class="pure-control-group">
 										<label for="nickname">暱稱:</label>
-										<input type="text" name="nickname" id="nickname" pattern="^.{5,16}$" autocomplete="off" required>
+										<input type="text" name="nickname" id="nickname" value="<?php echo $user_info['nickname']; ?>" pattern="^.{5,16}$" autocomplete="off" required>
 									</div>
 									<div class="pure-control-group">
 										<label for="email">信箱:</label>
-										<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
+										<input type="email" name="email" id="email" value="<?php echo $user_info['email']; ?>" maxlength="128" autocomplete="off" required>
 									</div>
 									<div style="display:hidden;">
 										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>

@@ -9,7 +9,7 @@
 		exit();
 	}
 	
-	if (isset($_POST['submit_cpw'])  and isset($_POST['second_pw']) and isset($_POST['new_pw']) and isset($_POST['new_pw_check']))
+	if (isset($_POST['submit_cpw'])  and isset($_POST['second_pw']) and isset($_POST['new_pw']) and isset($_POST['new_pw_check'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
 			$update = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $update->update_pw($_POST['second_pw'], $_POST['new_pw'], $_POST['new_pw_check']);
@@ -19,7 +19,7 @@
 		} else {
 			$message = '頁面已失效';
 		}
-	} else if (isset($_POST['submit_cif'])  and isset($_POST['nickname']) and isset($_POST['email'])) {
+	} else if (isset($_POST['submit_cif']) and isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
 			$update = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$message = $update->update_info($_POST['email'], $_POST['nickname']);

@@ -111,7 +111,7 @@ EOD;
 		<script>
 			$(document).ready(function(){
 				$('#change_pw').submit(function(){
-					$('#submit_cpw').attr('disabled',true);
+					$(':submit').attr('disabled',true);
 					$(':password').each(function(){
 						$(this).val(new jsSHA($(this).val(),'TEXT').getHash('SHA-512','HEX',2048));
 					});

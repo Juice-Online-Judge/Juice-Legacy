@@ -59,7 +59,7 @@
 EOD;
 	}
 ?>
-					<div class="pure-u-1-2">
+					<div class="pure-u-2-5">
 						<div class="title t-center">
 							<h2>密碼更改</h2>
 						</div>
@@ -88,7 +88,9 @@ EOD;
 							</form>
 						</div>
 					</div>
-					<div class="pure-u-1-2">
+					<div class="pure-u-1-6">
+					</div>
+					<div class="pure-u-2-5">
 						<div class="title t-center">
 							<h2>資料更改</h2>
 						</div>

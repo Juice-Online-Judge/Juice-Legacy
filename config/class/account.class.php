@@ -128,10 +128,12 @@
 					$result = 'The email or nickname are already existed.';
 				} else {
 					$this->closeCursor();
-					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname WHERE `uid` = :uid";
+					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname, `last_update_time` = :last_update_time, `last_update_ip` = :last_update_ip WHERE `uid` = :uid";
 					$params = array(
 						':email' => $email,
 						':nickname' => $nickname,
+						':last_update_time' => $this->current_time,
+						':last_update_ip' => $this->ip,
 						':uid' => $_SESSION['uid']
 					);
 					$this->query($sql, $params);

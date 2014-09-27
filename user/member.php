@@ -127,10 +127,10 @@ EOD;
 					});
 				});
 				
-				$('#member').center({against:'parent'});
 			});
 			
 			$(window).load(function(){
+				$('#member').center({against:'parent'});
 			});
 		</script>
 	</body>

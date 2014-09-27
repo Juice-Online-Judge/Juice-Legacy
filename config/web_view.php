@@ -40,7 +40,7 @@ EOD;
 							</ul>
 						</li>
 						<li>
-							<a href="#">會員中心</a>
+							<a href="<?php echo $prefix.'user/member.php' ?>">會員中心</a>
 							<ul>
 							</ul>
 						</li>

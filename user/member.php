@@ -131,7 +131,6 @@ EOD;
 			});
 			
 			$(window).load(function(){
-				$('#member').center({against:'parent'});
 			});
 		</script>
 	</body>

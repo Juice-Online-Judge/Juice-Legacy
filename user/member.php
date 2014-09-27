@@ -49,17 +49,17 @@
 <?php display_navigation($prefix); ?>
 		<div id="main">
 			<div id="member" style="position:relative;">
-				<div class="m-center" style="width:500px">
+				<div class="pure-g m-center" style="width:500px">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-					<div class="warning t-center">
+					<div class="pure-u-1-1 warning t-center">
 							<h3>$message</h3>
 					</div>\n
 EOD;
 	}
 ?>
-					<div>
+					<div class="pure-u-1-2">
 						<div class="title t-center">
 							<h2>密碼更改</h2>
 						</div>
@@ -88,7 +88,7 @@ EOD;
 							</form>
 						</div>
 					</div>
-					<div>
+					<div class="pure-u-1-2">
 						<div class="title t-center">
 							<h2>資料更改</h2>
 						</div>

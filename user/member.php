@@ -118,11 +118,8 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){
-				$(':submit').click(function(){
-					$(':submit').attr('disabled', true);
-				});
-				
 				$('#update_pw').submit(function(){
+					$(':submit').attr('disabled', true);
 					$(':password').each(function(){
 						$(this).val(new jsSHA($(this).val(), 'TEXT').getHash('SHA-512', 'HEX', 2048));
 					});

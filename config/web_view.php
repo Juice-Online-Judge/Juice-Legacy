@@ -7,10 +7,10 @@
 	}
 	
 	function display_scripts_link() {
-		echo <<<EOD
+?>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>\n
-EOD;
+		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+<?php
 	}
 	
 	function display_navigation($prefix) {
@@ -130,17 +130,12 @@ EOD;
 				<span>Copyright © 2014 Juice All rights reserved.</span>
 			</div>
 		</footer>
+<?php
+	}
+	/*
 		<script>
 			$(document).ready(function(){
 			});
 		</script>
-<?php
-	}
-	/*
-		$(document).ready(function() {
-			$(document).bind("contextmenu",function(event){
-				return false;
-			});
-		});
 	*/
 ?>

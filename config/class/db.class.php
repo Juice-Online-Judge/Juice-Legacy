@@ -7,7 +7,7 @@
 		
 		public $current_time;
 		
-		public $ip_client,$ip_forwarded,$ip_remote,$ip;
+		public $ip_client, $ip_forwarded, $ip_remote, $ip;
 		
 		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
 			try {
@@ -120,7 +120,7 @@
 		
 		public function fetch() {
 			try {
-				return $this->stmt->fetch();
+				return $this->stmt->fetch(PDO::FETCH_ASSOC);
 			} catch (PDOException $e) {
 				$this->db_error($e->getMessage());
 				exit();
@@ -134,6 +134,15 @@
 				$this->db_error($e->getMessage());
 				exit();
 			}
+		}
+		
+		public function hash_check($table, $field, $hash) {
+			$sql = "SELECT `id` FROM `".$table."` WHERE `".$field."` = :hash LIMIT 1";
+			$params = array(
+				':hash' => $hash
+			);
+			$this->query($sql, $params);
+			return ($this->rowCount() == 1) ? false : true;
 		}
 		
 		public function stmt_errorCode() {
@@ -160,15 +169,6 @@
 			}
 			header("Location: ".WEB_ERROR_PAGE."?message=".urlencode($msg));
 			exit();
-		}
-		
-		public function hash_check($table, $field, $hash) {
-			$sql = "SELECT `id` FROM `".$table."` WHERE `".$field."` = :hash LIMIT 1";
-			$params = array(
-				':hash' => $hash
-			);
-			$this->query($sql, $params);
-			return ($this->rowCount() == 1) ? false : true;
 		}
 		
 		public function log($type, $data) {

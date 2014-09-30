@@ -14,6 +14,7 @@
 			$password_check = hash('sha512', $password_check);
 			$pw_secret = hash('sha512', $pw_secret);
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
+			
 			if (!preg_match("/^\w{5,32}$/", $username)) {
 				return 'Invalid username.';
 			} else if (strcmp($password, $password_check) != 0) {
@@ -233,31 +234,25 @@
 		
 		public function check_login() {
 			if (isset($_COOKIE['rem_user']) and isset($_COOKIE['rem_verify']) and !isset($_SESSION['uid'])) {
-				$sql = "SELECT `uid` FROM `web_login_log` WHERE `remember_username` = :remember_username AND `remember_verify` = :remember_verify ORDER BY `id` DESC LIMIT 1";
+				$sql = "SELECT `uid` FROM `web_login_log` WHERE `remember_username` = :rem_user AND `remember_verify` = :rem_verify ORDER BY `id` DESC LIMIT 1";
 				$params = array(
-					':remember_username' => $_COOKIE['rem_user'],
-					':remember_verify' => $_COOKIE['rem_verify']
+					':rem_user' => $_COOKIE['rem_user'],
+					':rem_verify' => $_COOKIE['rem_verify']
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() == 1) {
 					$result = $this->fetch();
 					$_SESSION['uid'] = $result['uid'];
 					$this->closeCursor();
-					$sql = "SELECT `nickname`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
-					$params = array(
-						':uid' => $_SESSION['uid']
-					);
-					$this->query($sql, $params);
-					if ($this->rowCount() != 1) {
+					$result = $this->get_user_data();
+					if ($result === false) {
 						session_unset();
 						session_regenerate_id(true);
 					} else {
-						$result = $this->fetch();
 						$_SESSION['nickname'] = $result['nickname'];
 						$_SESSION['group_id'] = $result['group_id'];
 						$_SESSION['admin_group'] = $result['admin_group'];
 					}
-					$this->closeCursor();
 				}
 			}
 		}
@@ -273,10 +268,8 @@
 				$this->query($sql, $params);
 				$this->closeCursor();
 			}
-			setcookie("rem_user", "", ($this->current_time - 3600), '/', '', false, true);
-			setcookie("rem_verify", "", ($this->current_time - 3600), '/', '', false, true);
-			setcookie("verify_code_login", '', ($this->current_time - 3600), '/', '', false, true);
-			setcookie("verify_code_register", '', ($this->current_time - 3600), '/', '', false, true);
+			del_cookie('rem_user');
+			del_cookie('rem_verify');
 			session_unset();
 			session_regenerate_id(true);
 		}

@@ -150,14 +150,17 @@
 					height: $('#'+course_submenu[value]).height()
 				}, 300);
 			}
+			
 			$(document).ready(function(){
-				$('#course_float').animate({
-					height: $('#course_introduction').height()
-				}, 300);
-				
 				$('#course_menu').change(function(){
 					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
 				});
+			});
+			
+			$(window).load(function(){
+				$('#course_float').animate({
+					height: $('#course_introduction').height()
+				}, 300);
 				
 				hljs.initHighlightingOnLoad();
 			});

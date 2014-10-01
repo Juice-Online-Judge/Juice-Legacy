@@ -9,13 +9,17 @@
 		exit();
 	}
 	
-	$is_implement = false;
 	foreach ($_POST as $key => $value) {
-		if (strpos($key, "implement") !== false) {
-			$is_implement = true;
+		if (strpos($key, "implement_a") !== false) {
+			if (isset($_POST['implement_key']) {
+			
+			}
+			break;
+		} else if (strpos($key, "practice_a") !== false) {
+			if (isset($_POST['practice_key']) {
+			
+			}
 			break;
 		}
 	}
-	
-	echo ($is_implement) ? 'OK' : 'NO';
 ?>

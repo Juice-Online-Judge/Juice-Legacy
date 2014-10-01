@@ -34,6 +34,8 @@
 						$result['error'] = 'There is something wrong when updating the data.';
 					} else {
 						$result['result'] = true;
+						$result['key'] = $hash;
+						$result['table'] = 'lesson_practice';
 					}
 					$this->closeCursor();
 					break;
@@ -60,6 +62,8 @@
 						$result['error'] = 'There is something wrong when updating the data.';
 					} else {
 						$result['result'] = true;
+						$result['key'] = $hash;
+						$result['table'] = 'lesson_implement';
 					}
 					$this->closeCursor();
 					break;

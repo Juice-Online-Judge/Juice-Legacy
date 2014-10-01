@@ -14,10 +14,11 @@
 			if (isset($_POST['implement_key']) {
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 				$result = $judge->code_submit('lesson_implement', $value, $_POST['implement_key']);
-				
-				$outputFile = '/dev/null';
-				$command = 'citizen_name_processing.php level5';
-				shell_exec(sprintf('php5 %s > %s 2>&1 & echo $!', $command, $outputFile));
+				if (!isset($result['error'])) {
+					$outputFile = '/dev/null';
+					$command = $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
+					shell_exec(sprintf('php5 %s > %s 2>&1 & echo $!', $command, $outputFile));
+				}
 			}
 			break;
 		} else if (strpos($key, "practice_a") !== false) {

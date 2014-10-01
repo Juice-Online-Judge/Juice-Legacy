@@ -188,7 +188,7 @@
 									<div>
 										<label for="content"><h3>課程內容：</h3></label>
 										<textarea class="ckeditor" name="content" id="content" required>
-<?php 
+<?php
 		echo ($lesson_check) ? $lesson_content['lesson_content'] : '';
 ?>
 										</textarea>
@@ -198,7 +198,11 @@
 									<br>
 									<div>
 										<label for="example"><h3>範　　例：</h3></label>
-										<textarea class="ckeditor" name="example" id="example" required><?php echo ($lesson_check) ? $lesson_content['lesson_example'] : ''; ?></textarea>
+										<textarea class="ckeditor" name="example" id="example" required>
+<?php
+		echo ($lesson_check) ? $lesson_content['lesson_example'] : '';
+?>
+										</textarea>
 									</div>
 								</div>
 								<div>

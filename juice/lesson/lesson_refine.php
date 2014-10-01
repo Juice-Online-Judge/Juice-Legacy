@@ -54,7 +54,11 @@
 								<div>
 									<div class="pure-control-group">
 										<label for="practice" style="text-align:left;width:auto;"><h3>小試身手 第 <?php echo $i; ?> 題：</h3></label>
-										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required><?php echo $tmp['practice_content']; ?></textarea>
+										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required>
+<?php
+				echo $tmp['practice_content'];
+?>
+										</textarea>
 										<input type="text" name="practice_key_<?php echo $i; ?>" id="practice_key_<?php echo $i; ?>" value="<?php echo $tmp['practice_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 									</div>
@@ -108,7 +112,11 @@
 									</div>
 									<div class="pure-control-group pure-u-1-1">
 										<label for="implement" style="text-align:left;width:auto;"><h3>動動腦 第 <?php echo $i; ?> 題：</h3></label>
-										<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required><?php echo $tmp['implement_content']; ?></textarea>
+										<textarea class="ckeditor" name="implement_id_<?php echo $i; ?>" id="implement_id_<?php echo $i; ?>" required>
+<?php
+				echo $tmp['implement_content'];
+?>
+										</textarea>
 										<input type="text" name="implement_key_<?php echo $i; ?>" id="implement_key_<?php echo $i; ?>" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off">
 										<input type="text" name="implement_action_<?php echo $i; ?>" id="implement_action_<?php echo $i; ?>" value="update" hidden readonly autocomplete="off">
 									</div>
@@ -180,7 +188,11 @@
 								<div>
 									<div>
 										<label for="goal"><h3>學習目標：</h3></label>
-										<textarea class="ckeditor" name="goal" id="goal" required><?php echo ($lesson_check) ? $lesson_content['lesson_goal'] : ''; ?></textarea>
+										<textarea class="ckeditor" name="goal" id="goal" required>
+<?php
+		echo ($lesson_check) ? $lesson_content['lesson_goal'] : '';
+?>
+										</textarea>
 									</div>
 									<br>
 									<hr>

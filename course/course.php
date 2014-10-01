@@ -155,14 +155,14 @@
 				$('#course_menu').change(function(){
 					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
 				});
+				
+				hljs.initHighlightingOnLoad();
 			});
 			
 			$(window).load(function(){
 				$('#course_float').animate({
 					height: $('#course_introduction').height()
 				}, 300);
-				
-				hljs.initHighlightingOnLoad();
 			});
 		</script>
 	</body>

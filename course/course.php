@@ -131,7 +131,7 @@
 														<label for="implement_a<?php echo $i; ?>">Code:</label>
 														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" required></textarea>
 													</div>
-													<div>
+													<div style="display:hidden;">
 														<input type="text" name="course_key" id="course_key" value="<?php echo $course_key['lesson_key']; ?>" hidden readonly autocomplete="off" required>
 													</div>
 													<div style="display:hidden;">

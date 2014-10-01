@@ -128,7 +128,7 @@
 											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">
 												<fieldset>
 													<div class="pure-control-group">
-														<label for="code_<?php echo $i; ?>">Code:</label>
+														<label for="implement_a<?php echo $i; ?>">Code:</label>
 														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" required></textarea>
 													</div>
 													<div style="display:hidden;">

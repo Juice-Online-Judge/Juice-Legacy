@@ -129,7 +129,7 @@
 												<fieldset>
 													<div class="pure-control-group">
 														<label for="code_<?php echo $i; ?>">Code:</label>
-														<textarea name="code_<?php echo $i; ?>" id="code_<?php echo $i; ?>" required></textarea>
+														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" required></textarea>
 													</div>
 													<div style="display:hidden;">
 														<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_course']; ?>" hidden readonly autocomplete="off" required>

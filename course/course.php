@@ -124,6 +124,22 @@
 											題目：
 											<?php echo $tmp['implement_content']; ?>
 										</div>
+										<div>
+											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">
+												<fieldset>
+													<div class="pure-control-group">
+														<label for="code_<?php echo $i; ?>">Code:</label>
+														<textarea name="code_<?php echo $i; ?>" id="code_<?php echo $i; ?>" required></textarea>
+													</div>
+													<div style="display:hidden;">
+														<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_course']; ?>" hidden readonly autocomplete="off" required>
+													</div>
+													<div class="pure-control-group t-center">
+														<button type="submit" id="submit" class="pure-button pure-button-primary">繳交</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
 									</div>
 								<blockquote>
 <?php

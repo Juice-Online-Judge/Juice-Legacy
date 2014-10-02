@@ -17,7 +17,8 @@
 				if (!isset($result['error'])) {
 					$outputFile = '/dev/null';
 					$command = $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
-					shell_exec(sprintf('php5 %s > %s 2>&1 & echo $!', $command, $outputFile));
+					shell_exec(sprintf('ruby juice_judge.rb %s > %s 2>&1 & echo $!', $command, $outputFile));
+					echo 'OK';
 				}
 			}
 			break;

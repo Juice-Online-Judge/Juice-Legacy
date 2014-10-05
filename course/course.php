@@ -131,14 +131,13 @@
 			echo $tmp['implement_content'];
 ?>
 										</div>
-										<div>
+										<div style="text-align:center;">
 											<span>時間限制 : <?php echo $tmp['time_limit']; ?> 秒</span>
 										</div>
 										<div>
 											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">
 												<fieldset>
 													<div class="pure-control-group">
-														<label for="implement_a<?php echo $i; ?>">Code:</label>
 														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" rows="30" cols="100" required></textarea>
 													</div>
 													<div style="display:hidden;">

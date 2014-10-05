@@ -64,10 +64,10 @@
 				<div class="pure-u-1-1">
 					<div id="course_body">
 						<div id="course_unit">
-							<span>單元 <?php echo $result['lesson_unit']; ?></span>
+							<span style="font-size:32px">單元 <?php echo $result['lesson_unit']; ?></span>
 						</div>
 						<div id="course_title">
-							<span><?php echo $result['lesson_title']; ?></span>
+							<span style="font-size:32px"><?php echo $result['lesson_title']; ?></span>
 						</div>
 						<div id="course_float">
 							<div id="course_introduction">

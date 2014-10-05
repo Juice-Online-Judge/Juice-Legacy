@@ -139,7 +139,7 @@
 												<fieldset>
 													<div class="pure-control-group">
 														<label for="implement_a<?php echo $i; ?>">Code:</label>
-														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" required></textarea>
+														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" rows="30" cols="100" required></textarea>
 													</div>
 													<div style="display:hidden;">
 														<input type="text" name="implement_key" id="implement_key" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off" required>

@@ -30,7 +30,6 @@
 								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
 								<li class="pure-menu-separator"></li>
 								<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程教學</a></li>
-								<li class="pure-menu-separator"></li>
 							</ul>
 						</li>
 						<li>

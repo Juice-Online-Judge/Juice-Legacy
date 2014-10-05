@@ -57,7 +57,7 @@
 				$last_unit = $temp['lesson_id'];
 			}
 ?>
-									<div onClick="implement_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
+									<div class="status_option" onClick="implement_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
 <?php
 			$i++;
 		}

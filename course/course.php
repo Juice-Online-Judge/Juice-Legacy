@@ -117,11 +117,11 @@
 								<blockquote>
 							</div>
 							<div id="course_implement">
+								<blockquote>
 <?php
 		$i = 1;
 		foreach ($result['implement'] as $tmp) {
 ?>
-								<blockquote>
 									<div>
 										<div>
 											<span style="font-size:28px">第 <?php echo $i; ?> 題</span>
@@ -138,7 +138,7 @@
 											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">
 												<fieldset>
 													<div class="pure-control-group">
-														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" rows="30" cols="100" required></textarea>
+														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" rows="30" cols="105" required></textarea>
 													</div>
 													<div style="display:hidden;">
 														<input type="text" name="implement_key" id="implement_key" value="<?php echo $tmp['implement_key']; ?>" hidden readonly autocomplete="off" required>
@@ -153,11 +153,11 @@
 											</form>
 										</div>
 									</div>
-								<blockquote>
 <?php
 			$i++;
 		}
 ?>
+								<blockquote>
 							</div>
 						</div>
 					</div>

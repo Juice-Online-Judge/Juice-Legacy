@@ -121,6 +121,12 @@
 <?php
 		$i = 1;
 		foreach ($result['implement'] as $tmp) {
+			if ($i > 1) {
+?>
+									<hr>
+									<br>
+<?php
+			}
 ?>
 									<div>
 										<div>

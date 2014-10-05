@@ -69,6 +69,7 @@
 						<div id="course_title">
 							<span style="font-size:32px"><?php echo $result['lesson_title']; ?></span>
 						</div>
+						<hr>
 						<div id="course_float">
 							<div id="course_introduction">
 								<div id="course_goal">

@@ -112,7 +112,7 @@
 				</nav>
 			</div>
 			<script>
-				YUI({classNamePrefix:"pure"}).use("gallery-sm-menu",function(a){var b=new a.Menu({container:"#demo-horizontal-menu",sourceNode:"#std-menu-items",orientation:"horizontal",hideOnOutsideClick:false,hideOnClick:true});b.render();b.show();});
+				YUI({classNamePrefix:"pure"}).use("gallery-sm-menu",function(a){var b=new a.Menu({container:"#demo-horizontal-menu",sourceNode:"#std-menu-items",orientation:"horizontal",hideOnOutsideClick:true,hideOnClick:true});b.render();b.show();});
 			</script>
 		</header>
 <?php

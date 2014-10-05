@@ -102,7 +102,7 @@
 ?>
 									<div>
 										<div>
-											<span>第 <?php echo $i; ?> 題</span>
+											<span style="font-size:28px">第 <?php echo $i; ?> 題</span>
 										</div>
 										<div>
 <?php
@@ -124,20 +124,15 @@
 								<blockquote>
 									<div>
 										<div>
-											<span>第 <?php echo $i; ?> 題</span>
+											<span style="font-size:28px">第 <?php echo $i; ?> 題</span>
 										</div>
 										<div>
-											<span>Time Limit : <?php echo $tmp['time_limit']; ?></span>
+<?php
+			echo $tmp['implement_content'];
+?>
 										</div>
 										<div>
-											<span>Memory Limit : <?php echo $tmp['memory_limit']; ?></span>
-										</div>
-										<div>
-											<span>File Limit : <?php echo $tmp['file_limit']; ?></span>
-										</div>
-										<div>
-											題目：
-											<?php echo $tmp['implement_content']; ?>
+											<span>時間限制 : <?php echo $tmp['time_limit']; ?> 秒</span>
 										</div>
 										<div>
 											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">

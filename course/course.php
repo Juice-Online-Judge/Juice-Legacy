@@ -38,7 +38,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div class="pure-g">
+			<div class="pure-g" style="max-width:1024px; margin:0 auto">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>
@@ -52,11 +52,11 @@
 						<li onClick="displacement(3);">動 動 腦</li>
 						<select id="course_menu">
 <?php
-	foreach ($course->list_lesson() as $tmp) {
+		foreach ($course->list_lesson() as $tmp) {
 ?>
 							<option value="<?php echo $tmp['lesson_unit']; ?>"<?php echo ($_GET['unit'] == $tmp['lesson_unit']) ? ' selected' : ''; ?>>單元 <?php echo $tmp['lesson_unit']; ?></option>
 <?php
-	}
+		}
 ?>	
 						</select>
 					</ul>
@@ -72,14 +72,26 @@
 						<div id="course_float">
 							<div id="course_introduction">
 								<div id="course_goal">
-									<blockquote><?php echo $result['lesson_goal']; ?></blockquote>
+									<blockquote>
+<?php
+		echo $result['lesson_goal'];
+?>
+									</blockquote>
 								</div>
 								<div id="course_content">
-									<blockquote><?php echo $result['lesson_content']; ?></blockquote>
+									<blockquote>
+<?php
+		echo $result['lesson_content'];
+?>
+									</blockquote>
 								</div>
 							</div>
 							<div id="course_example">
-								<blockquote><?php echo $result['lesson_example']; ?></blockquote>
+								<blockquote>
+<?php
+		echo $result['lesson_example'];
+?>
+								</blockquote>
 							</div>
 							<div id="course_practice">
 								<blockquote>
@@ -92,7 +104,9 @@
 											<span>第 <?php echo $i; ?> 題</span>
 										</div>
 										<div>
-											<?php echo $tmp['practice_content']; ?>
+<?php
+		echo $tmp['practice_content'];
+?>
 										</div>
 									</div>
 <?php

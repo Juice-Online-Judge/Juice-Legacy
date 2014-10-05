@@ -27,16 +27,10 @@
 						<li>
 							<a href="#">主選單</a>
 							<ul>
-								<li><a href="<?php echo $prefix.'others/solve_status.php' ?>">解題動態</a></li>
+								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
 								<li class="pure-menu-separator"></li>
 								<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程教學</a></li>
 								<li class="pure-menu-separator"></li>
-								<li>
-									<a href="#">闖關競賽</a>
-									<ul>
-										<li><a href="#">排 行 榜</a></li>
-									</ul>
-								</li>
 							</ul>
 						</li>
 						<li>

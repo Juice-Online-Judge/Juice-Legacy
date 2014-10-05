@@ -48,11 +48,16 @@
 		$last_unit = -1;
 		foreach ($list_implement as $temp) {
 			if ($temp['lesson_id'] != $last_unit) {
+				if ($last_unit != -1) {
+?>
+									<br>
+<?php
+				}
 				$i = 1;
 				$last_unit = $temp['lesson_id'];
 			}
 ?>
-									<div id="status_option" onClick="implement_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
+									<div onClick="implement_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo '單元 '.$temp['lesson_unit'].' - 第 '.$i.' 題'?></div>
 <?php
 			$i++;
 		}

@@ -68,7 +68,7 @@ EOD;
 									<label for="remember">記住我</label>
 									<input type="checkbox" name="remember" id="remember" value="1">
 								</div>
-								<div style="display:hidden;">
+								<div style="display:none;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
 								</div>
 								<div class="pure-control-group t-center">
@@ -83,6 +83,9 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
+			$(document).ready(function(){
+				$('#login-r').center({against:'parent'});
+			});
 		</script>
 	</body>
 </html>

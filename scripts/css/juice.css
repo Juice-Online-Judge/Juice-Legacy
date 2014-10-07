@@ -19,7 +19,6 @@
 /* Layout Setting */
 header {
 	width: 100%;
-	min-height: 100px;
 	background-color: #FFF;
 	border-bottom: 1px solid #dfdfdf;
 }
@@ -110,6 +109,7 @@ footer .link{
 
 .juice-menu-head nav ul {
 	float: right;
+	margin-top: 1.5em;
 	margin-right: calc(100% / 8);
 }
 

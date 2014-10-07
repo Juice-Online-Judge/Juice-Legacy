@@ -157,6 +157,7 @@ footer {
 	padding: 2em;
 	text-align: center;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 #course_option_table {

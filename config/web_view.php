@@ -68,7 +68,6 @@
 				}
 				if (true/*$_SESSION['admin_group'] > 9*/) {
 ?>
-								<li class="pure-menu-separator"></li>
 								<li>
 									<a href="#">網　　站</a>
 									<ul>

@@ -94,7 +94,12 @@ EOD;
 		</div>
 <?php display_footer($prefix); ?>
 		<script>
-			$(document).ready(function(){$("#register").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#password_check").val(new jsSHA($("#password_check").val(),"TEXT").getHash("SHA-512","HEX",2048));$("#second_password").val(new jsSHA($("#second_password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
+			$(document).ready(function(){
+				$("#register").submit(function(){
+					$("#submit").attr("disabled",true);
+					$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));
+				});
+			});
 			$(window).load(function(){
 				$('#register-r').center({against:'parent'});
 			});

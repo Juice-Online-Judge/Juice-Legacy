@@ -32,18 +32,18 @@
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-5">
-					<div id="status_profile" class="blankblock">
+					<div class="status_profile" class="blankblock">
 					</div>
 				</div>
 				<div class="pure-u-4-5">
-					<ul id="status_list">
+					<ul class="status_list">
 						<li onClick="displacement(0);">課程</li>
 						<li onClick="displacement(1);">闖關</li>
 					</ul>
 					<div class="blankblock">
 						<div id="content_float">
 							<div id="course">
-								<div id="status_option_table">
+								<div class="status_option_table">
 <?php
 		$last_unit = -1;
 		foreach ($list_implement as $temp) {
@@ -72,7 +72,7 @@
 					</div>
 				</div>
 				<div class="pure-u-1-1">
-					<div id="show_status" class="blankblock">
+					<div class="show_status" class="blankblock">
 						<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
 							<thead>
 								<tr class="t-center">

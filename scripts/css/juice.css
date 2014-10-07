@@ -202,12 +202,12 @@ footer .link{
 }
 
 /*Status Setting*/
-.status_list {
+#status_list {
 	width: auto;
 	margin: 1em 0 0 0;
 }
 
-.status_list li {
+#status_list li {
 	display: inline-block;
 	width: 4em;
 	line-height: 1.5em;
@@ -223,12 +223,12 @@ footer .link{
 	cursor: pointer;
 }
 
-.status_list li:hover {
+#status_list li:hover {
 	background-color: #e0e0e0;
 	border-bottom-style: 1px solid #FFF;
 }
 
-.status_profile {
+#status_profile {
 	margin-top: 2em;
 	height: 15em;
 }
@@ -242,14 +242,14 @@ footer .link{
 	cursor: pointer;
 }
 
-.status_option_table {
+#status_option_table {
 	display: flex;
 	padding: 1em;
 	flex: none;
 	flex-flow: row wrap;
 }
 
-.show_status {
+#show_status {
 	margin-top: 1em;
 	padding: 1em;
 }

@@ -83,7 +83,7 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
-			$(document).ready(function(){
+			$(window).load(function(){
 				$('#main > div').center({against:'parent'});
 			});
 		</script>

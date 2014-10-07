@@ -28,7 +28,6 @@
 							<a href="#">主選單</a>
 							<ul>
 								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
-								<li class="pure-menu-separator"></li>
 								<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程教學</a></li>
 							</ul>
 						</li>
@@ -50,9 +49,7 @@
 									<a href="#">課　　程</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/lesson/lesson_list.php'; ?>">課程列表</a></li>
-										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/lesson/lesson_refine.php'; ?>">新增課程</a></li>
-										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/lesson/lesson_image_refine.php'; ?>">新增圖片</a></li>
 									</ul>
 								</li>
@@ -60,12 +57,10 @@
 				}
 				if (true/*$_SESSION['admin_group'] > 6*/) {
 ?>
-								<li class="pure-menu-separator"></li>
 								<li>
 									<a href="#">會　　員</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/account/account_list.php'; ?>">帳號列表</a></li>
-										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/account/account_modify.php'; ?>">帳號管理</a></li>
 									</ul>
 								</li>
@@ -78,9 +73,7 @@
 									<a href="#">網　　站</a>
 									<ul>
 										<li><a href="<?php echo $prefix.'juice/web/announcement_add.php'; ?>">新增公告</a></li>
-										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/web/announcement_modify.php'; ?>">公告管理</a></li>
-										<li class="pure-menu-separator"></li>
 										<li><a href="<?php echo $prefix.'juice/web/web.php'; ?>">網站管理</a></li>
 									</ul>
 								</li>

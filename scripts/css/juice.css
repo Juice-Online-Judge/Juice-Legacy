@@ -171,7 +171,7 @@ footer .link{
 
 .course_option_table {
 	display: flex;
-	padding: 2em;
+	padding: 1em;
 	flex: none;
 	flex-flow: row wrap;
 	justify-content: center;

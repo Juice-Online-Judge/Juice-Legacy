@@ -154,6 +154,7 @@ footer .link{
 
 .course_option {
 	border: 1px solid #dfdfdf;
+	border-radius: 8px;
 	background-color: #FFF;
 	width: 10em;
 	height: 8em;
@@ -165,8 +166,6 @@ footer .link{
 }
 
 .course_option:hover {
-	border: 1px solid #dfdfdf;
-	border-radius: 8px;
 	box-shadow: #666 0px 2px 3px;
 }
 

@@ -37,6 +37,7 @@
 		foreach ($result as $tmp) {
 ?>
 							<div id="course_option">
+							<div>
 								<a href="http://crux.coder.tw/freedom/juice/course/course.php?unit=<?php echo $tmp['lesson_unit']; ?>">
 									<div>
 										<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
@@ -44,6 +45,7 @@
 										<p><?php echo $tmp['lesson_title']; ?></p>
 									</div>
 								</a>
+							</div>
 							</div>
 <?php
 		}

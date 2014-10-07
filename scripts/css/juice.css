@@ -47,7 +47,7 @@ footer .link{
 }
 
 #main {
-	min-height: calc(100% - 166px);
+	min-height: calc(100% - 121px);
 }
 
 #login label {
@@ -71,7 +71,7 @@ footer .link{
 }
 
 .fullheight {
-	min-height: calc(100% - 166px);
+	min-height: calc(100% - 121px);
 }
 
 .t-center {

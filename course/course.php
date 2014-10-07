@@ -41,7 +41,7 @@
 			<div class="pure-g" style="max-width:1024px; margin:0 auto">
 <?php if ($error) { ?>
 				<div>
-					<h2 class="warning center"><?php echo $message; ?></h2>
+					<h2 class="warning t-center"><?php echo $message; ?></h2>
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-1">

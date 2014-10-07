@@ -164,7 +164,7 @@ footer link {
 	cursor: pointer;
 }
 
-#course_option :hover {
+#course_option:hover {
 	border: 1px solid #dfdfdf;
 	border-radius: 8px;
 	box-shadow: #666 0px 2px 3px;

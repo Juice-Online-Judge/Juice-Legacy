@@ -97,7 +97,7 @@ EOD;
 			$(document).ready(function(){
 				$("#register").submit(function(){
 					$("#submit").attr("disabled",true);
-					$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));
+					$(":passwordd").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));
 				});
 			});
 			$(window).load(function(){

@@ -45,7 +45,7 @@
 				</div>
 <?php } else { ?>
 				<div class="pure-u-1-1">
-					<ul id="course_list">
+					<ul class="course_list">
 						<li onClick="displacement(0);">課程內容</li>
 						<li onClick="displacement(1);">範例觀摩</li>
 						<li onClick="displacement(2);">小試身手</li>

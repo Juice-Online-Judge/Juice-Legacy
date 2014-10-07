@@ -121,17 +121,17 @@ footer .link{
 }
 
 /* Course Setting */
-#lesson_list {
+.lesson_list {
 	width: 100%;
 }
 
-#course_list {
+.course_list {
 	width: auto;
 	margin: 1em 0 0 0;
 	padding: 0 0 0 3em;
 }
 
-#course_list li {
+.course_list li {
 	display: inline-block;
 	width: 7em;
 	line-height: 1.7em;
@@ -147,12 +147,12 @@ footer .link{
 	cursor: pointer;
 }
 
-#course_list li:hover {
+.course_list li:hover {
 	background-color: #e0e0e0;
 	border-bottom-style: 1px solid #FFF;
 }
 
-#course_option {
+.course_option {
 	border: 1px solid #dfdfdf;
 	background-color: #FFF;
 	width: 10em;
@@ -164,13 +164,13 @@ footer .link{
 	cursor: pointer;
 }
 
-#course_option:hover {
+.course_option:hover {
 	border: 1px solid #dfdfdf;
 	border-radius: 8px;
 	box-shadow: #666 0px 2px 3px;
 }
 
-#course_option_table {
+.course_option_table {
 	display: flex;
 	padding: 2em;
 	flex: none;

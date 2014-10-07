@@ -26,17 +26,17 @@
 		<div id="main">
 			<div class="pure-g">
 				<div class="pure-u-1-1">
-					<div id="lesson_list">
+					<div class="lesson_list">
 						<div>
 							<h1 class="title t-center">課程列表</h1>
 						</div>
-						<div id="course_option_table">
+						<div class="course_option_table">
 <?php
 	if (!empty($result)) {
 		$lesson_level_name = array('初階', '中階', '高階', '終階');
 		foreach ($result as $tmp) {
 ?>
-							<div id="course_option" onClick="redirect(<?php echo $tmp['lesson_unit']; ?>);">
+							<div class="course_option" onClick="redirect(<?php echo $tmp['lesson_unit']; ?>);">
 										<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
 										<p><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></p>
 										<p><?php echo $tmp['lesson_title']; ?></p>

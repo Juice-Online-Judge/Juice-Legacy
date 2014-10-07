@@ -36,13 +36,11 @@
 		$lesson_level_name = array('初階', '中階', '高階', '終階');
 		foreach ($result as $tmp) {
 ?>
-							<a href="http://crux.coder.tw/freedom/juice/course/course.php?unit=<?php echo $tmp['lesson_unit']; ?>">
-								<div id="course_option">
-									<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
-									<p><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></p>
-									<p><?php echo $tmp['lesson_title']; ?></p>
-								</div>
-							</a>
+							<div id="course_option" onClick="redirect(<?php echo $tmp['lesson_unit']; ?>);">
+								<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
+								<p><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></p>
+								<p><?php echo $tmp['lesson_title']; ?></p>
+							</div>
 <?php
 		}
 	}
@@ -53,5 +51,10 @@
 			</div>
 		</div>
 <?php display_footer($prefix); ?>
+		<script>
+			function redirect(course_id) {
+				window.location.href = 'http://crux.coder.tw/freedom/juice/course/course.php?unit=' + course_id;
+			}
+		</script>
 	</body>
 </html>

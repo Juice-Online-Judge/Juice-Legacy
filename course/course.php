@@ -62,7 +62,7 @@
 					</ul>
 				</div>
 				<div class="pure-u-1-1">
-					<div id="course_body">
+					<div class="course_body">
 						<div id="course_unit">
 							<span style="font-size:32px">單元 <?php echo $result['lesson_unit']; ?></span>
 						</div>

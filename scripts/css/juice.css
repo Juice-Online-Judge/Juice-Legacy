@@ -178,7 +178,7 @@ footer .link{
 	justify-content: center;
 }
 
-#course_body {
+.course_body {
 	margin: -1px 2em 0 2em;
 	background-color: #FFF;
 	border: 1px solid #dfdfdf;

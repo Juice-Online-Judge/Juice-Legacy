@@ -253,3 +253,9 @@ footer .link{
 	margin-top: 1em;
 	padding: 1em;
 }
+
+.retractable:hover {
+	border: 1px solid #dfdfdf;
+	border-radius: 8px;
+	box-shadow: #666 0px 2px 3px;
+}

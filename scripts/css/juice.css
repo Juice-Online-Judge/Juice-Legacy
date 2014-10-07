@@ -42,6 +42,10 @@ footer {
 	clear: both;
 }
 
+footer link {
+	text-decoration: none;
+}
+
 #main {
 	min-height: calc(100% - 166px);
 }

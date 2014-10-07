@@ -36,13 +36,15 @@
 		$lesson_level_name = array('初階', '中階', '高階', '終階');
 		foreach ($result as $tmp) {
 ?>
-							<a href="http://crux.coder.tw/freedom/juice/course/course.php?unit=<?php echo $tmp['lesson_unit']; ?>">
-								<div id="course_option">
-									<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
-									<p><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></p>
-									<p><?php echo $tmp['lesson_title']; ?></p>
-								</div>
-							</a>
+							<div id="course_option">
+								<a href="http://crux.coder.tw/freedom/juice/course/course.php?unit=<?php echo $tmp['lesson_unit']; ?>">
+									<div>
+										<p>單　　元　　<?php echo $tmp['lesson_unit']; ?></p>
+										<p><?php echo $lesson_level_name[$tmp['lesson_level']-1]; ?></p>
+										<p><?php echo $tmp['lesson_title']; ?></p>
+									</div>
+								</a>
+							</div>
 <?php
 		}
 	}

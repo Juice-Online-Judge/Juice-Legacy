@@ -39,7 +39,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div class="pure-g" style="position:relative;">
+			<div class="pure-g">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
 				</div>
@@ -83,9 +83,6 @@ EOD;
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){$("#login").submit(function(){$("#submit").attr("disabled",true);$("#password").val(new jsSHA($("#password").val(),"TEXT").getHash("SHA-512","HEX",2048));});});
-			$(window).load(function(){
-				$('#main > div').center({against:'parent'});
-			});
 		</script>
 	</body>
 </html>

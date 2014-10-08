@@ -79,6 +79,7 @@
 							<div id="temp">
 							</div>
 						</div>
+						<div id="code"></div>
 					</div>
 				</div>
 				<div class="pure-u-1-1">
@@ -106,7 +107,7 @@
 			var submenu = ['course', 'temp'];
 			
 			function displacement(value) {
-				$("#data_switch").empty();
+				$('#data_switch').empty();
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
 				$('#content_float').animate({
@@ -122,7 +123,7 @@
 						is_implement:is_implement
 					},
 					function (data) {
-						$("#data_switch").empty();
+						$('#data_switch').empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<tr><td colspan="6" class="warning">There is something wrong when loading the data.</td></tr>';
@@ -136,18 +137,40 @@
 								content += '<td class="' + obj[i].result + '">' + obj[i].result + '</td>';
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
-								content += '<td onClick="code_query(\'' + obj[i].key + '\', \'' + key + '\');">Code</td>';
+								content += '<td onClick="lesson_code_query(\'' + obj[i].key + '\', \'' + key + '\');">Code</td>';
 								content += '<td>' + obj[i].time + '</td>';
 								content += '</tr>';
 							}
 						}
-						$("#data_switch").append(content);
+						$('#data_switch').append(content);
 					}
 				);
 			}
 			
-			function code_query(code_key, ipm_pt_key) {
-			
+			function lesson_code_query(code_key, ipm_pt_key) {
+				$.post(
+					'<?php echo $prefix.'others/api/apiGetSolveCode.php'; ?>',
+					{
+						type:'lesson',
+						code_key:code_key,
+						ipm_pt_key:ipm_pt_key
+					},
+					function (data) {
+						$('#code').empty();
+						var obj = JSON.parse(data);
+						if (typeof obj.error != 'undefined') {
+							var content = '<span class="warning">There is something wrong when loading the data.</span>';
+						} else if (typeof obj.empty != 'undefined') {
+							var content = '<span colspan="6">No data</span>';
+						} else {
+							var content = '';
+							for (var i = 0; i < obj.length; i++) {
+								content += '<span>' + obj[i].user_code + '</span>';
+							}
+						}
+						$('#code').append(content);
+					}
+				);
 			}
 			
 <?php if (isset($_GET['key']) and isset($_GET['is_implement'])) { ?>

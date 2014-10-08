@@ -372,7 +372,7 @@
 		}
 		
 		public function list_user_lesson_record($is_implement, $key) {
-			$sql = "SELECT `code_key`, `user_code`, `result`, `memory_usage`, `time_usage`, `submit_time` FROM `user_code_lesson` WHERE `uid` = :uid AND `is_implement` = :is_implement AND `ipm_pt_key` = :ipm_pt_key ORDER BY `id` DESC";
+			$sql = "SELECT `code_key`, `result`, `memory_usage`, `time_usage`, `submit_time` FROM `user_code_lesson` WHERE `uid` = :uid AND `is_implement` = :is_implement AND `ipm_pt_key` = :ipm_pt_key ORDER BY `id` DESC";
 			$params = array(
 				':uid' => $_SESSION['uid'],
 				':is_implement' => $is_implement,
@@ -380,6 +380,17 @@
 			);
 			$this->query($sql, $params);
 			return $this->fetchAll();
+		}
+		
+		public function get_lesson_code($code_key, $ipm_pt_key) {
+			$sql = "SELECT `user_code` FROM `user_code_lesson` WHERE `uid` = :uid AND `code_key` = :code_key AND `ipm_pt_key` = :ipm_pt_key";
+			$params = array(
+				':uid' => $_SESSION['uid'],
+				':code_key' => $code_key,
+				':ipm_pt_key' => $ipm_pt_key
+			);
+			$this->query($sql, $params);
+			return $this->fetch();
 		}
 		
 		public function show_image($key, $image_key) {

@@ -50,9 +50,6 @@
 									$temp[$name][$key] = '-';
 								}
 								break;
-							case 'user_code':
-								unset($temp[$name][$key]);
-								break;
 							case 'submit_time':
 								$temp[$name]['time'] = date('Y-m-d H:i:s', $value);
 								unset($temp[$name][$key]);

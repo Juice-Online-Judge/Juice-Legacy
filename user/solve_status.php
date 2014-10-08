@@ -56,7 +56,7 @@
 				$last_unit = $temp['lesson_id'];
 			}
 ?>
-									<div class="status_option" onClick="implement_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo $temp['lesson_unit'].' - '.$i; ?></div>
+									<div class="status_option" onClick="ipm_pt_query('<?php echo $temp['implement_key']; ?>', 1);"><?php echo $temp['lesson_unit'].' - '.$i; ?></div>
 <?php
 			$i++;
 		}
@@ -103,7 +103,7 @@
 				}, 500);
 			}
 			
-			function implement_query(key, is_implement) {
+			function ipm_pt_query(key, is_implement) {
 				$.post(
 					'<?php echo $prefix.'others/api/apiGetSolveStatus.php'; ?>',
 					{
@@ -120,14 +120,13 @@
 						} else {
 							var content = '';
 							for (var i = 0; i < obj.length; i++) {
-								var d = new Date(obj[i].submit_time * 1000);
 								content += '<tr>';
 								content += '<td>' + (obj.length - i) + '</td>';
 								content += '<td>' + obj[i].result + '</td>';
 								content += '<td>' + obj[i].memory_usage + '</td>';
 								content += '<td>' + obj[i].time_usage + '</td>';
-								content += '<td>Code</td>';
-								content += '<td>' + d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + '</td>';
+								content += '<td onClick="code_query(\'obj[i].key\', key);">Code</td>';
+								content += '<td>' + obj[i].time + '</td>';
 								content += '</tr>';
 							}
 						}
@@ -136,8 +135,9 @@
 				);
 			}
 			
-			$(document).ready(function(){
-			});
+			function code_query(code_key, ipm_pt_key) {
+			
+			}
 		</script>
 	</body>
 </html>

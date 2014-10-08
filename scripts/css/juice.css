@@ -111,7 +111,7 @@ footer .link{
 
 .flexblock {
 	display: flex;
-	height: 100%;
+	align-items: stretch;
 }
 
 .blankblock {

@@ -242,7 +242,7 @@ footer .link{
 
 .status_option_table {
 	display: flex;
-	padding: 0em 1em;
+	padding: 0.5em 1em;
 	flex: none;
 	flex-flow: row wrap;
 }

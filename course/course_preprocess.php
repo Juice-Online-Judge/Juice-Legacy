@@ -19,13 +19,13 @@
 					$command = 'ruby '.$prefix.'juice_judge.rb ';
 					$command .= $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
 					shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile));
-					echo 'OK';
 				}
 			}
 			break;
 		} else if (strpos($key, "practice_a") !== false) {
 			if (isset($_POST['practice_key'])) {
-				
+				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$judge->code_submit('lesson_practice', $value, $_POST['practice_key']);
 			}
 			break;
 		}

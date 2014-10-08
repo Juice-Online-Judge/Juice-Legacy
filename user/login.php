@@ -44,7 +44,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3">
-					<div id="login-r" class="shadow">
+					<div id="login-r" class="shadow" style="align-self:center;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

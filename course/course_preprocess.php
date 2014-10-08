@@ -25,7 +25,10 @@
 		} else if (strpos($key, "practice_a") !== false) {
 			if (isset($_POST['practice_key'])) {
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-				$judge->code_submit('lesson_practice', $value, $_POST['practice_key']);
+				$result = $judge->code_submit('lesson_practice', $value, $_POST['practice_key']);
+				if (!isset($result['error'])) {
+					$judge->lesson_practice_judge($_POST['practice_key'], $result['key']);
+				}
 			}
 			break;
 		}

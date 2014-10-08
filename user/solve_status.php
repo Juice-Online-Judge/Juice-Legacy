@@ -49,6 +49,9 @@
 		foreach ($list_implement as $temp) {
 			if ($temp['lesson_id'] != $last_unit) {
 				if ($last_unit != -1) {
+?>
+									<br></br>
+<?php
 				}
 				$i = 1;
 				$last_unit = $temp['lesson_id'];

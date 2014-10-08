@@ -265,7 +265,7 @@ footer .link{
 #go_to_top {
 	position:fixed;
 	right: 5px;
-	top: 33%;
+	top: 66%;
 	opacity: 0.5;
 	z-index: 1;
 }

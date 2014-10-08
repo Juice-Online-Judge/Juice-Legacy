@@ -198,6 +198,7 @@
 		$i = 1;
 		foreach ($practice_key as $tmp) {
 ?>
+				
 				$('#practice_q<?php echo $i; ?>').append('<div><input type="text" name="practice_key" value="<?php echo $tmp; ?>" hidden readonly autocomplete="off" required></div>');
 <?php
 			$i++;

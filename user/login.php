@@ -38,7 +38,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
+		<div class="main">
 			<div class="flexblock fullheight">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>

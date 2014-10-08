@@ -15,9 +15,9 @@
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 				$result = $judge->code_submit('lesson_implement', $value, $_POST['implement_key']);
 				if (!isset($result['error'])) {
-					$outputFile = '/dev/null';
 					$command = 'ruby '.$prefix.'juice_judge.rb ';
 					$command .= $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
+					$outputFile = '/dev/null';
 					shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile));
 				}
 				header("Location: ".$prefix."user/solve_status.php?key=".$_POST['implement_key']."&is_implement=1");

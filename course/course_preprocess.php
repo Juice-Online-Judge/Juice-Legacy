@@ -10,6 +10,7 @@
 	}
 	
 	foreach ($_POST as $key => $value) {
+		echo 'OK';
 		if (strpos($key, "implement_a") !== false) {
 			if (isset($_POST['implement_key'])) {
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);

@@ -39,7 +39,7 @@
 ?>
 								<div>
 									<blockquote>
-										<div class="retractable"><?php echo $tmp['user']; ?></div>
+										<div class="retractable"><blockquote><?php echo $tmp['user']; ?></blockquote></div>
 										<div id="introduction_<?php echo $i; ?>">
 											<blockquote>
 												<div>

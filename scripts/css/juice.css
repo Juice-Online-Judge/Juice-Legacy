@@ -269,4 +269,5 @@ footer .link{
 	bottom: 5em;
 	opacity: 0.5;
 	z-index: 1;
+	cursor: pointer;
 }

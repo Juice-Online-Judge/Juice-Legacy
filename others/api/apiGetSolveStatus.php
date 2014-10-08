@@ -14,6 +14,15 @@
 				'error' => 'Wrong argument.'
 			);
 		} else {
+			$judge_result = array(
+				-1 => 'Judging',
+				1 => 'AC',
+				2 => 'CE',
+				3 => 'WA',
+				4 => 'TLE',
+				5 => 'MLE',
+				6 => 'RE'
+			);
 			$get_data = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 			$temp = $get_data->list_user_lesson_record($_POST['is_implement'], $_POST['key']);
 			if (empty($temp)) {
@@ -21,6 +30,14 @@
 					'empty' => true
 				);
 			} else {
+				foreach ($temp as $tmp) {
+					foreach ($tmp as $key => $value) {
+						if ($key == 'result') {
+							$tmp[$key] = $judge_result[$value];
+							break;
+						}
+					}
+				}
 				$result = $temp;
 			}
 		}

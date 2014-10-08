@@ -44,7 +44,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
+		<div class="flexblock">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

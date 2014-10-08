@@ -29,8 +29,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
-			<div class="pure-g">
+		<div class="flexblock">
 				<div class="pure-u-1-1">
 					<div id="lesson_list" class="t-center">
 						<div>
@@ -76,7 +75,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 <?php display_footer($prefix); ?>
 		<script>

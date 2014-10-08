@@ -58,7 +58,7 @@ EOD;
 	}
 ?>
 					<div class="pure-u-1-12"></div>
-					<div class="pure-u-1-4 shadow">
+					<div class="pure-u-1-3 shadow">
 						<div class="title t-center">
 							<h2>密碼更改</h2>
 						</div>
@@ -88,7 +88,7 @@ EOD;
 						</div>
 					</div>
 					<div class="pure-u-1-6"></div>
-					<div class="pure-u-1-4 shadow">
+					<div class="pure-u-1-3 shadow">
 						<div class="title t-center">
 							<h2>資料更改</h2>
 						</div>

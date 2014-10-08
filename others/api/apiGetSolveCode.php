@@ -28,6 +28,8 @@
 								'empty' => true
 							);
 						} else {
+							$temp['code'] = htmlspecialchars($temp['user_code'], ENT_QUOTES);
+							unset($temp['user_code']);
 							$result = $temp;
 						}
 					}

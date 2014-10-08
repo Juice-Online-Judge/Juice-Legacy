@@ -163,7 +163,7 @@
 						} else if (typeof obj.empty != 'undefined') {
 							var content = '<span colspan="6">No data</span>';
 						} else {
-							var content = '<span>' + obj.user_code + '</span>';
+							var content = '<span>' + obj.code + '</span>';
 						}
 						$('#code').append(content);
 					}

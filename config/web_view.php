@@ -8,7 +8,7 @@
 	
 	function display_scripts_link() {
 ?>
-		<noscript><meta http-equiv="refresh" content="0; URL=/juice/error.php?message=NO_JavaScript"></noscript>
+		<noscript><meta http-equiv="refresh" content="0; URL=/freedom/juice/error.php?message=NO_JavaScript"></noscript>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
 <?php

@@ -20,6 +20,8 @@
 					$command .= $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
 					shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile));
 				}
+				header("Location: ".$prefix."user/solve_status.php?key=".$_POST['implement_key']."&is_implement=1");
+				exit();
 			}
 			break;
 		} else if (strpos($key, 'practice_a') !== false) {
@@ -29,11 +31,10 @@
 				if (!isset($result['error'])) {
 					$judge->lesson_practice_judge($_POST['practice_key'], $result['key']);
 				}
+				header("Location: ".$prefix."user/solve_status.php?key=".$_POST['practice_key']."&is_implement=0");
+				exit();
 			}
 			break;
 		}
 	}
-	
-	header("Location: ".$prefix."user/solve_status.php");
-	exit();
 ?>

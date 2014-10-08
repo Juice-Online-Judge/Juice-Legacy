@@ -275,3 +275,12 @@ footer .link{
 	z-index: 1;
 	cursor: pointer;
 }
+
+/* Judge Result Color */
+.AC {
+	color: #00FF00;
+}
+
+.WA {
+	color: #FF0000;
+}

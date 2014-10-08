@@ -40,7 +40,7 @@
 <?php display_navigation($prefix); ?>
 		<div class="flexblock">
 			<div id="register-r" style="position:relative;">
-				<div class="shadow m-center" style="width:500px;">
+				<div class="shadow m-center" style="position:relative; width:500px;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -103,7 +103,7 @@ EOD;
 				});
 			});
 			$(window).load(function(){
-				$('#register-r').center({against:'parent'});
+				$('#register-r, #register-r > div').center({against:'parent'});
 			});
 		</script>
 	</body>

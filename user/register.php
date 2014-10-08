@@ -103,7 +103,8 @@ EOD;
 				});
 			});
 			$(window).load(function(){
-				$('#register-r, #register-r > div').center({against:'parent'});
+				$('#register-r').center({against:'parent'});
+				$('#register-r > div').center({against:'parent'});
 			});
 		</script>
 	</body>

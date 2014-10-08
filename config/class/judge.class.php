@@ -92,7 +92,7 @@
 			$user_answer = $this->fetch();
 			$this->closeCursor();
 			
-			$judge_result = ($practice_answer == $user_answer) ? 1 : 3; // correct : 1, incorrect : 3
+			$judge_result = ($practice_answer['practice_answer'] == $user_answer['user_code']) ? 1 : 3; // correct : 1, incorrect : 3
 			$sql = "UPDATE `user_code_lesson` SET `result` = :result WHERE `code_key` = :code_key AND `ipm_pt_key` = :ipm_pt_key";
 			$params = array(
 				':result' => $judge_result,

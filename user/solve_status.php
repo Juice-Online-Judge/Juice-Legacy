@@ -161,7 +161,7 @@
 						if (typeof obj.error != 'undefined') {
 							var content = '<span class="warning">There is something wrong when loading the data.</span>';
 						} else if (typeof obj.empty != 'undefined') {
-							var content = '<span colspan="6">No data</span>';
+							var content = '<span>No data</span>';
 						} else {
 							var content = '<span>' + obj.code + '</span>';
 						}

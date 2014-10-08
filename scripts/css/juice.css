@@ -165,7 +165,7 @@ footer .link{
 }
 
 .course_option:hover {
-	background-color: #EFEFEF;
+	background-color: #DDD;
 	box-shadow: #666 0px 2px 3px;
 }
 
@@ -258,7 +258,7 @@ footer .link{
 }
 
 .retractable:hover {
-	background-color: #EFEFEF;
+	background-color: #DDD;
 }
 
 /* go_to_top */

@@ -236,7 +236,8 @@ footer .link{
 	border: 1px solid #dfdfdf;
 	border-radius: 0.2px;
 	background-color: #FFF;
-	margin: 0.5em 0.5em;
+	margin: 0.5em;
+	padding: 0.5em;
 	text-align: center;
 	cursor: pointer;
 }

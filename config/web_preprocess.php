@@ -32,8 +32,9 @@
 	
 	/* Initialize the header setting */
 	header('X-XSS-Protection: 1; mode=block');
-	header('X-Frame-Options: '.WEB_DOMAIN_NAME);
+	header('X-Frame-Options: sameorigin');
 	header('Cache-Control: no-cache, must-revalidate');
+	header('X-Content-Type-Options: nosniff');
 	date_default_timezone_set('Asia/Taipei');
 	
 	/* Record the user IP */

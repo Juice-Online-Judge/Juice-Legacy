@@ -47,7 +47,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
+		<div class="flexblock">
 			<div id="member" style="position:relative;">
 				<div class="pure-g m-center" style="width:1024px">
 <?php

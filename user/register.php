@@ -38,7 +38,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
+		<div class="flexblock">
 			<div id="register-r" style="position:relative;">
 				<div class="shadow m-center" style="width:500px;">
 <?php

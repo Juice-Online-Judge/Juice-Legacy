@@ -112,6 +112,7 @@ footer .link{
 .flexblock {
 	display: flex;
 	min-height: calc(100% - 121px);
+	flex-flow: row wrap;
 	align-items: stretch;
 }
 

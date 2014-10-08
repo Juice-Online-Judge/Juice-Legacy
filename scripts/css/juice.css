@@ -165,6 +165,7 @@ footer .link{
 }
 
 .course_option:hover {
+	background-color: #cfcfcf;
 	box-shadow: #666 0px 2px 3px;
 }
 

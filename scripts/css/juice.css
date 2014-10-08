@@ -277,6 +277,10 @@ footer .link{
 }
 
 /* Judge Result Color */
+.Judging {
+	color: #0000FF;
+}
+
 .AC {
 	color: #00FF00;
 }

@@ -1,8 +1,8 @@
 <?php
 	function display_css_link($prefix) {
 ?>
-		<link rel="stylesheet" href="<?php echo $prefix.'scripts/css/pure.css' ?>">
-		<link rel="stylesheet" href="<?php echo $prefix.'scripts/css/juice.css' ?>">
+		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/pure.css' ?>">
+		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/juice.css' ?>">
 <?php
 	}
 	

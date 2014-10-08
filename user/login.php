@@ -38,7 +38,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="main">
+		
 			<div class="flexblock">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
@@ -84,7 +84,7 @@ EOD;
 					</div>
 				</div>
 			</div>
-		</div>
+		
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){

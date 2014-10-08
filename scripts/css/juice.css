@@ -46,10 +46,6 @@ footer .link{
 	text-decoration: none;
 }
 
-.main {
-	min-height: calc(100% - 120px);
-}
-
 #login label {
 	width: auto;
 	margin-left: 3em;

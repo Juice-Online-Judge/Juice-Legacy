@@ -24,7 +24,6 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="main">
 			<div class="flexblock">
 <?php if ($error) { ?>
 				<div>
@@ -91,7 +90,6 @@
 				</div>
 	<?php } ?>
 			</div>
-		</div>
 <?php display_footer($prefix); ?>
 		<script>
 			var submenu = ['course', 'temp'];

@@ -168,7 +168,7 @@
 						</div>
 					</div>
 				</div>
-	<?php } ?>
+<?php } ?>
 			</div>
 		</div>
 <?php display_footer($prefix); ?>
@@ -193,9 +193,13 @@
 				hljs.initHighlightingOnLoad();
 			});
 			
+<?php
+	$course_submenu = array('course_introduction', 'course_example', 'course_practice', 'course_implement');
+	$type = (in_array($GET['type']), $course_submenu) ? $GET['type'] : 'course_introduction';
+?>
 			$(window).load(function(){
 				$('#course_float').animate({
-					height: $('#course_introduction').height()
+					height: $('#<?php echo $type; ?>').height()
 				}, 300);
 			});
 		</script>

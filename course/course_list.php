@@ -23,7 +23,6 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="main">
 			<div class="flexblock">
 				<div class="pure-u-1-1">
 					<div class="lesson_list">
@@ -49,7 +48,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 <?php display_footer($prefix); ?>
 		<script>
 			function course_redirect(course_unit) {

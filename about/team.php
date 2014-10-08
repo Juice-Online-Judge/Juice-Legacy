@@ -17,7 +17,6 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="main">
 			<div class="flexblock">
 				<div class="pure-u-1-5"></div>
 				<div class="pure-u-3-5">
@@ -59,7 +58,6 @@
 				</div>
 				<div class="pure-u-1-5"></div>
 			</div>
-		</div>
 <?php display_footer($prefix); ?>
 		<script>
 			$(document).ready(function(){

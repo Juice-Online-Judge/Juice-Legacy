@@ -35,7 +35,7 @@
 					} else {
 						$result['result'] = true;
 						$result['key'] = $hash;
-						$result['table'] = 'lesson_practice';
+						$result['table'] = 'user_code_lesson';
 					}
 					$this->closeCursor();
 					break;
@@ -63,7 +63,7 @@
 					} else {
 						$result['result'] = true;
 						$result['key'] = $hash;
-						$result['table'] = 'lesson_implement';
+						$result['table'] = 'user_code_lesson';
 					}
 					$this->closeCursor();
 					break;

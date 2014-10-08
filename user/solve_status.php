@@ -149,6 +149,12 @@
 			function code_query(code_key, ipm_pt_key) {
 			
 			}
+			
+<?php if (isset($_GET['key']) and isset($_GET['is_implement'])) { ?>
+			$(window).load(function(){
+				ipm_pt_query(<?php echo $_GET['key']; ?>, <?php echo $_GET['is_implement']; ?>);
+			});
+<?php } ?>
 		</script>
 	</body>
 </html>

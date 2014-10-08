@@ -54,7 +54,7 @@
 								unset($temp[$name][$key]);
 								break;
 							case 'submit_time':
-								$temp[$name]['time'] = $value;
+								$temp[$name]['time'] = data('Y-m-d H:i:s', $value);
 								unset($temp[$name][$key]);
 								break;
 						}

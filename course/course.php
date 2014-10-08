@@ -195,7 +195,7 @@
 			
 <?php
 	$course_submenu = array('course_introduction', 'course_example', 'course_practice', 'course_implement');
-	$type = (in_array($GET['type']), $course_submenu) ? $GET['type'] : 'course_introduction';
+	$type = (in_array(($GET['type']), $course_submenu)) ? $GET['type'] : 'course_introduction';
 ?>
 			$(window).load(function(){
 				$('#course_float').animate({

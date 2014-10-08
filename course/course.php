@@ -37,8 +37,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
-			<div class="pure-g" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
+			<div class="flexblock" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning t-center"><?php echo $message; ?></h2>
@@ -174,7 +173,6 @@
 				</div>
 <?php } ?>
 			</div>
-		</div>
 <?php display_footer($prefix); ?>
 		<script>
 			var course_submenu = ['course_introduction', 'course_example', 'course_practice', 'course_implement'];

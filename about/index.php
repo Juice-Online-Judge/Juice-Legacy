@@ -14,7 +14,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div id="main">
+			<div class="flexblock">
 				<div>
 					<div>
 						<h1 class="title">關於本站</h1>

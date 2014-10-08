@@ -28,6 +28,9 @@
 				$result = $judge->code_submit('lesson_practice', $value, $_POST['practice_key']);
 				if (!isset($result['error'])) {
 					$judge->lesson_practice_judge($_POST['practice_key'], $result['key']);
+					echo '1';
+				} else {
+					echo '2';
 				}
 			}
 			break;

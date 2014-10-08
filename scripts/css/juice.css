@@ -242,6 +242,11 @@ footer .link{
 	cursor: pointer;
 }
 
+.status_option:hover {
+	background-color: #DDD;
+	box-shadow: #666 0px 2px 3px;
+}
+
 .status_option_table {
 	display: flex;
 	padding: 0.5em 1em;

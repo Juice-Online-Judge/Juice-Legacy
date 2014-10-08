@@ -11,7 +11,6 @@
 	$error = false;
 	
 	$solve_status = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	$list_implement = $solve_status->list_implement();
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,6 +47,7 @@
 								<div class="status_option_table">
 									<div><h3 class="title t-center">動動腦</h3></div>
 <?php
+		$list_implement = $solve_status->list_ipm_pt(true);
 		$last_unit = -1;
 		foreach ($list_implement as $temp) {
 			if ($temp['lesson_id'] != $last_unit) {

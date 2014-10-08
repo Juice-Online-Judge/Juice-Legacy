@@ -9,6 +9,7 @@
 		exit();
 	}
 	
+	echo 'C';
 	foreach ($_POST as $key => $value) {
 		echo 'OK';
 		if (strpos($key, "implement_a") !== false) {

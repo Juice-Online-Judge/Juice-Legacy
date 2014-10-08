@@ -133,7 +133,7 @@
 					}, 350);
 				});*/
 				
-				$('html, body').click(function(){
+				$('html, body').dblclick(function(){
 					$('html, body').animate({
 						scrollTop:0
 					}, 350);

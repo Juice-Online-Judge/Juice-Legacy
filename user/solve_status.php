@@ -42,7 +42,11 @@
 					<div class="blankblock">
 						<div id="content_float">
 							<div id="course">
+								<div>
+									<div><h3 class="title t-center">小試身手</h3></div>
+								</div>
 								<div class="status_option_table">
+									<div><h3 class="title t-center">動動腦</h3></div>
 <?php
 		$last_unit = -1;
 		foreach ($list_implement as $temp) {
@@ -61,8 +65,6 @@
 			$i++;
 		}
 ?>
-								</div>
-								<div>
 								</div>
 							</div>
 							<div id="temp">

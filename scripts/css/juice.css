@@ -255,7 +255,17 @@ footer .link{
 .retractable {
 	cursor: pointer;
 }
+
 .retractable:hover {
 	border: 1px solid #dfdfdf;
 	box-shadow: #666 0px 2px 3px;
+}
+
+/* go_to_top */
+#go_to_top {
+	position:fixed;
+	right: 5px;
+	top: 33%;
+	opacity: 0.5;
+	z-index: 1;
 }

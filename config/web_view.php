@@ -106,6 +106,9 @@
 	
 	function display_footer($prefix) {
 ?>
+		<div id="go_to_top">
+			<img src="<?php echo $prefix.'images/go_to_top.png' ?>">
+		</div>
 		<footer>
 			<div>
 				<span><a class="link" href="<?php echo $prefix.'about/index.php' ?>">>關於本站</a></span>
@@ -116,12 +119,21 @@
 				<span>Copyright © 2014 Juice All rights reserved.</span>
 			</div>
 		</footer>
-<?php
-	}
-	/*
 		<script>
 			$(document).ready(function(){
+				$("#go_to_top").hide();
+				
+				$(window).scroll(function(){
+					($(this).scrollTop() > 0) ? $("#go_to_top").fadeIn(300) : $("#go_to_top").stop().fadeOut(300);
+				});
+				
+				$("#go_to_top").click(function(){
+					$("html, body").animate({
+						scrollTop:0
+					}, 350);
+				});
 			});
 		</script>
-	*/
+<?php
+	}
 ?>

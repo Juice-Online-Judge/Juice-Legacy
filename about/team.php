@@ -38,18 +38,16 @@
 	foreach ($result as $tmp) {
 ?>
 								<div>
-									<blockquote>
-										<div class="retractable"><blockquote><?php echo $tmp['user']; ?></blockquote></div>
-										<div id="introduction_<?php echo $i; ?>">
-											<blockquote>
-												<div>
+									<div class="retractable"><blockquote><?php echo $tmp['user']; ?></blockquote></div>
+									<div id="introduction_<?php echo $i; ?>">
+										<blockquote>
+											<div>
 <?php
 		echo $tmp['content'];
 ?>
-												</div>
-											</blockquote>
-										</div>
-									</blockquote>
+											</div>
+										</blockquote>
+									</div>
 								</div>
 <?php
 		$i++;

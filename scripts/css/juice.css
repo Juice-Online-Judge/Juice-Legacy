@@ -69,10 +69,6 @@ footer .link{
 	box-shadow: #666 0px 2px 3px;
 }
 
-.fullheight {
-	min-height: calc(100% - 120px);
-}
-
 .t-center {
 	text-align: center;
 }

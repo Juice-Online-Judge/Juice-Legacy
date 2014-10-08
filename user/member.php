@@ -47,9 +47,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="flexblock">
-			<div id="member" style="position:relative;">
-				<div class="pure-g m-center" style="width:1024px">
+		<div id="member" class="flexblock">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -114,8 +112,6 @@ EOD;
 							</form>
 						</div>
 					</div>
-				</div>
-			</div>
 		</div>
 <?php display_footer($prefix); ?>
 		<script>

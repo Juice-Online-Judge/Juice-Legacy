@@ -43,7 +43,11 @@
 										<div id="introduction_<?php echo $i; ?>">
 											<blockquote>
 												<div>
-													<div><?php echo $tmp['content']; ?></div>
+													<div>
+<?php
+		echo $tmp['content'];
+?>
+													</div>
 												</div>
 											</blockquote>
 										</div>

@@ -82,6 +82,7 @@
 			$this->query($sql, $params);
 			$practice_answer = $this->fetch();
 			$this->closeCursor();
+			
 			$sql = "SELECT `user_code` FROM `user_code_lesson` WHERE `code_key` = :code_key AND `ipm_pt_key` = :ipm_pt_key";
 			$params = array(
 				':code_key' => $code_key,
@@ -90,7 +91,8 @@
 			$this->query($sql, $params);
 			$user_answer = $this->fetch();
 			$this->closeCursor();
-			$judge_result = ($practice_answer == $user_answer) ? 0 : 1; // correct : 0, incorrect : 1
+			
+			$judge_result = ($practice_answer == $user_answer) ? 1 : 3; // correct : 1, incorrect : 3
 			$sql = "UPDATE `user_code_lesson` SET `result` = :result WHERE `code_key` = :code_key AND `ipm_pt_key` = :ipm_pt_key";
 			$params = array(
 				':result' => $judge_result,
@@ -98,6 +100,7 @@
 				':ipm_pt_key' => $practice_key
 			);
 			$this->query($sql, $params);
+			$this->closeCursor();
 		}
 	}
 ?>

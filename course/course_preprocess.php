@@ -32,6 +32,5 @@
 			}
 			break;
 		}
-		echo $key.' '.$value."\n";
 	}
 ?>

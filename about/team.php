@@ -39,8 +39,8 @@
 ?>
 								<div>
 									<blockquote>
-										<div class="retractable" value="+"><?php echo $tmp['user']; ?></div>
-										<div id="introduction_<?php echo	 $i; ?>">
+										<div class="retractable"><?php echo $tmp['user']; ?></div>
+										<div id="introduction_<?php echo $i; ?>">
 											<blockquote>
 												<div>
 													<div><?php echo $tmp['content']; ?></div>
@@ -68,8 +68,6 @@
 				});
 				
 				$('.retractable').click(function(){
-					var tmp = ($(this).val() == '+') ? '-' : '+';
-					$(this).val(tmp);
 					$(this).next().stop(true);
 					$(this).next().toggle(300);
 				});

@@ -33,4 +33,7 @@
 			break;
 		}
 	}
+	
+	header("Location: ".$prefix."user/solve_status.php");
+	exit();
 ?>

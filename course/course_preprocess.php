@@ -9,9 +9,7 @@
 		exit();
 	}
 	
-	echo 'C';
 	foreach ($_POST as $key => $value) {
-		echo 'OK';
 		if (strpos($key, "implement_a") !== false) {
 			if (isset($_POST['implement_key'])) {
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
@@ -25,16 +23,11 @@
 			}
 			break;
 		} else if (strpos($key, 'practice_a') !== false) {
-			echo '0';
 			if (isset($_POST['practice_key'])) {
-				echo '3';
 				$judge = new judge('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
 				$result = $judge->code_submit('lesson_practice', $value, $_POST['practice_key']);
 				if (!isset($result['error'])) {
 					$judge->lesson_practice_judge($_POST['practice_key'], $result['key']);
-					echo '1';
-				} else {
-					echo '2';
 				}
 			}
 			break;

@@ -98,7 +98,9 @@
 								<blockquote>
 <?php
 		$i = 1;
+		$practice_key = array();
 		foreach ($result['practice'] as $tmp) {
+			array_push($practice_key, $tmp['practice_key']);
 ?>
 									<div>
 										<div>

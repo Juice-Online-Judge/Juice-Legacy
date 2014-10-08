@@ -42,7 +42,7 @@
 				case 'lesson_implement':
 					while (true) {
 						$hash = hash_key('sha512');
-						if (hash_check('user_code_lesson', 'code_key', $hash)) {
+						if ($this->hash_check('user_code_lesson', 'code_key', $hash)) {
 							break;
 						}
 					}

@@ -222,7 +222,7 @@
 										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content, `practice_answer` = :practice_answer WHERE `practice_key` = :practice_key";
 										$params = array(
 											':practice_content' => $value['content'],
-											':practice_answer' => $value['practice_answer'],
+											':practice_answer' => $value['answer'],
 											':practice_key' => $value['key']
 										);
 									}

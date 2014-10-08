@@ -32,9 +32,31 @@
 			} else {
 				foreach ($temp as $name => $v) {
 					foreach ($temp[$name] as $key => $value) {
-						if ($key == 'result') {
-							$temp[$name][$key] = $judge_result[$value];
-							break;
+						switch ($key) {
+							case 'code_key':
+								$temp[$name]['key'] = $value;
+								unset($temp[$name][$key]);
+								break;
+							case 'result':
+								$temp[$name][$key] = $judge_result[$value];
+								break;
+							case 'memory_usage':
+								if ($vaule == null) {
+									$temp[$name][$key] = '-';
+								}
+								break;
+							case 'time_usage':
+								if ($vaule == null) {
+									$temp[$name][$key] = '-';
+								}
+								break;
+							case 'user_code':
+								unset($temp[$name][$key]);
+								break;
+							case 'submit_time':
+								$temp[$name]['time'] = $value;
+								unset($temp[$name][$key]);
+								break;
 						}
 					}
 				}

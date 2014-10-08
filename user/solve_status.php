@@ -24,8 +24,8 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
-			<div class="pure-g">
+		<div class="main">
+			<div class="flexblock">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>

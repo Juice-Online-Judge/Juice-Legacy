@@ -23,8 +23,8 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="main">
-			<div class="pure-g">
+		<div class="main">
+			<div class="flexblock">
 				<div class="pure-u-1-1">
 					<div class="lesson_list">
 						<div>

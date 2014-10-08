@@ -214,7 +214,7 @@
 		'course_practice' => 2,
 		'course_implement' => 3
 	);
-	$type = (in_array(($_GET['type']), $course_submenu)) ? $course_submenu[$_GET['type']] : 0;
+	$type = (isset($_GET['type']) and in_array(($_GET['type']), $course_submenu)) ? $course_submenu[$_GET['type']] : 0;
 ?>
 			$(window).load(function(){
 				displacement(<?php echo $type; ?>);

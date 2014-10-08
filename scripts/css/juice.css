@@ -165,7 +165,7 @@ footer .link{
 }
 
 .course_option:hover {
-	background-color: #F8F8F8;
+	background-color: #EFEFEF;
 	box-shadow: #666 0px 2px 3px;
 }
 
@@ -258,8 +258,7 @@ footer .link{
 }
 
 .retractable:hover {
-	border: 1px solid #dfdfdf;
-	box-shadow: #666 0px 2px 3px;
+	background-color: #EFEFEF;
 }
 
 /* go_to_top */

@@ -24,7 +24,7 @@
 			}
 			break;
 		} else if (strpos($key, "practice_a") !== false) {
-			if (isset($_POST['practice_key']) {
+			if (isset($_POST['practice_key'])) {
 				
 			}
 			break;

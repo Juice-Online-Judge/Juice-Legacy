@@ -124,7 +124,7 @@
 				$("#go_to_top").hide();
 				
 				$(window).scroll(function(){
-					($(this).scrollTop() > 0) ? $("#go_to_top").fadeIn(300) : $("#go_to_top").stop().fadeOut(300);
+					($(this).scrollTop() > 0) ? $("#go_to_top").fadeIn(300) : $("#go_to_top").stop(true).fadeOut(300);
 				});
 				
 				$("#go_to_top").click(function(){

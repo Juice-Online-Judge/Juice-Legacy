@@ -63,12 +63,14 @@
 				</div>
 				<div class="pure-u-1-1">
 					<div class="course_body">
-						<div id="course_unit">
-							<span style="font-size:32px">單元 <?php echo $result['lesson_unit']; ?></span>
-						</div>
-						<div id="course_title">
-							<span style="font-size:32px"><?php echo $result['lesson_title']; ?></span>
-						</div>
+						<blockquote>
+							<div id="course_unit">
+								<span style="font-size:32px"><strong>單元 <?php echo $result['lesson_unit']; ?></strong></span>
+							</div>
+							<div id="course_title">
+								<span style="font-size:32px"><strong><?php echo $result['lesson_title']; ?></strong></span>
+							</div>
+						</blockquote>
 						<hr>
 						<div id="course_float">
 							<div id="course_introduction">

@@ -194,13 +194,16 @@
 			});
 			
 <?php
-	$course_submenu = array('course_introduction', 'course_example', 'course_practice', 'course_implement');
-	$type = (in_array(($GET['type']), $course_submenu)) ? $GET['type'] : 'course_introduction';
+	$course_submenu = array(
+		'course_introduction' => 0,
+		'course_example' => 1,
+		'course_practice' => 2,
+		'course_implement' => 3
+	);
+	$type = (in_array(($GET['type']), $course_submenu)) ? $course_submenu[$GET['type']] : 0;
 ?>
 			$(window).load(function(){
-				$('#course_float').animate({
-					height: $('#<?php echo $type; ?>').height()
-				}, 300);
+				displacement(<?php echo $type; ?>);
 			});
 		</script>
 	</body>

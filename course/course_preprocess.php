@@ -22,7 +22,7 @@
 				}
 			}
 			break;
-		} else if (strpos($key, "practice_a") !== false) {
+		} else if (strpos($key, 'practice_a') !== false) {
 			echo '0';
 			if (isset($_POST['practice_key'])) {
 				echo '3';
@@ -37,5 +37,6 @@
 			}
 			break;
 		}
+		echo $key.' '.$value."\n";
 	}
 ?>

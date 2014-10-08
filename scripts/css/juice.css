@@ -113,6 +113,10 @@ footer .link{
 	margin-right: calc(100% / 8);
 }
 
+.flexblock {
+	display: flex;
+}
+
 .blankblock {
 	background-color: #FFF;
 	border: 1px solid #dfdfdf;

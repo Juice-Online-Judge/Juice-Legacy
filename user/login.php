@@ -39,7 +39,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div class="pure-g">
+			<div class="flexblock">
 				<div class="pure-u-2-3">
 					<p>Introduction</p>
 				</div>

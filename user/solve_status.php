@@ -41,8 +41,22 @@
 					<div class="blankblock">
 						<div id="content_float">
 							<div id="course">
-								<div>
+								<div class="status_option_table">
 									<div><h3 class="title t-center">小試身手</h3></div>
+<?php
+		$list_practice = $solve_status->list_ipm_pt(false);
+		$last_unit = -1;
+		foreach ($list_practice as $temp) {
+			if ($temp['lesson_id'] != $last_unit) {
+				$i = 1;
+				$last_unit = $temp['lesson_id'];
+			}
+?>
+									<div class="status_option" onClick="ipm_pt_query('<?php echo $temp['practice_key']; ?>', 0);"><?php echo $temp['lesson_unit'].' - '.$i; ?></div>
+<?php
+			$i++;
+		}
+?>
 								</div>
 								<div class="status_option_table">
 									<div><h3 class="title t-center">動動腦</h3></div>

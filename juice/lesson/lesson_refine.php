@@ -75,7 +75,7 @@
 									<div class="pure-control-group">
 										<label for="practice" style="text-align:left;width:auto;"><h3>小試身手 第 <?php echo $i; ?> 題：</h3></label>
 										<textarea class="ckeditor" name="practice_id_<?php echo $i; ?>" id="practice_id_<?php echo $i; ?>" required></textarea>
-										<input type="text" name="practice_answer_<?php echo $i; ?>" id="practice_answer_<?php echo $i; ?>" autocomplete="off" required>
+										<input type="text" name="practice_answer_<?php echo $i; ?>" id="practice_answer_<?php echo $i; ?>" autocomplete="off">
 										<input type="text" name="practice_action_<?php echo $i; ?>" id="practice_action_<?php echo $i; ?>" value="add" hidden readonly autocomplete="off">
 									</div>
 								</div>

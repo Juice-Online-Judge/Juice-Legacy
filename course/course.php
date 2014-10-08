@@ -203,7 +203,7 @@
 	$type = (in_array(($GET['type']), $course_submenu)) ? $course_submenu[$GET['type']] : 0;
 ?>
 			$(window).load(function(){
-				displacement(<?php echo $type; ?>);
+				displacement(0<?php //echo $type; ?>);
 			});
 		</script>
 	</body>

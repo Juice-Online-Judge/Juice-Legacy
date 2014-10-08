@@ -165,7 +165,7 @@ footer .link{
 }
 
 .course_option:hover {
-	background-color: #cfcfcf;
+	background-color: #F8F8F8;
 	box-shadow: #666 0px 2px 3px;
 }
 
@@ -200,7 +200,7 @@ footer .link{
 	width: 25%;
 }
 
-/*Status Setting*/
+/* Status Setting */
 .status_list {
 	width: auto;
 	margin: 1em 0 0 0;

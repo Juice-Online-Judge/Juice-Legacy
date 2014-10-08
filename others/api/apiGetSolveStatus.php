@@ -30,10 +30,10 @@
 					'empty' => true
 				);
 			} else {
-				foreach ($temp as $tmp) {
-					foreach ($tmp as $key => $value) {
+				foreach ($temp as $name => $v) {
+					foreach ($temp[$name] as $key => $value) {
 						if ($key == 'result') {
-							$tmp[$key] = $judge_result[$value];
+							$temp[$name][$key] = $judge_result[$value];
 							break;
 						}
 					}

@@ -18,7 +18,7 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div id="main">
-			<div class="pure-g">
+			<div class="flexblock">
 				<div class="pure-u-1-5"></div>
 				<div class="pure-u-3-5">
 					<div>

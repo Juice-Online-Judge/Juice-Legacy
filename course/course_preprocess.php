@@ -16,8 +16,9 @@
 				$result = $judge->code_submit('lesson_implement', $value, $_POST['implement_key']);
 				if (!isset($result['error'])) {
 					$outputFile = '/dev/null';
-					$command = $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
-					shell_exec(sprintf('ruby juice_judge.rb %s > %s 2>&1 & echo $!', $command, $outputFile));
+					$command = 'ruby '.$prefix.'juice_judge.rb ';
+					$command .= $result['key'].' '.$result['table'].' '.$_POST['implement_key'];
+					shell_exec(sprintf('%s > %s 2>&1 & echo $!', $command, $outputFile));
 					echo 'OK';
 				}
 			}

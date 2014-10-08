@@ -47,7 +47,7 @@
 			$result = $this->fetch();
 			$this->closeCursor();
 			if (!empty($result)) {
-				$sql = "SELECT `practice_key`, `practice_content` FROM `lesson_practice` WHERE `lesson_id` = :lesson_id AND `practice_is_delete` = :practice_is_delete";
+				$sql = "SELECT `practice_key`, `practice_content`, `practice_answer` FROM `lesson_practice` WHERE `lesson_id` = :lesson_id AND `practice_is_delete` = :practice_is_delete";
 				$params = array(
 					':lesson_id' => $result['lesson_practice'],
 					':practice_is_delete' => false
@@ -72,9 +72,6 @@
 		public function add_lesson($type, array $content = array()) {
 			$key = hash_key('sha1');
 			$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
-			//$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
-			//$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
-			//$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
 			if (!preg_match("/^\d{1,2}$/", $content['unit'])) {
 				$result = array(
 					'error' => 'Invalid unit.'
@@ -163,9 +160,6 @@
 					switch ($type) {
 						case 'lesson':
 							$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
-							//$content['goal'] = htmlspecialchars($content['goal'], ENT_QUOTES);
-							//$content['content'] = htmlspecialchars($content['content'], ENT_QUOTES);
-							//$content['example'] = htmlspecialchars($content['example'], ENT_QUOTES);
 							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
 								$result = array(
 									'error' => 'Invalid level.'
@@ -211,23 +205,24 @@
 						case 'practice':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									//$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
-											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`) VALUES ";
-											$sql .= "(:lesson_id, :practice_key, :practice_content)";
+											$sql = "INSERT INTO `lesson_practice` (`lesson_id`, `practice_key`, `practice_content`, `practice_answer`) VALUES ";
+											$sql .= "(:lesson_id, :practice_key, :practice_content, :practice_answer)";
 											$params = array(
 												':lesson_id' => $lesson_id['id'],
 												':practice_key' => hash_key('md5'),
-												':practice_content' => $value['content']
+												':practice_content' => $value['content'],
+												':practice_answer' => $value['answer']
 											);
 										} else {
 											continue;
 										}
 									} else {
-										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content WHERE `practice_key` = :practice_key";
+										$sql = "UPDATE `lesson_practice` SET `practice_content` = :practice_content, `practice_answer` = :practice_answer WHERE `practice_key` = :practice_key";
 										$params = array(
 											':practice_content' => $value['content'],
+											':practice_answer' => $value['practice_answer'],
 											':practice_key' => $value['key']
 										);
 									}
@@ -249,7 +244,6 @@
 						case 'implement':
 							foreach ($content as $key => $value) {
 								if (is_array($value)) {
-									//$value['content'] = htmlspecialchars($value['content'], ENT_QUOTES);
 									if ($value['action'] == 'add') {
 										if (mb_strlen($value['content']) > 0) {
 											$sql = "INSERT INTO `lesson_implement` (`lesson_id`, `lesson_unit`, `implement_key`, `implement_content`, `time_limit`, `memory_limit`, `file_limit`, `mode`, `other_limit`) VALUES ";

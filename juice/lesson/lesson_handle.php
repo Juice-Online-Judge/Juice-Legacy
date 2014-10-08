@@ -32,6 +32,8 @@
 							case 'id' :
 								$data[$tmp[2]]['content'] = $value;
 								break;
+							case 'answer':
+								$data[$tmp[2]]['answer'] = $value;
 							default :
 								break;
 						}

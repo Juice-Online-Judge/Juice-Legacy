@@ -165,7 +165,7 @@
 						} else if (typeof obj.empty != 'undefined') {
 							var content = '<span>No data</span>';
 						} else {
-							var content = '<span>' + obj.code + '</span>';
+							var content = '<pre><code>' + obj.code + '</code></pre>';
 						}
 						$('#code').append(content);
 						hljs.initHighlightingOnLoad();

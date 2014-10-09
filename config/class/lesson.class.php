@@ -355,13 +355,13 @@
 		
 		public function list_ipm_pt($is_implement) {
 			if ($is_implement) {
-				$sql = "SELECT `lesson_id`, `lesson_unit`, `implement_key` FROM `lesson_implement` WHERE `implement_is_visible` = :implement_is_visible AND `implement_is_delete` = :implement_is_delete ORDER BY `lesson_id` ASC";
+				$sql = "SELECT `lesson_id`, `lesson_unit`, `implement_key` FROM `lesson_implement` WHERE `implement_is_visible` = :implement_is_visible AND `implement_is_delete` = :implement_is_delete ORDER BY `lesson_unit` ASC";
 				$params = array(
 					':implement_is_visible' => true,
 					':implement_is_delete' => false
 				);
 			} else {
-				$sql = "SELECT `lesson_id`, `lesson_unit`, `practice_key` FROM `lesson_practice` WHERE `practice_is_visible` = :practice_is_visible AND `practice_is_delete` = :practice_is_delete ORDER BY `lesson_id` ASC";
+				$sql = "SELECT `lesson_id`, `lesson_unit`, `practice_key` FROM `lesson_practice` WHERE `practice_is_visible` = :practice_is_visible AND `practice_is_delete` = :practice_is_delete ORDER BY `lesson_unit` ASC";
 				$params = array(
 					':practice_is_visible' => true,
 					':practice_is_delete' => false

@@ -168,7 +168,7 @@
 							var content = '<pre><code>' + obj.code + '</code></pre>';
 						}
 						$('#code').append(content);
-						hljs.initHighlightingOnLoad();
+						hljs.initHighlighting();
 					}
 				);
 			}

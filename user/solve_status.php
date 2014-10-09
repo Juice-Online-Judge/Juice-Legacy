@@ -100,7 +100,7 @@
 						</table>
 					</div>
 				</div>
-	<?php } ?>
+<?php } ?>
 			</div>
 <?php display_footer($prefix); ?>
 		<script>

@@ -6,7 +6,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+<?php if (!isset($_GET['no_transfer'])) { ?>
 		<meta http-equiv="refresh" content="2;url=http://crux.coder.tw/freedom/juice/index.php">
+<?php } ?>
 		<title>Juice</title>
 	</head>
 	<body>

@@ -127,14 +127,8 @@
 					($(this).scrollTop() > 0) ? $("#go_to_top").fadeIn(300) : $("#go_to_top").stop(true).fadeOut(300);
 				});
 				
-				/*$("#go_to_top").click(function(){
+				$("#go_to_top").click(function(){
 					$("html, body").animate({
-						scrollTop:0
-					}, 350);
-				});*/
-				
-				$('html, body').dblclick(function(){
-					$('html, body').animate({
 						scrollTop:0
 					}, 350);
 				});

@@ -19,7 +19,9 @@
 		<title>解題動態</title>
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/tomorrow-night-bright.css'; ?>">
 <?php display_scripts_link(); ?>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
@@ -79,7 +81,7 @@
 							<div id="temp">
 							</div>
 						</div>
-						<div id="code"></div>
+						<div id="code" class="language-C"></div>
 					</div>
 				</div>
 				<div class="pure-u-1-1">
@@ -166,6 +168,7 @@
 							var content = '<span>' + obj.code + '</span>';
 						}
 						$('#code').append(content);
+						hljs.initHighlightingOnLoad();
 					}
 				);
 			}

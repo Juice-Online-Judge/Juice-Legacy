@@ -39,8 +39,8 @@
 	<body>
 <?php display_navigation($prefix); ?>
 		<div class="flexblock">
-			<div style="margin: 0 auto;">
-				<div id="register-r" class="shadow m-center" style="position:relative; width:500px;">
+			<div style="margin:0 auto;">
+				<div id="register-r" class="shadow m-center">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -80,7 +80,7 @@ EOD;
 									<label for="email">信箱:</label>
 									<input type="email" name="email" id="email" maxlength="128" autocomplete="off" required>
 								</div>
-								<div style="display:hidden;">
+								<div style="display:none;">
 									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_register']; ?>" hidden readonly autocomplete="off" required>
 								</div>
 								<div class="pure-control-group t-center">
@@ -102,6 +102,7 @@ EOD;
 					});
 				});
 			});
+			
 			$(window).load(function(){
 				$('#register-r').center({against:'parent'});
 			});

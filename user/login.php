@@ -44,7 +44,7 @@
 					<p>Introduction</p>
 				</div>
 				<div class="pure-u-1-3">
-					<div id="login-r" class="shadow" style="align-self:center;">
+					<div id="login-r" class="shadow">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -94,6 +94,10 @@ EOD;
 						$(this).val(new jsSHA($(this).val(),"TEXT").getHash("SHA-512","HEX",2048));
 					});
 				});
+			});
+			
+			$(window).load(function(){
+				$('#login-r').center({against:'parent'});
 			});
 		</script>
 	</body>

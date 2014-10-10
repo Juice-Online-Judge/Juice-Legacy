@@ -40,10 +40,10 @@
 <?php display_navigation($prefix); ?>
 		
 			<div class="flexblock">
-				<div class="pure-u-2-3">
+				<div class="pure-u-3-5">
 					<p>Introduction</p>
 				</div>
-				<div class="pure-u-1-3">
+				<div class="pure-u-2-5">
 					<div id="login-r" class="shadow">
 <?php
 	if (isset($message)) {

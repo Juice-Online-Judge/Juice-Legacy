@@ -51,69 +51,69 @@
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-					<div class="pure-u-1-1 warning t-center">
-							<h3>$message</h3>
-					</div>\n
+			<div class="pure-u-1-1 warning t-center">
+					<h3>$message</h3>
+			</div>\n
 EOD;
 	}
 ?>
-					<div class="pure-u-1-12"></div>
-					<div class="pure-u-1-3 shadow">
-						<div class="title t-center">
-							<h2>密碼更改</h2>
-						</div>
-						<div>
-							<form name="update_pw" id="update_pw" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
-								<fieldset>
-									<div class="pure-control-group">
-										<label for="second_pw">第二組密碼：</label>
-										<input type="password" name="second_pw" id="second_pw" autocomplete="off" required>
-									</div>
-									<div class="pure-control-group">
-										<label for="new_pw">新密碼：</label>
-										<input type="password" name="new_pw" id="new_pw" autocomplete="off" required>
-									</div>
-									<div class="pure-control-group">
-										<label for="new_pw_check">新密碼確認：</label>
-										<input type="password" name="new_pw_check" id="new_pw_check" autocomplete="off" required>
-									</div>
-									<div style="display:hidden;">
-										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
-									</div>
-									<div class="pure-control-group t-center">
-										<input type="submit" value="修改" class="pure-button pure-button-primary">
-									</div>
-								</fieldset>
-							</form>
-						</div>
-					</div>
-					<div class="pure-u-1-6"></div>
-					<div class="pure-u-1-3 shadow">
-						<div class="title t-center">
-							<h2>資料更改</h2>
-						</div>
-						<div>
-							<form name="update_info" id="update_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
-								<fieldset>
-									<div class="pure-control-group">
-										<label for="nickname">暱稱:</label>
-										<input type="text" name="nickname" id="nickname" value="<?php echo $user_info['nickname']; ?>" pattern="^.{5,16}$" autocomplete="off" required>
-									</div>
-									<div class="pure-control-group">
-										<label for="email">信箱:</label>
-										<input type="email" name="email" id="email" value="<?php echo $user_info['email']; ?>" maxlength="128" autocomplete="off" required>
-									</div>
-									<div style="display:hidden;">
-										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
-									</div>
-									<div class="pure-control-group t-center">
-										<input type="submit" value="修改" class="pure-button pure-button-primary">
-									</div>
-								</fieldset>
-							</form>
-						</div>
-					</div>
-					<div class="pure-u-1-12"></div>
+			<div class="pure-u-1-12"></div>
+			<div class="pure-u-1-3 shadow">
+				<div class="title t-center">
+					<h2>密碼更改</h2>
+				</div>
+				<div>
+					<form name="update_pw" id="update_pw" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+						<fieldset>
+							<div class="pure-control-group">
+								<label for="second_pw">第二組密碼：</label>
+								<input type="password" name="second_pw" id="second_pw" autocomplete="off" required>
+							</div>
+							<div class="pure-control-group">
+								<label for="new_pw">新密碼：</label>
+								<input type="password" name="new_pw" id="new_pw" autocomplete="off" required>
+							</div>
+							<div class="pure-control-group">
+								<label for="new_pw_check">新密碼確認：</label>
+								<input type="password" name="new_pw_check" id="new_pw_check" autocomplete="off" required>
+							</div>
+							<div style="display:hidden;">
+								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
+							</div>
+							<div class="pure-control-group t-center">
+								<input type="submit" value="修改" class="pure-button pure-button-primary">
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="pure-u-1-6"></div>
+			<div class="pure-u-1-3 shadow">
+				<div class="title t-center">
+					<h2>資料更改</h2>
+				</div>
+				<div>
+					<form name="update_info" id="update_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
+						<fieldset>
+							<div class="pure-control-group">
+								<label for="nickname">暱稱:</label>
+								<input type="text" name="nickname" id="nickname" value="<?php echo $user_info['nickname']; ?>" pattern="^.{5,16}$" autocomplete="off" required>
+							</div>
+							<div class="pure-control-group">
+								<label for="email">信箱:</label>
+								<input type="email" name="email" id="email" value="<?php echo $user_info['email']; ?>" maxlength="128" autocomplete="off" required>
+							</div>
+							<div style="display:hidden;">
+								<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
+							</div>
+							<div class="pure-control-group t-center">
+								<input type="submit" value="修改" class="pure-button pure-button-primary">
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="pure-u-1-12"></div>
 		</div>
 <?php display_footer($prefix); ?>
 		<script>

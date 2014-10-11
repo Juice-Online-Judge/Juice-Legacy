@@ -55,7 +55,7 @@ EOD;
 	}
 ?>
 						<div class="title t-center">
-							<h2>帳號註冊</h2>
+							<h2>帳號登入</h2>
 						</div>
 						<div>
 							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">

@@ -111,7 +111,8 @@ footer .link{
 	display: flex;
 	min-height: calc(100% - 121px);
 	flex-flow: row wrap;
-	align-items: flex-start;
+	align-items: stretch;
+ 	align-content: flex-start;
 }
 
 .blankblock {

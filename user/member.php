@@ -51,15 +51,15 @@
 <?php
 	if (isset($message)) {
 		echo <<<EOD
-			<div class="pure-u-1-1 warning t-center">
+			<div class="u-1-1 warning t-center">
 					<h3>$message</h3>
 			</div>\n
 EOD;
 	}
 ?>
-			<div class="pure-u-1-12"></div>
-			<div class="pure-u-1-3">
-				<div style="height:15em;align-self:center;" class="shadow">
+			<div class="u-1-12"></div>
+			<div class="u-1-3">
+				<div style="height:20em;width:30em;align-self:center;" class="shadow">
 					<div class="title t-center">
 						<h2>密碼更改</h2>
 					</div>
@@ -89,9 +89,9 @@ EOD;
 					</div>
 				</div>
 			</div>
-			<div class="pure-u-1-6"></div>
-			<div class="pure-u-1-3">
-				<div style="height:15em;align-self:center;" class="shadow">
+			<div class="u-1-6"></div>
+			<div class="u-1-3">
+				<div style="height:20em;width:30em;align-self:center;" class="shadow">
 					<div class="title t-center">
 						<h2>資料更改</h2>
 					</div>
@@ -117,7 +117,7 @@ EOD;
 					</div>
 				</div>
 			</div>
-			<div class="pure-u-1-12"></div>
+			<div class="u-1-12"></div>
 		</div>
 <?php display_footer($prefix); ?>
 		<script>

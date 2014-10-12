@@ -58,8 +58,8 @@ EOD;
 	}
 ?>
 			<div class="u-1-12"></div>
-			<div class="u-1-3">
-				<div style="height:20em;width:30em;align-content:center;" class="shadow">
+			<div class="u-1-3" style="align-content:center;">
+				<div style="height:20em;width:30em;" class="shadow">
 					<div class="title t-center">
 						<h2>密碼更改</h2>
 					</div>
@@ -90,8 +90,8 @@ EOD;
 				</div>
 			</div>
 			<div class="u-1-6"></div>
-			<div class="u-1-3">
-				<div style="height:20em;width:30em;align-content:center;" class="shadow">
+			<div class="u-1-3" style="align-content:center;">
+				<div style="height:20em;width:30em;" class="shadow">
 					<div class="title t-center">
 						<h2>資料更改</h2>
 					</div>

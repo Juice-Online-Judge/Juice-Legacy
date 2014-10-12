@@ -47,7 +47,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="member" class="flexblock">
+		<div id="member" class="flexblock" style="align-content:center;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD
@@ -59,7 +59,7 @@ EOD;
 ?>
 			<div class="u-1-12"></div>
 			<div class="u-1-3">
-				<div style="height:20em;width:30em;align-self:center;" class="shadow">
+				<div style="height:20em;width:30em;" class="shadow">
 					<div class="title t-center">
 						<h2>密碼更改</h2>
 					</div>
@@ -91,7 +91,7 @@ EOD;
 			</div>
 			<div class="u-1-6"></div>
 			<div class="u-1-3">
-				<div style="height:20em;width:30em;align-self:center;" class="shadow">
+				<div style="height:20em;width:30em;" class="shadow">
 					<div class="title t-center">
 						<h2>資料更改</h2>
 					</div>

@@ -10,9 +10,9 @@
 	}
 	
 	$account = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	if (isset($_POST['second_pw']) and isset($_POST['new_pw']) and isset($_POST['new_pw_check'])) {
+	if (isset($_POST['old_pw']) and isset($_POST['new_pw']) and isset($_POST['new_pw_check'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
-			$message = $account->update_pw($_POST['second_pw'], $_POST['new_pw'], $_POST['new_pw_check']);
+			$message = $account->update_pw($_POST['old_pw'], $_POST['new_pw'], $_POST['new_pw_check']);
 			if ($message === true) {
 				$message = '密碼更新成功';
 			}
@@ -67,8 +67,8 @@ EOD;
 						<form name="update_pw" id="update_pw" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="pure-form pure-form-aligned">
 							<fieldset>
 								<div class="pure-control-group">
-									<label for="second_pw">第二組密碼：</label>
-									<input type="password" name="second_pw" id="second_pw" autocomplete="off" required>
+									<label for="old_pw">原密碼：</label>
+									<input type="password" name="old_pw" id="old_pw" autocomplete="off" required>
 								</div>
 								<div class="pure-control-group">
 									<label for="new_pw">新密碼：</label>

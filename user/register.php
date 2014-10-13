@@ -9,10 +9,10 @@
 		exit();
 	}
 	
-	if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_check']) and isset($_POST['second_password']) and isset($_POST['nickname']) and isset($_POST['email'])) {
+	if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_check']) and isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_register']) and $_COOKIE['verify_code_register'] == $_POST['verify_code']) {
 			$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['second_password'], $_POST['email'], $_POST['nickname']);
+			$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
 				del_cookie('verify_code_register');
 				header("Location: ".$prefix."user/login.php");
@@ -67,10 +67,6 @@ EOD;
 								<div class="pure-control-group">
 									<label for="password_check">密碼確認：</label>
 									<input type="password" name="password_check" id="password_check" autocomplete="off" required>
-								</div>
-								<div class="pure-control-group">
-									<label for="second_password">第二組密碼：</label>
-									<input type="password" name="second_password" id="second_password" autocomplete="off" required>
 								</div>
 								<div class="pure-control-group">
 									<label for="nickname">暱稱：</label>

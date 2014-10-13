@@ -90,7 +90,7 @@
 				$sql = "UPDATE `account` SET `password` = :new_password WHERE `id` = :uid AND `password` = :old_password";
 				$params = array(
 					':new_password' => $new_pw,
-					':old_password' => $old_pw.
+					':old_password' => $old_pw,
 					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);

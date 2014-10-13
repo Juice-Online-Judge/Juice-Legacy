@@ -9,59 +9,52 @@
 			parent::__destruct();
 		}
 		
-		public function register($username, $password, $password_check, $pw_secret, $email, $nickname) {
-			$password = hash('sha512', $password);
-			$password_check = hash('sha512', $password_check);
-			$pw_secret = hash('sha512', $pw_secret);
+		public function register($username, $pw, $pw_check, $email, $nickname) {
+			$pw = hash('sha512', $pw);
+			$pw_check = hash('sha512', $pw_check);
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			
 			if (!preg_match("/^\w{5,32}$/", $username)) {
-				return 'Invalid username.';
-			} else if (strcmp($password, $password_check) != 0) {
-				return 'The password and password check do not match.';
-			} else if (strcmp($password, $pw_secret) == 0) {
-				return 'The password and password secret are equal.';
+				$result =  '帳號格式不符';
+			} else if (strcmp($pw, $pw_check) != 0) {
+				$result =   '密碼與密碼確認不符';
 			} else if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
-				return 'Invalid email address.';
+				$result =   '信箱格式不符';
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
-				return 'Invalid nickname.';
+				$result =   '暱稱格式不符';
 			} else {
 				$sql = "SELECT `id` FROM `account` WHERE `username` = :username";
 				$params = array(
 					':username' => $username
 				);
 				$this->query($sql, $params);
-				if ($this->rowCount() == 1) {
-					$this->closeCursor();
-					return 'The username is already exists.';
+				if ($this->rowCount() >= 1) {
+					$result = '此帳號已被使用';
 				} else {
 					$this->closeCursor();
-					$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname LIMIT 1";
+					$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname";
 					$params = array(
 						':email' => $email,
 						':nickname' => $nickname
 					);
 					$this->query($sql, $params);
-					if ($this->rowCount() == 1) {
-						$this->closeCursor();
-						return 'The email or nickname is already existed.';
+					if ($this->rowCount() >= 1) {
+						$result = '信箱或暱稱已被使用';
 					} else {
 						$this->closeCursor();
-						$sql = "INSERT INTO `account` (`username`, `password`, `pw_secret`, `account_create_time`, `account_create_ip`) ";
-						$sql .= "VALUES (:username, :password, :pw_secret, :account_create_time, :account_create_ip)";
+						$sql = "INSERT INTO `account` (`username`, `password`, `account_create_time`, `account_create_ip`) ";
+						$sql .= "VALUES (:username, :password, :account_create_time, :account_create_ip)";
 						$params = array(
 							':username' => $username,
-							':password' => $password,
-							':pw_secret' => $pw_secret,
+							':password' => $pw,
 							':account_create_time' => $this->current_time,
 							':account_create_ip' => $this->ip
 						);
 						$this->query($sql, $params);
 						$insert_id = $this->lastInsertId();
 						if ($this->rowCount() != 1 or $insert_id == 0) {
-							$this->closeCursor();
 							$this->log('Error', 'INSERT the account data failed. User username : '.$username);
-							return 'There is something wrong when updating the data.';
+							$result = '更新資料時發生錯誤，請稍後再試';
 						} else {
 							$this->closeCursor();
 							$sql = "INSERT INTO `user_data` (`uid`, `email`, `nickname`) ";
@@ -73,39 +66,40 @@
 							);
 							$this->query($sql, $params);
 							if ($this->rowCount() != 1) {
-								$this->closeCursor();
 								$this->log('Error', 'INSERT the user data failed. User uid : '.$insert_id);
-								return 'There is something wrong when updating the data.';
+								$result = '更新資料時發生錯誤，請稍後再試';
 							} else {
-								$this->closeCursor();
-								return true;
+								$result = true;
 							}
 						}
 					}
 				}
+				$this->closeCursor();
 			}
+			return $result;
 		}
 		
-		public function update_pw($pw_secret, $new_pw, $new_pw_check) {
-			$pw_secret = hash('sha512', $pw_secret);
+		public function update_pw($old_pw, $new_pw, $new_pw_check) {
+			$old_pw = hash('sha512', $old_pw);
 			$new_pw = hash('sha512', $new_pw);
 			$new_pw_check = hash('sha512', $new_pw_check);
 			
 			if (strcmp($new_pw, $new_pw_check) != 0) {
-				$result = 'The new password and password check do not match.';
+				$result = '新密碼與新密碼確認不符';
 			} else {
-				$sql = "UPDATE `account` SET `password` = :password WHERE `id` = :uid AND `pw_secret` = :pw_secret";
+				$sql = "UPDATE `account` SET `password` = :new_password WHERE `id` = :uid AND `password` = :old_password";
 				$params = array(
-					':password' => $new_pw,
-					':uid' => $_SESSION['uid'],
-					':pw_secret' => $pw_secret
+					':new_password' => $new_pw,
+					':old_password' => $old_pw.
+					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() != 1) {
-					$result = 'The second password is incorrect.';
+					$result = '原密碼不符';
 				} else {
 					$result = true;
 				}
+				$this->closeCursor();
 			}
 			return $result;
 		}

@@ -108,19 +108,19 @@
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			
 			if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
-				$result = 'Invalid email address.';
+				$result = '信箱格式不符';
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
-				$result = 'Invalid nickname.';
+				$result = '暱稱格式不符';
 			} else {
-				$sql = "SELECT `uid` FROM `user_data` WHERE (`email` = :email OR `nickname` = :nickname) AND `uid` != :uid LIMIT 1";
+				$sql = "SELECT `uid` FROM `user_data` WHERE (`email` = :email OR `nickname` = :nickname) AND `uid` != :uid";
 				$params = array(
 					':email' => $email,
 					':nickname' => $nickname,
 					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);
-				if ($this->rowCount() == 1) {
-					$result = 'The email or nickname is already existed.';
+				if ($this->rowCount() >= 1) {
+					$result = '信箱或暱稱已被使用';
 				} else {
 					$this->closeCursor();
 					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname, `last_update_time` = :last_update_time, `last_update_ip` = :last_update_ip WHERE `uid` = :uid";
@@ -134,7 +134,7 @@
 					$this->query($sql, $params);
 					if ($this->rowCount() != 1) {
 						$this->log('Error', 'Update the user data failed. User uid : '.$_SESSION['uid']);
-						$result = 'There is something wrong when updating the data.';
+						$result = '更新資料時發生錯誤，請稍後再試';
 					} else {
 						$result = true;
 					}
@@ -152,38 +152,29 @@
 			);
 			$this->query($sql, $params);
 			if ($this->rowCount() != 1) {
-				$this->closeCursor();
-				return 'Invalid username or password.';
+				$result = '帳號或密碼錯誤';
 			} else {
 				$result = $this->fetch();
 				if ($result['allow_login'] == false) {
-					$this->closeCursor();
-					$this->log('Error', 'The user data does not exist. User username : '.$username);
-					return 'This account is not allow to login.';
+					$result = '此帳號目前不允許登入';
 				} else {
 					$_SESSION['uid'] = $result['id'];
 					$this->closeCursor();
-					$sql = "SELECT `nickname`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
-					$params = array(
-						':uid' => $_SESSION['uid']
-					);
-					$this->query($sql, $params);
-					if ($this->rowCount() != 1) {
+					$user_data = $this->get_user_data();
+					if ($user_data === false) {
 						session_unset();
 						session_regenerate_id(true);
-						$this->closeCursor();
-						return 'There is something wrong when loading the data.';
+						$this->log('Error', 'The user data does not exist. User username : '.$username);
+						$result = '讀取資料時發生錯誤，請稍後再試';
 					} else {
-						$result = $this->fetch();
-						$_SESSION['nickname'] = $result['nickname'];
-						$_SESSION['group_id'] = $result['group_id'];
-						$_SESSION['admin_group'] = $result['admin_group'];
-						$this->closeCursor();
-						$sql = "UPDATE `account` SET `last_login_time` = :last_login_time, `last_login_ip` = :last_login_ip WHERE `id` = :id";
+						$_SESSION['nickname'] = $user_data['nickname'];
+						$_SESSION['group_id'] = $user_data['group_id'];
+						$_SESSION['admin_group'] = $user_data['admin_group'];
+						$sql = "UPDATE `account` SET `last_login_time` = :last_login_time, `last_login_ip` = :last_login_ip WHERE `id` = :uid";
 						$params = array(
 							':last_login_time' => $this->current_time,
 							':last_login_ip' => $this->ip,
-							':id' => $_SESSION['uid']
+							':uid' => $_SESSION['uid']
 						);
 						$this->query($sql, $params);
 						if ($this->rowCount() != 1) {
@@ -205,8 +196,8 @@
 								':login_ip' => $this->ip,
 								':login_time' => $this->current_time
 							);
-							setcookie("rem_user", $rem_user, $rem_time_end, '/', '', false, true);
-							setcookie("rem_verify", $rem_verify, $rem_time_end, '/', '', false, true);
+							set_cookie('rem_user', $rem_user, $rem_time_end);
+							set_cookie('rem_verify', $rem_verify, $rem_time_end);
 						} else {
 							$sql = "INSERT INTO `web_login_log` (`uid`, `login_ip`, `login_time`) VALUES (:uid, :login_ip, :login_time) ";
 							$params = array(
@@ -219,11 +210,12 @@
 						if ($this->rowCount() != 1) {
 							$this->log('Error', 'Update the web_login_log information failed. User uid : '.$_SESSION['uid']);
 						}
-						$this->closeCursor();
-						return true;
+						$result = true;
 					}
 				}
 			}
+			$this->closeCursor();
+			return $result;
 		}
 		
 		public function check_login() {
@@ -256,8 +248,8 @@
 				$sql = "UPDATE `web_login_log` SET `remember_time_end` = :remember_time_end WHERE `uid` = :uid AND `remember_time_end` >= :current_time";
 				$params = array(
 					':remember_time_end' => $this->current_time,
-					':uid' => $_SESSION['uid'],
-					':current_time' => $this->current_time
+					':current_time' => $this->current_time,
+					':uid' => $_SESSION['uid']
 				);
 				$this->query($sql, $params);
 				$this->closeCursor();

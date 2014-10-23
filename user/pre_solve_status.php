@@ -97,6 +97,10 @@
 					}
 				);
 			}
+			
+			$(window).load(function(){
+				ipm_pt_query('<?php echo $_GET['key']; ?>', <?php echo $_GET['is_implement']; ?>);
+			});
 		</script>
 	</body>
 </html>

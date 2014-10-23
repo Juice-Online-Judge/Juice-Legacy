@@ -105,5 +105,8 @@
 	</body>
 </html>
 <?php
+	} else {
+		header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
+		exit();
 	}
 ?>

@@ -144,7 +144,7 @@
 											<span>時間限制 : <?php echo $tmp['time_limit']; ?> 秒</span>
 										</div>
 										<div>
-											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" class="pure-form pure-form-aligned">
+											<form name="implement_<?php echo $i; ?>" id="implement_<?php echo $i; ?>" action="<?php echo $prefix.'course/course_preprocess.php'; ?>" method="POST" target="_blank" class="pure-form pure-form-aligned">
 												<fieldset>
 													<div class="pure-control-group">
 														<textarea name="implement_a<?php echo $i; ?>" id="implement_a<?php echo $i; ?>" rows="30" cols="105" required></textarea>

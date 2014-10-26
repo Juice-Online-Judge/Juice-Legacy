@@ -5,7 +5,7 @@
 	}
 	
 	/* require the database setting */
-	require_once $prefix.'config/database_config.php';
+	require_once $prefix.'config/web_config.php';
 	
 	/* Initialize the cookie setting */
 	//ini_set('session.cookie_secure', 1);

@@ -92,7 +92,7 @@ footer .link{
 	color: #0000FF;
 }
 
-.juice-logo {
+.juice_logo {
 	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
 	background-size: 120px 60px;
 	width: 120px;
@@ -101,7 +101,7 @@ footer .link{
 	margin-left: 0.5em;
 }
 
-.juice-menu-head nav ul {
+.juice_menu_head nav ul {
 	float: right;
 	margin-top: 1.5em;
 	margin-right: calc(100% / 8);

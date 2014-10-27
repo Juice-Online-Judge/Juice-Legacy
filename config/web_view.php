@@ -17,8 +17,8 @@
 	function display_navigation($prefix) {
 ?>
 		<header>
-			<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-logo"></div></a>
-			<div class="juice-menu-head">
+			<a href="<?php echo $prefix.'index.php' ?>"><div class="juice_logo"></div></a>
+			<div class="juice_menu_head">
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
 <?php

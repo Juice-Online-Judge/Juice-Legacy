@@ -37,7 +37,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="flexblock" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
+			<div class="juice_body" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning t-center"><?php echo $message; ?></h2>

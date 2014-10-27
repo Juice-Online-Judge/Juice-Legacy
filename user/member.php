@@ -47,7 +47,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div id="member" class="flexblock" style="align-content:center;">
+		<div id="member" class="juice_body" style="align-content:center;">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

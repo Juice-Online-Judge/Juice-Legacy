@@ -25,7 +25,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="flexblock">
+			<div class="juice_body">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>

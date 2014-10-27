@@ -20,10 +20,10 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="flexblock">
-			<div class="pure-u-1-3">
+		<div class="juice_body">
+			<div class="u-1-3">
 			</div>
-			<div class="pure-u-2-3">
+			<div class="u-2-3">
 			</div>
 		</div>
 <?php display_footer($prefix); ?>

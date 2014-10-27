@@ -119,6 +119,11 @@ footer .link{
  	align-content: flex-start;
 }
 
+.blankblock {
+	background-color: #FFF;
+	border: 1px solid #dfdfdf;
+}
+
 .u-1,
 .u-1-1,
 .u-1-2,
@@ -325,12 +330,6 @@ footer .link{
     width: 100%;
 }
 
-.blankblock {
-	background-color: #FFF;
-	border: 1px solid #dfdfdf;
-	margin: 0 1em;
-}
-
 /* Course Setting */
 .lesson_list {
 	width: 100%;
@@ -414,17 +413,21 @@ footer .link{
 
 /* Status Setting */
 .status_list {
-	width: auto;
+	display: flex;
+	width: 100%;
+	height: 1.5em;
 	margin: 1em 0 0 0;
+	/*flex-flow: row wrap;*/
 }
 
 .status_list li {
-	display: inline-block;
+	display: flex;
 	width: 4em;
 	line-height: 1.5em;
 	background-color: #FCFCFC;
 	font-size: 1em;
 	text-align: center;
+	list-style: none;
 	border: 1px solid #dfdfdf;
 	border-bottom-style: none;
 	border-top-left-radius: 0.1em;
@@ -461,7 +464,11 @@ footer .link{
 
 .status_option_table {
 	display: flex;
+	width: 100%;
+	margin: 2.5em 0 0 0;
 	padding: 0.5em 1em;
+	background-color: #FFF;
+	border: 1px solid #dfdfdf;
 	flex: none;
 	flex-flow: row wrap;
 }

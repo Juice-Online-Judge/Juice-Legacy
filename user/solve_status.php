@@ -31,16 +31,17 @@
 					<h2 class="warning center"><?php echo $message; ?></h2>
 				</div>
 <?php } else { ?>
-				<div class="u-1-5">
-					<div class="status_profile" class="blankblock">
-					</div>
-				</div>
-				<div class="u-4-5">
+				<div class="u-1-1">
 					<ul class="status_list">
 						<li onClick="displacement(0);">課程</li>
 						<li onClick="displacement(1);">闖關</li>
 					</ul>
-					<div class="blankblock">
+				</div>
+				<div class="u-1-5">
+					<div class="status_profile" class="blankblock"></div>
+				</div>
+				<div class="u-4-5">
+					<div class="status_option_table">
 						<div id="content_float">
 							<div id="course">
 								<div class="status_option_table">

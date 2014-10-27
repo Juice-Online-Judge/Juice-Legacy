@@ -21,9 +21,7 @@
 			<div class="juice_menu_head">
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
-<?php
-		if (permission_check('login')) {
-?>
+<?php	if (permission_check('login')) { ?>
 						<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 						<li>
 							<a href="#">主選單</a>
@@ -38,13 +36,13 @@
 							</ul>
 						</li>
 <?php
-			if (permission_check('admin_groups')) {
+			if (true/*permission_check('admin_groups')*/) {
 ?>
 						<li>
 							<a href="#">Juice</a>
 							<ul>
 <?php
-				if (permission_check('admin_groups_lesson')) {
+				if (true/*permission_check('admin_groups_lesson')*/) {
 ?>
 								<li>
 									<a href="#">課　　程</a>
@@ -56,7 +54,7 @@
 								</li>
 <?php
 				}
-				if (true/*$_SESSION['admin_group'] > 6*/) {
+				if (true/*permission_check('admin_groups_root')*/) {
 ?>
 								<li>
 									<a href="#">會　　員</a>
@@ -67,7 +65,7 @@
 								</li>
 <?php
 				}
-				if (true/*$_SESSION['admin_group'] > 9*/) {
+				if (true/*permission_check('admin_groups_root')*/) {
 ?>
 								<li>
 									<a href="#">網　　站</a>
@@ -80,6 +78,12 @@
 <?php
 				}
 ?>
+								<li>
+									<a href="#">其　　他</a>
+									<ul>
+										<li><a href="<?php echo $prefix.'juice/about/refine.php'; ?>">團隊介紹修改</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 <?php

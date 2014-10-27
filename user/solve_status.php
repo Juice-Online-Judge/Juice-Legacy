@@ -38,14 +38,14 @@
 					</ul>
 				</div>
 				<div class="u-1-5">
-					<div class="status_profile" class="blankblock"></div>
+					<div class="status_profile"></div>
 				</div>
 				<div class="u-4-5">
 					<div class="status_option_table">
 						<div id="content_float">
 							<div id="course">
-								<div class="status_option_table">
-									<div><h3 class="title t-center">小試身手</h3></div>
+								<div class="u-1-1"><h3 class="title t-left">小試身手</h3></div>
+								<div class="status_option_part">
 <?php
 		$list_practice = $solve_status->list_ipm_pt(false);
 		$last_unit = -1;
@@ -61,8 +61,8 @@
 		}
 ?>
 								</div>
-								<div class="status_option_table">
-									<div><h3 class="title t-center">動動腦</h3></div>
+								<div class="u-1-1"><h3 class="title t-left">動動腦</h3></div>
+								<div class="status_option_part">
 <?php
 		$list_implement = $solve_status->list_ipm_pt(true);
 		$last_unit = -1;
@@ -86,7 +86,7 @@
 					</div>
 				</div>
 				<div class="u-1-1">
-					<div class="show_status" class="blankblock">
+					<div class="show_status">
 						<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
 							<thead>
 								<tr class="t-center">

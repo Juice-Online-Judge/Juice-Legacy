@@ -38,7 +38,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="juice_body">
+		<div class="flexblock">
 			<div style="margin:0 auto;">
 				<div id="register-r" class="shadow m-center">
 <?php

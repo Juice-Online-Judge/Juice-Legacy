@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-	config.codeSnippetGeshi_url = 'http:\/\/crux.coder.tw\/freedom\/juice\/scripts\/ckeditor\/lib\/colorize.php';
+	config.codeSnippetGeshi_url = 'http:\/\/juice.cs.ccu.edu.tw\/Juice\/scripts\/ckeditor\/lib\/colorize.php';
 	
 	config.codeSnippet_languages = {
 		C: 'C'

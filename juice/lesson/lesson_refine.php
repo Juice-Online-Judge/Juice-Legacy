@@ -31,11 +31,11 @@
 		<!--<link rel="icon" href="" type="image/x-icon">-->
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
-		<script src="http://crux.coder.tw/freedom/juice/scripts/ckeditor/ckeditor.js"></script>
+		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="juice_body">
+			<div class="flexblock">
 				<div class="pure-u-1-8"></div>
 				<div class="pure-u-3-4">
 					<div>

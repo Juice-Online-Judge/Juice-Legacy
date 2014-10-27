@@ -37,7 +37,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="juice_body" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
+			<div class="flexblock" style="max-width:1024px; margin:0 auto; padding:0 0 1em 0;">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning t-center"><?php echo $message; ?></h2>
@@ -189,7 +189,7 @@
 			
 			$(document).ready(function(){
 				$('#course_menu').change(function(){
-					window.location.replace('http://crux.coder.tw/freedom/juice/course/course.php?unit=' + $('#course_menu').val());
+					window.location.replace('<?php echo WEB_ROOT_DIR; ?>course/course.php?unit=' + $('#course_menu').val());
 				});
 				
 				hljs.initHighlightingOnLoad();

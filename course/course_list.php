@@ -23,7 +23,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="juice_body">
+			<div class="flexblock">
 				<div class="pure-u-1-1">
 					<div class="lesson_list">
 						<div>
@@ -51,7 +51,7 @@
 <?php display_footer($prefix); ?>
 		<script>
 			function course_redirect(course_unit) {
-				window.location.href = 'http://crux.coder.tw/freedom/juice/course/course.php?unit=' + course_unit;
+				window.location.href = '<?php echo WEB_ROOT_DIR; ?>course/course.php?unit=' + course_unit;
 			}
 		</script>
 	</body>

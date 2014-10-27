@@ -25,7 +25,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="juice_body">
+			<div class="flexblock">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>
@@ -110,6 +110,8 @@
 			
 			function displacement(value) {
 				$('#data_switch').empty();
+				$('#code').empty();
+				$('.status_option_hover').attr('class', 'status_option');
 				var offset = (value) * (-100);
 				$('#content_float').stop(true);
 				$('#content_float').animate({
@@ -126,6 +128,7 @@
 					},
 					function (data) {
 						$('#data_switch').empty();
+						$('#code').empty();
 						var obj = JSON.parse(data);
 						if (typeof obj.error != 'undefined') {
 							var content = '<tr><td colspan="6" class="warning">There is something wrong when loading the data.</td></tr>';
@@ -172,6 +175,13 @@
 					}
 				);
 			}
+			
+			$(document).ready(function(){
+				$('.status_option').click(function(){
+					$('.status_option_hover').attr('class', 'status_option');
+					$(this).attr('class', 'status_option status_option_hover');
+				});
+			});
 			
 <?php if (isset($_GET['key']) and isset($_GET['is_implement'])) { ?>
 			$(window).load(function(){

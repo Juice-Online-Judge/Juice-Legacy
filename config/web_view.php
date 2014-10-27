@@ -9,16 +9,16 @@
 	function display_scripts_link() {
 ?>
 		<noscript><meta http-equiv="refresh" content="0; URL=/freedom/juice/error.php?message=為了獲得更加的體驗，請開起JavaScript&no_transfer=1"></noscript>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="http://yui.yahooapis.com/3.17.2/build/yui/yui-min.js"></script>
+		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/js/jquery.min.js"></script>
+		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/js/yui-min.js"></script>
 <?php
 	}
 	
 	function display_navigation($prefix) {
 ?>
 		<header>
-			<a href="<?php echo $prefix.'index.php' ?>"><div class="juice_logo"></div></a>
-			<div class="juice_menu_head">
+			<a href="<?php echo $prefix.'index.php' ?>"><div class="juice-logo"></div></a>
+			<div class="juice-menu-head">
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
 <?php
@@ -28,8 +28,8 @@
 						<li>
 							<a href="#">主選單</a>
 							<ul>
-								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
 								<li><a href="<?php echo $prefix.'course/course_list.php' ?>">課程教學</a></li>
+								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
 							</ul>
 						</li>
 						<li>

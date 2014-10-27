@@ -22,23 +22,25 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 	</head>
 	<body>
-		<div class="pure-u-1-1">
-			<div id="code" class="language-C"></div>
-			<div class="show_status" class="blankblock">
-				<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
-					<thead>
-						<tr class="t-center">
-							<th style="width:10%;">#</th>
-							<th style="width:20%;">Result</th>
-							<th style="width:15%;">Memory Usage</th>
-							<th style="width:20%;">Time Usage</th>
-							<th style="width:15%;">Code</th>
-							<th style="width:20%;">Time</th>
-						</tr>
-					</thead>
-					<tbody id="data_switch">
-					</tbody>
-				</table>
+		<div class="juice_body">
+			<div class="u-1-1">
+				<div id="code" class="language-C"></div>
+				<div class="show_status" class="blankblock">
+					<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
+						<thead>
+							<tr class="t-center">
+								<th style="width:10%;">#</th>
+								<th style="width:20%;">Result</th>
+								<th style="width:15%;">Memory Usage</th>
+								<th style="width:20%;">Time Usage</th>
+								<th style="width:15%;">Code</th>
+								<th style="width:20%;">Time</th>
+							</tr>
+						</thead>
+						<tbody id="data_switch">
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<script>

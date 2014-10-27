@@ -35,7 +35,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="flexblock">
+			<div class="juice_body">
 				<div class="pure-u-1-8"></div>
 				<div class="pure-u-3-4">
 					<div>

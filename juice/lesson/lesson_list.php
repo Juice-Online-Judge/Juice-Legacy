@@ -26,7 +26,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="flexblock">
+		<div class="juice_body">
 				<div class="pure-u-1-1">
 					<div id="lesson_list">
 						<div>

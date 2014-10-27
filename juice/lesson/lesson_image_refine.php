@@ -44,7 +44,7 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-		<div class="flexblock">
+		<div class="juice_body">
 <?php
 	if (isset($message)) {
 		echo <<<EOD

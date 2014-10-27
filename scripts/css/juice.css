@@ -92,7 +92,7 @@ footer .link{
 	color: #0000FF;
 }
 
-.juice-logo {
+.juice_logo {
 	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
 	background-size: 120px 60px;
 	width: 120px;
@@ -101,10 +101,22 @@ footer .link{
 	margin-left: 0.5em;
 }
 
-.juice-menu-head nav ul {
+.juice_menu_head nav ul {
 	float: right;
 	margin-top: 1.5em;
 	margin-right: calc(100% / 8);
+}
+
+
+.juice_body {
+	display: flex;
+	width: 100%;
+	min-height: calc(100% - 121px);
+	margin: auto;
+	padding: 0;
+	flex-flow: row wrap;
+	align-items: stretch;
+ 	align-content: flex-start;
 }
 
 .u-1,
@@ -311,14 +323,6 @@ footer .link{
 .u-5-5,
 .u-24-24 {
     width: 100%;
-}
-
-.flexblock {
-	display: flex;
-	min-height: calc(100% - 121px);
-	flex-flow: row wrap;
-	align-items: stretch;
- 	align-content: flex-start;
 }
 
 .blankblock {

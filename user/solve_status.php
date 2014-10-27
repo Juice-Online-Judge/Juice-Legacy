@@ -25,17 +25,17 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="flexblock">
+			<div class="juice_body">
 <?php if ($error) { ?>
 				<div>
 					<h2 class="warning center"><?php echo $message; ?></h2>
 				</div>
 <?php } else { ?>
-				<div class="pure-u-1-5">
+				<div class="u-1-5">
 					<div class="status_profile" class="blankblock">
 					</div>
 				</div>
-				<div class="pure-u-4-5">
+				<div class="u-4-5">
 					<ul class="status_list">
 						<li onClick="displacement(0);">課程</li>
 						<li onClick="displacement(1);">闖關</li>
@@ -84,7 +84,7 @@
 						<div id="code" class="language-C"></div>
 					</div>
 				</div>
-				<div class="pure-u-1-1">
+				<div class="u-1-1">
 					<div class="show_status" class="blankblock">
 						<table class="pure-table pure-table-bordered m-center t-center" style="width:100%;">
 							<thead>

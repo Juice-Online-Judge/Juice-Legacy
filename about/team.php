@@ -17,9 +17,9 @@
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
-			<div class="flexblock">
-				<div class="pure-u-1-5"></div>
-				<div class="pure-u-3-5">
+			<div class="juice_body">
+				<div class="u-1-5"></div>
+				<div class="u-3-5">
 					<div>
 						<h1 class="title">關於團隊</h1>
 					</div>
@@ -30,9 +30,7 @@
 							</div>
 							<div>
 <?php
-	/*
-		groups : 0 -> PM, 1 -> administration, 2 -> lesson, 3 -> system, 4 -> website
-	*/
+	/* groups : 0 -> PM, 1 -> administration, 2 -> lesson, 3 -> system, 4 -> website */
 	$i = 0;
 	foreach ($result as $tmp) {
 ?>
@@ -56,7 +54,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="pure-u-1-5"></div>
+				<div class="u-1-5"></div>
 			</div>
 <?php display_footer($prefix); ?>
 		<script>

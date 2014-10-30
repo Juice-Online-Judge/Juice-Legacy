@@ -4,36 +4,37 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (permission_check('login')) {
+	if (!ALLOW_LOGIN) {
+		$page_message = '很抱歉，登入功能關閉中';
+	} else if (permission_check('login')) {
 		header("Location: ".$prefix."index.php");
 		exit();
-	}
-	
-	if (isset($_POST['username']) and isset($_POST['passward'])) {
-		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
-			$remember = (isset($_POST['remember'])) ? 1 : 0;
-			$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-			$message = $login->login($_POST['username'], $_POST['passward'], $remember);
-			if ($message === true) {
-				del_cookie('verify_code_login');
-				header("Location: ".$prefix."index.php");
-				exit();
+	} else {
+		if (isset($_POST['username']) and isset($_POST['passward'])) {
+			if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
+				$remember = (isset($_POST['remember'])) ? 1 : 0;
+				$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$message = $login->login($_POST['username'], $_POST['passward'], $remember);
+				if ($message === true) {
+					del_cookie('verify_code_login');
+					header("Location: ".$prefix."index.php");
+					exit();
+				}
+			} else {
+				$message = '登入頁面已失效，請重新登入';
 			}
-		} else {
-			$message = '登入頁面已失效，請重新登入';
 		}
+		$verify_code = verify_code();
+		set_cookie('verify_code_login', $verify_code, 600);
 	}
-	$verify_code = verify_code();
-	set_cookie('verify_code_login', $verify_code, 600);
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset= "UTF-8">
-		<title>登入</title>
+		<title>Juice</title>
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
-		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
@@ -41,46 +42,51 @@
 		
 			<div class="juice_body">
 				<div class="u-3-5">
-					<p>Introduction</p>
 				</div>
 				<div class="u-2-5">
-					<div id="login-r" class="shadow">
-<?php
-	if (isset($message)) {
-		echo <<<EOD
-						<div class="warning t-center">
-								<h3>$message</h3>
-						</div>\n
-EOD;
-	}
-?>
-						<div class="title t-center">
+					<div class="login_space shadow">
+						<div class="u-1-1 title">
 							<h2>帳號登入</h2>
 						</div>
-						<div>
-							<form name="login" id="login" class="pure-form pure-form-aligned" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<?php
+	if (isset($page_message)) {
+		echo <<<EOD
+						<div class="u-1-1 warning">
+							<h3>$page_message</h3>
+						</div>\n
+EOD;
+	} else {
+		if (isset($message)) {
+			echo <<<EOD
+						<div class="u-1-1 warning">
+							<h3>$message</h3>
+						</div>\n
+EOD;
+		}
+?>
+						<div class="u-1-1">
+							<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<fieldset>
-									<div class="pure-control-group">
+									<div>
 										<label for="username">帳號：</label>
-										<input type="text" name="username" id="username" autocomplete="off" required>
+										<input type="text" name="username" id="username" size="25" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div>
 										<label for="passward">密碼：</label>
-										<input type="password" name="passward" id="password" autocomplete="off" required>
+										<input type="password" name="passward" id="password" size="25" autocomplete="off" required>
 									</div>
-									<div class="pure-control-group">
+									<div>
 										<label for="remember">記住我</label>
 										<input type="checkbox" name="remember" id="remember" value="1">
-									</div>
-									<div style="display:none;">
-										<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
-									</div>
-									<div class="pure-control-group t-center">
+										<div style="display:none;">
+											<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_login']; ?>" hidden readonly autocomplete="off" required>
+										</div>
 										<button type="submit" id="submit" class="pure-button pure-button-primary">登入</button>
 									</div>
 								</fieldset>	
 							</form>
 						</div>
+<?php } ?>
 					</div>
 				</div>
 			</div>
@@ -94,10 +100,6 @@ EOD;
 						$(this).val(new jsSHA($(this).val(),"TEXT").getHash("SHA-512","HEX",2048));
 					});
 				});
-			});
-			
-			$(window).load(function(){
-				$('#login-r').center({against:'parent'});
 			});
 		</script>
 	</body>

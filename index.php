@@ -13,8 +13,7 @@
 <html>
 	<head>
 		<meta charset= "UTF-8">
-		<title>首頁</title>
-		<link rel="icon" href="<?php echo $prefix.'images/icon.ico'; ?>" type="image/x-icon">
+		<title>Juice - <?php echo $_SESSION['nickname']; ?></title>
 <?php display_css_link($prefix); ?>
 <?php display_scripts_link(); ?>
 	</head>

@@ -5,7 +5,7 @@
 	require_once $prefix.'config/web_preprocess.php';
 	
 	$about = new about('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
-	$result = $about->show_groups(1);
+	$result = $about->list_about(2);
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,39 +19,30 @@
 <?php display_navigation($prefix); ?>
 			<div class="juice_body">
 				<div class="u-1-5"></div>
-				<div class="u-3-5">
-					<div>
+				<div class="u-3-5 team_body">
+					<div class="u-1-1">
 						<h1 class="title">關於團隊</h1>
+						<h2 class="title">成員介紹</h2>
 					</div>
-					<div>
-						<div>
-							<div>
-								<h2 class="title">成員介紹</h2>
-							</div>
-							<div>
+					<div class="u-1-1">
 <?php
-	/* groups : 0 -> PM, 1 -> administration, 2 -> lesson, 3 -> system, 4 -> website */
 	$i = 0;
 	foreach ($result as $tmp) {
 ?>
-								<div>
-									<div class="retractable"><blockquote><?php echo $tmp['user']; ?></blockquote></div>
-									<div id="introduction_<?php echo $i; ?>">
-										<blockquote>
-											<div>
+							<div class="retractable"><?php echo $tmp['nickname']; ?></div>
+							<div id="introduction_<?php echo $i; ?>">
+								<blockquote>
+									<div>
 <?php
 		echo $tmp['content'];
 ?>
-											</div>
-										</blockquote>
 									</div>
-								</div>
+								</blockquote>
+							</div>
 <?php
 		$i++;
 	}
 ?>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="u-1-5"></div>
@@ -64,6 +55,8 @@
 				});
 				
 				$('.retractable').click(function(){
+					$('.retractable_hover').attr('class', 'retractable');
+					$(this).attr('class', 'retractable retractable_hover');
 					$(this).next().stop(true);
 					$(this).next().toggle(300);
 				});

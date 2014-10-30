@@ -1,0 +1,63 @@
+/* Member Setting */
+.member_space {
+	display: flex;
+	min-height: 15em;
+	margin: 0 auto;
+	flex-flow: row wrap;
+	align-self: center;
+}
+
+.member_space .title,
+.member_space .title h2,
+.member_space .warning,
+.member_space .warning h3{
+	line-height: 3em;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.member_space .title h2,
+.member_space .warning h3 {
+	width: 100%;
+}
+
+.member_space form,
+.member_space fieldset {
+	width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.member_space fieldset div{
+	display: inline-flex;
+	border: none;
+	width: 100%;
+	min-height: 4em;
+	line-height: 4em;
+	align-items: center;
+	justify-content: center;
+}
+
+.member_space label {
+    padding: 0.5em 0;
+	text-align: right;
+}
+
+.member_space input {
+	border-radius: 0.3em;
+    padding: 0.5em 1em;
+	border: 1px solid #bfbfbf;
+}
+
+.member_space #file {
+	border-radius: none;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.member_space button {
+	margin: 0 1em;
+}

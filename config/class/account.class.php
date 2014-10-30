@@ -9,20 +9,20 @@
 			parent::__destruct();
 		}
 		
-		public function register($username, $pw, $pw_check, $email, $nickname) {
+		public function register($username, $pw, $pw_check, $email, $nickname, $std_id) {
 			$pw = hash('sha512', $pw);
 			$pw_check = hash('sha512', $pw_check);
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			
 			if (!preg_match("/^\w{5,32}$/", $username)) {
-				$result =  '帳號格式不符';
+				$result = '帳號格式不符';
 			} else if (strcmp($pw, $pw_check) != 0) {
-				$result =   '密碼與密碼確認不符';
+				$result = '密碼與密碼確認不符';
 			} else if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
-				$result =   '信箱格式不符';
-			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
-				$result =   '暱稱格式不符';
-			} else {
+				$result = '信箱格式不符';
+			} else if (preg_match("/(juice)/i", $email)) {				$result = '信箱格式不符';			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
+				$result = '暱稱格式不符';
+			} else if (!preg_match("/^\d{9}$/", $std_id)) {				$result = '學號格式不符';			} else {
 				$sql = "SELECT `id` FROM `account` WHERE `username` = :username";
 				$params = array(
 					':username' => $username
@@ -32,14 +32,14 @@
 					$result = '此帳號已被使用';
 				} else {
 					$this->closeCursor();
-					$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname";
+					$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname OR `std_id` = :std_id";
 					$params = array(
 						':email' => $email,
-						':nickname' => $nickname
+						':nickname' => $nickname,						':std_id' => $std_id
 					);
 					$this->query($sql, $params);
 					if ($this->rowCount() >= 1) {
-						$result = '信箱或暱稱已被使用';
+						$result = '信箱、暱稱或學號已被使用';
 					} else {
 						$this->closeCursor();
 						$sql = "INSERT INTO `account` (`username`, `password`, `account_create_time`, `account_create_ip`) ";
@@ -57,12 +57,12 @@
 							$result = '更新資料時發生錯誤，請稍後再試';
 						} else {
 							$this->closeCursor();
-							$sql = "INSERT INTO `user_data` (`uid`, `email`, `nickname`) ";
-							$sql .= "VALUES (:uid, :email, :nickname)";
+							$sql = "INSERT INTO `user_data` (`uid`, `email`, `nickname`, `std_id`) ";
+							$sql .= "VALUES (:uid, :email, :nickname, :std_id)";
 							$params = array(
 								':uid' => $insert_id,
 								':email' => $email,
-								':nickname' => $nickname
+								':nickname' => $nickname,								':std_id' => $std_id
 							);
 							$this->query($sql, $params);
 							if ($this->rowCount() != 1) {
@@ -108,6 +108,8 @@
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			
 			if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
+				$result = '信箱格式不符';
+			} else if (preg_match("/(juice)/i", $email)) {
 				$result = '信箱格式不符';
 			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
 				$result = '暱稱格式不符';
@@ -261,7 +263,7 @@
 		}
 		
 		public function get_user_data() {
-			$sql = "SELECT `email`, `nickname`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
+			$sql = "SELECT `email`, `nickname`, `std_id`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
 			$params = array(
 				':uid' => $_SESSION['uid']
 			);

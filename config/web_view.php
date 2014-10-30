@@ -1,6 +1,7 @@
 <?php
 	function display_css_link($prefix) {
 ?>
+		<link type="image/x-icon" rel="icon" href="<?php echo $prefix.'images/icon.ico'; ?>">
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/pure.css' ?>">
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/juice.css' ?>">
 <?php
@@ -21,7 +22,9 @@
 			<div class="juice_menu_head">
 				<nav id="demo-horizontal-menu">
 					<ul id="std-menu-items">
-<?php	if (permission_check('login')) { ?>
+<?php
+		if (permission_check('login')) {
+?>
 						<li><a href="<?php echo $prefix.'index.php' ?>">首頁</a></li>
 						<li>
 							<a href="#">主選單</a>
@@ -30,13 +33,9 @@
 								<li><a href="<?php echo $prefix.'user/solve_status.php' ?>">解題動態</a></li>
 							</ul>
 						</li>
-						<li>
-							<a href="<?php echo $prefix.'user/member.php' ?>">會員中心</a>
-							<ul>
-							</ul>
-						</li>
+						<li><a href="<?php echo $prefix.'user/member.php' ?>"><img src="<?php echo $prefix.'others/api/apiShowProfileImage.php?uid='.$_SESSION['uid']; ?>" height="22" width="22" style="vertical-align: text-top;"></img> <?php echo $_SESSION['nickname']; ?></a></li>
 <?php
-			if (true/*permission_check('admin_groups')*/) {
+			if (permission_check('admin_groups')) {
 ?>
 						<li>
 							<a href="#">Juice</a>
@@ -117,7 +116,7 @@
 			<div>
 				<span><a class="link" href="<?php echo $prefix.'about/index.php' ?>">>關於本站</a></span>
 				<span><a class="link" href="<?php echo $prefix.'about/team.php' ?>">>團隊介紹</a></span>
-				<span><a class="link" href="#">>意見回饋</a></span>
+				<span><a class="link" href="http://goo.gl/forms/BahuJGxMMB" target="_blank">>意見回饋</a></span>
 			</div>
 			<div>
 				<span>Copyright © 2014 Juice All rights reserved.</span>

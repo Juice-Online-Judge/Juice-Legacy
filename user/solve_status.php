@@ -4,22 +4,19 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	}
+	page_check('user_solve_status');
 	
-	$solve_status = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$solve_status = new lesson();
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset= "UTF-8">
 		<title>解題動態</title>
-<?php display_css_link($prefix); ?>
+<?php display_link('css'); ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/tomorrow-night-bright.css'; ?>">
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/status.css'; ?>">
-<?php display_scripts_link(); ?>
+<?php display_link('js'); ?>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 		<script src="<?php echo $prefix.'scripts/js/jquery.custom-scrollbar.min.js'; ?>"></script>
 	</head>
@@ -81,7 +78,7 @@
 						</div>
 						<div id="challenge">
 							<div class="u-1-1">
-								<p>Test</p>
+								<p>Coming soon~</p>
 							</div>
 						</div>
 					</div>
@@ -152,7 +149,7 @@
 						} else if (typeof obj.empty != 'undefined') {
 							var content = '<tr><td colspan="7">No data</td></tr>';
 						} else {
-							var content = '<tr><td rowspan="' + (obj.length + 1) + '"><a href="<?php echo $prefix.'course/course.php?unit='; ?>' + unit + '&type=' + ((is_implement) ? "course_implement" : "course_practice") + '">LINK</a></td></tr>';
+							var content = '<tr><td rowspan="' + (obj.length + 1) + '"><a href="<?php echo $prefix.'course/course.php?unit='; ?>' + unit + '&type=' + ((is_implement) ? "course_implement" : "course_practice") + '">題目</a></td></tr>';
 							for (var i = 0; i < obj.length; i++) {
 								content += '<tr>';
 								content += '<td>' + (obj.length - i) + '</td>';

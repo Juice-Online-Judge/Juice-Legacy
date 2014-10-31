@@ -73,7 +73,6 @@
 
 .status_option:hover, .status_option_hover {
 	background-color: #DDD;
-	box-shadow: #666 0px 2px 3px;
 }
 
 .show_status {

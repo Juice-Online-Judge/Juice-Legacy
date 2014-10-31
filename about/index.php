@@ -9,8 +9,8 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>關於本站</title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

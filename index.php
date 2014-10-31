@@ -4,18 +4,15 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!isset($_SESSION['uid'])) {
-		header("Location: ".$prefix."user/login.php");
-		exit();
-	}
+	page_check('index');
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset= "UTF-8">
 		<title>Juice - <?php echo $_SESSION['nickname']; ?></title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>

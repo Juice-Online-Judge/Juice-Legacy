@@ -21,7 +21,7 @@
 							'error' => 'Wrong argument.'
 						);
 					} else {
-						$get_data = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+						$get_data = new lesson();
 						$temp = $get_data->get_lesson_code($_POST['code_key'], $_POST['ipm_pt_key']);
 						if (empty($temp)) {
 							$result = array(

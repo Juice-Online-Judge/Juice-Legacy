@@ -1,14 +1,6 @@
 <?php
 	class lesson extends db_connect {
 		
-		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
-			parent::__construct($db_type, $db_host, $db_name, $db_username, $db_password);
-		}
-		
-		public function __destruct() {
-			parent::__destruct();
-		}
-		
 		public function lesson_unit_to_key($unit) {
 			if (!preg_match("/^\d+$/", $unit)) {
 				return false;
@@ -22,17 +14,11 @@
 			}
 		}
 		
-		public function list_lesson(array $filter = array()) {
+		public function list_lesson() {
 			$sql = "SELECT `lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_is_visible` FROM `lesson` WHERE `lesson_is_delete` = :lesson_is_delete ORDER BY `lesson_unit` ASC";
 			$params = array(
 				':lesson_is_delete' => false
 			);
-			if (!empty($filter)) {
-				if (isset($filter['level'])) {
-					$sql .= " AND `lesson_level` = :lesson_level";
-					$params[':lesson_level'] = $filter['level'];
-				}
-			}
 			$this->query($sql, $params);
 			return $this->fetchAll();
 		}
@@ -73,17 +59,11 @@
 			$key = hash_key('sha1');
 			$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
 			if (!preg_match("/^\d{1,2}$/", $content['unit'])) {
-				$result = array(
-					'error' => 'Invalid unit.'
-				);
+				$result = 'Invalid unit.';
 			} else if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
-				$result = array(
-					'error' => 'Invalid level.'
-				);
+				$result = 'Invalid level.';
 			} else if (($length = mb_strlen($content['title'], 'UTF-8')) == 0 or $length > 128) {
-				$result = array(
-					'error' => 'Invalid title.'
-				);
+				$result = 'Invalid title.';
 			} else {
 				if (mb_strlen($content['goal'], 'UTF-8') == 0) {
 					$content['goal'] = null;
@@ -100,9 +80,7 @@
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() >= 1) {
-					$result = array(
-						'error' => 'The unit is already exists.'
-					);
+					$result = 'The unit is already exists.';
 				} else {
 					$this->closeCursor();
 					$sql = "INSERT INTO `lesson` (`lesson_key`, `lesson_unit`, `lesson_level`, `lesson_title`, `lesson_goal`, `lesson_content`, `lesson_example`, `lesson_create_user`, `lesson_create_time`) ";
@@ -121,9 +99,7 @@
 					$this->query($sql, $params);
 					$insert_id = $this->lastInsertId();
 					if ($this->rowCount() != 1 or $insert_id == 0) {
-						$result = array(
-							'error' => 'There is something wrong when updating the data.'
-						);
+						$result = 'There is something wrong when updating the data.';
 					} else {
 						$this->closeCursor();
 						$sql = "UPDATE `lesson` SET `lesson_practice` = :lesson_practice, `lesson_implement` = :lesson_implement WHERE `lesson_key` = :lesson_key";
@@ -134,40 +110,33 @@
 						);
 						$this->query($sql, $params);
 						if ($this->rowCount() != 1) {
-							$result = array(
-								'error' => 'There is something wrong when updating the data.'
-							);
+							$result = 'There is something wrong when updating the data.';
 						} else {
-							$result = array(
+							$result = true;
+							/*$result = array(
 								'key' => $key
-							);
+							);*/
 						}
 					}
 				}
 				$this->closeCursor();
 			}
-			return json_encode($result);
+			return $result;
 		}
 		
 		public function update_lesson($type, array $content = array()) {
 			if (!empty($content)) {
 				$lesson_id = $this->get_lesson_id($content['key']);
 				if (isset($lesson_id['error'])) {
-					$result = array(
-						'error' => 'The unit does not exist.'
-					);
+					$result = 'The unit does not exist.';
 				} else {
 					switch ($type) {
 						case 'lesson':
 							$content['title'] = htmlspecialchars($content['title'], ENT_QUOTES);
 							if (!preg_match("/^[1-4]{1}$/", $content['level'])) {
-								$result = array(
-									'error' => 'Invalid level.'
-								);
+								$result = 'Invalid level.';
 							} else if (($length = mb_strlen($content['title'], 'UTF-8')) == 0 or $length > 128) {
-								$result = array(
-									'error' => 'Invalid title.'
-								);
+								$result = 'Invalid title.';
 							} else {
 								if (mb_strlen($content['goal'], 'UTF-8') == 0) {
 									$content['goal'] = null;
@@ -192,13 +161,9 @@
 								);
 								$this->query($sql, $params);
 								if ($this->rowCount() != 1) {
-									$result = array(
-										'error' => 'There is something wrong when updating the data.'
-									);
+									$result = 'There is something wrong when updating the data.';
 								} else {
-									$result = array(
-										'updated' => true
-									);
+									$result = true;
 								}
 							}
 							break;
@@ -229,18 +194,14 @@
 									}
 									$this->query($sql, $params);
 									if ($this->rowCount() != 1) {
-										$result = array(
-											'error' => 'There is something wrong when updating the data.'
-										);
+										$result = 'There is something wrong when updating the data.';
 										$this->closeCursor();
 										break 2;
 									}
 									$this->closeCursor();
 								}
 							}
-							$result = array(
-								'updated' => true
-							);
+							$result = true;
 							break;
 						case 'implement':
 							foreach ($content as $key => $value) {
@@ -278,39 +239,31 @@
 									}
 									$this->query($sql, $params);
 									if ($this->rowCount() != 1) {
-										$result = array(
-											'error' => 'There is something wrong when updating the data.'
-										);
+										$result = 'There is something wrong when updating the data.';
 										$this->closeCursor();
 										break 2;
 									}
 									$this->closeCursor();
 								}
 							}
-							$result = array(
-								'updated' => true
-							);
+							$result = true;
 							break;
 						default :
-							$result = array(
-								'error' => 'Invalid type.'
-							);
+							$result = 'Invalid type.';
 							break;
 					}
 				}
 			} else {
-				$result = array(
-					'error' => 'Empty content.'
-				);
+				$result = 'Empty content.';
 			}
-			return json_encode($result);
+			return $result;
 		}
 		
 		public function change_lesson_visible($key, $type) {
 			if (!preg_match("/^[0-1]{1}$/", $type)) {
 				return 'Invalid type.';
 			} else {
-				$type = ($type) ? true : false;
+				$type = ($type) ? false : true;
 				$sql = "UPDATE `lesson` SET `lesson_is_visible` = :lesson_is_visible WHERE `lesson_key` = :lesson_key";
 				$params = array(
 					':lesson_is_visible' => $type,
@@ -328,8 +281,9 @@
 		}
 		
 		public function delete_lesson($key) {
-			$sql = "UPDATE `lesson` SET `lesson_is_delete` = :lesson_is_delete WHERE `lesson_key` = :lesson_key";
+			$sql = "UPDATE `lesson` SET `lesson_is_visible` = :lesson_is_visible, `lesson_is_delete` = :lesson_is_delete WHERE `lesson_key` = :lesson_key";
 			$params = array(
+				':lesson_is_visible' => false,
 				':lesson_is_delete' => true,
 				':lesson_key' => $key
 			);
@@ -338,6 +292,40 @@
 				$this->closeCursor();
 				return 'There is something wrong when updating the data.';
 			} else {
+				$this->closeCursor();
+				
+				$sql = "SELECT `id`, `lesson_practice`, `lesson_implement` FROM `lesson` WHERE `lesson_key` = :lesson_key";
+				$params = array(
+					':lesson_key' => $key
+				);
+				$this->query($sql, $params);
+				$lesson_id = $this->fetch();
+				$this->closeCursor();
+				
+				$sql = "UPDATE `lesson_implement` SET `implement_is_visible` = :implement_is_visible, `implement_is_delete` = :implement_is_delete WHERE `lesson_id` = :lesson_id";
+				$params = array(
+					':implement_is_visible' => true,
+					':implement_is_delete' => true,
+					':lesson_id' => $lesson_id['lesson_implement']
+				);
+				$this->query($sql, $params);
+				$this->closeCursor();
+				
+				$sql = "UPDATE `lesson_practice` SET `practice_is_visible` = :practice_is_visible, `practice_is_delete` = :practice_is_delete WHERE `lesson_id` = :lesson_id";
+				$params = array(
+					':practice_is_visible' => true,
+					':practice_is_delete' => true,
+					':lesson_id' => $lesson_id['lesson_practice']
+				);
+				$this->query($sql, $params);
+				$this->closeCursor();
+				
+				$sql = "UPDATE `lesson_image` SET `image_is_delete` = :image_is_delete WHERE `lesson_id` = :lesson_id";
+				$params = array(
+					':image_is_delete' => true,
+					':lesson_id' => $lesson_id['lesson_practice']
+				);
+				$this->query($sql, $params);
 				$this->closeCursor();
 				return true;
 			}

@@ -4,20 +4,14 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."user/login.php");
-		exit();
-	} else if (!permission_check('admin_groups_lesson')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	}
+	page_check('lesson_image_refine');
 	
 	if (isset($_POST['unit']) and isset($_FILES['file'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_upload_image']) and $_COOKIE['verify_code_upload_image'] == $_POST['verify_code']) {   
 			if ($_FILES['file']['error'] != 0) {
 				$message = 'Please check the image that you have uploaded.';
 			} else {
-				$image = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$image = new lesson();
 				$result = json_decode($image->add_image($_POST['unit'], $_FILES['file']));
 				if (isset($result->{'error'})) {
 					$message = $result->{'error'};
@@ -38,8 +32,8 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>新增圖片</title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
 		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 	</head>
 	<body>
@@ -62,7 +56,7 @@ EOD;
 								<label for="unit">單元：</label>
 								<select id="unit" name="unit" required>								
 <?php
-	$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$lesson = new lesson();
 	$result = $lesson->list_lesson();
 	for ($i = (count($result) - 1); $i >= 0; $i--) {
 ?>

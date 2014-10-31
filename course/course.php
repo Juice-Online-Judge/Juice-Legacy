@@ -4,22 +4,25 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	} else if (!isset($_GET['unit']) or !preg_match("/^\d+$/", $_GET['unit'])) {
+	page_check('course');
+	
+	if (!isset($_GET['unit']) or !preg_match("/^\d+$/", $_GET['unit'])) {
 		header("Location: ".$prefix."course/course_list.php");
 		exit();
 	}
 	$error = false;
 	
-	$course = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$course = new lesson();
 	$course_key = $course->lesson_unit_to_key($_GET['unit']);
 	if ($course_key === false) {
 		$error = true;
 		$message = 'Invalid unit.';
 	} else {
 		$result = $course->get_lesson_content($course_key['lesson_key']);
+		if (!$result['lesson_is_visible']) {
+			$error = true;
+			$message = 'Invalid unit.';
+		}
 	}
 	$verify_code = verify_code();
 	set_cookie('verify_code_course', $verify_code, 3600);
@@ -28,11 +31,10 @@
 <html>
 	<head>
 		<meta charset= "UTF-8">
-		<title>單元 <?php echo $result['lesson_unit']; ?></title>
-		<!--<link rel="icon" href="" type="image/x-icon">-->
-<?php display_css_link($prefix); ?>
+		<title>單元 <?php echo $_GET['unit']; ?></title>
+<?php display_link('css'); ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/tomorrow-night-bright.css'; ?>">
-<?php display_scripts_link(); ?>
+<?php display_link('js'); ?>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 	</head>
 	<body>
@@ -52,6 +54,9 @@
 						<select id="course_menu">
 <?php
 		foreach ($course->list_lesson() as $tmp) {
+			if (!$tmp['lesson_is_visible']) {
+				continue;
+			}
 ?>
 							<option value="<?php echo $tmp['lesson_unit']; ?>"<?php echo ($_GET['unit'] == $tmp['lesson_unit']) ? ' selected' : ''; ?>>單元 <?php echo $tmp['lesson_unit']; ?></option>
 <?php
@@ -101,6 +106,12 @@
 		$i = 1;
 		$practice_key = array();
 		foreach ($result['practice'] as $tmp) {
+			if ($i > 1) {
+?>
+									<hr>
+									<br>
+<?php
+			}
 			array_push($practice_key, $tmp['practice_key']);
 ?>
 									<div>
@@ -156,7 +167,7 @@
 														<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_course']; ?>" hidden readonly autocomplete="off" required>
 													</div>
 													<div class="pure-control-group t-center">
-														<button type="submit" id="submit" class="pure-button pure-button-primary">送出</button>
+														<button type="submit" class="pure-button pure-button-primary" disabled>送出</button>
 													</div>
 												</fieldset>
 											</form>
@@ -190,6 +201,22 @@
 			$(document).ready(function(){
 				$('#course_menu').change(function(){
 					window.location.replace('<?php echo WEB_ROOT_DIR; ?>course/course.php?unit=' + $('#course_menu').val());
+				});
+				
+				$('form').submit(function(event){
+					event.preventDefault();
+					var form_data = $(this).attr('name').split('_');
+					form_data[1] = form_data[1].substring(1);
+					var ans = form_data[0] + '_a' + form_data[1];
+					var key = form_data[0] + '_key';
+					var data = {};
+					data[ans] = $('input[name=' + ans + ']:checked').val();
+					data[key] = $('#' + form_data[0] + '_q' + form_data[1] + ' input[name=' + key + ']').val();
+					
+					$.post(
+						'<?php echo $prefix.'course/course_preprocess.php'; ?>',
+						data
+					);
 				});
 				
 				hljs.initHighlightingOnLoad();

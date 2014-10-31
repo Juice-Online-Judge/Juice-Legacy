@@ -4,15 +4,12 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	}
+	page_check('user_member');
 	
-	$account = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+	$account = new account();
 	if (isset($_POST['nickname']) and isset($_POST['email'])) {
 		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
-			$message = $account->update_info($_POST['email'], $_POST['nickname']);
+			$message = $account->update_info($_SESSION['uid'], $_POST['email'], $_POST['nickname']);
 			if ($message === true) {
 				$message = '資料更新成功';
 			}
@@ -33,7 +30,7 @@
 			if ($_FILES['file']['error'] != 0) {
 				$message = '圖片損毀，請嘗試重新上傳';
 			} else {
-				$message = $account->update_profile_picture($_FILES['file']);
+				$message = $account->update_profile_picture($_SESSION['uid'], $_FILES['file']);
 				if ($message === true) {
 					$message = '更新成功';
 				}
@@ -41,20 +38,28 @@
 		} else {
 			$message = '頁面已失效';
 		}
-	} else {
-		$user_info = $account->get_user_data();
-		
-		$verify_code = verify_code();
-		set_cookie('verify_code_member', $verify_code, 600);
+	} else if (isset($_POST['del_profile_picture'])) {
+		if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_member']) and $_COOKIE['verify_code_member'] == $_POST['verify_code']) {
+			$message = $account->delete_image($_SESSION['uid']);
+			if ($message === true) {
+				$message = '刪除成功';
+			}
+		} else {
+			$message = '頁面已失效';
+		}
 	}
+	$user_info = $account->get_user_data($_SESSION['uid']);
+	
+	$verify_code = verify_code();
+	set_cookie('verify_code_member', $verify_code, 600);
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset= "UTF-8">
 		<title>會員中心</title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/member.css'; ?>">
 		<script src="<?php echo $prefix.'scripts/js/jquery.center.min.js' ?>"></script>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
@@ -75,7 +80,7 @@
 						<h2>密碼更改</h2>
 					</div>
 <?php
-	if (isset($message) and isset($_FILES['file'])) {
+	if (isset($message) and (isset($_FILES['file']) or isset($_POST['del_profile_picture']))) {
 		echo <<<EOD
 					<div class="u-1-3 warning">
 							<h3>$message</h3>
@@ -120,6 +125,14 @@ EOD;
 								</div>
 							</fieldset>
 						</form>
+						<form name="delete_profile_picture" id="delete_profile_picture" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+							<fieldset>
+								<div>
+									<input type="text" name="verify_code" id="verify_code" value="<?php echo (isset($verify_code)) ? $verify_code : $_COOKIE['verify_code_member']; ?>" hidden readonly autocomplete="off" required>
+									<input type="submit" name="del_profile_picture" value="刪除" class="pure-button pure-button-primary">
+								</div>
+							</fieldset>
+						</form>
 					</div>
 					<div class="u-1-3">
 						<form name="update_info" id="update_info" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -130,7 +143,7 @@ EOD;
 								</div>
 								<div>
 									<label for="nickname">暱稱：</label>
-									<input type="text" name="nickname" id="nickname" value="<?php echo $user_info['nickname']; ?>" pattern="^.{5,16}$" autocomplete="off" required>
+									<input type="text" name="nickname" id="nickname" value="<?php echo $user_info['nickname']; ?>" pattern="^.{3,16}$" autocomplete="off" required>
 								</div>
 								<div>
 									<label for="email">信箱：</label>

@@ -1,0 +1,81 @@
+/* Login Setting */
+@font-face {
+	font-family: DIN Light;
+	/*src: url("http://beta.juice.cs.ccu.edu.tw/Juice/fonts/DINRoundOT-Light.eot"), 
+	url("http://beta.juice.cs.ccu.edu.tw/Juice/fonts/DINRoundOT-Light.eot?#iefix") format("embedded-opentype"), 
+	url("http://beta.juice.cs.ccu.edu.tw/Juice/fonts/DINRoundOT-Light.woff") format("woff"), */
+	src: url("http://beta.juice.cs.ccu.edu.tw/Juice/fonts/DIN Light.ttf") format("truetype");
+	/*url("http://beta.juice.cs.ccu.edu.tw/Juice/fonts/DINRoundOT-Light.svg#DINRoundOT") format("svg");*/
+}
+
+.login_space {
+	display: flex;
+	width: 25em;
+	min-height: 15em;
+	margin: 0 auto;
+	background-color: #FFF;
+	flex-flow: row wrap;
+	align-self: center;
+}
+.login_space .title,
+.login_space .title h2,
+.login_space .warning,
+.login_space .warning h3{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.login_space .title h2,
+.login_space .warning h3 {
+	width: 100%;
+}
+
+.login_space form,
+.login_space fieldset {
+	width: 100%;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.login_space fieldset div{
+	display: inline-flex;
+	border: none;
+	width: 100%;
+	height: 4em;
+	align-items: center;
+	justify-content: center;
+}
+
+.login_space label {
+    padding: 0.5em 0;
+	text-align: right;
+}
+
+.login_space input {
+	color: #666;
+	font-family: DIN Light;
+    padding: 0.5em 1em;
+	border: 1px solid #bfbfbf;
+}
+
+.login_space button {
+	margin: 0 1em;
+}
+
+.login_bulletin {
+	margin: 3em 1em;
+	flex-flow: row wrap;
+	align-items: flex-start;
+}
+
+.login_bulletin span {
+	width: 100%;
+	margin: 0;
+	padding: 0.2em;
+	border-color: #bfbfbf;
+	border-width: 1px;
+	border-style: none none dashed none;
+	line-height: 1em;
+}

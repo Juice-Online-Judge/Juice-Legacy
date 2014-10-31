@@ -1,18 +1,25 @@
 <?php
-	function display_css_link($prefix) {
-?>
-		<link type="image/x-icon" rel="icon" href="<?php echo $prefix.'images/icon.ico'; ?>">
-		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/pure.css' ?>">
-		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/juice.css' ?>">
-<?php
-	}
-	
-	function display_scripts_link() {
-?>
-		<noscript><meta http-equiv="refresh" content="0; URL=/freedom/juice/error.php?message=為了獲得更加的體驗，請開起JavaScript&no_transfer=1"></noscript>
-		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/js/jquery.min.js"></script>
-		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/js/yui-min.js"></script>
-<?php
+	function display_link($type) {
+		$web_root_path = WEB_ROOT_DIR;
+		$web_error_page = WEB_ERROR_PAGE;
+		switch ($type) {
+			case 'css':
+				echo <<<END
+		<link type="image/x-icon" rel="icon" href="{$web_root_path}images/icon.ico">
+		<link type="text/css" rel="stylesheet" href="{$web_root_path}scripts/css/pure.css">
+		<link type="text/css" rel="stylesheet" href="{$web_root_path}scripts/css/juice.css">\n
+END;
+				break;
+			case 'js':
+				echo <<<END
+		<noscript><meta http-equiv="refresh" content="0; URL={$web_error_page}?message=為了獲得更加的體驗，請開起JavaScript&no_transfer=1"></noscript>
+		<script src="{$web_root_path}scripts/js/jquery.min.js"></script>
+		<script src="{$web_root_path}scripts/js/yui-min.js"></script>\n
+END;
+				break;
+			default :
+				break;
+		}
 	}
 	
 	function display_navigation($prefix) {
@@ -69,8 +76,8 @@
 								<li>
 									<a href="#">網　　站</a>
 									<ul>
-										<li><a href="<?php echo $prefix.'juice/web/announcement_add.php'; ?>">新增公告</a></li>
-										<li><a href="<?php echo $prefix.'juice/web/announcement_modify.php'; ?>">公告管理</a></li>
+										<li><a href="<?php echo $prefix.'juice/web/ann_refine.php'; ?>">新增公告</a></li>
+										<li><a href="<?php echo $prefix.'juice/web/ann_refine.php'; ?>">公告管理</a></li>
 										<li><a href="<?php echo $prefix.'juice/web/web.php'; ?>">網站管理</a></li>
 									</ul>
 								</li>
@@ -80,7 +87,7 @@
 								<li>
 									<a href="#">其　　他</a>
 									<ul>
-										<li><a href="<?php echo $prefix.'juice/about/refine.php'; ?>">團隊介紹修改</a></li>
+										<li><a href="<?php echo $prefix.'juice/about/about_refine.php'; ?>">團隊介紹修改</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -109,6 +116,9 @@
 	
 	function display_footer($prefix) {
 ?>
+		<div id="judge_notification">
+			
+		</div>
 		<div id="go_to_top">
 			<img src="<?php echo $prefix.'images/go_to_top.png' ?>">
 		</div>

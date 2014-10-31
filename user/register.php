@@ -4,15 +4,14 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	page_check('user_register');
+	
 	if (!ALLOW_REGISTER) {
 		$page_message = '很抱歉，註冊功能關閉中';
-	} else if (permission_check('login')) {
-		header("Location: ".$prefix."index.php");
-		exit();
 	} else {
 		if (isset($_POST['username']) and isset($_POST['password']) and isset($_POST['password_check']) and isset($_POST['nickname']) and isset($_POST['email']) and isset($_POST['std_id'])) {
 			if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_register']) and $_COOKIE['verify_code_register'] == $_POST['verify_code']) {
-				$register = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$register = new account();
 				$message = $register->register($_POST['username'], $_POST['password'], $_POST['password_check'], $_POST['email'], $_POST['nickname'], $_POST['std_id']);
 				if ($message === true) {
 					del_cookie('verify_code_register');
@@ -32,17 +31,21 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>帳號註冊</title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/login.css'; ?>">
+<?php display_link('js'); ?>
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
 <?php display_navigation($prefix); ?>
 		<div class="juice_body">
 			<div class="login_space shadow">
-				<div class="u-1-1 title">
-					<h2>帳號註冊</h2>
-				</div>
+				<div class="u-1-1">
+					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+						<fieldset>
+							<div class="u-1-1 title">
+								<h2>帳號註冊</h2>
+							</div>
 <?php
 	if (isset($page_message)) {
 		echo <<<EOD
@@ -59,9 +62,6 @@ EOD;
 EOD;
 		}
 ?>
-				<div class="u-1-1">
-					<form name="register" id="register" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-						<fieldset>
 							<div>
 								<label for="username">帳　　號：</label>
 								<input type="text" name="username" id="username" size="25" pattern="^\w{5,32}$" placeholder="5 ~ 32 個英文或數字" autocomplete="off" required>
@@ -76,7 +76,7 @@ EOD;
 							</div>
 							<div>
 								<label for="nickname">暱　　稱：</label>
-								<input type="text" name="nickname" id="nickname" size="25" pattern="^.{5,16}$" placeholder="5 ~ 16 個字" autocomplete="off" required>
+								<input type="text" name="nickname" id="nickname" size="25" pattern="^.{3,16}$" placeholder="3 ~ 16 個字" autocomplete="off" required>
 							</div>
 							<div>
 								<label for="email">信　　箱：</label>

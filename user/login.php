@@ -4,16 +4,15 @@
 	}
 	require_once $prefix.'config/web_preprocess.php';
 	
+	page_check('user_login');
+	
 	if (!ALLOW_LOGIN) {
 		$page_message = '很抱歉，登入功能關閉中';
-	} else if (permission_check('login')) {
-		header("Location: ".$prefix."index.php");
-		exit();
 	} else {
 		if (isset($_POST['username']) and isset($_POST['passward'])) {
 			if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_login']) and $_COOKIE['verify_code_login'] == $_POST['verify_code']) {
 				$remember = (isset($_POST['remember'])) ? 1 : 0;
-				$login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+				$login = new account();
 				$message = $login->login($_POST['username'], $_POST['passward'], $remember);
 				if ($message === true) {
 					del_cookie('verify_code_login');
@@ -33,8 +32,9 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>Juice</title>
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
+		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/login.css'; ?>">
 		<script src="<?php echo $prefix.'scripts/js/sha-512.js' ?>"></script>
 	</head>
 	<body>
@@ -45,9 +45,12 @@
 				</div>
 				<div class="u-2-5">
 					<div class="login_space shadow">
-						<div class="u-1-1 title">
-							<h2>帳號登入</h2>
-						</div>
+						<div class="u-1-1">
+							<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+								<fieldset>
+									<div class="u-1-1 title">
+										<h2>帳號登入</h2>
+									</div>
 <?php
 	if (isset($page_message)) {
 		echo <<<EOD
@@ -64,9 +67,6 @@ EOD;
 EOD;
 		}
 ?>
-						<div class="u-1-1">
-							<form name="login" id="login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-								<fieldset>
 									<div>
 										<label for="username">帳號：</label>
 										<input type="text" name="username" id="username" size="25" autocomplete="off" required>
@@ -87,6 +87,13 @@ EOD;
 							</form>
 						</div>
 <?php } ?>
+						<div class="u-1-1 login_bulletin">
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+							<span>4</span>
+							<span>5</span>
+						</div>
 					</div>
 				</div>
 			</div>

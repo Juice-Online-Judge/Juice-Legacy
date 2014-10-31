@@ -1,21 +1,13 @@
 <?php
 	class about extends db_connect {
 		
-		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
-			parent::__construct($db_type, $db_host, $db_name, $db_username, $db_password);
-		}
-		
-		public function __destruct() {
-			parent::__destruct();
-		}
-		
 		/*
 			type :
 				1 -> website
 				2 -> member
 		*/
 		public function list_about($type) {
-			$sql = "SELECT `nickname`, `content` FROM `web_about` WHERE `type` = :type";
+			$sql = "SELECT `nickname`, `content` FROM `web_about` WHERE `type` = :type ORDER BY `id` DESC";
 			$params = array(
 				':type' => $type
 			);

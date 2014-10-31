@@ -15,10 +15,9 @@
 	<head>
 		<meta charset= "UTF-8">
 		<title>解題動態</title>
-		<!--<link rel="icon" href="" type="image/x-icon">-->
-<?php display_css_link($prefix); ?>
+<?php display_link('css'); ?>
 		<link type="text/css" rel="stylesheet" href="<?php echo $prefix.'scripts/css/tomorrow-night-bright.css'; ?>">
-<?php display_scripts_link(); ?>
+<?php display_link('js'); ?>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
 	</head>
 	<body>
@@ -108,7 +107,7 @@
 </html>
 <?php
 	} else {
-		header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
+		error(404);
 		exit();
 	}
 ?>

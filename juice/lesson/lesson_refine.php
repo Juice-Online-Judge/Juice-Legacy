@@ -3,18 +3,11 @@
 		$prefix = '../../';
 	}
 	require_once $prefix.'config/web_preprocess.php';
-	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."user/login.php");
-		exit();
-	} else if (!permission_check('admin_groups_lesson')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	}
+		page_check('lesson_refine');
 	
 	if (isset($_GET['key'])) {
 		$lesson_check = true;
-		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$lesson = new lesson();
 		$lesson_content = $lesson->get_lesson_content($_GET['key']);
 		if (empty($lesson_content)) {
 			$lesson_check = false;
@@ -28,9 +21,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title><?php echo ($lesson_check) ? '修改課程' : '新增課程'; ?></title>
-		<!--<link rel="icon" href="" type="image/x-icon">-->
-<?php display_css_link($prefix); ?>
-<?php display_scripts_link(); ?>
+<?php display_link('css'); ?>
+<?php display_link('js'); ?>
 		<script src="<?php echo WEB_ROOT_DIR; ?>scripts/ckeditor/ckeditor.js"></script>
 	</head>
 	<body>

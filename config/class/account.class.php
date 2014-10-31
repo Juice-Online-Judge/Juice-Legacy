@@ -1,14 +1,6 @@
 <?php
 	class account extends db_connect {
 		
-		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
-			parent::__construct($db_type, $db_host, $db_name, $db_username, $db_password);
-		}
-		
-		public function __destruct() {
-			parent::__destruct();
-		}
-		
 		public function register($username, $pw, $pw_check, $email, $nickname, $std_id) {
 			$pw = hash('sha512', $pw);
 			$pw_check = hash('sha512', $pw_check);
@@ -18,9 +10,9 @@
 				$result = '帳號格式不符';
 			} else if (strcmp($pw, $pw_check) != 0) {
 				$result = '密碼與密碼確認不符';
-			} else if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
+			} else if (!email_check($email) or strlen($email) > 128) {
 				$result = '信箱格式不符';
-			} else if (preg_match("/(juice)/i", $email)) {				$result = '信箱格式不符';			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
+			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 3 or $length > 16) {
 				$result = '暱稱格式不符';
 			} else if (!preg_match("/^\d{9}$/", $std_id)) {				$result = '學號格式不符';			} else {
 				$sql = "SELECT `id` FROM `account` WHERE `username` = :username";
@@ -32,6 +24,7 @@
 					$result = '此帳號已被使用';
 				} else {
 					$this->closeCursor();
+					
 					$sql = "SELECT `uid` FROM `user_data` WHERE `email` = :email OR `nickname` = :nickname OR `std_id` = :std_id";
 					$params = array(
 						':email' => $email,
@@ -42,13 +35,14 @@
 						$result = '信箱、暱稱或學號已被使用';
 					} else {
 						$this->closeCursor();
-						$sql = "INSERT INTO `account` (`username`, `password`, `account_create_time`, `account_create_ip`) ";
-						$sql .= "VALUES (:username, :password, :account_create_time, :account_create_ip)";
+						
+						$sql = "INSERT INTO `account` (`username`, `password`, `register_time`, `register_ip`) ";
+						$sql .= "VALUES (:username, :password, :register_time, :register_ip)";
 						$params = array(
 							':username' => $username,
 							':password' => $pw,
-							':account_create_time' => $this->current_time,
-							':account_create_ip' => $this->ip
+							':register_time' => $this->current_time,
+							':register_ip' => $this->ip
 						);
 						$this->query($sql, $params);
 						$insert_id = $this->lastInsertId();
@@ -57,6 +51,7 @@
 							$result = '更新資料時發生錯誤，請稍後再試';
 						} else {
 							$this->closeCursor();
+							
 							$sql = "INSERT INTO `user_data` (`uid`, `email`, `nickname`, `std_id`) ";
 							$sql .= "VALUES (:uid, :email, :nickname, :std_id)";
 							$params = array(
@@ -104,45 +99,125 @@
 			return $result;
 		}
 		
-		public function update_info($email, $nickname) {
+		public function update_info($uid, $email, $nickname) {
 			$nickname = htmlspecialchars($nickname, ENT_QUOTES);
 			
-			if (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email) or strlen($email) > 128) {
+			if (!email_check($email) or strlen($email) > 128) {
 				$result = '信箱格式不符';
-			} else if (preg_match("/(juice)/i", $email)) {
-				$result = '信箱格式不符';
-			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 5 or $length > 16) {
+			} else if (($length = mb_strlen($nickname, 'UTF-8')) < 3 or $length > 16) {
 				$result = '暱稱格式不符';
 			} else {
 				$sql = "SELECT `uid` FROM `user_data` WHERE (`email` = :email OR `nickname` = :nickname) AND `uid` != :uid";
 				$params = array(
 					':email' => $email,
 					':nickname' => $nickname,
-					':uid' => $_SESSION['uid']
+					':uid' => $uid
 				);
 				$this->query($sql, $params);
 				if ($this->rowCount() >= 1) {
 					$result = '信箱或暱稱已被使用';
 				} else {
 					$this->closeCursor();
+					
 					$sql = "UPDATE `user_data` SET `email` = :email, `nickname` = :nickname, `last_update_time` = :last_update_time, `last_update_ip` = :last_update_ip WHERE `uid` = :uid";
 					$params = array(
 						':email' => $email,
 						':nickname' => $nickname,
 						':last_update_time' => $this->current_time,
 						':last_update_ip' => $this->ip,
-						':uid' => $_SESSION['uid']
+						':uid' => $uid
 					);
 					$this->query($sql, $params);
 					if ($this->rowCount() != 1) {
-						$this->log('Error', 'Update the user data failed. User uid : '.$_SESSION['uid']);
+						$this->log('Error', 'Update the user data failed. User uid : '.$uid);
 						$result = '更新資料時發生錯誤，請稍後再試';
 					} else {
+						$_SESSION['nickname'] = $nickname;
 						$result = true;
 					}
 				}
 				$this->closeCursor();
 			}
+			return $result;
+		}
+		
+		public function show_profile_picture($uid) {
+			$sql = "SELECT `image_type`, `image_width`, `image_height`, `image_data` FROM `user_profile_picture` WHERE `uid` = :uid AND `image_is_delete` = :image_is_delete";
+			$params = array(
+				':uid' => $uid,
+				':image_is_delete' => false
+			);
+			$this->query($sql, $params);
+			$result = $this->fetch();
+			$this->closeCursor();
+			
+			if (empty($result)) {
+				$sql = "SELECT `image_type`, `image_width`, `image_height`, `image_data` FROM `user_profile_picture` WHERE `uid` = :uid AND `image_is_delete` = :image_is_delete";
+				$params = array(
+					':uid' => 0,
+					':image_is_delete' => false
+				);
+				$this->query($sql, $params);
+				$result = $this->fetch();
+				$this->closeCursor();
+			}
+			return $result;
+		}
+		
+		public function update_profile_picture($uid, $image) {
+			if (($image_data = getimagesize($image["tmp_name"])) === false) {
+				$result = '圖片損毀，請嘗試重新上傳';
+			} else if ($image['size'] == 0 or $image['size'] >= 1048575) {
+				$result = '圖片大小過大，上限值為 1 MB';
+			} else {
+				$sql = "UPDATE `user_profile_picture` SET `image_is_delete` = :image_delete WHERE `uid` = :uid AND `image_is_delete` = :image_is_delete";
+				$params = array(
+					':image_delete' => true,
+					':uid' => $uid,
+					':image_is_delete' => false
+					
+				);
+				$this->query($sql, $params);
+				$this->closeCursor();
+				
+				$sql = "INSERT INTO `user_profile_picture` (`uid`, `image_type`, `image_size`, `image_width`, `image_height`, `image_data`, `upload_time`, `upload_ip`) VALUES (:uid, :image_type, :image_size, :image_width, :image_height, :image_data, :upload_time, :upload_ip)";
+				$params = array(
+					array(':uid', $uid, 'PARAM_INT'),
+					array(':image_type', $image_data['mime'], 'PARAM_STR'),
+					array(':image_size', $image['size'], 'PARAM_INT'),
+					array(':image_width', $image_data['0'], 'PARAM_INT'),
+					array(':image_height', $image_data['1'], 'PARAM_INT'),
+					array(':image_data', file_get_contents($image['tmp_name']), 'PARAM_LOB'),
+					array(':upload_time', $this->current_time, 'PARAM_INT'),
+					array(':upload_ip', $this->ip, 'PARAM_STR')
+				);
+				$this->prepare($sql);
+				$this->bindParam($params);
+				$this->execute();
+				if ($this->rowCount() != 1) {
+					$result = '更新資料時發生錯誤，請稍後再試';
+				} else {
+					$result = true;
+				}
+				$this->closeCursor();
+			}
+			return $result;
+		}
+		
+		public function delete_image($uid) {
+			$sql = "UPDATE `user_profile_picture` SET `image_is_delete` = :image_delete WHERE `uid` = :uid AND `image_is_delete` = :image_is_delete";
+			$params = array(
+				':image_delete' => true,
+				':uid' => $uid,
+				':image_is_delete' => false
+			);
+			$this->query($sql, $params);
+			if ($this->rowCount() != 1) {
+				$result = '刪除失敗，您尚未上傳過大頭貼';
+			} else {
+				$result = true;
+			}
+			$this->closeCursor();
 			return $result;
 		}
 		
@@ -162,7 +237,8 @@
 				} else {
 					$_SESSION['uid'] = $result['id'];
 					$this->closeCursor();
-					$user_data = $this->get_user_data();
+					
+					$user_data = $this->get_user_data($_SESSION['uid']);
 					if ($user_data === false) {
 						session_unset();
 						session_regenerate_id(true);
@@ -183,6 +259,7 @@
 							$this->log('Error', 'Update the account information failed. User uid : '.$_SESSION['uid']);
 						}
 						$this->closeCursor();
+						
 						if ($remember == 1) {
 							$rem_user = hash('sha1', $username);
 							$rem_verify = hash_key('sha1');
@@ -232,7 +309,8 @@
 					$result = $this->fetch();
 					$_SESSION['uid'] = $result['uid'];
 					$this->closeCursor();
-					$result = $this->get_user_data();
+					
+					$result = $this->get_user_data($_SESSION['uid']);
 					if ($result === false) {
 						session_unset();
 						session_regenerate_id(true);
@@ -262,10 +340,10 @@
 			session_regenerate_id(true);
 		}
 		
-		public function get_user_data() {
+		public function get_user_data($uid) {
 			$sql = "SELECT `email`, `nickname`, `std_id`, `group_id`, `admin_group` FROM `user_data` WHERE `uid` = :uid";
 			$params = array(
-				':uid' => $_SESSION['uid']
+				':uid' => $uid
 			);
 			$this->query($sql, $params);
 			$result = ($this->rowCount() != 1) ? false : $this->fetch();

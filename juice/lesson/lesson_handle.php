@@ -3,14 +3,7 @@
 		$prefix = '../../';
 	}
 	require_once $prefix.'config/web_preprocess.php';
-	
-	if (!permission_check('login')) {
-		header("Location: ".$prefix."user/login.php");
-		exit();
-	} else if (!permission_check('admin_groups_lesson')) {
-		header("Location: ".$prefix."index.php");
-		exit();
-	}
+		page_check('lesson_handle');
 	
 	if (isset($_POST['verify_code']) and isset($_COOKIE['verify_code_lesson_refine']) and $_COOKIE['verify_code_lesson_refine'] == $_POST['verify_code']) {
 		switch ($_POST['type']) {
@@ -95,23 +88,20 @@
 				}
 				break;
 		}
-		$lesson = new lesson('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$lesson = new lesson();
 		if ($_POST['type'] == 'lesson' and $_POST['action'] == 'add') {
 			$result = $lesson->add_lesson($_POST['type'], $data);
 		} else {
 			$result = $lesson->update_lesson($_POST['type'], $data);
 		}
 	} else {
-		$result['error'] = 'The page is invalid';
-		$result = json_encode($result);
+		$result = 'The page is invalid';
 	}
 	
-	$result = json_decode($result);
-	if (isset($result->{'error'})) {
-		echo $result->{'error'};
+	if ($result !== true) {
+		echo $result;
 	} else {
 		header("Location: ".$prefix."juice/lesson/lesson_list.php");
 		exit();
 	}
-	//echo $result;
 ?>

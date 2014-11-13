@@ -1,20 +1,12 @@
 <?php
 	class judge extends db_connect {
 		
-		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
-			parent::__construct($db_type, $db_host, $db_name, $db_username, $db_password);
-		}
-		
-		public function __destruct() {
-			parent::__destruct();
-		}
-		
 		public function code_submit($type, $code, $key) {
 			switch ($type) {
 				case 'lesson_practice':
 					while (true) {
 						$hash = hash_key('sha512');
-						if ($this->hash_check('user_code_lesson', 'code_key', $hash)) {
+						if (!$this->hash_used_check('user_code_lesson', 'code_key', $hash)) {
 							break;
 						}
 					}
@@ -42,7 +34,7 @@
 				case 'lesson_implement':
 					while (true) {
 						$hash = hash_key('sha512');
-						if ($this->hash_check('user_code_lesson', 'code_key', $hash)) {
+						if (!$this->hash_used_check('user_code_lesson', 'code_key', $hash)) {
 							break;
 						}
 					}

@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="UTF-8">
 <?php if (!isset($_GET['no_transfer'])) { ?>
-		<meta http-equiv="refresh" content="2;url=http://crux.coder.tw/freedom/juice/index.php">
+		<meta http-equiv="refresh" content="2;url=<?php echo WEB_ROOT_DIR; ?>index.php">
 <?php } ?>
 		<title>Juice</title>
 	</head>
@@ -19,6 +19,6 @@
 </html>
 <?php
 	} else {
-		header("Location: http://crux.coder.tw/freedom/juice/index.php");
+		header("Location: ".WEB_ROOT_DIR."index.php");
 	}
 ?>

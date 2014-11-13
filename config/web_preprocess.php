@@ -5,7 +5,7 @@
 	}
 	
 	/* require the database setting */
-	require_once $prefix.'config/database_config.php';
+	require_once $prefix.'config/web_config.php';
 	
 	/* Initialize the cookie setting */
 	//ini_set('session.cookie_secure', 1);
@@ -46,7 +46,11 @@
 	$current_time = time();
 	
 	if (isset($_COOKIE['rem_user']) and isset($_COOKIE['rem_verify']) and !isset($_SESSION['uid'])) {
-		$check_login = new account('mysql', DATABASE_MYSQL_HOST, DATABASE_MYSQL_DBNAME, DATABASE_MYSQL_USERNAME, DATABASE_MYSQL_PASSWORD);
+		$check_login = new account();
 		$check_login->check_login();
+	}
+	$check_ip = new web();
+	if ($check_ip->check_restrict_ip()) {
+		error(404);
 	}
 ?>

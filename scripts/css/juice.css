@@ -20,12 +20,12 @@
 header {
 	width: 100%;
 	height: 60px;
-	background-color: #FFF;
+	background-color: #ACF;
 	border-bottom: 1px solid #dfdfdf;
 }
 
 html, body {
-	background-color: #F8F8F8;
+	background-color: #DEF;
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -43,45 +43,13 @@ footer {
 }
 
 footer .link{
+	color: #000;
 	text-decoration: none;
-}
-
-#login label {
-	width: auto;
-	margin-left: 3em;
-}
-
-#login-r {
-	position: relative;
-	width: 350px;
-}
-
-#register-r {
-	position: relative;
-	width: 500px;
 }
 
 .shadow {
 	border: 1px solid #dfdfdf;
-	border-radius: 8px;
 	box-shadow: #666 0px 2px 3px;
-}
-
-.t-center {
-	text-align: center;
-}
-
-.t-right {
-	text-align: right;
-}
-
-.t-left {
-	text-align: left;
-}
-
-.m-center {
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .warning {
@@ -92,19 +60,29 @@ footer .link{
 	color: #0000FF;
 }
 
-.juice-logo {
-	background-image: url("http://crux.coder.tw/freedom/juice/images/logo.png");
-	background-size: 120px 60px;
+.juice_logo {
 	width: 120px;
 	height: 60px;
+	background-size: 120px 60px;
+	background-image: url("http://beta.juice.cs.ccu.edu.tw/Juice/images/logo.png");
 	float: left;
 	margin-left: 0.5em;
 }
 
-.juice-menu-head nav ul {
+.juice_menu_head nav ul {
 	float: right;
 	margin-top: 1.5em;
 	margin-right: calc(100% / 8);
+}
+
+
+.juice_body {
+	display: flex;
+	width: 100%;
+	min-height: calc(100% - 121px);
+	margin: auto;
+	padding: 0;
+	flex-flow: row wrap;
 }
 
 .u-1,
@@ -313,23 +291,13 @@ footer .link{
     width: 100%;
 }
 
-.flexblock {
-	display: flex;
-	min-height: calc(100% - 121px);
-	flex-flow: row wrap;
-	align-items: stretch;
- 	align-content: flex-start;
-}
-
-.blankblock {
-	background-color: #FFF;
-	border: 1px solid #dfdfdf;
-	margin: 0 1em;
-}
-
 /* Course Setting */
 .lesson_list {
 	width: 100%;
+}
+
+.lesson_list .title {
+	text-align: center;
 }
 
 .course_list {
@@ -408,71 +376,33 @@ footer .link{
 	width: 25%;
 }
 
-/* Status Setting */
-.status_list {
-	width: auto;
-	margin: 1em 0 0 0;
-}
-
-.status_list li {
-	display: inline-block;
-	width: 4em;
-	line-height: 1.5em;
-	background-color: #FCFCFC;
-	font-size: 1em;
-	text-align: center;
-	border: 1px solid #dfdfdf;
-	border-bottom-style: none;
-	border-top-left-radius: 0.1em;
-	border-top-right-radius: 0.1em;
-	margin-left: 0.01em;
-	margin-right: 0.01em;
-	cursor: pointer;
-}
-
-.status_list li:hover {
-	background-color: #e0e0e0;
-	border-bottom-style: 1px solid #FFF;
-}
-
-.status_profile {
-	margin-top: 2em;
-	height: 15em;
-}
-
-.status_option {
-	border: 1px solid #dfdfdf;
-	border-radius: 0.2px;
-	background-color: #FFF;
-	margin: 0.5em;
-	padding: 0.5em;
-	text-align: center;
-	cursor: pointer;
-}
-
-.status_option:hover {
-	background-color: #DDD;
-	box-shadow: #666 0px 2px 3px;
-}
-
-.status_option_table {
-	display: flex;
-	padding: 0.5em 1em;
-	flex: none;
-	flex-flow: row wrap;
-}
-
-.show_status {
-	margin-top: 1em;
+/* Team Introdution Setting*/
+.team_button {
 	padding: 1em;
-}
-
-.retractable {
 	cursor: pointer;
 }
 
-.retractable:hover {
-	background-color: #DDD;
+.team_button:hover, .team_button_hover {
+	padding: 1em;
+	cursor: pointer;
+	background-color: #ACF;
+}
+
+.team_body {
+	flex-flow: column wrap;
+	align-items: flex-start;
+}
+.team_body .team_content {
+	background-color: #FFF;
+}
+
+.team_body h1,
+.team_body h2 {
+	width: 100%;
+	height: 2em;
+}
+.team_body div {
+	flex-flow: column;
 }
 
 /* go_to_top */

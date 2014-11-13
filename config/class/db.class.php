@@ -9,7 +9,7 @@
 		
 		public $ip_client, $ip_forwarded, $ip_remote, $ip;
 		
-		public function __construct($db_type, $db_host, $db_name, $db_username, $db_password) {
+		public function __construct() {
 			try {
 				$this->ip_client = (!empty($_SERVER['HTTP_CLIENT_IP'])) ? $_SERVER['HTTP_CLIENT_IP'] : 'Unknown';
 				$this->ip_forwarded = (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : 'Unknown';
@@ -20,7 +20,7 @@
 				$opt  = array(
 					PDO::MYSQL_ATTR_FOUND_ROWS => TRUE
 				);
-				$this->pdo = new PDO($db_type.':host='.$db_host.';dbname='.$db_name.';charset=UTF8', $db_username, $db_password, $opt);
+				$this->pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_DBNAME.';charset=UTF8', DB_USERNAME, DB_PW, $opt);
 			} catch (PDOException $e) {
 				$this->db_error($e->getMessage());
 				exit();
@@ -136,13 +136,13 @@
 			}
 		}
 		
-		public function hash_check($table, $field, $hash) {
+		public function hash_used_check($table, $field, $hash) {
 			$sql = "SELECT `id` FROM `".$table."` WHERE `".$field."` = :hash LIMIT 1";
 			$params = array(
 				':hash' => $hash
 			);
 			$this->query($sql, $params);
-			return ($this->rowCount() == 1) ? false : true;
+			return ($this->rowCount() == 1) ? true : false;
 		}
 		
 		public function stmt_errorCode() {

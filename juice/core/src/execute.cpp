@@ -22,6 +22,7 @@
 #include "judgeStatus.hpp"
 #include "childErrorStatus.hpp"
 #include "execute.hpp"
+#include "logger.hpp"
 
 using namespace std;
 
@@ -35,28 +36,44 @@ namespace {
   void startTrace(int);
   void timeLimitExceed(int);
   void setupRLimit(int, rlim_t);
+  void closeAllFile();
 }
 
-int execute(const string& quesName, const string& pathStr, int timeLimit, int memoryLimit) {
+int execute(const string& projectRoot, const string& quesName, const string& pathStr, int timeLimit, int memoryLimit) {
   FILE *fp;
   user_regs_struct uregs;
+  BOOST_LOG_TRIVIAL(info) << "Judge: " << pathStr;
+
+  // Set up signal hanlder
   if(signal(SIGUSR1, startTrace) == SIG_ERR) {
-    cerr << "Error: Unable to create signal handler for SIGUSR1" << endl;
+    BOOST_LOG_TRIVIAL(error) << "Error: Unable to create signal handler for SIGUSR1";
+    return RE;
   }
   if(signal(SIGALRM, timeLimitExceed) == SIG_ERR) {
-    cerr << "Error: Unable to create signal handler for SIGALRM" << endl;
+    BOOST_LOG_TRIVIAL(error) << "Error: Unable to create signal handler for SIGALRM";
+    return RE;
   }
+
   ::timeLimit = timeLimit;
   child = fork();
+
   if(child == 0) {
-    boost::filesystem::path pwd(boost::filesystem::current_path()), exePath(pathStr);
-    string inFileName((pwd.parent_path() / "run" / "in" / (quesName + ".in")).string());
-    string outFileName((pwd.parent_path() / "run" / "ans" / (exePath.filename().string() + ".ans")).string());
+    boost::filesystem::path pwd(projectRoot), exePath(pathStr);
+    string inFileName((pwd / "run" / "in" / (quesName + ".in")).string());
+    string outFileName((pwd / "run" / "ans" / (exePath.filename().string() + ".ans")).string());
+
+    BOOST_LOG_TRIVIAL(info) << "Input file: " << inFileName;
+    BOOST_LOG_TRIVIAL(info) << "Output file: " << outFileName;
+
+    // File check
     if(!boost::filesystem::exists(boost::filesystem::path(inFileName)))
       exit(InFileNotFound);
-    DIR *dirp;
-    struct dirent *entry;
-    int dfd;
+    if(boost::filesystem::exists(boost::filesystem::path(outFileName))) {
+      BOOST_LOG_TRIVIAL(info) << "Output file exist, remove it";
+      boost::filesystem::remove(boost::filesystem::path(outFileName));
+    }
+
+    // Redirect input output
     fp = fopen(outFileName.c_str(), "w");
     dup2(fileno(fp), 1);
 		int fd = open(inFileName.c_str(), O_RDONLY, 0644);
@@ -71,6 +88,80 @@ int execute(const string& quesName, const string& pathStr, int timeLimit, int me
       exit(Dup2Error);
     close(fd);
     close(outFd);
+
+    // Close all fd still open
+    closeAllFile();
+
+    // Set up limit
+    setupRLimit(RLIMIT_NPROC, 1);
+    setupRLimit(RLIMIT_NOFILE, 64);
+    setupRLimit(RLIMIT_MEMLOCK, 0);
+    setupRLimit(RLIMIT_AS, (memoryLimit + 15) * 1024 * 1024);
+
+    // Start trace
+    kill(getppid(), SIGUSR1);
+    ptrace(PTRACE_TRACEME, 0, NULL, NULL);
+
+    // Exec
+    execlp(pathStr.c_str(), pathStr.c_str(), NULL);
+
+    exit(ExeclpError);
+  }
+  if(child < 0) {
+    return RE;
+  }
+
+  while(1) {
+    int status;
+    int syscall;
+    // wail for event
+    wait(&status);
+    if(WIFEXITED(status)) {
+      alarm(0); // cancel
+      BOOST_LOG_TRIVIAL(info) << "Child process exit with status: " << WEXITSTATUS(status);
+      if(isErrorStatus(WEXITSTATUS(status))) {
+        BOOST_LOG_TRIVIAL(error) << "Child occur error: " << getErrorMessage(WEXITSTATUS(status));
+        res = RE;
+      }
+      break;
+    }
+    if(WIFSIGNALED(status)) {
+      alarm(0);  //cancel
+      if(res == PASS)
+        res = RE;
+      BOOST_LOG_TRIVIAL(info) << "Child process got signal: " << WTERMSIG(status) << endl;
+      break;
+    }
+    ptrace(PTRACE_GETREGS, child, 0, &uregs);
+#ifdef __x86_64__
+    syscall = uregs.orig_rax;
+#else
+    syscall = uregs.orig_eax;
+#endif
+    BOOST_LOG_TRIVIAL(info) << "Child call syscall: " << syscall;
+    if((syscall == SYS_fork || syscall == SYS_clone) && childStart) {
+      BOOST_LOG_TRIVIAL(info) << "Child call fork, kill";
+      ptrace(PTRACE_KILL, child, NULL, NULL);
+    }
+    else {
+      ptrace(PTRACE_SYSCALL, child, NULL, NULL);
+    }
+  }
+  return res;
+}
+
+namespace {
+  void startTrace(int /*signo*/) {
+    BOOST_LOG_TRIVIAL(info) << "Start Trace";
+    alarm(timeLimit);
+    ptrace(PTRACE_SYSCALL, child, NULL, NULL);
+    childStart = 1;
+  }
+
+  void closeAllFile() {
+    DIR *dirp;
+    struct dirent *entry;
+    int dfd;
     dirp = opendir("/proc/self/fd");
     dfd = dirfd(dirp);
     while((entry = readdir(dirp))) {
@@ -84,68 +175,13 @@ int execute(const string& quesName, const string& pathStr, int timeLimit, int me
       }
     }
     closedir(dirp);
-    setupRLimit(RLIMIT_NPROC, 1);
-    setupRLimit(RLIMIT_NOFILE, 64);
-    setupRLimit(RLIMIT_MEMLOCK, 0);
-    setupRLimit(RLIMIT_AS, (memoryLimit + 15) * 1024 * 1024);
-    kill(getppid(), SIGUSR1);
-    ptrace(PTRACE_TRACEME, 0, NULL, NULL);
-    execlp(pathStr.c_str(), pathStr.c_str(), NULL);
-    exit(ExeclpError);
-  }
-  if(child < 0) {
-    return RE;
-  }
-
-  while(1) {
-    int status;
-    int syscall;
-    wait(&status);
-    if(WIFEXITED(status)) {
-      alarm(0); // cancel
-      cout << "child exit:" << WEXITSTATUS(status) << endl;
-      if(isErrorStatus(WEXITSTATUS(status))) {
-        cerr << "Error: " << getErrorMessage(WEXITSTATUS(status)) << endl;
-        res = RE;
-      }
-      break;
-    }
-    if(WIFSIGNALED(status)) {
-      alarm(0);  //cancel
-      if(res == PASS)
-        res = RE;
-      cout << "child got signal " << WTERMSIG(status) << endl;
-      break;
-    }
-    ptrace(PTRACE_GETREGS, child, 0, &uregs);
-#ifdef __x86_64__
-    syscall = uregs.orig_rax;
-#else
-    syscall = uregs.orig_eax;
-#endif
-    cout << "child call: " << syscall  << endl;
-    if((syscall == SYS_fork || syscall == SYS_clone) && childStart) {
-      cout << "child call fork" << endl;
-      ptrace(PTRACE_KILL, child, NULL, NULL);
-    }
-    else {
-      ptrace(PTRACE_SYSCALL, child, NULL, NULL);
-    }
-  }
-  return res;
-}
-
-namespace {
-  void startTrace(int /*signo*/) {
-    cout << "start judge" << endl;
-    alarm(timeLimit);
-    ptrace(PTRACE_SYSCALL, child, NULL, NULL);
-    childStart = 1;
   }
 
   void timeLimitExceed(int /*signo*/) {
     static int occurTime = 0;
+    BOOST_LOG_TRIVIAL(info) << "Time exceed";
     if(occurTime) {
+      BOOST_LOG_TRIVIAL(info) << "Tle kill";
       kill(child, SIGKILL);  // time limit exceed twice. kill it
     }
     else {

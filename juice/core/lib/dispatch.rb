@@ -6,7 +6,7 @@ require 'thread'
 require 'open3'
 require 'pathname'
 
-require_relative '../config/environment.rb'
+require_relative File.join(File.dirname(__FILE__), "..", "config", "environment") unless defined? AppPath
 require_relative 'model/model'
 require_relative 'Const'
 require_relative 'Logger'
@@ -47,7 +47,7 @@ Thread.new {
         $logger.info "Start judge #{codeKey}"
         quesData = data.lesson_exercise
         $logger.debug "Before exec res: #{res}"
-        ret = Executor.executor(codeKey, File.join(AppPath, "run", "exe", codeKey), quesData.exercise_tle, quesData.exercise_mle)
+        ret = Executor.execute(codeKey, File.join(AppPath, "run", "exe", codeKey), quesData.exercise_tle, quesData.exercise_mle)
         $logger.debug "After exec res: #{res}"
         $logger.debug "After exec return code: #{ret}"
         res = ReturnCode[ret] if ret != 0

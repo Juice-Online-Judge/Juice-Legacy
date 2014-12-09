@@ -19,3 +19,9 @@ end
 group :product do
   gem 'mysql2'
 end
+
+group :test do
+  gem 'rspec'
+  gem 'factory_girl'
+  gem 'database_cleaner'
+end
